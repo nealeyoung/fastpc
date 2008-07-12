@@ -1,6 +1,6 @@
 include ../Makefile.included
 
-LIBS = sampler.o timer.o
+LIBS = sampler.o get_time.o
 
 libs: $(LIBS)
 
