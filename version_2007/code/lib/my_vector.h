@@ -26,7 +26,6 @@ class my_vector {
     alloc_space += n*sizeof(V);
     alloc_time += get_time() - start;
     count_ops(n);
-
   }
  public:
   my_vector() { init(16);  n_elts = 0; }
@@ -65,6 +64,7 @@ class my_vector {
   }
   void pop_back() {  count_ops(1); assert(n_elts > 0);  --n_elts; }
 
+  // shrink is untested
   void shrink() {  
     int n = 2*n_elts+5;
     if (table_size <= n) return;

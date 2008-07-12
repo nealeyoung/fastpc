@@ -24,7 +24,7 @@ main() {
     s.increment_exponent(s.get_ith(1));
 
     for (int i = 1;  i < 3;  ++i)
-      cout << s.get_ith_exponent(i) << " ";
+      cout << s.get_exponent(s.get_ith(i)) << " ";
     cout << endl;
 
     for (int i = 0;  i < 80;  ++i)
@@ -37,7 +37,7 @@ main() {
     s.increment_exponent(s.get_ith(2));
 
     for (int i = 1;  i < 3;  ++i)
-      cout << s.get_ith_exponent(i) << " ";
+      cout << s.get_exponent(s.get_ith(i)) << " ";
     cout << endl;
 
     for (int i = 0;  i < 80;  ++i)
@@ -47,6 +47,6 @@ main() {
   cout << endl;
 
   for (int i = 1;  i < 3;  ++i)
-    cout << s.get_ith_exponent(i) << " ";
+    cout << s.get_exponent(s.get_ith(i)) << " ";
   cout << endl;
 }

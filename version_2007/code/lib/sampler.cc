@@ -6,38 +6,36 @@
 //extern unsigned long int alloc_space;
 
 dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec)
+    : permanent_min_exponent(min_expt), permanent_max_exponent(max_expt),
+      eps(epsilon), exponents_per_bucket(ceil(1/eps))
 {
   assert(epsilon > 0 && epsilon <= 0.5);
   assert(min_expt < max_expt);
 
-  eps = epsilon;
   total_weight = 0;
   current_min_bucket = NULL;
   current_max_bucket = NULL;
-  permanent_min_exponent = min_expt;
-  permanent_max_exponent = max_expt;
-  exponents_per_bucket = int(ceil(1/eps));
   total_weight_min_bucket = 0;
   rebuilds = 0;
   rebuild_ops = 0;
 
   int n_expts = 1 + max_expt - min_expt;
 
-  weights.resize(n);
+  items.resize(n);
   exponents.resize(n_expts);
   buckets.resize(2+n_expts/exponents_per_bucket);
 
   count_ops(10+n+n_expts);
 
-  for (int i = 0;  i < weights.size();  ++i) {
+  for (int i = 0;  i < items.size();  ++i) {
     count_ops(6);
 
-    weights[i].i = i;
-    weights[i].x = 0;
-    weights[i].removed = true;
-    weights[i].exponent_entry = NULL;
-    weights[i].bucket = NULL;
-    weights[i].index_in_bucket = -1;
+    items[i].i = i;
+    items[i].x = 0;
+    items[i].removed = true;
+    items[i].exponent_entry = NULL;
+    items[i].bucket = NULL;
+    items[i].index_in_bucket = -1;
   }
 
   for (int i = 0;  i < buckets.size();  ++i) {
@@ -62,38 +60,38 @@ dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt
 
 void
 dual_sampler_t::init() {
-  count_ops(buckets.size() + weights.size()*2);
+  count_ops(buckets.size() + items.size()*2);
 
   // dual exponents increase with time
   for (int i = 1;  i < buckets.size();   ++i)
     expt(buckets[i].min_exponent-1).at_boundary = true;
   expt(permanent_max_exponent).at_boundary = true;
 
-  // insert weights in buckets
+  // insert items in buckets
   current_min_bucket = expt(permanent_min_exponent).bucket;
   current_max_bucket = current_min_bucket;
 
-  for (int i = 0;  i < weights.size();  ++i) {
-    weights[i].exponent_entry = &expt(permanent_min_exponent);
-    insert_in_bucket(&weights[i],  weights[i].exponent_entry->bucket);
+  for (int i = 0;  i < items.size();  ++i) {
+    items[i].exponent_entry = &expt(permanent_min_exponent);
+    insert_in_bucket(&items[i],  items[i].exponent_entry->bucket);
   }
 }
 
 void
 primal_sampler_t::init() {
-  count_ops(buckets.size() + weights.size()*2);
+  count_ops(buckets.size() + items.size()*2);
 
   // primal exponents decrease
   for (int i = 0;  i < buckets.size();   ++i)
     expt(buckets[i].min_exponent).at_boundary = true;
 
-  // insert weights in buckets
+  // insert items in buckets
   current_min_bucket = expt(permanent_max_exponent).bucket;
   current_max_bucket = current_min_bucket;
 
-  for (int i = 0;  i < weights.size();  ++i) {
-    weights[i].exponent_entry = &expt(permanent_max_exponent);
-    insert_in_bucket(&weights[i],  weights[i].exponent_entry->bucket);
+  for (int i = 0;  i < items.size();  ++i) {
+    items[i].exponent_entry = &expt(permanent_max_exponent);
+    insert_in_bucket(&items[i],  items[i].exponent_entry->bucket);
   }
 }
 
@@ -104,7 +102,7 @@ int
 dual_sampler_t::n_rebuild_ops() { return rebuild_ops; }  
 
 void
-dual_sampler_t::remove(sampler_weight_t *w) {
+dual_sampler_t::remove(sampler_item_t *w) {
   count_ops(10);
 
   assert(w);
@@ -149,7 +147,7 @@ dual_sampler_t::remove(sampler_weight_t *w) {
 }
 
 void
-dual_sampler_t::insert_in_bucket(sampler_weight_t *w, bucket_t* b) {
+dual_sampler_t::insert_in_bucket(sampler_item_t *w, bucket_t* b) {
   count_ops(6);
 
   assert(b);
@@ -187,7 +185,7 @@ dual_sampler_t::exponent_weight(exponent_entry_t* expt) {
 
     int exp_offset = expt->exponent - current_min_bucket->min_exponent;
     expt->cached_weight = 
-      weight_t(pow(1.0-eps, exp_offset)*(MAX_WEIGHT_T/(2*weights.size())));
+      weight_t(pow(1.0-eps, exp_offset)*(MAX_WEIGHT_T/(2*items.size())));
     expt->cached_weight_min_bucket = current_min_bucket;
   }
   return  expt->cached_weight;
@@ -217,7 +215,7 @@ dual_sampler_t::random_weight_t(weight_t upper) {
   return 0;
 }
 
-sampler_weight_t*
+sampler_item_t*
 dual_sampler_t::sample() {
 
   if (total_weight_min_bucket != current_min_bucket) {

@@ -15,7 +15,7 @@
 
 using namespace std;
 
-typedef my_vector<sampler_weight_t *> line_element;
+typedef my_vector<sampler_item_t *> line_element;
 
 class solve_instance{
 private:
@@ -96,11 +96,11 @@ solve_instance::solve() {
     iteration++;
     // cout <<"iteration "<<iteration<<endl;
 
-    sampler_weight_t* wi = p_p->sample();
+    sampler_item_t* wi = p_p->sample();
     int i = wi->i;
     // cout<<"sampled1 "<< i <<endl;
 
-    sampler_weight_t* wj = p_d->sample();
+    sampler_item_t* wj = p_d->sample();
     int j = wj->i;
     // cout<<"sampled2 "<< j <<endl;
 
@@ -114,13 +114,13 @@ solve_instance::solve() {
     // cout << j << ": ";
     {
       register line_element& column = MT[j];
-      sampler_weight_t** first = &column[0];
+      sampler_item_t** first = &column[0];
       int size = column.size();
-      register sampler_weight_t** last = &column[size-1];
+      register sampler_item_t** last = &column[size-1];
 
       count_ops(12);
 
-      for (register sampler_weight_t** w = first;
+      for (register sampler_item_t** w = first;
 	   w <= last; 
 	   ++w) {
 	// stop when a packing constraint becomes tight
@@ -137,14 +137,14 @@ solve_instance::solve() {
     // cout << i << ": ";
     {
       register line_element& row = M[i];
-      sampler_weight_t ** first = &row[0];
+      sampler_item_t ** first = &row[0];
       int size = row.size();
-      register sampler_weight_t** last = &row[size-1];
+      register sampler_item_t** last = &row[size-1];
 
       n_increments_d += size;
       count_ops(6*(size+1));
 
-      for (register sampler_weight_t** w = first;
+      for (register sampler_item_t** w = first;
 	   w <= last;
 	   ++w) {
 	if ((*w)->removed){		//if the column is not active any more

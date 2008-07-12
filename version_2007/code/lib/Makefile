@@ -6,6 +6,7 @@ libs: $(LIBS)
 
 $(LIBS): Makefile ../Makefile.included
 
+sampler.o: sampler.h
 
 clean: 
 	rm -rf *.o
