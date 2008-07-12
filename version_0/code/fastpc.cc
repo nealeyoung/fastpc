@@ -8,7 +8,6 @@
 #include <assert.h>
 #include <stdio.h>
 
-#include "timer.h"
 #include "my_vector.h"
 #include "sampler.h"
 
