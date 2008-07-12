@@ -9,15 +9,18 @@
 #include "my_vector.h"
 
 typedef long long unsigned weight_t;
-
-//#define MAX_WEIGHT_T (weight_t((1<< (8*sizeof(weight_t)))-1))
 #define MAX_WEIGHT_T (weight_t(-1))
 
-class sampler_weight_t {
+class dual_sampler_t;		// container supporting random sampling
+class primal_sampler_t;		// container supporting random sampling
+
+// sampler_item_t:
+//  a single sampleable item
+class sampler_item_t {
  public:
-  int i;
-  int x;
-  bool removed;
+  int i;			// index in collection
+  int x;			// value (to get or set, not used internally)
+  bool removed;			// if removed from collection
 
 protected:
   struct bucket_t* bucket;
@@ -28,18 +31,22 @@ protected:
   friend class primal_sampler_t;
 };
 
-struct bucket_t :  my_vector<sampler_weight_t *> {
-  int min_exponent;
+// abstractly, a dual_sampler_t S is a collection of items
+// and supports the following operations:
+//   . access the ith item S[i]
+//   . decrease weight of item S[i] by a 1-eps factor
+//   . return a random index i with prob prop to weight of S[i]
+//   . store a value S[i].x (x is not used internally)
 
-  bucket_t() : min_exponent(-1) {};
-};
+// structures internal to dual_sampler_t:
 
+// bookkeeping info for items with a given exponent
 struct exponent_entry_t {
   int exponent;
-  bucket_t* bucket;
-  bool at_boundary;
-  weight_t cached_weight;
-  bucket_t* cached_weight_min_bucket;
+  bucket_t* bucket;		// which bucket (below) holds these items?
+  bool at_boundary;		// is this exponent the max in the bucket?
+  weight_t cached_weight;	// total weight of thse items
+  bucket_t* cached_weight_min_bucket; // (recalculate if global min_bucket changes)
 
   exponent_entry_t() :
     exponent(-1), bucket(NULL), at_boundary(false),
@@ -48,39 +55,62 @@ struct exponent_entry_t {
   };
 };
 
+// Group of ptrs to items with "close" exponents,
+// ceil(1/eps) exponents per group.
+struct bucket_t :  my_vector<sampler_item_t *> {
+  int min_exponent;
+  // items in this group should have exponents
+  // between min_exponent and
+  // min_exponent + (global) exponents_per_bucket
+
+  bucket_t() : min_exponent(-1) {};
+};
+
+
+//
+// the primary data structure
+//
 class dual_sampler_t {
- public:
+protected:
+  my_vector<sampler_item_t> items; // holds the items
+
+public:
   dual_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec = 0);
-  void init();
-  sampler_weight_t* sample();
-  void remove(sampler_weight_t*);
+				// constructor
 
-  sampler_weight_t* get_ith(int i) { return &weights[i]; }
-  int get_ith_exponent(int i) { return weights[i].exponent_entry->exponent; }
+  void init();			// call after construction (why?)
 
+  sampler_item_t* get_ith(int i) { return &items[i]; } 
+				// access item with index i
+  sampler_item_t* sample();	// randomly sample an item
+  void remove(sampler_item_t*);
+				// remove item from collection
+
+  int get_exponent(sampler_item_t* s) { return s->exponent_entry->exponent; }
   int n_rebuilds();
   int n_rebuild_ops();
 
 protected:
-  double eps;
-  weight_t total_weight; 	// depends on current_min_bucket
-  bucket_t* current_min_bucket;	// min bucket with positive size 
-  bucket_t* current_max_bucket;	// max bucket with positive size 
+  const double eps;
 
-  int permanent_min_exponent;
-  int permanent_max_exponent;
+  my_vector<exponent_entry_t> exponents; // bookkeeping info per exponent
+  my_vector<bucket_t> buckets;	// groups of ptrs to "close" items,
+				// see bucket_t above
 
-  int exponents_per_bucket;
-  bucket_t* total_weight_min_bucket;
+  weight_t total_weight; 	// upper bound on total of all weights
+  bucket_t* total_weight_min_bucket; // ...recalc if min_bucket changes
 
-  int rebuilds;
+  bucket_t* current_min_bucket;	// min non-empty bucket
+  bucket_t* current_max_bucket;	// max non-empty bucket
+
+  const int permanent_min_exponent;
+  const int permanent_max_exponent;
+  const int exponents_per_bucket;
+
+  int rebuilds;			// just for profiling
   int rebuild_ops;
 
-  my_vector<sampler_weight_t> weights;
-  my_vector<exponent_entry_t> exponents;
-  my_vector<bucket_t> buckets;
-
-  void insert_in_bucket(sampler_weight_t*, bucket_t*);
+  void insert_in_bucket(sampler_item_t*, bucket_t*);
   weight_t max_bucket_weight(bucket_t*);
   weight_t exponent_weight(exponent_entry_t*);
   weight_t random_weight_t(weight_t);
@@ -92,7 +122,7 @@ protected:
 
 public:
   inline int
-  dual_sampler_t::increment_exponent(sampler_weight_t *w) {
+  dual_sampler_t::increment_exponent(sampler_item_t *w) {
     exponent_entry_t* &e = w->exponent_entry;
 
     if (! e->at_boundary) {
@@ -103,6 +133,8 @@ public:
       remove(w);
       e += 1;
       insert_in_bucket(w, e->bucket);
+      // removing and inserting above may be less efficient
+      // than direct implementation...?
     }
     return e->exponent;
   }
@@ -127,10 +159,8 @@ public:
   }
   void init();
 
-  int get_ith_exponent(int i) { return -dual_sampler_t::get_ith_exponent(i); }
-
   inline int
-  increment_exponent(sampler_weight_t *w) {
+  increment_exponent(sampler_item_t *w) {
     exponent_entry_t* &e = w->exponent_entry;
 
     if (! e->at_boundary) {
