@@ -1,0 +1,16 @@
+
+This directory contains the code for the implementation of the alg 
+done by Christos and Neal in 2007 for the FOCS paper.
+
+This implementation assumes the matrix entries are in {0,1},
+so does not sort matrix rows or columns, and does not maintain
+the u's (maximum row/column entry estimates), which are all 1.
+Likewise, sampling is simpler since each u is 1.
+
+For the 2007 implementation, we also have more code:
+the gnu linear programming kit (simplex), test inputs 
+and test input generators, and scripts to do runs and 
+gather data.  As of July 2008 those are available at
+the UCR CS svn repository: https://svn1.cs.ucr.edu/neal/fastpc .
+
+-Neal
