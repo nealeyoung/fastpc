@@ -4,13 +4,7 @@
 #include <assert.h>
 #include <string.h>
 
-unsigned long get_time();
-
-extern long long unsigned basic_ops;
-extern long long unsigned alloc_time;
-extern long long unsigned alloc_space;
-
-#define count_ops(i) do { basic_ops += (i); } while(0)
+#include "lib_include.h"
 
 template <class V>
 class my_vector {

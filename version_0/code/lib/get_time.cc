@@ -3,8 +3,6 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "timer.h"
-
 #define TIMER_WRAP 1000000
 #define TIMER_TIMER ITIMER_REAL
 //#define TIMER_TIMER ITIMER_PROF
