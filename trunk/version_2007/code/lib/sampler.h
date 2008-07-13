@@ -100,6 +100,17 @@ protected:
   weight_t total_weight; 	// upper bound on total of all weights
   bucket_t* total_weight_min_bucket; // ...recalc if min_bucket changes
 
+  // Instead of keeping track of total weight exactly,
+  // we count the weight of each item in a given bucket
+  // as the max possible weight of any item in that bucket.
+  // This is within a constant factor of the actual weight.
+  // Then, when sampling, we take this into account as follows:
+  // once we sample an item, we only take it
+  // with probability = (actual weight)/(upper bound on weight).
+  // If we don't take it, we start over...
+  // This slows the sampling step but speeds up the weight-update step
+  // and simplifies numerical precision issues.
+
   bucket_t* current_min_bucket;	// min non-empty bucket
   bucket_t* current_max_bucket;	// max non-empty bucket
 
