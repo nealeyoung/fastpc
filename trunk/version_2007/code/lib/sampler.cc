@@ -2,9 +2,6 @@
 
 #include "sampler.h"
 
-//extern double alloc_time;
-//extern unsigned long int alloc_space;
-
 dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec)
     : permanent_min_exponent(min_expt), permanent_max_exponent(max_expt),
       eps(epsilon), exponents_per_bucket(ceil(1/eps))
