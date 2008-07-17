@@ -4,15 +4,14 @@
 
 using namespace std;
 
-//typedef my_vector<sampler_item_t *> line_element;
-
-//typedef my_vector<nonzero_entry_t *> line_element;
-
 
 nonzero_entry_t::nonzero_entry_t(double value, sampler_item_t* sampler):
   coeff(value),  sampler_pointer( sampler)
 {}
-
+// bool nonzero_entry_t::operator<(nonzero_entry_t* a) {
+//   cout << "testttttttttt ----- tttttt";
+//     return (this->coeff < a->coeff);
+//   }
 
 solve_instance::solve_instance(double EPSILON, string infile) :
   eps(0.9*EPSILON),
@@ -62,19 +61,39 @@ solve_instance::solve_instance(double EPSILON, string infile) :
       MT[col].push_back(new nonzero_entry_t(val,p_p->get_ith(row)));
 
     }
+    
     //sort rows and cols of M (eventually we need to pseudo-sort)
     line_element* last = &M[r-1];
     for (line_element* p = &M[0]; p <= last; ++p) {
-      cout << "Inside loop\n"; //debug
-      //sort((*p)[0], (*p)[(p->size())-1], nonzero_entry_t_comparator());
-      sort(p->begin(), p->end(), nonzero_entry_t_comparator());
+      cout << "Inside loop "; //debug
+      
+      //sort(p->begin(), p->end(), nonzero_entry_t_comparator()); //for vector
+      p->sort(list_sort_criteria()); //sort row linked list
 
       // cout << "loop " << x << endl;
       
-      for (int x = 0; x < (p->size()); ++x) 
-	cout << (*p)[x]->coeff << " ";   
-      
+      for (list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x) {
+      cout << (*x)->coeff << " ";   
+      }
+      cout << "\n";
     }
+    
+    cout << "";
+    line_element* last_t = &MT[c-1];
+    for (line_element* p = &MT[0]; p <= last_t; ++p) {
+      cout << "Inside loop MT "; //debug
+      
+      //sort(p->begin(), p->end(), nonzero_entry_t_comparator()); //for vector
+      p->sort(list_sort_criteria()); //sort row of MT linked list
+
+      // cout << "loop " << x << endl;
+      
+      for (list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x) {
+      cout << (*x)->coeff << " ";   
+      }
+      cout << "\n";
+    }
+    
   }
 }
 
@@ -120,25 +139,32 @@ solve_instance::solve() {
     // line 7
     //cout << j << ": ";
     {
-      
-      register line_element& column = MT[j];
-      nonzero_entry_t** first = &column[0];
+      for (list<nonzero_entry_t*>::iterator x = MT[j].begin(); x != MT[j].end(); ++x) {
 
-      int size = column.size();
-      register nonzero_entry_t** last = &column[size-1];
-
-      count_ops(12);
-
-      for (register nonzero_entry_t** w = first;
-	   w <= last; 
-	   ++w) {
-   
 	// stop when a packing constraint becomes tight
-	if (p_p->increment_exponent((*w)->sampler_pointer) >= N)
+	if (p_p->increment_exponent((*x)->sampler_pointer) >= N)
 	  done = true;
+      }
+      int size = MT[j].size();
+      count_ops(12);  //not actual value-- how many??
+      // register line_element& column = MT[j];
+//       nonzero_entry_t** first = &column[0];
+
+//       int size = column.size();
+//       register nonzero_entry_t** last = &column[size-1];
+
+//       count_ops(12);
+
+//       for (register nonzero_entry_t** w = first;
+// 	   w <= last; 
+// 	   ++w) {
+   
+// 	// stop when a packing constraint becomes tight
+// 	if (p_p->increment_exponent((*w)->sampler_pointer) >= N)
+// 	  done = true;
 
 	
-      }
+//       }
       n_increments_p += size;
       count_ops(5*size);
     }
@@ -148,32 +174,53 @@ solve_instance::solve() {
     // line 8 
     // cout << i << ": ";
     {
-      register line_element& row = M[i];
-      nonzero_entry_t ** first = &row[0];
-      int size = row.size();
-      register nonzero_entry_t** last = &row[size-1];
 
-      n_increments_d += size;
-      count_ops(6*(size+1));
+      for (list<nonzero_entry_t*>::iterator x = M[i].begin(); x != M[i].end(); ++x) {
 
-      for (register nonzero_entry_t** w = first;
-	   w <= last;
-	   ++w) {
 	//if the column is not active any more
-	if ((*w)->sampler_pointer->removed){ 
-	  row.remove(w - first); // delete it //@steve should we still use w??
-	  --w;
-	  --last;
+	if ((*x)->sampler_pointer->removed){ 
+	  x = M[i].erase(x); // delete it //@steve should we still use x??
+	  --x;//test
 	  ++n_deletes;
 	  continue;
 	}
-	if (p_d->increment_exponent((*w)->sampler_pointer) >= N) {
+	if (p_d->increment_exponent((*x)->sampler_pointer) >= N) {
 	  // if covering constraint is met, make it inactive
-	  p_d->remove((*w)->sampler_pointer); //@steve remove the nonzero_entry_t too??
+	  p_d->remove((*x)->sampler_pointer); //@steve remove the nonzero_entry_t too??
 	  --J_size;
 	}
       }
-    }
+
+      // register line_element& row = M[i];
+//       nonzero_entry_t ** first = &row[0];
+//       int size = row.size();
+//       register nonzero_entry_t** last = &row[size-1];
+
+//       n_increments_d += size;
+//       count_ops(6*(size+1));
+
+//       for (register nonzero_entry_t** w = first;
+// 	   w <= last;
+// 	   ++w) {
+// 	//if the column is not active any more
+// 	if ((*w)->sampler_pointer->removed){ 
+// 	  row.remove(w - first); // delete it //@steve should we still use w??
+// 	  --w;
+// 	  --last;
+// 	  ++n_deletes;
+// 	  continue;
+// 	}
+// 	if (p_d->increment_exponent((*w)->sampler_pointer) >= N) {
+// 	  // if covering constraint is met, make it inactive
+// 	  p_d->remove((*w)->sampler_pointer); //@steve remove the nonzero_entry_t too??
+// 	  --J_size;
+// 	}
+//       }
+
+
+    }  //----------------DON"T DELETE ME
+
+
     // cout << endl;
 
     //	cout << "J size "<<J_size<<endl;
