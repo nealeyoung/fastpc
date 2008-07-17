@@ -1,5 +1,6 @@
 #include "fastpc.h"
 #include <iomanip>
+#include<fstream>
 
 using namespace std;
 
@@ -26,11 +27,11 @@ solve_instance::solve_instance(double EPSILON, string infile) :
   {
     //open input file
     ifstream in_file;
-    in_file.open(file_name);
+    in_file.open(file_name.c_str());
 
     //read and parse 1st line of input (parameters)
     string s;
-    myfile >> r >> c >> total >> s;
+    in_file >> r >> c >> total >> s;
     /*string s;
     cin >> r >> c >> total >> s;
     cout<< r << ", " << c << endl;
@@ -52,11 +53,8 @@ solve_instance::solve_instance(double EPSILON, string infile) :
    cout << fixed << setprecision(1);
 
     while(true) {
-      myfile >> row  >> col >> val >> s;
-      //cin >> row  >> col >> val >> s;
-      //scanf("%i %i %d",&row,&col,&val);
-      cout << val << endl;
-      if (myfile.eof()) break;
+      in_file >> row  >> col >> val;  //took out string s 
+      if (in_file.eof()) break;
       //if(cin.eof()) break;
       //cout<< row << ", " << col << endl;
       M[row].push_back(new nonzero_entry_t(val,p_d->get_ith(col)));
@@ -274,7 +272,7 @@ int main(int argc, char *argv[])
   if (argc >= 3)
     input_file = argv[2];
   else {
-    cout "Error!  Too few arguments.\n";
+    cout << "Error!  Too few arguments.\n";
     return 1;
   }
 		

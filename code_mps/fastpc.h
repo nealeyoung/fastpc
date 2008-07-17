@@ -17,6 +17,8 @@
 
 #include "main_include.h"
 
+using namespace std;
+
 
 //these objects hold a coefficient and a pointer to a sampler object
 //one of these objects is created for every nonzero element in the input matrix
@@ -38,12 +40,12 @@ private:
 
   my_vector<line_element> M, MT, M_copy;
 
+  string file_name;
   double eps, epsilon;
 
-  string file_name;
 
 public:	
-  solve_instance(double epsilon);
+  solve_instance(double epsilon, string file_name);
   void solve();
 };
 
