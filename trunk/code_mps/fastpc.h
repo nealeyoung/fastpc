@@ -31,14 +31,12 @@ class nonzero_entry_t {
   //bool operator<(nonzero_entry_t* a);
 };
 
-struct list_sort_criteria: public std::binary_function<nonzero_entry_t*, nonzero_entry_t*, bool> {
+//struct list_sort_criteria: public std::binary_function<nonzero_entry_t*, nonzero_entry_t*, bool> {
+struct list_sort_criteria{
   //compare and return
   bool operator()(nonzero_entry_t* left, nonzero_entry_t* right) 
   {
-    if(left->coeff < right->coeff)
-      return true;
-    else
-      return false;
+    return (left->coeff < right->coeff);
   };
 };
 

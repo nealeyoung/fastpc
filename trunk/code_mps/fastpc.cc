@@ -1,6 +1,8 @@
 #include "fastpc.h"
 #include <iomanip>
 #include<fstream>
+#include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
@@ -40,16 +42,24 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     M_copy.resize(r);
 
     N = int(ceil(2*log(r*c)/(eps*eps)));
-
+ 
     p_p = new primal_sampler_t(r, eps, 0, N+10);
     p_d = new dual_sampler_t(c, eps, 0, N+10);
+    
+    //no clue about the next two lines... need to correct this
+    p_pXuh = new primal_sampler_t(r, eps, 0, N+10);
+    p_phXu = new dual_sampler_t(c, eps, 0, N+10);
+    
     assert(p_p);
     assert(p_d);
+    //no clue about the next two lines... need to correct this
+    assert(p_pXuh);
+    assert(p_phXu);
 
     p_p->init();
     p_d->init();
 
-   cout << fixed << setprecision(1);
+    //cout << fixed << setprecision(1);
 
     while(true) {
       in_file >> row  >> col >> val;  //took out string s 
@@ -59,9 +69,8 @@ solve_instance::solve_instance(double EPSILON, string infile) :
       M[row].push_back(new nonzero_entry_t(val,p_d->get_ith(col)));
       M_copy[row].push_back(new nonzero_entry_t(val,p_d->get_ith(col)));
       MT[col].push_back(new nonzero_entry_t(val,p_p->get_ith(row)));
-
     }
-    
+
     //sort rows and cols of M (eventually we need to pseudo-sort)
     line_element* last = &M[r-1];
     for (line_element* p = &M[0]; p <= last; ++p) {
@@ -93,7 +102,11 @@ solve_instance::solve_instance(double EPSILON, string infile) :
       }
       cout << "\n";
     }
-    
+        
+    //no clue about the next two lines... need to correct this
+    p_pXuh->init();
+    p_phXu->init();
+
   }
 }
 
@@ -118,6 +131,8 @@ solve_instance::solve() {
   cout << "predict " << 6.0*N*(r+c)*assumed_time_per_op/1000000 << " seconds ";
   cout << "assuming " << assumed_ops_per_usec << "ops per usec" << endl;
 
+  srand(time(0));
+
   while (!done){
     iteration++;
     //cout <<"iteration "<<iteration<<endl;
@@ -133,17 +148,29 @@ solve_instance::solve() {
     ++n_samples;
 
     // line 6
-    wj->x++;
-    wi->x++;
+    
+    double uh_i = 2*M[i].front()->coeff;
+    double u_j = 2*MT[j].front()->coeff;
+    double delta = 1/(uh_i + u_j);
+    wj->x += delta;
+    wi->x += delta;
 
     // line 7
+    //    double random_num = rand()%1000;
+    double z = (rand()%1000)/999;//@steve how much precision do we need here?
+
+    //line 8
     //cout << j << ": ";
     {
       for (list<nonzero_entry_t*>::iterator x = MT[j].begin(); x != MT[j].end(); ++x) {
-
-	// stop when a packing constraint becomes tight
-	if (p_p->increment_exponent((*x)->sampler_pointer) >= N)
-	  done = true;
+	double increment = ((*x)->coeff)*delta;
+	if (increment >= z) {
+	  // stop when a packing constraint becomes tight
+	  if (p_p->increment_exponent((*x)->sampler_pointer) >= N)
+	    done = true;  
+	} else if(increment < z/2) {
+	  break;
+	}
       }
       int size = MT[j].size();
       count_ops(12);  //not actual value-- how many??
@@ -169,27 +196,52 @@ solve_instance::solve() {
       count_ops(5*size);
     }
 
- 
-
-    // line 8 
+    // line 9 
     // cout << i << ": ";
     {
 
       for (list<nonzero_entry_t*>::iterator x = M[i].begin(); x != M[i].end(); ++x) {
-
+	double increment = ((*x)->coeff)*delta;
+	
 	//if the column is not active any more
 	if ((*x)->sampler_pointer->removed){ 
 	  x = M[i].erase(x); // delete it //@steve should we still use x??
 	  --x;//test
+	  //read comments in the next block below
+	  uh_i = 2*M[i].front()->coeff;
+	  delta = 1/(u_j + uh_i);
 	  ++n_deletes;
 	  continue;
+	}	
+
+	if (increment >= z) {
+	  // remove covering constraint when it's met
+	  if (p_d->increment_exponent((*x)->sampler_pointer) >= N) {
+	    //@steve - why don't we delete x from M[i] here?
+	    //we can recalculate delta every time x is deleted
+	    //and that could be a minor performance enhancement
+	    //even though we evaluate u_j and delta again, which is O(c) overall
+	    p_d->remove((*x)->sampler_pointer);
+	    --J_size;
+	  }
+	} else if(increment < z/2) {
+	  break;
 	}
-	if (p_d->increment_exponent((*x)->sampler_pointer) >= N) {
-	  // if covering constraint is met, make it inactive
-	  p_d->remove((*x)->sampler_pointer); //@steve remove the nonzero_entry_t too??
-	  --J_size;
-	}
-      }
+
+
+// 	//if the column is not active any more
+// 	if ((*x)->sampler_pointer->removed){ 
+// 	  x = M[i].erase(x); // delete it //@steve should we still use x??
+// 	  --x;//test
+// 	  ++n_deletes;
+// 	  continue;
+// 	}
+	// if (p_d->increment_exponent((*x)->sampler_pointer) >= N) {
+// 	  // if covering constraint is met, make it inactive
+// 	  p_d->remove((*x)->sampler_pointer); //@steve remove the nonzero_entry_t too??
+// 	  --J_size;
+// 	}
+      }  // -----------------------DON"T DELETE ME
 
       // register line_element& row = M[i];
 //       nonzero_entry_t ** first = &row[0];
@@ -226,7 +278,8 @@ solve_instance::solve() {
     //	cout << "J size "<<J_size<<endl;
     //	cout << N_d<<" "<<endl;
 
-    if (J_size == 0) done = true; 
+    if (J_size == 0) 
+      done = true; 
     // stop when there is no active covering constraint (all are met)
   }
 
