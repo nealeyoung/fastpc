@@ -33,6 +33,7 @@ dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt
     items[i].exponent_entry = NULL;
     items[i].bucket = NULL;
     items[i].index_in_bucket = -1;
+    //items[i].y = 0;
   }
 
   for (int i = 0;  i < buckets.size();  ++i) {
@@ -69,7 +70,7 @@ dual_sampler_t::init() {
   current_max_bucket = current_min_bucket;
 
   for (int i = 0;  i < items.size();  ++i) {
-    items[i].exponent_entry = &expt(permanent_min_exponent);
+    items[i].exponent_entry = &expt(permanent_min_exponent);          //@steve change here for other distros u and uh
     insert_in_bucket(&items[i],  items[i].exponent_entry->bucket);
   }
 }

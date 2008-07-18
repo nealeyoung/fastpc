@@ -19,8 +19,9 @@ class primal_sampler_t;		// container supporting random sampling
 class sampler_item_t {
  public:
   int i;			// index in collection
-  int x;			// value (to get or set, not used internally)
+  double x;			// value (to get or set, not used internally)
   bool removed;			// if removed from collection
+  //int y;                        //approximately maintains M_ix
 
 protected:
   struct bucket_t* bucket;
@@ -42,7 +43,7 @@ protected:
 
 // bookkeeping info for items with a given exponent
 struct exponent_entry_t {
-  int exponent;
+  int exponent;                 //now stores y instead of Mi_x
   bucket_t* bucket;		// which bucket (below) holds these items?
   bool at_boundary;		// is this exponent the max in the bucket?
   weight_t cached_weight;	// total weight of thse items
