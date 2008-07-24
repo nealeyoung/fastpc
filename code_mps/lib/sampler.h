@@ -13,6 +13,8 @@ typedef long long unsigned weight_t;
 
 class dual_sampler_t;		// container supporting random sampling
 class primal_sampler_t;		// container supporting random sampling
+class dual_u_sampler_t;         //ph X u sampler in alg
+class primal_u_sampler_t;       //p X uh sampler in alg
 
 // sampler_item_t:
 //  a single sampleable item
@@ -21,15 +23,17 @@ class sampler_item_t {
   int i;			// index in collection
   double x;			// value (to get or set, not used internally)
   bool removed;			// if removed from collection
-  //int y;                        //approximately maintains M_ix
+  struct exponent_entry_t* exponent_entry; //@monik made this public to make the code work
 
 protected:
   struct bucket_t* bucket;
   int index_in_bucket;
-  struct exponent_entry_t* exponent_entry;
+
 
   friend class dual_sampler_t;
   friend class primal_sampler_t;
+  friend class dual_u_sampler_t;
+  friend class primal_u_sampler_t;
 };
 
 // abstractly, a dual_sampler_t S is a collection of items
@@ -79,8 +83,13 @@ public:
   dual_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec = 0);
 				// constructor
 
-  void init();			// call after construction (why?)
-
+  void init();			// call after construction
+  
+  //this method has been implemented for dual_sampler_t
+  //but it should actually be available to and implemented for
+  //only the new samplers (dual_u_sampler_t and primal_u_sampler_t)
+  void update_item_exponent(sampler_item_t* t, int exp);
+  
   sampler_item_t* get_ith(int i) { return &items[i]; } 
 				// access item with index i
   sampler_item_t* sample();	// randomly sample an item
@@ -91,7 +100,7 @@ public:
   int n_rebuilds();
   int n_rebuild_ops();
 
-protected:
+  protected:
   const double eps;
 
   my_vector<exponent_entry_t> exponents; // bookkeeping info per exponent
@@ -167,8 +176,8 @@ class primal_sampler_t : public dual_sampler_t {
 public:
   primal_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec = 0)
     : dual_sampler_t(n, epsilon/(1+epsilon), -max_expt,-min_expt, prec) 
-  {
-  }
+    {
+    }
   void init();
 
   inline int
@@ -188,5 +197,26 @@ public:
   }
 };
 
+/* //modified sampler phXu */
+/* class dual_u_sampler_t : public dual_sampler_t { */
+/*  public: */
+/*   dual_u_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec = 0) */
+/*     : dual_sampler_t(n, epsilon, min_expt, max_expt, prec)//@steve max and min? */
+/*     { */
+/*     } */
+/*     //dual_u_sampler_t(int n, double epsilon, int min_expt, int max_expt); */
+/*   void update_item_exponent(sampler_item_t* t, int exp); */
+/* }; */
+
+/* //modified sampler pXuh */
+/* class primal_u_sampler_t : public primal_sampler_t { */
+/*  public: */
+/*   primal_u_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec = 0) */
+/*     : primal_sampler_t(n, epsilon, min_expt, max_expt, prec) //fixed max/min */
+/*     { */
+/*     } */
+/*     //primal_u_sampler_t(int n, double epsilon, int min_expt, int max_expt); */
+/*   void update_item_exponent(sampler_item_t* t, int exp); */
+/* }; */
 
 #endif

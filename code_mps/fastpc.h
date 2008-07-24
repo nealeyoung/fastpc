@@ -27,7 +27,9 @@ class nonzero_entry_t {
  public:
   double coeff;
   sampler_item_t* sampler_pointer;
-  nonzero_entry_t(double value, sampler_item_t* sampler);
+  sampler_item_t* u_sampler_pointer;
+  int exponent;
+  nonzero_entry_t(double value, double eps, sampler_item_t* sampler, sampler_item_t* u_sampler);
   //bool operator<(nonzero_entry_t* a);
 };
 
@@ -50,13 +52,12 @@ private:
   dual_sampler_t *p_d;
 
   primal_sampler_t *p_pXuh;
-  dual_sampler_t *p_phXu;
+  dual_sampler_t *p_dXu;
 
   my_vector<line_element> M, MT, M_copy;
 
   string file_name;
   double eps, epsilon;
-
 
 public:	
   solve_instance(double epsilon, string file_name);
