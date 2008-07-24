@@ -1,4 +1,5 @@
 #include "fastpc.h"
+
 #include <iomanip>
 #include<fstream>
 #include <ctime>
@@ -7,92 +8,10 @@
 using namespace std;
 
 
-nonzero_entry_t::nonzero_entry_t(double value, sampler_item_t* sampler):
-  coeff(value),  sampler_pointer( sampler)
-{}
-// bool nonzero_entry_t::operator<(nonzero_entry_t* a) {
-//   cout << "testttttttttt ----- tttttt";
-//     return (this->coeff < a->coeff);
-//   }
-
-
-//should get both bs at once
-//need to fix r
-void solve_instance::sudo_sort(my_vector<line_element> *matrix,int col ){
-
-  //find b
-  cout<<"start sudo sort \n";
-  line_element *last = (line_element*)&((*matrix)[r-1]);
-  line_element *first = (line_element*)&((*matrix)[0]);
-  double b = 0;
-  for (line_element *p =first; p <= last; ++p) {
-
-    double min_temp = (*(p->begin()))->coeff;
-     for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
-      
-       if ((*x)->coeff < min_temp){
-	 min_temp = (*x)->coeff;   
-       }
-     }
-     
-     if (min_temp >b){
-       b = min_temp;
-     }
-  }
-
-  //scale all  elements
-  double bound = b*eps/col;
-  double replace = b*col/eps;
-  for (line_element* p = first; p <= last; ++p) {
-
-    for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
-      
-      if ((*x)->coeff < bound ){
-	(*x)->coeff = 0;
-      }else{
-	(*x)->coeff = min((*x)->coeff,replace);
-      }
-    }
-  }
-  
-  //create buckets for the  bucket sort
-  int num_buckets = (int)ceil(log2(col/eps))*2; //not sure about base 2
-  double_list** buckets = (double_list**)malloc(sizeof(double_list*)*num_buckets);    
-  for(int i = 0; i<num_buckets; i++){
-    buckets[i] =  new double_list();
-  }
-
-  // bucket sort each row
-  for (line_element* p = first; p <= last; ++p) {
-
-    cout <<"new row \n";
-
-    //bucket sort
-    for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
-    
-      //not sure about base 2 and the round might be floor
-      int index = (int)floor(log2((*x)->coeff)-log2(b)+log2(c/eps));
-      buckets[index]->push_back((*x)->coeff);
-    }
-
-    //print out the buckets need to add them to new list
-    for(int i = 0; i<num_buckets; i++){
-      for (list<double>::iterator x = buckets[i]->begin(); x != buckets[i]->end(); ++x){
-	cout << (*x)<< " item ";   
-      }
-     cout <<"bucket \n";
-    }
-
-    //erase elements in buckets so they can be used for next row
-    for(int i = 0; i<num_buckets; i++){
-      buckets[i]->clear();
-    }
-
-  }
-
-  
-  cout <<"done with sudo sort \n";
-  cout <<flush;
+nonzero_entry_t::nonzero_entry_t(double value, double eps, sampler_item_t* sampler, sampler_item_t* u_sampler):
+  coeff(value),  sampler_pointer( sampler), u_sampler_pointer(u_sampler) 
+{
+  exponent = ceil(log(value)/log(1-eps));//   =log base 1-eps (value)
 }
 
 solve_instance::solve_instance(double EPSILON, string infile) :
@@ -104,7 +23,6 @@ solve_instance::solve_instance(double EPSILON, string infile) :
   int row, col, total;
   double val;
   string s;
-
   {
     //open input file
     ifstream in_file;
@@ -126,63 +44,98 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     p_p = new primal_sampler_t(r, eps, 0, N+10);
     p_d = new dual_sampler_t(c, eps, 0, N+10);
     
-    //no clue about the next two lines... need to correct this
+    //need to make sure that the initialization is fine
     p_pXuh = new primal_sampler_t(r, eps, 0, N+10);
-    p_phXu = new dual_sampler_t(c, eps, 0, N+10);
+    p_dXu = new dual_sampler_t(c, eps, 0, N+10);
     
     assert(p_p);
     assert(p_d);
-    //no clue about the next two lines... need to correct this
     assert(p_pXuh);
-    assert(p_phXu);
+    assert(p_dXu);
 
     p_p->init();
     p_d->init();
+    p_pXuh->init();
+    p_dXu->init();
 
     //cout << fixed << setprecision(1);
 
     while(true) {
       in_file >> row  >> col >> val;  //took out string s 
-
       // find b
       if (in_file.eof()) break;
-      M[row].push_back(new nonzero_entry_t(val,p_d->get_ith(col)));
-      M_copy[row].push_back(new nonzero_entry_t(val,p_d->get_ith(col)));
-      MT[col].push_back(new nonzero_entry_t(val,p_p->get_ith(row)));
+      M[row].push_back(new nonzero_entry_t(val,-eps, p_d->get_ith(col), p_dXu->get_ith(col)));
+      M_copy[row].push_back(new nonzero_entry_t(val, -eps, p_d->get_ith(col), p_dXu->get_ith(col)));
+      MT[col].push_back(new nonzero_entry_t(val, eps, p_p->get_ith(row), p_pXuh->get_ith(row)));
     }
 
-    //sudo sorts
-    //sudo_sort(&M,c);
-    //sudo_sort(MT,r);
-
     //sort rows of M
+    line_element* first = &M[0];
     line_element* last = &M[r-1];
-    for (line_element* p = &M[0]; p <= last; ++p) {
+    for (line_element* p = first; p <= last; ++p) {
       cout << "Inside loop "; //debug
       p->sort(list_sort_criteria()); //sort row linked list
       for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
-	cout << (*x)->coeff << " ";   
+	cout << (*x)->exponent << " ";   
       }
       cout << "\n";
     }
     
     //sort MT
+    line_element* first_t = &MT[0];
     line_element* last_t = &MT[c-1];
-    for (line_element* p = &MT[0]; p <= last_t; ++p) {
+    for (line_element* p = first_t; p <= last_t; ++p) {
       cout << "Inside loop MT "; //debug
       p->sort(list_sort_criteria()); //sort row of MT linked list
       for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
-	cout << (*x)->coeff << " ";   
+	cout << (*x)->exponent << " ";
       }
       cout << "\n";
     }
 
-    //possibly need to sort M_copy
+    //find the minimum exponent for MT and maximum exponent for M
+    //this is to normalize the exponents
+    //these will be used to normalize the exponents in the matrices
+    //and that is required to ensure that all exponents in u are non-negative
+    //and all exponents in u_hat are non-positive
+    int min_u_exp = 0;
+    int max_uh_exp = 0;
+    for (int j = 0; j < c; j++) {
+      int temp = MT[j].back()->exponent;
+      if (temp < min_u_exp)
+	min_u_exp = temp;
+    }
+    for (int i = 0; i < r; i++) {
+      int temp = M[i].back()->exponent;
+      if (temp > max_uh_exp)
+	max_uh_exp = temp;
+    }
 
-    //no clue about the next two lines... need to correct this
-    p_pXuh->init();
-    p_phXu->init();
+    cout << "min_u_exp " << min_u_exp << endl;
+    cout << "max_uh_exp " << max_uh_exp << endl;
 
+    //test
+    for (int i = 0; i < c; i++) {
+      sampler_item_t* item = p_dXu->get_ith(i);
+      int exponent = MT[i].front()->exponent - min_u_exp;
+      //cout << "exponent: " << exponent << endl;
+      p_dXu->update_item_exponent(item,exponent);
+    }
+    for (int j = 0; j < c; j++) {
+      sampler_item_t* item = p_pXuh->get_ith(j);
+      int exponent = M[j].front()->exponent - max_uh_exp;
+      //cout << "exponent: " << exponent << endl;
+      p_pXuh->update_item_exponent(item,exponent);
+    }
+
+    // //for p_pXuh
+//     for (int i = 0; i < r; i++) {
+//       p_pXuh->update_item_exponent(p_pXuh->get_ith(i), M[i].front()->exponent);
+//     }
+//     //for p_dXu
+//     for (int i = 0; i < c; i++) {
+//       p_dXu->update_item_exponent(p_dXu->get_ith(i), MT[i].front()->exponent);
+//     }
   }
 }
 
@@ -215,18 +168,18 @@ solve_instance::solve() {
 
     sampler_item_t* wi = p_p->sample();
     int i = wi->i;
-    //cout<<"sampled1 "<< i <<endl;
+    //cout<<"sampled1 "<< i <<endl << flush;
 
     sampler_item_t* wj = p_d->sample();
     int j = wj->i;
-    //cout<<"sampled2 "<< j <<endl;
+    //cout<<"sampled2 "<< j <<endl << flush;
 
     ++n_samples;
 
     // line 6
     
-    double uh_i = 2*M[i].front()->coeff;
-    double u_j = 2*MT[j].front()->coeff;
+    double uh_i = M[i].front()->coeff;
+    double u_j = MT[j].front()->coeff;
     double delta = 1/(uh_i + u_j);
     wj->x += delta;
     wi->x += delta;
@@ -244,7 +197,7 @@ solve_instance::solve() {
 	  // stop when a packing constraint becomes tight
 	  if (p_p->increment_exponent((*x)->sampler_pointer) >= N)
 	    done = true;  
-	} else if(increment < z/2) {
+	} else {
 	  break;
 	}
       }
@@ -300,7 +253,7 @@ solve_instance::solve() {
 	    p_d->remove((*x)->sampler_pointer);
 	    --J_size;
 	  }
-	} else if(increment < z/2) {
+	} else {
 	  break;
 	}
 
