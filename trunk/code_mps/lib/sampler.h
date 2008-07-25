@@ -13,8 +13,8 @@ typedef long long unsigned weight_t;
 
 class dual_sampler_t;		// container supporting random sampling
 class primal_sampler_t;		// container supporting random sampling
-class dual_u_sampler_t;         //ph X u sampler in alg
-class primal_u_sampler_t;       //p X uh sampler in alg
+//class dual_u_sampler_t;         //ph X u sampler in alg
+//class primal_u_sampler_t;       //p X uh sampler in alg
 
 // sampler_item_t:
 //  a single sampleable item
@@ -23,17 +23,18 @@ class sampler_item_t {
   int i;			// index in collection
   double x;			// value (to get or set, not used internally)
   bool removed;			// if removed from collection
-  struct exponent_entry_t* exponent_entry; //@monik made this public to make the code work
+
 
 protected:
+  struct exponent_entry_t* exponent_entry; //make public if polymorphism probs
   struct bucket_t* bucket;
   int index_in_bucket;
 
 
   friend class dual_sampler_t;
   friend class primal_sampler_t;
-  friend class dual_u_sampler_t;
-  friend class primal_u_sampler_t;
+  // friend class dual_u_sampler_t;
+  //friend class primal_u_sampler_t;
 };
 
 // abstractly, a dual_sampler_t S is a collection of items
@@ -88,6 +89,8 @@ public:
   //this method has been implemented for dual_sampler_t
   //but it should actually be available to and implemented for
   //only the new samplers (dual_u_sampler_t and primal_u_sampler_t)
+  //allows for insertion of element with arbitrary exponent, i.e.
+  //arbitrary probability
   void update_item_exponent(sampler_item_t* t, int exp);
   
   sampler_item_t* get_ith(int i) { return &items[i]; } 

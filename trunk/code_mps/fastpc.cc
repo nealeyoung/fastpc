@@ -28,6 +28,11 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     ifstream in_file;
     in_file.open(file_name.c_str());
 
+    if (in_file.fail()) {
+      cout << "Error opening " << file_name << endl;
+      exit(1);
+    }
+
     //read and parse 1st line of input (parameters)
     string s;
     in_file >> r >> c >> total >> s;
@@ -121,7 +126,7 @@ solve_instance::solve_instance(double EPSILON, string infile) :
       //cout << "exponent: " << exponent << endl;
       p_dXu->update_item_exponent(item,exponent);
     }
-    for (int j = 0; j < c; j++) {
+    for (int j = 0; j < r; j++) {
       sampler_item_t* item = p_pXuh->get_ith(j);
       int exponent = M[j].front()->exponent - max_uh_exp;
       //cout << "exponent: " << exponent << endl;
@@ -186,7 +191,8 @@ solve_instance::solve() {
 
     // line 7
     //    double random_num = rand()%1000;
-    double z = (rand()%1000)/999;//@steve how much precision do we need here?
+    double z = (rand()%1000)/999.0;//@steve how much precision do we need here?
+    //cout << "z: " << z << endl; //debug
 
     //line 8
     //cout << j << ": ";
@@ -394,6 +400,7 @@ int main(int argc, char *argv[])
 {
   double epsilon = 0.1;
   string input_file="";
+  string usage = "Usage: fastpc <epsilon-factor> <filename> ";
 		
   if (argc >= 2)
     epsilon = atof(argv[1]);
@@ -401,7 +408,7 @@ int main(int argc, char *argv[])
   if (argc >= 3)
     input_file = argv[2];
   else {
-    cout << "Error!  Too few arguments.\n";
+    cout << usage << endl;
     return 1;
   }
 		
