@@ -215,24 +215,27 @@ dual_sampler_t::random_weight_t(weight_t upper) {
 sampler_item_t*
 dual_sampler_t::sample() {
 
-  if (total_weight_min_bucket != current_min_bucket) {
-    ++rebuilds;
+  // if (total_weight_min_bucket != current_min_bucket) {
+//     ++rebuilds;
 
-    assert(current_min_bucket);
-    assert(current_max_bucket);
+//     assert(current_min_bucket);
+//     assert(current_max_bucket);
 
-    total_weight = 0;
-    total_weight_min_bucket = current_min_bucket;
+//     total_weight = 0;
+//     total_weight_min_bucket = current_min_bucket;
 
-    for (bucket_t* b = current_min_bucket;  b <= current_max_bucket;  ++b) {
-      rebuild_ops += 6;
-      count_ops(2);
+//     for (bucket_t* b = current_min_bucket;  b <= current_max_bucket;  ++b) {
+//       rebuild_ops += 6;
+//       count_ops(2);
 
-      weight_t w = max_bucket_weight(b);
-      if (w == 0) break;
-      total_weight += w*b->size();
-    }
-  }
+//       weight_t w = max_bucket_weight(b);
+//       if (w == 0) break;
+//       total_weight += w*b->size();
+//     }
+//   }
+  
+
+  get_update_total_weight();  //does nothing if called from inside random_pair 
 
   assert(total_weight > 0);
   while (1) {
@@ -338,6 +341,30 @@ dual_sampler_t::update_item_exponent(sampler_item_t* item, int exp) {
 
   //@monik we also need to take care of current_min_bucket and current_max_bucket
   //also check other variables related to buckets
+}
+
+//return the total_weight of the sampler, updating if necessary
+weight_t
+dual_sampler_t::get_update_total_weight() {
+if (total_weight_min_bucket != current_min_bucket) {
+    ++rebuilds;
+
+    assert(current_min_bucket);
+    assert(current_max_bucket);
+
+    total_weight = 0;
+    total_weight_min_bucket = current_min_bucket;
+
+    for (bucket_t* b = current_min_bucket;  b <= current_max_bucket;  ++b) {
+      rebuild_ops += 6;
+      count_ops(2);
+
+      weight_t w = max_bucket_weight(b);
+      if (w == 0) break;
+      total_weight += w*b->size();
+    }
+  }
+ return total_weight;
 }
 
 //must make copy of function for dual_u_sampler_t since the modified primal 

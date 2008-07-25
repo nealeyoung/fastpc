@@ -171,11 +171,14 @@ solve_instance::solve() {
     iteration++;
     //cout <<"iteration "<<iteration<<endl;
 
-    sampler_item_t* wi = p_p->sample();
+    sampler_item_t* wi;
+    sampler_item_t* wj;
+    random_pair(&wi, &wj, p_p, p_d, p_pXuh, p_dXu);
+    //sampler_item_t* wi = p_p->sample();
     int i = wi->i;
     //cout<<"sampled1 "<< i <<endl << flush;
 
-    sampler_item_t* wj = p_d->sample();
+    //sampler_item_t* wj = p_d->sample();
     int j = wj->i;
     //cout<<"sampled2 "<< j <<endl << flush;
 
@@ -394,6 +397,25 @@ solve_instance::solve() {
   cout << " alloc_time = " << alloc_time/1000000.0 << "s" << endl;
   cout << " alloc_space = " << alloc_space << endl;
   cout << " allocs_per_usec = " << alloc_space/alloc_time << endl;
+}
+
+void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_sampler_t* p_p, dual_sampler_t* p_d, dual_sampler_t* p_pXuh, dual_sampler_t* p_dXu) {
+  double p_p_wt = p_p->get_update_total_weight();
+  double p_d_wt = p_d->get_update_total_weight();
+  double p_pXuh_wt = p_pXuh->get_update_total_weight();
+  double p_dXu_wt = p_dXu->get_update_total_weight();
+
+  float z = (rand()%1000)/999.0;
+  double prob = (p_pXuh_wt*p_d_wt)/(p_pXuh_wt*p_d_wt + p_p_wt*p_dXu_wt);
+
+  if (z < prob) {
+    *wi = p_pXuh->sample();
+    *wj = p_d->sample();
+  }
+  else {
+    *wi = p_p->sample();
+    *wj = p_dXu->sample();
+  }
 }
 
 int main(int argc, char *argv[])

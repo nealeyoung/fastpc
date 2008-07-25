@@ -59,6 +59,8 @@ private:
   string file_name;
   double eps, epsilon;
 
+  void random_pair(sampler_item_t** wi, sampler_item_t** wj, dual_sampler_t* p_p, dual_sampler_t* p_d, dual_sampler_t* p_pXuh, dual_sampler_t* p_dXu);
+
 public:	
   solve_instance(double epsilon, string file_name);
   void solve();
