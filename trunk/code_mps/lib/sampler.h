@@ -92,6 +92,9 @@ public:
   //allows for insertion of element with arbitrary exponent, i.e.
   //arbitrary probability
   void update_item_exponent(sampler_item_t* t, int exp);
+
+  //return total_weight, updating if necessary
+  weight_t get_update_total_weight();
   
   sampler_item_t* get_ith(int i) { return &items[i]; } 
 				// access item with index i
