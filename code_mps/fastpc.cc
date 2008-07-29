@@ -48,12 +48,14 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     N = int(ceil(2*log(r*c)/(eps*eps)));
 
     cout << "N = " << N << endl;
+    
+    int max_exp = N+10;
  
-    p_p = new primal_sampler_t(r, eps, 0, N+10);
-    p_d = new dual_sampler_t(c, eps, 0, N+10);
-    p_pXuh = new primal_sampler_t(r, eps, 0, N+10);
-    p_dXu = new dual_sampler_t(c, eps, 0, N+10);
-
+    p_p = new primal_sampler_t(r, eps, 0, max_exp);
+    p_d = new dual_sampler_t(c, eps, 0, max_exp);
+    p_pXuh = new primal_u_sampler_t(r, eps, 0, max_exp);
+    p_dXu = new dual_u_sampler_t(c, eps, 0, max_exp);
+    
     assert(p_p);
     assert(p_d);
     assert(p_pXuh);
@@ -105,15 +107,15 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     //and that is required to ensure that all exponents in u are non-negative
     //and all exponents in u_hat are non-positive
     int min_u_exp = 0;
-    int max_u_exp = MT[0].front()->exponent;
+//    int max_u_exp = MT[0].front()->exponent;
     int max_uh_exp = 0;
     int min_uh_exp = M[0].front()->exponent;
     for (int j = 0; j < c; j++) {
       int temp = MT[j].front()->exponent;
       if (temp < min_u_exp)
 				min_u_exp = temp;
-      if (temp > max_u_exp)
-				max_u_exp;
+//      if (temp > max_u_exp)
+//				max_u_exp = temp;
     }
     for (int i = 0; i < r; i++) {
       int temp = M[i].front()->exponent;
@@ -126,10 +128,10 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     cout << "min_u_exp " << min_u_exp << endl;
     cout << "max_uh_exp " << max_uh_exp << endl;
     
-    int d_diff = 0;
-    if (max_u_exp - min_u_exp > N+10-ceil(1/eps)) {
-    	d_diff = max_u_exp - min_u_exp - (N+10-ceil(1/eps));
-    }
+//    int d_diff = 0;
+//    if (max_u_exp - min_u_exp > N+10-ceil(1/eps)) {
+//    	d_diff = max_u_exp - min_u_exp - (N+10-ceil(1/eps));
+//    }
 
     int p_diff = 0;
     if (max_uh_exp - min_uh_exp > N+10-ceil(1/eps)) {
@@ -163,21 +165,25 @@ solve_instance::solve_instance(double EPSILON, string infile) :
 //    }
 
     //re-initialize u_sampler_items with normalized exponents
-    for (int i = 0; i < c; i++) {
-      sampler_item_t* item = p_dXu->get_ith(i);
-      int exponent = MT[i].front()->exponent - min_u_exp - d_diff;
-      if (exponent < 0)
-      	exponent = 0;
-      //cout << "exponent: " << exponent << endl;
-      p_dXu->update_item_exponent(item,exponent);
+    if (min_u_exp != 0) {
+	    for (int i = 0; i < c; i++) {
+	      sampler_item_t* item = p_dXu->get_ith(i);
+	      int exponent = MT[i].front()->exponent - min_u_exp;
+	      if (exponent > max_exp)
+	      	exponent = max_exp;
+	      //cout << "exponent: " << exponent << endl;
+	      p_dXu->update_item_exponent(item,exponent);
+	    }
     }
-    for (int j = 0; j < r; j++) {
-      sampler_item_t* item = p_pXuh->get_ith(j);
-      int exponent = M[j].front()->exponent - max_uh_exp + p_diff;
-      if (exponent > 0)
-      	exponent = 0;
-      //cout << "exponent: " << exponent << endl;
-      p_pXuh->update_item_exponent(item,exponent);
+    if (max_uh_exp != 0 || p_diff != 0) {
+	    for (int j = 0; j < r; j++) {
+	      sampler_item_t* item = p_pXuh->get_ith(j);
+	      int exponent = M[j].front()->exponent - max_uh_exp + p_diff;
+	      if (exponent > 0)
+	      	exponent = 0;
+	      //cout << "exponent: " << exponent << endl;
+	      p_pXuh->update_item_exponent(item,exponent);
+	    }
     }
 
     // //for p_pXuh
@@ -251,8 +257,8 @@ solve_instance::solve() {
 	double increment = ((*x)->coeff)*delta;
 	if (increment >= z) {
 	  // stop when a packing constraint becomes tight
-	  p_pXuh->increment_exponent((*x)->u_sampler_pointer, true);
-	  if (p_p->increment_exponent((*x)->sampler_pointer, false) >= N)
+	  p_pXuh->increment_exponent((*x)->u_sampler_pointer);
+	  if (p_p->increment_exponent((*x)->sampler_pointer) >= N)
 	    done = true;  
 	} else {
 	  break;
@@ -303,8 +309,8 @@ solve_instance::solve() {
 	if (increment >= z) {
 	  // remove covering constraint when it's met
 	  //cout << (*x)->u_sampler_pointer->exponent_entry->exponent << " --- EXPONENT \n";
-	  p_dXu->increment_exponent((*x)->u_sampler_pointer, true);
-	  if (p_d->increment_exponent((*x)->sampler_pointer, false) >= N) {
+	  p_dXu->increment_exponent((*x)->u_sampler_pointer);
+	  if (p_d->increment_exponent((*x)->sampler_pointer) >= N) {
 	    //@steve - why don't we delete x from M[i] here?
 	    //we can recalculate delta every time x is deleted
 	    //and that could be a minor performance enhancement
