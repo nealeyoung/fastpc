@@ -11,6 +11,7 @@ using namespace std;
 nonzero_entry_t::nonzero_entry_t(double value, double eps, sampler_item_t* sampler, sampler_item_t* u_sampler):
   coeff(value),  sampler_pointer( sampler), u_sampler_pointer(u_sampler) 
 {
+  //Need to be careful about taking floor or ceiling
   exponent = ceil(log(value)/log(1-eps));//   =log base 1-eps (value)
 }
 
@@ -45,14 +46,14 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     M_copy.resize(r);
 
     N = int(ceil(2*log(r*c)/(eps*eps)));
+
+    cout << "N = " << N << endl;
  
     p_p = new primal_sampler_t(r, eps, 0, N+10);
     p_d = new dual_sampler_t(c, eps, 0, N+10);
-    
-    //need to make sure that the initialization is fine
     p_pXuh = new primal_sampler_t(r, eps, 0, N+10);
     p_dXu = new dual_sampler_t(c, eps, 0, N+10);
-    
+
     assert(p_p);
     assert(p_d);
     assert(p_pXuh);
@@ -69,12 +70,12 @@ solve_instance::solve_instance(double EPSILON, string infile) :
       in_file >> row  >> col >> val;  //took out string s 
       // find b
       if (in_file.eof()) break;
-      M[row].push_back(new nonzero_entry_t(val,-eps, p_d->get_ith(col), p_dXu->get_ith(col)));
-      M_copy[row].push_back(new nonzero_entry_t(val, -eps, p_d->get_ith(col), p_dXu->get_ith(col)));
+      M[row].push_back(new nonzero_entry_t(val,eps/-1.0, p_d->get_ith(col), p_dXu->get_ith(col)));//remove u_sampler_pointer from the constructor
+      M_copy[row].push_back(new nonzero_entry_t(val, eps/-1.0, p_d->get_ith(col), p_dXu->get_ith(col)));
       MT[col].push_back(new nonzero_entry_t(val, eps, p_p->get_ith(row), p_pXuh->get_ith(row)));
     }
 
-    //sort rows of M
+    //SORT ROWS OF M
     line_element* first = &M[0];
     line_element* last = &M[r-1];
     for (line_element* p = first; p <= last; ++p) {
@@ -104,31 +105,77 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     //and that is required to ensure that all exponents in u are non-negative
     //and all exponents in u_hat are non-positive
     int min_u_exp = 0;
+    int max_u_exp = MT[0].front()->exponent;
     int max_uh_exp = 0;
+    int min_uh_exp = M[0].front()->exponent;
     for (int j = 0; j < c; j++) {
-      int temp = MT[j].back()->exponent;
+      int temp = MT[j].front()->exponent;
       if (temp < min_u_exp)
-	min_u_exp = temp;
+				min_u_exp = temp;
+      if (temp > max_u_exp)
+				max_u_exp;
     }
     for (int i = 0; i < r; i++) {
-      int temp = M[i].back()->exponent;
+      int temp = M[i].front()->exponent;
       if (temp > max_uh_exp)
-	max_uh_exp = temp;
+				max_uh_exp = temp;
+      if (temp < min_uh_exp)
+				min_uh_exp = temp;
     }
 
     cout << "min_u_exp " << min_u_exp << endl;
     cout << "max_uh_exp " << max_uh_exp << endl;
+    
+    int d_diff = 0;
+    if (max_u_exp - min_u_exp > N+10-ceil(1/eps)) {
+    	d_diff = max_u_exp - min_u_exp - (N+10-ceil(1/eps));
+    }
 
-    //test
+    int p_diff = 0;
+    if (max_uh_exp - min_uh_exp > N+10-ceil(1/eps)) {
+    	p_diff = max_uh_exp - min_uh_exp - (N+10-ceil(1/eps));
+    }
+
+    //initialize the new samplers based on the max/min exponents--add new
+    //buckets to accommodate more exponents
+//    p_pXuh = new primal_sampler_t(r, eps, 0, N+10+max_uh_exp - min_uh_exp);
+//    p_dXu = new dual_sampler_t(c, eps, 0, N+10+max_u_exp - min_u_exp);
+
+
+    //START HERE 
+    //WE NOW NEED TO PUT POINTERS TO NEW SAMPLER ITEMS IN THE NONZERO_ENTRIES FOR M AND MT
+
+    //set u_sampler pointers in M to elements of p_pXuh with indices corresponding
+    // to elements of p_p indicated by sampler_pointers
+//    for (int j = 0; j < r; ++j) {
+//      for (list<nonzero_entry_t*>::iterator x = M[j].begin(); x != M[j].end(); 
+//	   ++x) {
+//	(*x)->u_sampler_pointer = p_pXuh->get_ith((*x)->sampler_pointer->i);
+//      }
+//    }
+
+    //same for MT and pointers to p_dXu
+//    for (int i = 0; i < c; ++i) {
+//      for (list<nonzero_entry_t*>::iterator x = MT[i].begin(); x != MT[i].end();
+//	   ++x) {
+//	(*x)->u_sampler_pointer = p_dXu->get_ith((*x)->sampler_pointer->i);
+//      }
+//    }
+
+    //re-initialize u_sampler_items with normalized exponents
     for (int i = 0; i < c; i++) {
       sampler_item_t* item = p_dXu->get_ith(i);
-      int exponent = MT[i].front()->exponent - min_u_exp;
+      int exponent = MT[i].front()->exponent - min_u_exp - d_diff;
+      if (exponent < 0)
+      	exponent = 0;
       //cout << "exponent: " << exponent << endl;
       p_dXu->update_item_exponent(item,exponent);
     }
     for (int j = 0; j < r; j++) {
       sampler_item_t* item = p_pXuh->get_ith(j);
-      int exponent = M[j].front()->exponent - max_uh_exp;
+      int exponent = M[j].front()->exponent - max_uh_exp + p_diff;
+      if (exponent > 0)
+      	exponent = 0;
       //cout << "exponent: " << exponent << endl;
       p_pXuh->update_item_exponent(item,exponent);
     }
@@ -149,7 +196,7 @@ solve_instance::solve() {
   int J_size = c;	  // we have c active columns at the beginning
 
   bool done = false;
-  unsigned iteration = 0;
+//  unsigned iteration = 0;
 
   unsigned long n_samples = 0;
   unsigned long n_deletes = 0;
@@ -168,8 +215,8 @@ solve_instance::solve() {
   srand(time(0));
 
   while (!done){
-    iteration++;
-    //cout <<"iteration "<<iteration<<endl;
+//    iteration++;
+//    cout <<"iteration "<<iteration<<endl;
 
     sampler_item_t* wi;
     sampler_item_t* wj;
@@ -204,7 +251,8 @@ solve_instance::solve() {
 	double increment = ((*x)->coeff)*delta;
 	if (increment >= z) {
 	  // stop when a packing constraint becomes tight
-	  if (p_p->increment_exponent((*x)->sampler_pointer) >= N)
+	  p_pXuh->increment_exponent((*x)->u_sampler_pointer, true);
+	  if (p_p->increment_exponent((*x)->sampler_pointer, false) >= N)
 	    done = true;  
 	} else {
 	  break;
@@ -242,24 +290,45 @@ solve_instance::solve() {
 	double increment = ((*x)->coeff)*delta;
 	
 	//if the column is not active any more
-	if ((*x)->sampler_pointer->removed){ 
+	if ((*x)->sampler_pointer->removed){
 	  x = M[i].erase(x); // delete it //@steve should we still use x??
 	  --x;//test
 	  //read comments in the next block below
 	  uh_i = 2*M[i].front()->coeff;
-	  delta = 1/(u_j + uh_i);
+	  delta = 1/(u_j + uh_i); //this probably is not needed
 	  ++n_deletes;
 	  continue;
 	}	
 
 	if (increment >= z) {
 	  // remove covering constraint when it's met
-	  if (p_d->increment_exponent((*x)->sampler_pointer) >= N) {
+	  //cout << (*x)->u_sampler_pointer->exponent_entry->exponent << " --- EXPONENT \n";
+	  p_dXu->increment_exponent((*x)->u_sampler_pointer, true);
+	  if (p_d->increment_exponent((*x)->sampler_pointer, false) >= N) {
 	    //@steve - why don't we delete x from M[i] here?
 	    //we can recalculate delta every time x is deleted
 	    //and that could be a minor performance enhancement
 	    //even though we evaluate u_j and delta again, which is O(c) overall
 	    p_d->remove((*x)->sampler_pointer);
+	    
+	    //remove the corresponding sampler pointer from p_dXu
+	    p_dXu->remove((*x)->u_sampler_pointer);
+	    
+	    //update p_pXuh if u_hat changed for that row
+	    //iterate through this column in MT
+	    //and update if u for a row has changed
+	    int colIndex = (*x)->sampler_pointer->i;
+	    for (list<nonzero_entry_t*>::iterator y = MT[colIndex].begin(); y != MT[colIndex].end(); ++y) {
+	      int rowIndex = (*y)->sampler_pointer->i;
+	      nonzero_entry_t* row_front = M[rowIndex].front();
+	      if(row_front == *y) {    //if y is first element in row, i.e. current u-value came from y
+		int exp_diff = row_front->exponent - (*(++M[rowIndex].begin()))->exponent; //dif b/t exponents of first and second elements of row
+		if (exp_diff != 0) {
+			//@monik the new exponent may be close to/below the permanent_min_exponent because of normalization
+		  p_pXuh->update_item_exponent(row_front->u_sampler_pointer, row_front->u_sampler_pointer->exponent_entry->exponent - exp_diff);
+		}
+	      }
+	    }
 	    --J_size;
 	  }
 	} else {
@@ -344,7 +413,7 @@ solve_instance::solve() {
   for (int j=0; j<c; ++j){
     long tmp = 0;
     count_ops(3*MT[j].size());
-    for (line_element::iterator iter = MT[j].begin(); 
+    for (line_element::iterator iter = MT[j].begin();
          iter != MT[j].end(); 
 	 ++iter)
       tmp += (*iter)->sampler_pointer->x;
@@ -362,7 +431,7 @@ solve_instance::solve() {
 
   for (int i=0; i<r; ++i) sum_x_d += p_p->get_ith(i)->x;
 
-  cout << "iterations = " << iteration;
+  //cout << "iterations = " << iteration;
   if (max_row == 0)
     cout << " primal = infinity ";
   else
@@ -408,7 +477,7 @@ void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_s
   float z = (rand()%1000)/999.0;
   double prob = (p_pXuh_wt*p_d_wt)/(p_pXuh_wt*p_d_wt + p_p_wt*p_dXu_wt);
 
-  if (z < prob) {
+  if (prob > z) {
     *wi = p_pXuh->sample();
     *wj = p_d->sample();
   }
@@ -443,4 +512,3 @@ int main(int argc, char *argv[])
 
   return 0;
 }
-
