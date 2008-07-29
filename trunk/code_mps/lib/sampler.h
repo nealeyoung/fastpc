@@ -31,6 +31,8 @@ protected:
 
   friend class dual_sampler_t;
   friend class primal_sampler_t;
+  friend class dual_u_sampler_t;
+  friend class primal_u_sampler_t;
 };
 
 // abstractly, a dual_sampler_t S is a collection of items
@@ -92,7 +94,7 @@ public:
   //when the exponent of an item being inserted into a bucket
   //is very close to permanent_max_exponent, we need to normalize the exponents.
   //By close we mean within a certain factor of permanent_max_exponent
-  void normalize_exponents(sampler_item_t* w);
+  //void normalize_exponents(sampler_item_t* w);
 
   //return total_weight, updating if necessary
   weight_t get_update_total_weight();
@@ -151,21 +153,17 @@ public:
 
 public:
   inline int
-  increment_exponent(sampler_item_t *w, bool temp_flag) {
+  increment_exponent(sampler_item_t *w) {
     exponent_entry_t* &e = w->exponent_entry;
 
     if (! e->at_boundary) {
       e += 1;
-    } else if (!temp_flag || e->exponent < permanent_max_exponent - exponents_per_bucket) {
+    } else {
       count_ops(3);
 
       remove(w);
       e += 1;
       insert_in_bucket(w, e->bucket);
-      //      if (temp_flag)
-      //      normalize_exponents(w);//need to decide where to call this function
-      // removing and inserting above may be less efficient
-      // than direct implementation...?
     }
     return e->exponent;
   }
@@ -189,10 +187,10 @@ public:
     {
     }
   void init();
-	void normalize_exponents(sampler_item_t* w);
+	//void normalize_exponents(sampler_item_t* w);
 	
   inline int
-  increment_exponent(sampler_item_t *w, bool temp_flag) {
+  increment_exponent(sampler_item_t *w) {
     exponent_entry_t* &e = w->exponent_entry;
 
     if (! e->at_boundary) {
@@ -203,33 +201,73 @@ public:
       remove(w);
       e -= 1;
       insert_in_bucket(w, e->bucket);
-      if (temp_flag)
-	normalize_exponents(w);//need to decide where to call this function
+//      if (temp_flag)
+//	normalize_exponents(w);//need to decide where to call this function
    }
     return -e->exponent;
   }
 };
 
-/* //modified sampler phXu */
-/* class dual_u_sampler_t : public dual_sampler_t { */
-/*  public: */
-/*   dual_u_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec = 0) */
-/*     : dual_sampler_t(n, epsilon, min_expt, max_expt, prec)//@steve max and min? */
-/*     { */
-/*     } */
-/*     //dual_u_sampler_t(int n, double epsilon, int min_expt, int max_expt); */
-/*   void update_item_exponent(sampler_item_t* t, int exp); */
-/* }; */
+ //modified sampler p_dXu 
+ class dual_u_sampler_t : public dual_sampler_t { 
+  public: 
+   dual_u_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec = 0)
+     : dual_sampler_t(n, epsilon, min_expt, max_expt, prec)
+     { 
+     } 
+     //dual_u_sampler_t(int n, double epsilon, int min_expt, int max_expt); 
+   //void update_item_exponent(sampler_item_t* t, int exp);
 
-/* //modified sampler pXuh */
-/* class primal_u_sampler_t : public primal_sampler_t { */
-/*  public: */
-/*   primal_u_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec = 0) */
-/*     : primal_sampler_t(n, epsilon, min_expt, max_expt, prec) //fixed max/min */
-/*     { */
-/*     } */
-/*     //primal_u_sampler_t(int n, double epsilon, int min_expt, int max_expt); */
-/*   void update_item_exponent(sampler_item_t* t, int exp); */
-/* }; */
+  inline int
+  increment_exponent(sampler_item_t *w) {
+    exponent_entry_t* &e = w->exponent_entry;
+
+    if (! e->at_boundary) {
+      e += 1;
+    } else if (e->exponent < permanent_max_exponent - exponents_per_bucket) {//if in the last bucket, don't update the bucket
+      count_ops(3);
+
+      remove(w);
+      e += 1;
+      insert_in_bucket(w, e->bucket);
+    }
+    return e->exponent;
+  }
+ };
+
+ //modified sampler p_pXuh
+ class primal_u_sampler_t : public primal_sampler_t { 
+  public: 
+   primal_u_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec = 0) 
+     : primal_sampler_t(n, epsilon, min_expt, max_expt, prec)
+     { 
+     } 
+     //primal_u_sampler_t(int n, double epsilon, int min_expt, int max_expt); 
+   //void update_item_exponent(sampler_item_t* t, int exp); 
+
+  inline int
+  increment_exponent(sampler_item_t *w) {
+    exponent_entry_t* &e = w->exponent_entry;
+
+    if (! e->at_boundary) {
+      e -= 1;
+    } else {
+      count_ops(3);
+      
+      remove(w);
+      e -= 1;
+      insert_in_bucket(w, e->bucket);
+      if (e->exponent < permanent_max_exponent - exponents_per_bucket) {
+      	normalize_exponents(w);
+      }
+   }
+    return -e->exponent;
+  }
+
+  //when the exponent of an item being inserted into a bucket
+  //is very close to permanent_max_exponent, we need to normalize the exponents.
+  //By close we mean within a certain factor of permanent_max_exponent
+  void normalize_exponents(sampler_item_t* w);
+}; 
 
 #endif

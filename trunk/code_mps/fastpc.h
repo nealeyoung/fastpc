@@ -50,8 +50,8 @@ private:
   primal_sampler_t *p_p;
   dual_sampler_t *p_d;
 
-  primal_sampler_t *p_pXuh;
-  dual_sampler_t *p_dXu;
+  primal_u_sampler_t *p_pXuh;
+  dual_u_sampler_t *p_dXu;
 
   my_vector<line_element> M, MT, M_copy;
 
