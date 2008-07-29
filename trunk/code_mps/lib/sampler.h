@@ -23,18 +23,14 @@ class sampler_item_t {
   int i;			// index in collection
   double x;			// value (to get or set, not used internally)
   bool removed;			// if removed from collection
-
+  struct exponent_entry_t* exponent_entry; //made public for PLonjers
 
 protected:
-  struct exponent_entry_t* exponent_entry; //make public if polymorphism probs
   struct bucket_t* bucket;
   int index_in_bucket;
 
-
   friend class dual_sampler_t;
   friend class primal_sampler_t;
-  // friend class dual_u_sampler_t;
-  //friend class primal_u_sampler_t;
 };
 
 // abstractly, a dual_sampler_t S is a collection of items
@@ -92,6 +88,11 @@ public:
   //allows for insertion of element with arbitrary exponent, i.e.
   //arbitrary probability
   void update_item_exponent(sampler_item_t* t, int exp);
+  
+  //when the exponent of an item being inserted into a bucket
+  //is very close to permanent_max_exponent, we need to normalize the exponents.
+  //By close we mean within a certain factor of permanent_max_exponent
+  void normalize_exponents(sampler_item_t* w);
 
   //return total_weight, updating if necessary
   weight_t get_update_total_weight();
@@ -133,10 +134,11 @@ public:
   const int permanent_min_exponent;
   const int permanent_max_exponent;
   const int exponents_per_bucket;
+//  const double max_exp_fraction;
 
   int rebuilds;			// just for profiling
   int rebuild_ops;
-
+  
   void insert_in_bucket(sampler_item_t*, bucket_t*);
   weight_t max_bucket_weight(bucket_t*);
   weight_t exponent_weight(exponent_entry_t*);
@@ -149,17 +151,19 @@ public:
 
 public:
   inline int
-  increment_exponent(sampler_item_t *w) {
+  increment_exponent(sampler_item_t *w, bool temp_flag) {
     exponent_entry_t* &e = w->exponent_entry;
 
     if (! e->at_boundary) {
       e += 1;
-    } else{
+    } else if (!temp_flag || e->exponent < permanent_max_exponent - exponents_per_bucket) {
       count_ops(3);
 
       remove(w);
       e += 1;
       insert_in_bucket(w, e->bucket);
+      //      if (temp_flag)
+      //      normalize_exponents(w);//need to decide where to call this function
       // removing and inserting above may be less efficient
       // than direct implementation...?
     }
@@ -185,20 +189,23 @@ public:
     {
     }
   void init();
-
+	void normalize_exponents(sampler_item_t* w);
+	
   inline int
-  increment_exponent(sampler_item_t *w) {
+  increment_exponent(sampler_item_t *w, bool temp_flag) {
     exponent_entry_t* &e = w->exponent_entry;
 
     if (! e->at_boundary) {
       e -= 1;
-    } else{
+    } else {
       count_ops(3);
-
+      
       remove(w);
       e -= 1;
       insert_in_bucket(w, e->bucket);
-    }
+      if (temp_flag)
+	normalize_exponents(w);//need to decide where to call this function
+   }
     return -e->exponent;
   }
 };

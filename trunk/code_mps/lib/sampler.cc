@@ -1,10 +1,12 @@
 #include <math.h>
+#include <iostream.h>
+using namespace std;
 
 #include "sampler.h"
 
 dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec)
     : permanent_min_exponent(min_expt), permanent_max_exponent(max_expt),
-      eps(epsilon), exponents_per_bucket(ceil(1/eps))
+      eps(epsilon), exponents_per_bucket(ceil(1/eps))//, max_exp_fraction(ceil(1/eps))
 {
   assert(epsilon > 0 && epsilon <= 0.5);
   assert(min_expt < max_expt);
@@ -15,7 +17,7 @@ dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt
   total_weight_min_bucket = 0;
   rebuilds = 0;
   rebuild_ops = 0;
-
+  
   int n_expts = 1 + max_expt - min_expt;
 
   items.resize(n);
@@ -67,9 +69,12 @@ dual_sampler_t::init() {
   // insert items in buckets
   current_min_bucket = expt(permanent_min_exponent).bucket;
   current_max_bucket = current_min_bucket;
+  
+  cout << "IN INIT() \n";
 
   for (int i = 0;  i < items.size();  ++i) {
     items[i].exponent_entry = &expt(permanent_min_exponent);          //@steve change here for other distros u and uh
+    cout << "EXPONENT: " << items[i].exponent_entry->exponent << "\n";
     insert_in_bucket(&items[i],  items[i].exponent_entry->bucket);
   }
 }
@@ -159,8 +164,9 @@ dual_sampler_t::insert_in_bucket(sampler_item_t *w, bucket_t* b) {
 
   if (current_min_bucket == NULL || b < current_min_bucket)  {
     current_min_bucket = b;
-  } else
+  } else {
     total_weight += max_bucket_weight(b);
+	}
 }
 
 weight_t
@@ -367,6 +373,48 @@ if (total_weight_min_bucket != current_min_bucket) {
  return total_weight;
 }
 
+void
+dual_sampler_t::normalize_exponents(sampler_item_t* w) {
+	// int exp = w->exponent_entry->exponent;
+// 	if (exp > permanent_max_exponent - exponents_per_bucket) {
+// 		// we reduce the max exponent to 90% of the initial value 
+// 		//and reduce the other exponents by the same amount
+// 		int diff = ceil(0.2*exp);//@monik need to decide how much we reduce the exponents by
+//   	cout << "DUAL EXPONENT: " << exp << endl;
+//   	cout << "DUAL DIFF: " << diff << endl;
+
+// 		int updated_exponent;
+// 	  for (int i = 0;  i < items.size();  ++i) {
+// 	  	updated_exponent = items[i].exponent_entry->exponent - diff;
+// 	  	if (updated_exponent < permanent_min_exponent)
+// 	  		updated_exponent = permanent_min_exponent;
+// 	  	//cout << "NEW EXPONENT: " << updated_exponent << endl;//this way we will end up merging a few buckets with high probablity
+// 	  	update_item_exponent(&items[i], updated_exponent);
+// 	  }
+// 	}
+}
+
+void
+primal_sampler_t::normalize_exponents(sampler_item_t* w) {
+	int exp = w->exponent_entry->exponent;
+	if (exp < permanent_min_exponent + exponents_per_bucket) {
+		// we increase the max exponent to 90% of the initial value 
+		//and increase the other exponents by the same amount
+	        //what should this diff be? need to discuss.
+		int diff = floor(0.2*exp);
+  	cout << "PRIMAL EXPONENT: " << exp << endl;
+  	cout << "PRIMAL DIFF: " << diff << endl;
+
+		int updated_exponent;
+	  for (int i = 0;  i < items.size();  ++i) {
+	  	updated_exponent = items[i].exponent_entry->exponent - diff;
+	  	if (updated_exponent > permanent_max_exponent)
+		  updated_exponent = permanent_max_exponent;//these items have a low probability and probably will not be chosen any time
+	  	//cout << "NEW EXPONENT: " << updated_exponent << endl;
+	  	update_item_exponent(&items[i], updated_exponent);
+	  }
+	}
+}
 //must make copy of function for dual_u_sampler_t since the modified primal 
 //doesn't inherit the modified dual
 // void 
