@@ -37,10 +37,7 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     //read and parse 1st line of input (parameters)
     string s;
     in_file >> r >> c >> total >> s;
-    /*string s;
-    cin >> r >> c >> total >> s;
-    cout<< r << ", " << c << endl;
-    */
+
     M.resize(r);
     MT.resize(c);
     M_copy.resize(r);
@@ -72,7 +69,7 @@ solve_instance::solve_instance(double EPSILON, string infile) :
       in_file >> row  >> col >> val;  //took out string s 
       // find b
       if (in_file.eof()) break;
-      M[row].push_back(new nonzero_entry_t(val,eps/-1.0, p_d->get_ith(col), p_dXu->get_ith(col)));//remove u_sampler_pointer from the constructor
+      M[row].push_back(new nonzero_entry_t(val,eps/-1.0, p_d->get_ith(col), p_dXu->get_ith(col)));
       M_copy[row].push_back(new nonzero_entry_t(val, eps/-1.0, p_d->get_ith(col), p_dXu->get_ith(col)));
       MT[col].push_back(new nonzero_entry_t(val, eps, p_p->get_ith(row), p_pXuh->get_ith(row)));
     }
@@ -107,15 +104,12 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     //and that is required to ensure that all exponents in u are non-negative
     //and all exponents in u_hat are non-positive
     int min_u_exp = 0;
-//    int max_u_exp = MT[0].front()->exponent;
     int max_uh_exp = 0;
     int min_uh_exp = M[0].front()->exponent;
     for (int j = 0; j < c; j++) {
       int temp = MT[j].front()->exponent;
       if (temp < min_u_exp)
 				min_u_exp = temp;
-//      if (temp > max_u_exp)
-//				max_u_exp = temp;
     }
     for (int i = 0; i < r; i++) {
       int temp = M[i].front()->exponent;
@@ -125,44 +119,10 @@ solve_instance::solve_instance(double EPSILON, string infile) :
 				min_uh_exp = temp;
     }
 
-    cout << "min_u_exp " << min_u_exp << endl;
-    cout << "max_uh_exp " << max_uh_exp << endl;
-    
-//    int d_diff = 0;
-//    if (max_u_exp - min_u_exp > N+10-ceil(1/eps)) {
-//    	d_diff = max_u_exp - min_u_exp - (N+10-ceil(1/eps));
-//    }
-
     int p_diff = 0;
     if (max_uh_exp - min_uh_exp > N+10-ceil(1/eps)) {
     	p_diff = max_uh_exp - min_uh_exp - (N+10-ceil(1/eps));
     }
-
-    //initialize the new samplers based on the max/min exponents--add new
-    //buckets to accommodate more exponents
-//    p_pXuh = new primal_sampler_t(r, eps, 0, N+10+max_uh_exp - min_uh_exp);
-//    p_dXu = new dual_sampler_t(c, eps, 0, N+10+max_u_exp - min_u_exp);
-
-
-    //START HERE 
-    //WE NOW NEED TO PUT POINTERS TO NEW SAMPLER ITEMS IN THE NONZERO_ENTRIES FOR M AND MT
-
-    //set u_sampler pointers in M to elements of p_pXuh with indices corresponding
-    // to elements of p_p indicated by sampler_pointers
-//    for (int j = 0; j < r; ++j) {
-//      for (list<nonzero_entry_t*>::iterator x = M[j].begin(); x != M[j].end(); 
-//	   ++x) {
-//	(*x)->u_sampler_pointer = p_pXuh->get_ith((*x)->sampler_pointer->i);
-//      }
-//    }
-
-    //same for MT and pointers to p_dXu
-//    for (int i = 0; i < c; ++i) {
-//      for (list<nonzero_entry_t*>::iterator x = MT[i].begin(); x != MT[i].end();
-//	   ++x) {
-//	(*x)->u_sampler_pointer = p_dXu->get_ith((*x)->sampler_pointer->i);
-//      }
-//    }
 
     //re-initialize u_sampler_items with normalized exponents
     if (min_u_exp != 0) {
@@ -185,15 +145,6 @@ solve_instance::solve_instance(double EPSILON, string infile) :
 	      p_pXuh->update_item_exponent(item,exponent);
 	    }
     }
-
-    // //for p_pXuh
-//     for (int i = 0; i < r; i++) {
-//       p_pXuh->update_item_exponent(p_pXuh->get_ith(i), M[i].front()->exponent);
-//     }
-//     //for p_dXu
-//     for (int i = 0; i < c; i++) {
-//       p_dXu->update_item_exponent(p_dXu->get_ith(i), MT[i].front()->exponent);
-//     }
   }
 }
 
@@ -227,18 +178,12 @@ solve_instance::solve() {
     sampler_item_t* wi;
     sampler_item_t* wj;
     random_pair(&wi, &wj, p_p, p_d, p_pXuh, p_dXu);
-    //sampler_item_t* wi = p_p->sample();
+    
     int i = wi->i;
-    //cout<<"sampled1 "<< i <<endl << flush;
-
-    //sampler_item_t* wj = p_d->sample();
-    int j = wj->i;
-    //cout<<"sampled2 "<< j <<endl << flush;
-
+		int j = wj->i;
     ++n_samples;
 
     // line 6
-    
     double uh_i = M[i].front()->coeff;
     double u_j = MT[j].front()->coeff;
     double delta = 1/(uh_i + u_j);
@@ -246,12 +191,10 @@ solve_instance::solve() {
     wi->x += delta;
 
     // line 7
-    //    double random_num = rand()%1000;
     double z = (rand()%1000)/999.0;//@steve how much precision do we need here?
     //cout << "z: " << z << endl; //debug
 
     //line 8
-    //cout << j << ": ";
     {
       for (list<nonzero_entry_t*>::iterator x = MT[j].begin(); x != MT[j].end(); ++x) {
 	double increment = ((*x)->coeff)*delta;
@@ -266,30 +209,11 @@ solve_instance::solve() {
       }
       int size = MT[j].size();
       count_ops(12);  //not actual value-- how many??
-      // register line_element& column = MT[j];
-//       nonzero_entry_t** first = &column[0];
-
-//       int size = column.size();
-//       register nonzero_entry_t** last = &column[size-1];
-
-//       count_ops(12);
-
-//       for (register nonzero_entry_t** w = first;
-// 	   w <= last; 
-// 	   ++w) {
-   
-// 	// stop when a packing constraint becomes tight
-// 	if (p_p->increment_exponent((*w)->sampler_pointer) >= N)
-// 	  done = true;
-
-	
-//       }
       n_increments_p += size;
       count_ops(5*size);
     }
 
     // line 9 
-    // cout << i << ": ";
     {
 
       for (list<nonzero_entry_t*>::iterator x = M[i].begin(); x != M[i].end(); ++x) {
@@ -300,8 +224,8 @@ solve_instance::solve() {
 	  x = M[i].erase(x); // delete it //@steve should we still use x??
 	  --x;//test
 	  //read comments in the next block below
-	  uh_i = 2*M[i].front()->coeff;
-	  delta = 1/(u_j + uh_i); //this probably is not needed
+	  //uh_i = M[i].front()->coeff;
+	  //delta = 1/(u_j + uh_i); //this probably is not needed
 	  ++n_deletes;
 	  continue;
 	}	
@@ -330,7 +254,6 @@ solve_instance::solve() {
 	      if(row_front == *y) {    //if y is first element in row, i.e. current u-value came from y
 		int exp_diff = row_front->exponent - (*(++M[rowIndex].begin()))->exponent; //dif b/t exponents of first and second elements of row
 		if (exp_diff != 0) {
-			//@monik the new exponent may be close to/below the permanent_min_exponent because of normalization
 		  p_pXuh->update_item_exponent(row_front->u_sampler_pointer, row_front->u_sampler_pointer->exponent_entry->exponent - exp_diff);
 		}
 	      }
@@ -340,57 +263,8 @@ solve_instance::solve() {
 	} else {
 	  break;
 	}
-
-
-// 	//if the column is not active any more
-// 	if ((*x)->sampler_pointer->removed){ 
-// 	  x = M[i].erase(x); // delete it //@steve should we still use x??
-// 	  --x;//test
-// 	  ++n_deletes;
-// 	  continue;
-// 	}
-	// if (p_d->increment_exponent((*x)->sampler_pointer) >= N) {
-// 	  // if covering constraint is met, make it inactive
-// 	  p_d->remove((*x)->sampler_pointer); //@steve remove the nonzero_entry_t too??
-// 	  --J_size;
-// 	}
-      }  // -----------------------DON"T DELETE ME
-
-      // register line_element& row = M[i];
-//       nonzero_entry_t ** first = &row[0];
-//       int size = row.size();
-//       register nonzero_entry_t** last = &row[size-1];
-
-//       n_increments_d += size;
-//       count_ops(6*(size+1));
-
-//       for (register nonzero_entry_t** w = first;
-// 	   w <= last;
-// 	   ++w) {
-// 	//if the column is not active any more
-// 	if ((*w)->sampler_pointer->removed){ 
-// 	  row.remove(w - first); // delete it //@steve should we still use w??
-// 	  --w;
-// 	  --last;
-// 	  ++n_deletes;
-// 	  continue;
-// 	}
-// 	if (p_d->increment_exponent((*w)->sampler_pointer) >= N) {
-// 	  // if covering constraint is met, make it inactive
-// 	  p_d->remove((*w)->sampler_pointer); //@steve remove the nonzero_entry_t too??
-// 	  --J_size;
-// 	}
-//       }
-
-
-    }  //----------------DON"T DELETE ME
-
-
-    // cout << endl;
-
-    //	cout << "J size "<<J_size<<endl;
-    //	cout << N_d<<" "<<endl;
-
+      }
+    }
     if (J_size == 0) 
       done = true; 
     // stop when there is no active covering constraint (all are met)
@@ -515,6 +389,5 @@ int main(int argc, char *argv[])
 
   solve_instance I(epsilon, input_file);
   I.solve();
-
   return 0;
 }
