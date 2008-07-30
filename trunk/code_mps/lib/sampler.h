@@ -13,8 +13,8 @@ typedef long long unsigned weight_t;
 
 class dual_sampler_t;		// container supporting random sampling
 class primal_sampler_t;		// container supporting random sampling
-//class dual_u_sampler_t;         //ph X u sampler in alg
-//class primal_u_sampler_t;       //p X uh sampler in alg
+class dual_u_sampler_t;         //ph X u sampler in alg
+class primal_u_sampler_t;       //p X uh sampler in alg
 
 // sampler_item_t:
 //  a single sampleable item
@@ -84,18 +84,6 @@ public:
 
   void init();			// call after construction
   
-  //this method has been implemented for dual_sampler_t
-  //but it should actually be available to and implemented for
-  //only the new samplers (dual_u_sampler_t and primal_u_sampler_t)
-  //allows for insertion of element with arbitrary exponent, i.e.
-  //arbitrary probability
-  void update_item_exponent(sampler_item_t* t, int exp);
-  
-  //when the exponent of an item being inserted into a bucket
-  //is very close to permanent_max_exponent, we need to normalize the exponents.
-  //By close we mean within a certain factor of permanent_max_exponent
-  //void normalize_exponents(sampler_item_t* w);
-
   //return total_weight, updating if necessary
   weight_t get_update_total_weight();
   
@@ -201,8 +189,6 @@ public:
       remove(w);
       e -= 1;
       insert_in_bucket(w, e->bucket);
-//      if (temp_flag)
-//	normalize_exponents(w);//need to decide where to call this function
    }
     return -e->exponent;
   }
@@ -216,7 +202,10 @@ public:
      { 
      } 
      //dual_u_sampler_t(int n, double epsilon, int min_expt, int max_expt); 
-   //void update_item_exponent(sampler_item_t* t, int exp);
+
+  //allows for insertion of element with arbitrary exponent, i.e.
+  //arbitrary probability
+  void update_item_exponent(sampler_item_t* t, int exp);
 
   inline int
   increment_exponent(sampler_item_t *w) {
@@ -243,7 +232,10 @@ public:
      { 
      } 
      //primal_u_sampler_t(int n, double epsilon, int min_expt, int max_expt); 
-   //void update_item_exponent(sampler_item_t* t, int exp); 
+
+  //allows for insertion of element with arbitrary exponent, i.e.
+  //arbitrary probability
+  void update_item_exponent(sampler_item_t* t, int exp);
 
   inline int
   increment_exponent(sampler_item_t *w) {

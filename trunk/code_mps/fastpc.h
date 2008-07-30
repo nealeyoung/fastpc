@@ -66,12 +66,4 @@ public:
   void sudo_sort(my_vector<line_element> *matrix,int col );
 };
 
-/* struct nonzero_entry_t_comparator { */
-/*   bool operator()(nonzero_entry_t* a, nonzero_entry_t* b) { */
-/*     return (a->coeff < b->coeff); */
-/*   } */
-  
-  
-/* }; */
-
 #endif

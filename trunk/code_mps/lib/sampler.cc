@@ -73,7 +73,7 @@ dual_sampler_t::init() {
   cout << "IN INIT() \n";
 
   for (int i = 0;  i < items.size();  ++i) {
-    items[i].exponent_entry = &expt(permanent_min_exponent);          //@steve change here for other distros u and uh
+    items[i].exponent_entry = &expt(permanent_min_exponent);
     cout << "EXPONENT: " << items[i].exponent_entry->exponent << "\n";
     insert_in_bucket(&items[i],  items[i].exponent_entry->bucket);
   }
@@ -221,26 +221,6 @@ dual_sampler_t::random_weight_t(weight_t upper) {
 sampler_item_t*
 dual_sampler_t::sample() {
 
-  // if (total_weight_min_bucket != current_min_bucket) {
-//     ++rebuilds;
-
-//     assert(current_min_bucket);
-//     assert(current_max_bucket);
-
-//     total_weight = 0;
-//     total_weight_min_bucket = current_min_bucket;
-
-//     for (bucket_t* b = current_min_bucket;  b <= current_max_bucket;  ++b) {
-//       rebuild_ops += 6;
-//       count_ops(2);
-
-//       weight_t w = max_bucket_weight(b);
-//       if (w == 0) break;
-//       total_weight += w*b->size();
-//     }
-//   }
-  
-
   get_update_total_weight();  //does nothing if called from inside random_pair 
 
   assert(total_weight > 0);
@@ -280,18 +260,19 @@ dual_sampler_t::sample() {
   return NULL;
 }
 
+//check if appropriate attributes get updated for items and buckets
 void 
-dual_sampler_t::update_item_exponent(sampler_item_t* item, int exp) {
-  // exponent_entry_t* &e = item->exponent_entry;
-//   e += exp - e->exponent;
-//   remove(item);
-//   insert_in_bucket(item, e->bucket);
-  
+dual_u_sampler_t::update_item_exponent(sampler_item_t* item, int exp) {
   item->exponent_entry = &expt(exp);
   remove(item);
   insert_in_bucket(item,  item->exponent_entry->bucket);
-  //@monik we may also need to take care of current_min_bucket and current_max_bucket
-  //also check other variables related to buckets
+}
+
+void 
+primal_u_sampler_t::update_item_exponent(sampler_item_t* item, int exp) {
+  item->exponent_entry = &expt(exp);
+  remove(item);
+  insert_in_bucket(item,  item->exponent_entry->bucket);
 }
 
 //return the total_weight of the sampler, updating if necessary
@@ -318,27 +299,6 @@ if (total_weight_min_bucket != current_min_bucket) {
  return total_weight;
 }
 
-//void
-//dual_u_sampler_t::normalize_exponents(sampler_item_t* w) {
-	// int exp = w->exponent_entry->exponent;
-// 	if (exp > permanent_max_exponent - exponents_per_bucket) {
-// 		// we reduce the max exponent to 90% of the initial value 
-// 		//and reduce the other exponents by the same amount
-// 		int diff = ceil(0.2*exp);//@monik need to decide how much we reduce the exponents by
-//   	cout << "DUAL EXPONENT: " << exp << endl;
-//   	cout << "DUAL DIFF: " << diff << endl;
-
-// 		int updated_exponent;
-// 	  for (int i = 0;  i < items.size();  ++i) {
-// 	  	updated_exponent = items[i].exponent_entry->exponent - diff;
-// 	  	if (updated_exponent < permanent_min_exponent)
-// 	  		updated_exponent = permanent_min_exponent;
-// 	  	//cout << "NEW EXPONENT: " << updated_exponent << endl;//this way we will end up merging a few buckets with high probablity
-// 	  	update_item_exponent(&items[i], updated_exponent);
-// 	  }
-// 	}
-//}
-
 void
 primal_u_sampler_t::normalize_exponents(sampler_item_t* w) {
 	int exp = w->exponent_entry->exponent;
@@ -360,65 +320,3 @@ primal_u_sampler_t::normalize_exponents(sampler_item_t* w) {
 	  }
 	}
 }
-//must make copy of function for dual_u_sampler_t since the modified primal 
-//doesn't inherit the modified dual
-// void 
-// primal_u_sampler_t::update_item_exponent(sampler_item_t* item, int exp) {
-//   remove(item);
-//   item->exponent_entry = &expt(exp);
-//   insert_in_bucket(item,  item->exponent_entry->bucket);
-// }
-
-// primal_u_sampler_t::primal_u_sampler_t(int n, double epsilon, int min_expt, int max_expt)
-//     : permanent_min_exponent(-max_expt), permanent_max_exponent(-min_expt),
-//       eps(epsilon/(1+epsilon)), exponents_per_bucket(ceil(1/eps))
-// {
-//   int prec = 0; //will remove it later
-//   assert(epsilon > 0 && epsilon <= 0.5);
-//   assert(min_expt < max_expt);
-
-//   total_weight = 0;
-//   current_min_bucket = NULL;
-//   current_max_bucket = NULL;
-//   total_weight_min_bucket = 0;
-//   rebuilds = 0;
-//   rebuild_ops = 0;
-
-//   int n_expts = 1 + max_expt - min_expt;
-
-//   items.resize(n);
-//   exponents.resize(n_expts);
-//   buckets.resize(2+n_expts/exponents_per_bucket);
-
-//   count_ops(10+n+n_expts);
-
-// //   for (int i = 0;  i < items.size();  ++i) {
-// //     count_ops(6);
-
-// //     items[i].i = i;
-// //     items[i].x = 0;
-// //     items[i].removed = true;
-// //     items[i].exponent_entry = NULL;
-// //     items[i].bucket = NULL;
-// //     items[i].index_in_bucket = -1;
-// //   }
-
-//   for (int i = 0;  i < buckets.size();  ++i) {
-//     count_ops(1);
-
-//     buckets[i].min_exponent = permanent_max_exponent + 1;
-//   }
-
-//   for (int i = permanent_max_exponent;  i >= permanent_min_exponent;  --i) {
-//     count_ops(3);
-
-//     expt(i).exponent = i;
-//     expt(i).bucket = &buckets[(i-permanent_min_exponent)/exponents_per_bucket];
-//     expt(i).bucket->min_exponent = i;
-//   }
-
-//   // get rid of buckets with no exponents
-//   while (buckets.size() > 0
-// 	 && buckets[buckets.size()-1].min_exponent == permanent_max_exponent + 1)
-//     buckets.pop_back();
-// }
