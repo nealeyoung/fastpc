@@ -12,7 +12,10 @@ nonzero_entry_t::nonzero_entry_t(double value, double eps, sampler_item_t* sampl
   coeff(value),  sampler_pointer( sampler), u_sampler_pointer(u_sampler) 
 {
   //Need to be careful about taking floor or ceiling
-  exponent = ceil(log(value)/log(1-eps));//   =log base 1-eps (value)
+  if (eps > 0) //dual
+    exponent = floor(log(value)/log(1-eps));//   =log base 1-eps (value)
+  else //primal
+    exponent = ceil(log(value)/log(1-eps));//   =log base 1-eps (value)
 }
 
 solve_instance::solve_instance(double EPSILON, string infile) :
@@ -153,7 +156,7 @@ solve_instance::solve() {
   int J_size = c;	  // we have c active columns at the beginning
 
   bool done = false;
-//  unsigned iteration = 0;
+  unsigned iteration = 0;
 
   unsigned long n_samples = 0;
   unsigned long n_deletes = 0;
@@ -172,19 +175,24 @@ solve_instance::solve() {
   srand(time(0));
 
   while (!done){
-//    iteration++;
-//    cout <<"iteration "<<iteration<<endl;
+    iteration++;
+    cout <<"iteration "<<iteration<<endl;
 
     sampler_item_t* wi;
     sampler_item_t* wj;
     random_pair(&wi, &wj, p_p, p_d, p_pXuh, p_dXu);
     
     int i = wi->i;
-		int j = wj->i;
+    int j = wj->i;
     ++n_samples;
 
     // line 6
-    double uh_i = M[i].front()->coeff;
+    nonzero_entry_t* front_active = get_largest_active(&M[i]);
+    double uh_i;
+    if (front_active == NULL) //if all columns in the selected row are marked for deletion
+      uh_i = 0;
+    else
+      uh_i = front_active->coeff;
     double u_j = MT[j].front()->coeff;
     double delta = 1/(uh_i + u_j);
     wj->x += delta;
@@ -239,10 +247,7 @@ solve_instance::solve() {
 	    //we can recalculate delta every time x is deleted
 	    //and that could be a minor performance enhancement
 	    //even though we evaluate u_j and delta again, which is O(c) overall
-	    p_d->remove((*x)->sampler_pointer);
-	    
-	    //remove the corresponding sampler pointer from p_dXu
-	    p_dXu->remove((*x)->u_sampler_pointer);
+
 	    
 	    //update p_pXuh if u_hat changed for that row
 	    //iterate through this column in MT
@@ -250,14 +255,23 @@ solve_instance::solve() {
 	    int colIndex = (*x)->sampler_pointer->i;
 	    for (list<nonzero_entry_t*>::iterator y = MT[colIndex].begin(); y != MT[colIndex].end(); ++y) {
 	      int rowIndex = (*y)->sampler_pointer->i;
-	      nonzero_entry_t* row_front = M[rowIndex].front();
-	      if(row_front == *y) {    //if y is first element in row, i.e. current u-value came from y
-		int exp_diff = row_front->exponent - (*(++M[rowIndex].begin()))->exponent; //dif b/t exponents of first and second elements of row
-		if (exp_diff != 0) {
-		  p_pXuh->update_item_exponent(row_front->u_sampler_pointer, row_front->u_sampler_pointer->exponent_entry->exponent - exp_diff);
+	      nonzero_entry_t* row_active_front = get_largest_active(&M[rowIndex]);
+	      //nonzero_entry_t* row_front = M[rowIndex].front();
+	      if(row_active_front == *y && y != MT[colIndex].end()) {    //if y is first element in row, i.e. current u-value came from y
+		int exp_diff = (*y)->exponent - (*(++y))->exponent;//(*(++M[rowIndex].begin()))->exponent; //dif b/t exponents of first and second elements of row
+		--y;  //put y back where it should be after increment from previous step
+		if (exp_diff != 0) { //if y and next element don't have same exponent
+		  p_pXuh->update_item_exponent(row_active_front->u_sampler_pointer, row_active_front->u_sampler_pointer->exponent_entry->exponent - exp_diff);
 		}
 	      }
 	    }
+
+	    p_d->remove((*x)->sampler_pointer);
+	    
+	    //remove the corresponding sampler pointer from p_dXu
+	    p_dXu->remove((*x)->u_sampler_pointer);
+	    
+	    
 	    --J_size;
 	  }
 	} else {
@@ -282,7 +296,7 @@ solve_instance::solve() {
     for (line_element::iterator iter = M_copy[i].begin(); 
 	 iter != M_copy[i].end(); 
 	 ++iter)
-      tmp += (*iter)->sampler_pointer->x;
+      tmp += (*iter)->coeff * (*iter)->sampler_pointer->x;
     if (tmp > max_row)
       max_row = tmp;
   }
@@ -296,7 +310,7 @@ solve_instance::solve() {
     for (line_element::iterator iter = MT[j].begin();
          iter != MT[j].end(); 
 	 ++iter)
-      tmp += (*iter)->sampler_pointer->x;
+      tmp += (*iter)->coeff * (*iter)->sampler_pointer->x;
     if (tmp < min_col)
       min_col = tmp;
   }
@@ -365,6 +379,20 @@ void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_s
     *wi = p_p->sample();
     *wj = p_dXu->sample();
   }
+}
+
+nonzero_entry_t* solve_instance::get_largest_active(line_element* row) {
+  list<nonzero_entry_t*>::iterator y;
+  for (/* list<nonzero_entry_t*>::iterator*/	 y = (*row).begin(); y != (*row).end(); ++y) {
+    if (!(*y)->sampler_pointer->removed) {
+      if (*y == NULL) {
+        cout << "Booooooo " << endl << flush;
+      }
+      return *y;
+    }
+  }
+  cout << "In the forbidden lands!" << endl << flush;  
+  return NULL;  //shouldn't ever get here
 }
 
 int main(int argc, char *argv[])

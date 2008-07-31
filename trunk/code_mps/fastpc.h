@@ -30,6 +30,7 @@ class nonzero_entry_t {
   sampler_item_t* u_sampler_pointer;
   int exponent;
   nonzero_entry_t(double value, double eps, sampler_item_t* sampler, sampler_item_t* u_sampler);
+
   //bool operator<(nonzero_entry_t* a);
 };
 
@@ -60,10 +61,15 @@ private:
 
   void random_pair(sampler_item_t** wi, sampler_item_t** wj, dual_sampler_t* p_p, dual_sampler_t* p_d, dual_sampler_t* p_pXuh, dual_sampler_t* p_dXu);
 
+  nonzero_entry_t* get_largest_active(line_element* row);
+   
+
+
 public:	
   solve_instance(double epsilon, string file_name);
   void solve();
   void sudo_sort(my_vector<line_element> *matrix,int col );
 };
 
+ 
 #endif
