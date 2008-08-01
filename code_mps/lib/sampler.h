@@ -23,6 +23,12 @@ class sampler_item_t {
   int i;			// index in collection
   double x;			// value (to get or set, not used internally)
   bool removed;			// if removed from collection
+
+  // It will store the difference between the actual exponent of this item
+  //and the permanent_max_exponent. So, the actual exponent will be sum of the
+  // exponent in the exponent_entry and the exponent_overflow.
+  unsigned int exponent_overflow;
+  
   struct exponent_entry_t* exponent_entry; //made public for PLonjers
 
 protected:
@@ -124,7 +130,7 @@ public:
   const int permanent_min_exponent;
   const int permanent_max_exponent;
   const int exponents_per_bucket;
-//  const double max_exp_fraction;
+  const int NORMALIZE_SHIFT;
 
   int rebuilds;			// just for profiling
   int rebuild_ops;
@@ -216,15 +222,24 @@ public:
 
     if (! e->at_boundary) {
       e += 1;
-    } else if (e->exponent < permanent_max_exponent - exponents_per_bucket) {//if in the last bucket, don't update the bucket
+    } else if (e->exponent < permanent_max_exponent) {//boundary of a bucket but not the last bucket
       count_ops(3);
 
       remove(w);
       e += 1;
       insert_in_bucket(w, e->bucket);
+      //normalize when NORMALIZE_SHIFT buckets are empty at beginning of list
+      if (current_min_bucket->min_exponent >= (permanent_min_exponent + NORMALIZE_SHIFT*exponents_per_bucket))
+	normalize_exponents();
+    } else { //its the boundary of the last bucket
+      w->exponent_overflow++;
     }
     return e->exponent;
   }
+  //when the exponent of an item being inserted into a bucket
+  //is very close to permanent_max_exponent, we need to normalize the exponents.
+  //By close we mean within a certain factor of permanent_max_exponent
+  void normalize_exponents();
  };
 
  //modified sampler p_pXuh
@@ -245,11 +260,15 @@ public:
     exponent_entry_t* &e = w->exponent_entry;
 
     if (! e->at_boundary) {
-      e -= 1;
+      //change the exponent_entry only when the exponent_overflow has been decremented to zero (i.e. no overflow)
+      if (w->exponent_overflow > 0)
+	w->exponent_overflow--;
+      else
+	e -= 1;
     } else {
       count_ops(3);
-      if (e->exponent < permanent_max_exponent - exponents_per_bucket) {
-	normalize_exponents(w);
+      if (e->exponent < permanent_min_exponent + exponents_per_bucket) {
+	normalize_exponents();
       }
       remove(w);
       e -= 1;
@@ -261,7 +280,7 @@ public:
   //when the exponent of an item being inserted into a bucket
   //is very close to permanent_max_exponent, we need to normalize the exponents.
   //By close we mean within a certain factor of permanent_max_exponent
-  void normalize_exponents(sampler_item_t* w);
+  void normalize_exponents();
 }; 
 
 #endif
