@@ -6,7 +6,7 @@ using namespace std;
 
 dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec)
     : permanent_min_exponent(min_expt), permanent_max_exponent(max_expt),
-      eps(epsilon), exponents_per_bucket(ceil(1/eps))//, max_exp_fraction(ceil(1/eps))
+      eps(epsilon), exponents_per_bucket(ceil(1/eps)), NORMALIZE_SHIFT(1)
 {
   assert(epsilon > 0 && epsilon <= 0.5);
   assert(min_expt < max_expt);
@@ -35,6 +35,7 @@ dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt
     items[i].exponent_entry = NULL;
     items[i].bucket = NULL;
     items[i].index_in_bucket = -1;
+    items[i].exponent_overflow = 0;
   }
 
   for (int i = 0;  i < buckets.size();  ++i) {
@@ -266,19 +267,25 @@ dual_sampler_t::sample() {
 void 
 dual_u_sampler_t::update_item_exponent(sampler_item_t* item, int exp) {
   if(!item->removed) {
-    item->exponent_entry = &expt(exp);
-    remove(item);
-    insert_in_bucket(item,  item->exponent_entry->bucket);
+    exponent_entry_t* e = &expt(exp);
+    item->exponent_entry = e;
+    if (item->bucket != e->bucket) {//remove and re-insert only if the item goes into another bucket
+      remove(item);
+      insert_in_bucket(item, e->bucket);
+    }
   }
 }
 
 void 
 primal_u_sampler_t::update_item_exponent(sampler_item_t* item, int exp) {
- if(!item->removed) {
-  item->exponent_entry = &expt(exp);
-  remove(item);
-  insert_in_bucket(item,  item->exponent_entry->bucket);
- }
+  if(!item->removed) {
+    exponent_entry_t* e = &expt(exp);
+    item->exponent_entry = e;
+    if (item->bucket != e->bucket) {//remove and re-insert only if the item goes into another bucket
+      remove(item);
+      insert_in_bucket(item, e->bucket);
+    }
+  }
 }
 
 //return the total_weight of the sampler, updating if necessary
@@ -305,24 +312,34 @@ if (total_weight_min_bucket != current_min_bucket) {
  return total_weight;
 }
 
-void
-primal_u_sampler_t::normalize_exponents(sampler_item_t* w) {
-	int exp = w->exponent_entry->exponent;
-	if (exp < permanent_min_exponent + exponents_per_bucket) {
-		// we increase the max exponent to 90% of the initial value 
-		//and increase the other exponents by the same amount
-	        //what should this diff be? need to discuss.
-		int diff = floor(0.2*exp);
-  	cout << "PRIMAL EXPONENT: " << exp << endl;
-  	cout << "PRIMAL DIFF: " << diff << endl;
 
-		int updated_exponent;
-	  for (int i = 0;  i < items.size();  ++i) {
-	  	updated_exponent = items[i].exponent_entry->exponent - diff;
-	  	if (updated_exponent > permanent_max_exponent)
-		  updated_exponent = permanent_max_exponent;//these items have a low probability and probably will not be chosen any time
-	  	//cout << "NEW EXPONENT: " << updated_exponent << endl;
-	  	update_item_exponent(&items[i], updated_exponent);
-	  }
-	}
+//this approach to normalization doesn't directly take precision issues into account
+//maybe it would be better to normalize based on total weight in sampler
+void
+dual_u_sampler_t::normalize_exponents() {
+  int updated_exponent;
+  for (int i = 0;  i < items.size();  ++i) {
+    updated_exponent = items[i].exponent_entry->exponent + items[i].exponent_overflow - NORMALIZE_SHIFT*exponents_per_bucket;
+    if (updated_exponent > permanent_max_exponent) {
+      items[i].exponent_overflow = updated_exponent - permanent_max_exponent;
+      updated_exponent = permanent_max_exponent;
+    } else {
+      items[i].exponent_overflow = 0;
+      update_item_exponent(&items[i], updated_exponent);
+    }
+  }
+}
+
+void
+primal_u_sampler_t::normalize_exponents() {
+  int updated_exponent;
+  for (int i = 0;  i < items.size();  ++i) {
+    updated_exponent = items[i].exponent_entry->exponent + items[i].exponent_overflow + NORMALIZE_SHIFT*exponents_per_bucket;
+    if (updated_exponent > permanent_max_exponent) {
+      items[i].exponent_overflow = updated_exponent - permanent_max_exponent;
+      updated_exponent = permanent_max_exponent;//these items have a low probability and probably will not be chosen any time
+    }
+    //cout << "NEW EXPONENT: " << updated_exponent << endl;
+    update_item_exponent(&items[i], updated_exponent);
+  }
 }
