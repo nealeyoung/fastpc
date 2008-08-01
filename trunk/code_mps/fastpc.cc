@@ -16,6 +16,7 @@ nonzero_entry_t::nonzero_entry_t(double value, double eps, sampler_item_t* sampl
     exponent = floor(log(value)/log(1-eps));//   =log base 1-eps (value)
   else //primal
     exponent = ceil(log(value)/log(1-eps));//   =log base 1-eps (value)
+
 }
 
 solve_instance::solve_instance(double EPSILON, string infile) :
@@ -81,24 +82,24 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     line_element* first = &M[0];
     line_element* last = &M[r-1];
     for (line_element* p = first; p <= last; ++p) {
-      cout << "Inside loop "; //debug
+      //cout << "Inside loop "; //debug
       p->sort(list_sort_criteria()); //sort row linked list
       for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
-	cout << (*x)->exponent << " ";   
+	//	cout << (*x)->exponent << " ";   
       }
-      cout << "\n";
+      //cout << "\n";
     }
     
     //sort MT
     line_element* first_t = &MT[0];
     line_element* last_t = &MT[c-1];
     for (line_element* p = first_t; p <= last_t; ++p) {
-      cout << "Inside loop MT "; //debug
+      //cout << "Inside loop MT "; //debug
       p->sort(list_sort_criteria()); //sort row of MT linked list
       for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
-	cout << (*x)->exponent << " ";
+	//cout << (*x)->exponent << " ";
       }
-      cout << "\n";
+      //cout << "\n";
     }
 
     //find the minimum exponent for MT and maximum exponent for M
@@ -176,7 +177,7 @@ solve_instance::solve() {
 
   while (!done){
     iteration++;
-    cout <<"iteration "<<iteration<<endl;
+    //cout <<"iteration "<<iteration<<endl;
 
     sampler_item_t* wi;
     sampler_item_t* wj;
@@ -189,8 +190,12 @@ solve_instance::solve() {
     // line 6
     nonzero_entry_t* front_active = get_largest_active(&M[i]);
     double uh_i;
-    if (front_active == NULL) //if all columns in the selected row are marked for deletion
+    if (front_active == NULL) {//if all columns in the selected row are marked for deletion
       uh_i = 0;
+      p_p->remove(p_p->get_ith(i));
+      p_pXuh->remove(p_pXuh->get_ith(i));
+      continue;
+    }
     else
       uh_i = front_active->coeff;
     double u_j = MT[j].front()->coeff;
@@ -206,6 +211,12 @@ solve_instance::solve() {
     {
       for (list<nonzero_entry_t*>::iterator x = MT[j].begin(); x != MT[j].end(); ++x) {
 	double increment = ((*x)->coeff)*delta;
+
+	//if the row is not active any more
+	if ((*x)->u_sampler_pointer->removed){
+	  continue;
+	}	
+
 	if (increment >= z) {
 	  // stop when a packing constraint becomes tight
 	  p_pXuh->increment_exponent((*x)->u_sampler_pointer);
@@ -289,9 +300,9 @@ solve_instance::solve() {
 
   count_ops(3*r);
 
-  long max_row = 0;
+  double max_row = 0;
   for (int i=0; i<r; ++i){
-    long tmp = 0;
+    double tmp = 0;
     count_ops(3*M_copy[i].size());
     for (line_element::iterator iter = M_copy[i].begin(); 
 	 iter != M_copy[i].end(); 
@@ -303,9 +314,9 @@ solve_instance::solve() {
 
   count_ops(3*c);
 
-  long min_col = long(4*(N+2));
+  double min_col = long(4*(N+2));
   for (int j=0; j<c; ++j){
-    long tmp = 0;
+    double tmp = 0;
     count_ops(3*MT[j].size());
     for (line_element::iterator iter = MT[j].begin();
          iter != MT[j].end(); 
@@ -319,6 +330,7 @@ solve_instance::solve() {
 
   count_ops(2*c);
 
+  //compute this in previous for loops to save time
   for (int j=0; j<c; ++j) sum_x_p += p_d->get_ith(j)->x;
 
   count_ops(2*r);
@@ -382,12 +394,9 @@ void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_s
 }
 
 nonzero_entry_t* solve_instance::get_largest_active(line_element* row) {
-  list<nonzero_entry_t*>::iterator y;
-  for (/* list<nonzero_entry_t*>::iterator*/	 y = (*row).begin(); y != (*row).end(); ++y) {
+  //list<nonzero_entry_t*>::iterator y;
+  for (list<nonzero_entry_t*>::iterator	 y = (*row).begin(); y != (*row).end(); ++y) {
     if (!(*y)->sampler_pointer->removed) {
-      if (*y == NULL) {
-        cout << "Booooooo " << endl << flush;
-      }
       return *y;
     }
   }

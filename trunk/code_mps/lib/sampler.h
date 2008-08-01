@@ -133,6 +133,9 @@ public:
   weight_t max_bucket_weight(bucket_t*);
   weight_t exponent_weight(exponent_entry_t*);
   weight_t random_weight_t(weight_t);
+  //allows for insertion of element with arbitrary exponent, i.e.
+  //arbitrary probability
+  //void update_item_exponent(sampler_item_t* item, int exp);
   
   inline 
   exponent_entry_t& expt(int e) { 
@@ -203,9 +206,9 @@ public:
      } 
      //dual_u_sampler_t(int n, double epsilon, int min_expt, int max_expt); 
 
-  //allows for insertion of element with arbitrary exponent, i.e.
-  //arbitrary probability
-  void update_item_exponent(sampler_item_t* t, int exp);
+     //allows for insertion of element with arbitrary exponent, i.e.
+     //arbitrary probability
+     void update_item_exponent(sampler_item_t* item, int exp);
 
   inline int
   increment_exponent(sampler_item_t *w) {
@@ -232,10 +235,10 @@ public:
      { 
      } 
      //primal_u_sampler_t(int n, double epsilon, int min_expt, int max_expt); 
-
-  //allows for insertion of element with arbitrary exponent, i.e.
-  //arbitrary probability
-  void update_item_exponent(sampler_item_t* t, int exp);
+     //allows for insertion of element with arbitrary exponent, i.e.
+     //arbitrary probability
+     void update_item_exponent(sampler_item_t* item, int exp);
+  
 
   inline int
   increment_exponent(sampler_item_t *w) {
@@ -245,13 +248,12 @@ public:
       e -= 1;
     } else {
       count_ops(3);
-      
+      if (e->exponent < permanent_max_exponent - exponents_per_bucket) {
+	normalize_exponents(w);
+      }
       remove(w);
       e -= 1;
       insert_in_bucket(w, e->bucket);
-      if (e->exponent < permanent_max_exponent - exponents_per_bucket) {
-      	normalize_exponents(w);
-      }
    }
     return -e->exponent;
   }

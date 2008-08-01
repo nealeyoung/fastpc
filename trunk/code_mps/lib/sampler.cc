@@ -109,10 +109,12 @@ dual_sampler_t::remove(sampler_item_t *w) {
 
   assert(w);
   assert(! w->removed);
+
   bucket_t* bucket = w->bucket;
   assert(bucket);
   int i = w->index_in_bucket;
   assert(i >= 0);
+  //cout << "bucket " << bucket << "removed " << !w->removed << endl << flush; //debug
   int n = bucket->size()-1;
   if (i != n) {
     (*bucket)[i] = (*bucket)[n];
@@ -263,16 +265,20 @@ dual_sampler_t::sample() {
 //check if appropriate attributes get updated for items and buckets
 void 
 dual_u_sampler_t::update_item_exponent(sampler_item_t* item, int exp) {
-  item->exponent_entry = &expt(exp);
-  remove(item);
-  insert_in_bucket(item,  item->exponent_entry->bucket);
+  if(!item->removed) {
+    item->exponent_entry = &expt(exp);
+    remove(item);
+    insert_in_bucket(item,  item->exponent_entry->bucket);
+  }
 }
 
 void 
 primal_u_sampler_t::update_item_exponent(sampler_item_t* item, int exp) {
+ if(!item->removed) {
   item->exponent_entry = &expt(exp);
   remove(item);
   insert_in_bucket(item,  item->exponent_entry->bucket);
+ }
 }
 
 //return the total_weight of the sampler, updating if necessary
