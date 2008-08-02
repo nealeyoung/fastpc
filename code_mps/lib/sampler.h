@@ -216,6 +216,11 @@ public:
      //arbitrary probability
      void update_item_exponent(sampler_item_t* item, int exp);
 
+     //when the exponent of an item being inserted into a bucket
+     //is very close to permanent_max_exponent, we need to normalize the exponents.
+     //By close we mean within a certain factor of permanent_max_exponent
+     void normalize_exponents();
+
   inline int
   increment_exponent(sampler_item_t *w) {
     exponent_entry_t* &e = w->exponent_entry;
@@ -236,10 +241,7 @@ public:
     }
     return e->exponent;
   }
-  //when the exponent of an item being inserted into a bucket
-  //is very close to permanent_max_exponent, we need to normalize the exponents.
-  //By close we mean within a certain factor of permanent_max_exponent
-  void normalize_exponents();
+  
  };
 
  //modified sampler p_pXuh
@@ -254,6 +256,10 @@ public:
      //arbitrary probability
      void update_item_exponent(sampler_item_t* item, int exp);
   
+     //when the exponent of an item being inserted into a bucket
+    //is very close to permanent_max_exponent, we need to normalize the exponents.
+    //By close we mean within a certain factor of permanent_max_exponent
+    void normalize_exponents();
 
   inline int
   increment_exponent(sampler_item_t *w) {
@@ -277,10 +283,7 @@ public:
     return -e->exponent;
   }
 
-  //when the exponent of an item being inserted into a bucket
-  //is very close to permanent_max_exponent, we need to normalize the exponents.
-  //By close we mean within a certain factor of permanent_max_exponent
-  void normalize_exponents();
+  
 }; 
 
 #endif
