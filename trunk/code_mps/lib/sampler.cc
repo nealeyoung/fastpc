@@ -253,7 +253,8 @@ dual_sampler_t::sample() {
 	if (r < exponent_weight((*b)[i]->exponent_entry))
 	  return (*b)[i];
 	else {
-	  break;
+	  // break; //this restarts sampling process only from current sampler
+	  return NULL; //allows sampling to be restarted from beginning of RANDOM_PAIR
 	}
       }
     }

@@ -124,6 +124,8 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     }
 
     int p_diff = 0;
+    //shift the min exponent to the min exponent of the second bucket from left
+    //in the primal sampler
     if (max_uh_exp - min_uh_exp > N+10-ceil(1/eps)) {
     	p_diff = max_uh_exp - min_uh_exp - (N+10-ceil(1/eps));
     }
@@ -133,8 +135,10 @@ solve_instance::solve_instance(double EPSILON, string infile) :
 	    for (int i = 0; i < c; i++) {
 	      sampler_item_t* item = p_dXu->get_ith(i);
 	      int exponent = MT[i].front()->exponent - min_u_exp;
-	      if (exponent > max_exp)
-	      	exponent = max_exp;
+	      if (exponent > max_exp) {
+	      	item->exponent_overflow = exponent - max_exp; //initialize overflow if necessary
+		exponent = max_exp;
+	      }
 	      //cout << "exponent: " << exponent << endl;
 	      p_dXu->update_item_exponent(item,exponent);
 	    }
@@ -143,8 +147,10 @@ solve_instance::solve_instance(double EPSILON, string infile) :
 	    for (int j = 0; j < r; j++) {
 	      sampler_item_t* item = p_pXuh->get_ith(j);
 	      int exponent = M[j].front()->exponent - max_uh_exp + p_diff;
-	      if (exponent > 0)
-	      	exponent = 0;
+	      if (exponent > 0) {
+	      	item->exponent_overflow = exponent;
+		exponent = 0;
+	      }
 	      //cout << "exponent: " << exponent << endl;
 	      p_pXuh->update_item_exponent(item,exponent);
 	    }
@@ -380,16 +386,31 @@ void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_s
   double p_pXuh_wt = p_pXuh->get_update_total_weight();
   double p_dXu_wt = p_dXu->get_update_total_weight();
 
-  float z = (rand()%1000)/999.0;
   double prob = (p_pXuh_wt*p_d_wt)/(p_pXuh_wt*p_d_wt + p_p_wt*p_dXu_wt);
 
-  if (prob > z) {
-    *wi = p_pXuh->sample();
-    *wj = p_d->sample();
-  }
-  else {
-    *wi = p_p->sample();
-    *wj = p_dXu->sample();
+
+  //restart entire sampling process if any sampler fails
+  while (1) {
+    float z = (rand()%1000)/999.0;
+  
+    if (prob > z) {
+      *wi = p_pXuh->sample();
+      if ((*wi) == NULL)
+	continue;
+      *wj = p_d->sample();
+      if ((*wj) == NULL)
+	continue;
+      break;
+    }
+    else {
+      *wi = p_p->sample();
+      if ((*wi) == NULL)
+	continue;
+      *wj = p_dXu->sample();
+      if ((*wj) == NULL)
+	continue;
+      break;
+    }
   }
 }
 
