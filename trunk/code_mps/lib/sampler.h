@@ -119,7 +119,8 @@ public:
 				// see bucket_t above
 
   weight_t total_weight; 	// upper bound on total of all weights
-  bucket_t* total_weight_min_bucket; // ...recalc if min_bucket changes
+  //bucket_t* total_weight_min_bucket; // ...recalc if min_bucket changes
+  bool recalculate_weight; //use instead of total_weight_min_bucket
 
   // Instead of keeping track of total weight exactly,
   // we count the weight of each item in a given bucket

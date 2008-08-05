@@ -14,9 +14,10 @@ dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt
   total_weight = 0;
   current_min_bucket = NULL;
   current_max_bucket = NULL;
-  total_weight_min_bucket = 0;
+  //  total_weight_min_bucket = 0;
   rebuilds = 0;
   rebuild_ops = 0;
+  recalculate_weight = true;
 
   exp_shift = 0;
   exp_shift_updated = true;
@@ -139,6 +140,7 @@ dual_sampler_t::remove(sampler_item_t *w) {
     current_min_bucket->shrink();
     ++current_min_bucket;
     exp_shift_updated = true;
+    recalculate_weight = true; //since exponents will carry different weights now
     if (current_min_bucket - &buckets[0] >= buckets.size()) {
       current_min_bucket == NULL;
       break;
@@ -173,8 +175,9 @@ dual_sampler_t::insert_in_bucket(sampler_item_t *w, bucket_t* b) {
 
   if (current_min_bucket == NULL || b < current_min_bucket)  {
     exp_shift_updated = true;
+    recalculate_weight = true;
     current_min_bucket = b;
-  } else {  //@steve-- why else?  does this item's weight ever get counted?
+  } else {  
     total_weight += max_bucket_weight(b);
 	}
 }
@@ -297,14 +300,15 @@ primal_u_sampler_t::update_item_exponent(sampler_item_t* item, int exp) {
 
 weight_t
 dual_sampler_t::get_update_total_weight() {
-if (total_weight_min_bucket != current_min_bucket) {
+if (recalculate_weight) {
     ++rebuilds;
 
     assert(current_min_bucket);
     assert(current_max_bucket);
 
     total_weight = 0;
-    total_weight_min_bucket = current_min_bucket;
+    //    total_weight_min_bucket = current_min_bucket;
+    recalculate_weight = false;
 
     for (bucket_t* b = current_min_bucket;  b < current_max_bucket;  ++b) { //handle last bucket separately
       rebuild_ops += 6;
@@ -357,6 +361,7 @@ dual_u_sampler_t::normalize_exponents() {
   int total_shift = NORMALIZE_SHIFT*exponents_per_bucket;
   exp_shift += total_shift;
   exp_shift_updated = true;
+  recalculate_weight = true;
   int updated_exponent;
   for (int i = 0;  i < items.size();  ++i) {
     updated_exponent = items[i].exponent_entry->exponent + items[i].exponent_overflow - total_shift;
@@ -375,6 +380,8 @@ primal_u_sampler_t::normalize_exponents() {
   int total_shift = NORMALIZE_SHIFT*exponents_per_bucket;
   exp_shift += total_shift;
   exp_shift_updated = true;
+  recalculate_weight = true;
+
   int updated_exponent;
   for (int i = 0;  i < items.size();  ++i) {
     updated_exponent = items[i].exponent_entry->exponent + items[i].exponent_overflow + total_shift;
@@ -396,7 +403,7 @@ dual_sampler_t::get_exponent_shift() {
 int
 primal_sampler_t::get_exponent_shift() {
   //cout << "RIGHT EXPONENT_SHIFT: " << current_min_bucket->min_exponent - permanent_min_exponent << endl << flush;
-  return current_min_bucket->min_exponent - permanent_min_exponent;
+  return dual_sampler_t::get_exponent_shift();
 }
 
 int
