@@ -59,11 +59,12 @@ private:
   string file_name;
   double eps, epsilon;
 
+  weight_t p_shift_ratio;
+  weight_t d_shift_ratio;
+
   void random_pair(sampler_item_t** wi, sampler_item_t** wj, dual_sampler_t* p_p, dual_sampler_t* p_d, dual_sampler_t* p_pXuh, dual_sampler_t* p_dXu);
 
   nonzero_entry_t* get_largest_active(line_element* row);
-   
-
 
 public:	
   solve_instance(double epsilon, string file_name);

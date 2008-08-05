@@ -19,7 +19,7 @@ dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt
   rebuild_ops = 0;
 
   exp_shift = 0;
-  exp_shift_updated = false;
+  exp_shift_updated = true;
   
   int n_expts = 1 + max_expt - min_expt;
 
@@ -47,6 +47,7 @@ dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt
     buckets[i].min_exponent = permanent_max_exponent + 1;
   }
 
+  //possible optimization-- only compute new bucket once per bucket (at edge)
   for (int i = permanent_max_exponent;  i >= permanent_min_exponent;  --i) {
     count_ops(3);
 
@@ -85,6 +86,7 @@ dual_sampler_t::init() {
 
 void
 primal_sampler_t::init() {
+  cout << "PRIMAL INIT --------" << endl;
   count_ops(buckets.size() + items.size()*2);
 
   // primal exponents decrease
@@ -136,6 +138,7 @@ dual_sampler_t::remove(sampler_item_t *w) {
 
     current_min_bucket->shrink();
     ++current_min_bucket;
+    exp_shift_updated = true;
     if (current_min_bucket - &buckets[0] >= buckets.size()) {
       current_min_bucket == NULL;
       break;
@@ -169,8 +172,9 @@ dual_sampler_t::insert_in_bucket(sampler_item_t *w, bucket_t* b) {
   } 
 
   if (current_min_bucket == NULL || b < current_min_bucket)  {
+    exp_shift_updated = true;
     current_min_bucket = b;
-  } else {
+  } else {  //@steve-- why else?  does this item's weight ever get counted?
     total_weight += max_bucket_weight(b);
 	}
 }
@@ -193,8 +197,7 @@ dual_sampler_t::exponent_weight(exponent_entry_t* expt) {
     count_ops(30);
 
     int exp_offset = expt->exponent - current_min_bucket->min_exponent;
-    expt->cached_weight = 
-      weight_t(pow(1.0-eps, exp_offset)*(MAX_WEIGHT_T/(2*items.size())));
+    expt->cached_weight = exact_exp_weight(exp_offset);
     expt->cached_weight_min_bucket = current_min_bucket;
   }
   return  expt->cached_weight;
@@ -323,6 +326,11 @@ dual_sampler_t::non_overflow_size(bucket_t* b) {
 }
 
 int
+primal_sampler_t::non_overflow_size(bucket_t* b) {
+  return dual_sampler_t::non_overflow_size(b);
+}
+
+int
 dual_u_sampler_t::non_overflow_size(bucket_t* b) {
   int num = 0;
   for (my_vector<sampler_item_t*>::iterator y = (*b).begin(); y != (*b).end(); ++y) {
@@ -377,4 +385,32 @@ primal_u_sampler_t::normalize_exponents() {
     //cout << "NEW EXPONENT: " << updated_exponent << endl;
     update_item_exponent(&items[i], updated_exponent);
   }
+}
+
+int
+dual_sampler_t::get_exponent_shift() {
+  //cout << "WRONG EXPONENT_SHIFT: " << current_min_bucket->min_exponent - permanent_min_exponent << endl << flush;
+  return current_min_bucket->min_exponent - permanent_min_exponent;
+}
+
+int
+primal_sampler_t::get_exponent_shift() {
+  //cout << "RIGHT EXPONENT_SHIFT: " << current_min_bucket->min_exponent - permanent_min_exponent << endl << flush;
+  return current_min_bucket->min_exponent - permanent_min_exponent;
+}
+
+int
+dual_u_sampler_t::get_exponent_shift() {
+  //cout << "EXPONENT_SHIFT: " << exp_shift + current_min_bucket->min_exponent - permanent_min_exponent << endl;
+  return exp_shift + current_min_bucket->min_exponent - permanent_min_exponent;
+}
+
+int
+primal_u_sampler_t::get_exponent_shift() {
+  return exp_shift + current_min_bucket->min_exponent - permanent_min_exponent;
+}
+
+weight_t
+dual_sampler_t::exact_exp_weight(int exp) {
+  return weight_t(pow(1.0-eps, exp)*(MAX_WEIGHT_T/(2*items.size())));
 }

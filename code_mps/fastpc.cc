@@ -22,7 +22,9 @@ nonzero_entry_t::nonzero_entry_t(double value, double eps, sampler_item_t* sampl
 solve_instance::solve_instance(double EPSILON, string infile) :
   eps(0.9*EPSILON),
   epsilon(EPSILON),
-  file_name(infile)
+  file_name(infile),
+  p_shift_ratio(-1),
+  d_shift_ratio(-1)
 {
   // constructor reads the input and creates matrices M and MT (transpose)
   int row, col, total;
@@ -387,9 +389,40 @@ void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_s
   double p_pXuh_wt = p_pXuh->get_update_total_weight();
   double p_dXu_wt = p_dXu->get_update_total_weight();
 
-  double prob = (p_pXuh_wt*p_d_wt)/(p_pXuh_wt*p_d_wt + p_p_wt*p_dXu_wt);
+  //cout << "P_P_WT: " << p_p_wt << endl;
+  //cout << "P_D_WT: " << p_d_wt << endl;
+  //cout << "P_PXUH_WT: " << p_pXuh_wt << endl;
+  //cout << "P_DXU_WT: " << p_dXu_wt << endl;
 
+  //cout << "P_D_EXP_SHIFT: " << p_d->get_exponent_shift() << endl;
+  //cout << "P_DXU_EXP_SHIFT: " << p_dXu->get_exponent_shift() << endl;
+  //p_dXu->get_exponent_shift();
 
+  if (p_p->exp_shift_updated || p_pXuh->exp_shift_updated) {
+    p_shift_ratio = p_p->exact_exp_weight(p_p->get_exponent_shift() - p_pXuh->get_exponent_shift());
+    p_p->exp_shift_updated = false;
+    p_pXuh->exp_shift_updated = false;
+  }
+  if (p_d->exp_shift_updated || p_dXu->exp_shift_updated) {
+    d_shift_ratio = p_d->exact_exp_weight(p_d->get_exponent_shift() - p_dXu->get_exponent_shift());
+    p_d->exp_shift_updated = false;
+    p_dXu->exp_shift_updated = false;
+  }
+
+  cout << "P_SHIFT_RATIO: " << p_shift_ratio << endl;
+  cout << "d_SHIFT_RATIO: " << d_shift_ratio << endl;
+
+  double temp_1 = p_p_wt/p_pXuh_wt;
+  double temp_2 = p_dXu_wt/p_d_wt;
+  double temp_3 = (double)p_shift_ratio/d_shift_ratio;
+
+  cout << "TEMP_1: " << temp_1 << endl;
+  cout << "TEMP_2: " << temp_2 << endl;
+  cout << "TEMP_3: " << temp_3 << endl;
+
+  double prob = 1.0 / (1 + (temp_1*temp_2*temp_3));
+  cout << "FINAL PROB: " << prob << endl;
+  cout << endl << flush;
   //restart entire sampling process if any sampler fails
   while (1) {
     float z = (rand()%1000)/999.0;
