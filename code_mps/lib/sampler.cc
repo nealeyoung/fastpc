@@ -17,6 +17,9 @@ dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt
   total_weight_min_bucket = 0;
   rebuilds = 0;
   rebuild_ops = 0;
+
+  exp_shift = 0;
+  exp_shift_updated = false;
   
   int n_expts = 1 + max_expt - min_expt;
 
@@ -71,11 +74,11 @@ dual_sampler_t::init() {
   current_min_bucket = expt(permanent_min_exponent).bucket;
   current_max_bucket = current_min_bucket;
   
-  cout << "IN INIT() \n";
+  // cout << "IN INIT() \n";
 
   for (int i = 0;  i < items.size();  ++i) {
     items[i].exponent_entry = &expt(permanent_min_exponent);
-    cout << "EXPONENT: " << items[i].exponent_entry->exponent << "\n";
+    // cout << "EXPONENT: " << items[i].exponent_entry->exponent << "\n";
     insert_in_bucket(&items[i],  items[i].exponent_entry->bucket);
   }
 }
@@ -289,7 +292,6 @@ primal_u_sampler_t::update_item_exponent(sampler_item_t* item, int exp) {
   }
 }
 
-//return the total_weight of the sampler, updating if necessary
 weight_t
 dual_sampler_t::get_update_total_weight() {
 if (total_weight_min_bucket != current_min_bucket) {
@@ -301,7 +303,7 @@ if (total_weight_min_bucket != current_min_bucket) {
     total_weight = 0;
     total_weight_min_bucket = current_min_bucket;
 
-    for (bucket_t* b = current_min_bucket;  b <= current_max_bucket;  ++b) {
+    for (bucket_t* b = current_min_bucket;  b < current_max_bucket;  ++b) { //handle last bucket separately
       rebuild_ops += 6;
       count_ops(2);
 
@@ -309,18 +311,47 @@ if (total_weight_min_bucket != current_min_bucket) {
       if (w == 0) break;
       total_weight += w*b->size();
     }
+    //don't add weights for the items that have overflow as their weights are small enough (relative) to be ignored
+    total_weight += max_bucket_weight(current_max_bucket)*non_overflow_size(current_max_bucket);
   }
- return total_weight;
+  return total_weight;
 }
 
+int
+dual_sampler_t::non_overflow_size(bucket_t* b) {
+  return b->size();
+}
+
+int
+dual_u_sampler_t::non_overflow_size(bucket_t* b) {
+  int num = 0;
+  for (my_vector<sampler_item_t*>::iterator y = (*b).begin(); y != (*b).end(); ++y) {
+    if ((*y)->exponent_overflow == 0)
+      num++;
+  }
+  return num;
+}
+
+int
+primal_u_sampler_t::non_overflow_size(bucket_t* b) {
+  int num = 0;
+  for (my_vector<sampler_item_t*>::iterator y = (*b).begin(); y != (*b).end(); ++y) {
+    if ((*y)->exponent_overflow == 0)
+      num++;
+  }
+  return num;
+}
 
 //this approach to normalization doesn't directly take precision issues into account
 //maybe it would be better to normalize based on total weight in sampler
 void
 dual_u_sampler_t::normalize_exponents() {
+  int total_shift = NORMALIZE_SHIFT*exponents_per_bucket;
+  exp_shift += total_shift;
+  exp_shift_updated = true;
   int updated_exponent;
   for (int i = 0;  i < items.size();  ++i) {
-    updated_exponent = items[i].exponent_entry->exponent + items[i].exponent_overflow - NORMALIZE_SHIFT*exponents_per_bucket;
+    updated_exponent = items[i].exponent_entry->exponent + items[i].exponent_overflow - total_shift;
     if (updated_exponent > permanent_max_exponent) {
       items[i].exponent_overflow = updated_exponent - permanent_max_exponent;
       updated_exponent = permanent_max_exponent;
@@ -333,9 +364,12 @@ dual_u_sampler_t::normalize_exponents() {
 
 void
 primal_u_sampler_t::normalize_exponents() {
+  int total_shift = NORMALIZE_SHIFT*exponents_per_bucket;
+  exp_shift += total_shift;
+  exp_shift_updated = true;
   int updated_exponent;
   for (int i = 0;  i < items.size();  ++i) {
-    updated_exponent = items[i].exponent_entry->exponent + items[i].exponent_overflow + NORMALIZE_SHIFT*exponents_per_bucket;
+    updated_exponent = items[i].exponent_entry->exponent + items[i].exponent_overflow + total_shift;
     if (updated_exponent > permanent_max_exponent) {
       items[i].exponent_overflow = updated_exponent - permanent_max_exponent;
       updated_exponent = permanent_max_exponent;//these items have a low probability and probably will not be chosen any time
