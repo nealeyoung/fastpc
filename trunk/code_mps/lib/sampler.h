@@ -92,7 +92,9 @@ public:
   
   //return total_weight, updating if necessary
   weight_t get_update_total_weight();
-  
+
+  //count number of non-overflown items in a bucket
+  int non_overflow_size(bucket_t* b);  
   sampler_item_t* get_ith(int i) { return &items[i]; } 
 				// access item with index i
   sampler_item_t* sample();	// randomly sample an item
@@ -102,6 +104,10 @@ public:
   int get_exponent(sampler_item_t* s) { return s->exponent_entry->exponent; }
   int n_rebuilds();
   int n_rebuild_ops();
+  //total shift in exponents between the ones currently stored and actual; incremented on normalization 
+  int exp_shift; 
+  bool exp_shift_updated; 
+
 
   protected:
   const double eps;
@@ -184,8 +190,10 @@ public:
     {
     }
   void init();
-	//void normalize_exponents(sampler_item_t* w);
 	
+  //count number of non-overflown items in a bucket
+  int non_overflow_size(bucket_t* b);
+
   inline int
   increment_exponent(sampler_item_t *w) {
     exponent_entry_t* &e = w->exponent_entry;
@@ -220,28 +228,30 @@ public:
      //is very close to permanent_max_exponent, we need to normalize the exponents.
      //By close we mean within a certain factor of permanent_max_exponent
      void normalize_exponents();
+     
+     //count number of non-overflown items in a bucket
+     int non_overflow_size(bucket_t* b);
 
-  inline int
-  increment_exponent(sampler_item_t *w) {
-    exponent_entry_t* &e = w->exponent_entry;
+     inline int
+       increment_exponent(sampler_item_t *w) {
+       exponent_entry_t* &e = w->exponent_entry;
 
-    if (! e->at_boundary) {
-      e += 1;
-    } else if (e->exponent < permanent_max_exponent) {//boundary of a bucket but not the last bucket
-      count_ops(3);
+       if (! e->at_boundary) {
+	 e += 1;
+       } else if (e->exponent < permanent_max_exponent) {//boundary of a bucket but not the last bucket
+	 count_ops(3);
 
-      remove(w);
-      e += 1;
-      insert_in_bucket(w, e->bucket);
-      //normalize when NORMALIZE_SHIFT buckets are empty at beginning of list
-      if (current_min_bucket->min_exponent >= (permanent_min_exponent + NORMALIZE_SHIFT*exponents_per_bucket))
-	normalize_exponents();
-    } else { //its the boundary of the last bucket
-      w->exponent_overflow++;
-    }
-    return e->exponent;
-  }
-  
+	 remove(w);
+	 e += 1;
+	 insert_in_bucket(w, e->bucket);
+	 //normalize when NORMALIZE_SHIFT buckets are empty at beginning of list
+	 if (current_min_bucket->min_exponent >= (permanent_min_exponent + NORMALIZE_SHIFT*exponents_per_bucket))
+	   normalize_exponents();
+       } else { //its the boundary of the last bucket
+	 w->exponent_overflow++;
+       }
+       return e->exponent;
+     }
  };
 
  //modified sampler p_pXuh
@@ -257,33 +267,34 @@ public:
      void update_item_exponent(sampler_item_t* item, int exp);
   
      //when the exponent of an item being inserted into a bucket
-    //is very close to permanent_max_exponent, we need to normalize the exponents.
-    //By close we mean within a certain factor of permanent_max_exponent
-    void normalize_exponents();
+     //is very close to permanent_max_exponent, we need to normalize the exponents.
+     //By close we mean within a certain factor of permanent_max_exponent
+     void normalize_exponents();
 
-  inline int
-  increment_exponent(sampler_item_t *w) {
-    exponent_entry_t* &e = w->exponent_entry;
+     //count number of non-overflown items in a bucket
+     int non_overflow_size(bucket_t* b);
 
-    if (! e->at_boundary) {
-      //change the exponent_entry only when the exponent_overflow has been decremented to zero (i.e. no overflow)
-      if (w->exponent_overflow > 0)
-	w->exponent_overflow--;
-      else
-	e -= 1;
-    } else {
-      count_ops(3);
-      if (e->exponent < permanent_min_exponent + exponents_per_bucket) {
-	normalize_exponents();
-      }
-      remove(w);
-      e -= 1;
-      insert_in_bucket(w, e->bucket);
-   }
-    return -e->exponent;
-  }
+     inline int
+       increment_exponent(sampler_item_t *w) {
+       exponent_entry_t* &e = w->exponent_entry;
 
-  
+       if (! e->at_boundary) {
+	 //change the exponent_entry only when the exponent_overflow has been decremented to zero (i.e. no overflow)
+	 if (w->exponent_overflow > 0)
+	   w->exponent_overflow--;
+	 else
+	   e -= 1;
+       } else {
+	 count_ops(3);
+	 if (e->exponent < permanent_min_exponent + exponents_per_bucket) {
+	   normalize_exponents();
+	 }
+	 remove(w);
+	 e -= 1;
+	 insert_in_bucket(w, e->bucket);
+       }
+       return -e->exponent;
+     }
 }; 
 
 #endif

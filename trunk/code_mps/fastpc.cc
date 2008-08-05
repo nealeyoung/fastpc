@@ -73,8 +73,8 @@ solve_instance::solve_instance(double EPSILON, string infile) :
       in_file >> row  >> col >> val;  //took out string s 
       // find b
       if (in_file.eof()) break;
-      M[row].push_back(new nonzero_entry_t(val,eps/-1.0, p_d->get_ith(col), p_dXu->get_ith(col)));
-      M_copy[row].push_back(new nonzero_entry_t(val, eps/-1.0, p_d->get_ith(col), p_dXu->get_ith(col)));
+      M[row].push_back(new nonzero_entry_t(val,eps*(-1.0), p_d->get_ith(col), p_dXu->get_ith(col)));
+      M_copy[row].push_back(new nonzero_entry_t(val, eps*(-1.0), p_d->get_ith(col), p_dXu->get_ith(col)));
       MT[col].push_back(new nonzero_entry_t(val, eps, p_p->get_ith(row), p_pXuh->get_ith(row)));
     }
 
@@ -107,8 +107,8 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     //these will be used to normalize the exponents in the matrices
     //and that is required to ensure that all exponents in u are non-negative
     //and all exponents in u_hat are non-positive
-    int min_u_exp = 0;
-    int max_uh_exp = 0;
+    int min_u_exp = MT[0].front()->exponent;
+    int max_uh_exp = M[0].front()->exponent;
     int min_uh_exp = M[0].front()->exponent;
     for (int j = 0; j < c; j++) {
       int temp = MT[j].front()->exponent;
@@ -130,6 +130,7 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     	p_diff = max_uh_exp - min_uh_exp - (N+10-ceil(1/eps));
     }
 
+    //@TODO UPDATE EXP_SHIFT AND EXP_SHIFT_UPDATED HERE
     //re-initialize u_sampler_items with normalized exponents
     if (min_u_exp != 0) {
 	    for (int i = 0; i < c; i++) {
@@ -421,8 +422,7 @@ nonzero_entry_t* solve_instance::get_largest_active(line_element* row) {
       return *y;
     }
   }
-  cout << "In the forbidden lands!" << endl << flush;  
-  return NULL;  //shouldn't ever get here
+  return NULL;  //gets here when all row items have been marked for deletion
 }
 
 int main(int argc, char *argv[])
