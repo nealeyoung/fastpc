@@ -94,7 +94,7 @@ public:
   weight_t get_update_total_weight();
 
   //count number of non-overflown items in a bucket
-  int non_overflow_size(bucket_t* b);  
+  virtual int non_overflow_size(bucket_t* b);  
   sampler_item_t* get_ith(int i) { return &items[i]; } 
 				// access item with index i
   sampler_item_t* sample();	// randomly sample an item
@@ -102,6 +102,8 @@ public:
 				// remove item from collection
 
   int get_exponent(sampler_item_t* s) { return s->exponent_entry->exponent; }
+  virtual int get_exponent_shift(); //how much items have been normalized
+  weight_t exact_exp_weight(int exp); //calculate exact weight for given exponent
   int n_rebuilds();
   int n_rebuild_ops();
   //total shift in exponents between the ones currently stored and actual; incremented on normalization 
@@ -189,10 +191,13 @@ public:
     : dual_sampler_t(n, epsilon/(1+epsilon), -max_expt,-min_expt, prec) 
     {
     }
+
   void init();
 	
   //count number of non-overflown items in a bucket
-  int non_overflow_size(bucket_t* b);
+  virtual int non_overflow_size(bucket_t* b);
+
+  virtual int get_exponent_shift();
 
   inline int
   increment_exponent(sampler_item_t *w) {
@@ -230,7 +235,9 @@ public:
      void normalize_exponents();
      
      //count number of non-overflown items in a bucket
-     int non_overflow_size(bucket_t* b);
+     virtual int non_overflow_size(bucket_t* b);
+
+     virtual int get_exponent_shift(); //how much items have been normalized
 
      inline int
        increment_exponent(sampler_item_t *w) {
@@ -272,7 +279,9 @@ public:
      void normalize_exponents();
 
      //count number of non-overflown items in a bucket
-     int non_overflow_size(bucket_t* b);
+     virtual int non_overflow_size(bucket_t* b);
+
+     virtual int get_exponent_shift(); //how much items have been normalized
 
      inline int
        increment_exponent(sampler_item_t *w) {
