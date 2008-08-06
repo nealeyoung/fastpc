@@ -69,6 +69,8 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     p_pXuh->init();
     p_dXu->init();
 
+    
+
     //cout << fixed << setprecision(1);
 
     while(true) {
@@ -182,7 +184,7 @@ solve_instance::solve() {
   cout << "predict " << 6.0*N*(r+c)*assumed_time_per_op/1000000 << " seconds ";
   cout << "assuming " << assumed_ops_per_usec << "ops per usec" << endl;
 
-  srand(time(0));
+  //srand(time(0));
 
   while (!done){
     iteration++;

@@ -1,5 +1,7 @@
 #include <math.h>
 #include <iostream.h>
+#include <iomanip>
+#include <typeinfo>
 using namespace std;
 
 #include "sampler.h"
@@ -117,6 +119,80 @@ dual_sampler_t::remove(sampler_item_t *w) {
   assert(w);
   assert(! w->removed);
 
+//DEBUG--print buckets status
+    
+  //primal sampler
+//   if (typeid(*this) == typeid(primal_sampler_t)) {
+//     cout << "CALLED FROM PRIMAL SAMPLER" << endl;
+//     cout << "B ";
+//     for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
+//       cout << "|";
+//     cout << endl;
+//     for (int i=0; i < items.size(); i++) {
+//       if (!items[i].removed) 
+// 	cout << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
+//       else {
+// 	cout << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
+//       }
+//       if (&items[i] == w) cout << "R";
+//       cout << endl;
+//     }
+//   }
+
+  //primal_u sampler
+//   if (typeid(*this) == typeid(primal_u_sampler_t)) {
+//     cout << "CALLED FROM PRIMAL_U SAMPLER" << endl;
+//     cout << "B ";
+//     for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
+//       cout << "|";
+//     cout << endl;
+//     for (int i=0; i < items.size(); i++) {
+//       if (!items[i].removed) 
+// 	cout << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
+//       else {
+// 	cout << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
+//       }
+//       if (&items[i] == w) cout << "R";
+//       cout << endl;
+//     }
+//   }
+
+//     //dual_sampler
+  if (typeid(*this) == typeid(dual_sampler_t)) {
+    cout << "CALLED FROM DUAL SAMPLER" << endl;
+    cout << "B ";
+    for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
+      cout << "|";
+    cout << endl;    
+    for (int i=0; i < items.size(); i++) {
+      if (!items[i].removed) 
+	cout << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
+      else {
+	cout << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
+      }
+      if (&items[i] == w) cout << "R";
+      cout << endl;
+    }	
+  }
+
+//     //dual_u sampler
+  if (typeid(*this) == typeid(dual_u_sampler_t)) {
+    cout << "CALLED FROM DUAL_U SAMPLER" << endl;
+    cout << "B ";
+    for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
+      cout << "|";
+    cout << endl;
+    for (int i=0; i < items.size(); i++) {
+      if (!items[i].removed) 
+	cout << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
+      else {
+	cout << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
+      }
+      if (&items[i] == w) cout << "R";
+      cout << endl;
+    }      
+  }
+
   bucket_t* bucket = w->bucket;
   assert(bucket);
   int i = w->index_in_bucket;
@@ -157,6 +233,9 @@ dual_sampler_t::remove(sampler_item_t *w) {
       break;
     }
   }
+
+    
+
 }
 
 void
@@ -180,6 +259,88 @@ dual_sampler_t::insert_in_bucket(sampler_item_t *w, bucket_t* b) {
   } else {  
     total_weight += max_bucket_weight(b);
 	}
+
+  //debug--print buckets status
+  //primal sampler
+//   if (typeid(*this) == typeid(primal_sampler_t)) {
+//     cout << "CALLED FROM PRIMAL SAMPLER" << endl;
+//     cout << "B ";
+//     for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
+//       cout << "|";
+//     cout << endl;
+//     for (int i=0; i < items.size(); i++) {
+//       if (items[i].bucket != NULL) {
+// 	if (!items[i].removed) 
+// 	  cout << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
+// 	else 
+// 	  cout << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
+//       }
+//       if (&items[i] == w) cout << "I";
+//       cout << endl;
+//     }
+//   }
+
+       //primal_u sampler
+ //  if (typeid(*this) == typeid(primal_u_sampler_t)) {
+//     cout << "CALLED FROM PRIMAL_U SAMPLER" << endl;
+//     cout << "B ";
+//     for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
+//       cout << "|";
+//     cout << endl;
+//     for (int i=0; i < items.size(); i++) {
+//       if (items[i].bucket != NULL) {
+// 	if (!items[i].removed) 
+// 	  cout << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
+// 	else 
+// 	  cout << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
+//       }
+//       if (&items[i] == w) cout << "I";
+//       cout << endl;         
+//     }     
+//   }
+
+    //dual_sampler
+  if (typeid(*this) == typeid(dual_sampler_t)) {
+    cout << "CALLED FROM DUAL SAMPLER" << endl;
+    cout << "B ";
+    for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
+      cout << "|";
+    cout << endl;
+      
+    for (int i=0; i < items.size(); i++) {
+      if (items[i].bucket != NULL) {
+	if (!items[i].removed) 
+	  cout << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
+	else 
+	  cout << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
+      }
+      if (&items[i] == w) cout << "I";
+      cout << endl;
+    }
+  }
+
+//     //dual_u sampler
+  if (typeid(*this) == typeid(dual_u_sampler_t)) {
+    cout << "CALLED FROM DUAL_U SAMPLER" << endl;
+    cout << "B ";
+    for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
+      cout << "|";
+    cout << endl;
+    for (int i=0; i < items.size(); i++) {
+      if (items[i].bucket != NULL) {
+	if (!items[i].removed) 
+	  cout << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
+	else 
+	  cout << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
+      }
+      if (&items[i] == w) cout << "I";
+      cout << endl;
+           
+    }
+         
+  }  
+  
+
 }
 
 weight_t
@@ -436,11 +597,12 @@ int primal_u_sampler_t::increment_exponent(sampler_item_t *w) {
 //maybe it would be better to normalize based on total weight in sampler
 void
 dual_u_sampler_t::normalize_exponents() {
-  //cout << "DUAL_U_NORMALIZE" << endl;
+  cout << ">>>>>>>>>>>>>>>DUAL_U_NORMALIZE" << endl;
   int total_shift = NORMALIZE_SHIFT*exponents_per_bucket;
   exp_shift += total_shift;
   exp_shift_updated = true;
   //recalculate_weight = true;
+
 
   int updated_exponent;
   for (int i = 0;  i < items.size();  ++i) {
@@ -453,11 +615,12 @@ dual_u_sampler_t::normalize_exponents() {
       update_item_exponent(&items[i], updated_exponent);
     }
   }
+  cout << "END DUAL_U_NORMALIZE<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
 }
 
 void
 primal_u_sampler_t::normalize_exponents() {
-  //cout << "PRIMAL_U_NORMALIZE" << endl;
+  //cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>PRIMAL_U_NORMALIZE" << endl;
   int total_shift = NORMALIZE_SHIFT*exponents_per_bucket;
   exp_shift += total_shift;
   exp_shift_updated = true;
@@ -473,6 +636,7 @@ primal_u_sampler_t::normalize_exponents() {
     //cout << "NEW EXPONENT: " << updated_exponent << endl;
     update_item_exponent(&items[i], updated_exponent);
   }
+  cout << "END PRIMAL_U_NORMALIZE<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
 }
 
 int
