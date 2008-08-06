@@ -275,13 +275,15 @@ solve_instance::solve() {
 	    int colIndex = (*x)->sampler_pointer->i;
 	    for (list<nonzero_entry_t*>::iterator y = MT[colIndex].begin(); y != MT[colIndex].end(); ++y) {
 	      int rowIndex = (*y)->sampler_pointer->i;
-	      nonzero_entry_t* row_active_front = get_largest_active(&M[rowIndex]);
+	      nonzero_entry_t* row_active_first = NULL;
+	      nonzero_entry_t* row_active_second = NULL;
+	      get_two_largest_active(&M[rowIndex], &row_active_first, &row_active_second);
 	      //nonzero_entry_t* row_front = M[rowIndex].front();
-	      if(row_active_front == *y && y != MT[colIndex].end()) {    //if y is first element in row, i.e. current u-value came from y
-		int exp_diff = (*y)->exponent - (*(++y))->exponent;//(*(++M[rowIndex].begin()))->exponent; //dif b/t exponents of first and second elements of row
-		--y;  //put y back where it should be after increment from previous step
+	      //update exponents for new uh if y is first element in row, i.e. current u-value came from y and it's not only remaining item
+	      if(row_active_first == *y && row_active_second != NULL) {    
+		int exp_diff = row_active_first->exponent - row_active_second->exponent; //dif b/t exponents of first and second active elements of row
 		if (exp_diff != 0) { //if y and next element don't have same exponent
-		  p_pXuh->update_item_exponent(row_active_front->u_sampler_pointer, row_active_front->u_sampler_pointer->exponent_entry->exponent - exp_diff);
+		  p_pXuh->update_item_exponent(row_active_first->u_sampler_pointer, row_active_first->u_sampler_pointer->exponent_entry->exponent - exp_diff);
 		}
 	      }
 	    }
@@ -293,6 +295,7 @@ solve_instance::solve() {
 	    
 	    
 	    --J_size;
+	    //cout << "J_SIZE: " << J_size << endl; //debug
 	  }
 	} else {
 	  break;
@@ -317,6 +320,7 @@ solve_instance::solve() {
 	 iter != M_copy[i].end(); 
 	 ++iter)
       tmp += (*iter)->coeff * (*iter)->sampler_pointer->x;
+    //cout << "x_" << i << ": " << tmp << endl; //debug-- print each primal var
     if (tmp > max_row)
       max_row = tmp;
   }
@@ -331,9 +335,34 @@ solve_instance::solve() {
          iter != MT[j].end(); 
 	 ++iter)
       tmp += (*iter)->coeff * (*iter)->sampler_pointer->x;
+    //cout << "x_hat_" << j << ": " << tmp << endl; //debug-- print each dual var
     if (tmp < min_col)
       min_col = tmp;
   }
+
+  // //debug-- print normalized vars
+//   cout << "\nNORMALIZED VARS:\n";
+//   //normalized primal vars
+//   for (int i=0; i<r; ++i){
+//      double tmp = 0;
+//    for (line_element::iterator iter = M_copy[i].begin(); 
+// 	   iter != M_copy[i].end(); 
+// 	   ++iter)
+// 	tmp += (*iter)->coeff * (*iter)->sampler_pointer->x;
+//       cout << "x_" << i << ": " << tmp/max_row << endl; //debug-- print each primal var
+    
+//     }
+//   //normalized dual vars
+//   for (int j=0; j<c; ++j){
+//     double tmp = 0;
+//     for (line_element::iterator iter = MT[j].begin();
+//          iter != MT[j].end(); 
+// 	 ++iter)
+//       tmp += (*iter)->coeff * (*iter)->sampler_pointer->x;
+//     cout << "x_hat_" << j << ": " << tmp/min_col << endl; //debug-- print each dual var
+//     if (tmp < min_col)
+//       min_col = tmp;
+//   }
 
   double sum_x_p=0, sum_x_d=0;
 
@@ -456,6 +485,23 @@ nonzero_entry_t* solve_instance::get_largest_active(line_element* row) {
     }
   }
   return NULL;  //gets here when all row items have been marked for deletion
+}
+
+void solve_instance::get_two_largest_active(line_element* row, nonzero_entry_t** first, nonzero_entry_t** second) {
+  //list<nonzero_entry_t*>::iterator y;
+  bool got_first = false;
+  for (list<nonzero_entry_t*>::iterator	 y = (*row).begin(); y != (*row).end(); ++y) {
+    if (!(*y)->sampler_pointer->removed) {
+      if (!got_first){
+	*first = *y;
+	got_first = true;
+      }
+      else {
+	*second = *y;
+	break;
+      }
+    }
+  }
 }
 
 int main(int argc, char *argv[])
