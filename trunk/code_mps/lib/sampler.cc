@@ -87,7 +87,7 @@ dual_sampler_t::init() {
 
 void
 primal_sampler_t::init() {
-  cout << "PRIMAL INIT --------" << endl;
+  //cout << "PRIMAL INIT --------" << endl;
   count_ops(buckets.size() + items.size()*2);
 
   // primal exponents decrease
@@ -195,7 +195,8 @@ dual_sampler_t::exponent_weight(exponent_entry_t* expt) {
   assert(expt);
   assert(expt->bucket);
   assert(current_min_bucket);
-
+  
+  //@TODO check if the weight is recalculated when it is required to
   if (expt->cached_weight_min_bucket != current_min_bucket) {
     count_ops(30);
 
@@ -234,7 +235,7 @@ sampler_item_t*
 dual_sampler_t::sample() {
 
   get_update_total_weight();  //does nothing if called from inside random_pair 
-
+  
   assert(total_weight > 0);
   while (1) {
     bool tried = false;
@@ -354,14 +355,93 @@ primal_u_sampler_t::non_overflow_size(bucket_t* b) {
   return num;
 }
 
+int dual_sampler_t::increment_exponent(sampler_item_t *w) {
+  exponent_entry_t* &e = w->exponent_entry;
+
+  if (! e->at_boundary) {
+    e += 1;
+  } else {
+    count_ops(3);
+
+    remove(w);
+    e += 1;
+    insert_in_bucket(w, e->bucket);
+  }
+  return e->exponent;
+}
+
+int primal_sampler_t::increment_exponent(sampler_item_t *w) {
+  exponent_entry_t* &e = w->exponent_entry;
+  //cout << "PRIMAL INCREMENT_EXPONENT" << endl<<flush; //debug
+  if (! e->at_boundary) {
+    e -= 1;
+  } else {
+    count_ops(3);
+      
+    remove(w);
+    e -= 1;
+    insert_in_bucket(w, e->bucket);
+  }
+  return -e->exponent;
+}
+
+int dual_u_sampler_t::increment_exponent(sampler_item_t *w) {
+  exponent_entry_t* &e = w->exponent_entry;
+
+
+  if (! e->at_boundary) {
+    e += 1;
+  } else if (e->exponent < permanent_max_exponent) {//boundary of a bucket but not the last bucket
+    count_ops(3);
+
+    remove(w);
+    e += 1;
+    insert_in_bucket(w, e->bucket);
+    //normalize when NORMALIZE_SHIFT buckets are empty at beginning of list
+    if (current_min_bucket->min_exponent >= (permanent_min_exponent + NORMALIZE_SHIFT*exponents_per_bucket))
+      normalize_exponents();
+  } else { //its the boundary of the last bucket
+    w->exponent_overflow++;
+  }
+  return e->exponent;
+}
+
+int primal_u_sampler_t::increment_exponent(sampler_item_t *w) {
+  exponent_entry_t* &e = w->exponent_entry;
+  //cout << "PRIMAL_U INCREMENT_EXPONENT" << endl << flush; //debug
+  if (! e->at_boundary) {
+    //change the exponent_entry only when the exponent_overflow has been decremented to zero (i.e. no overflow)
+    if (w->exponent_overflow > 0)
+      w->exponent_overflow--;
+    else
+      e -= 1;
+  } else {
+    count_ops(3);
+    //cout << "PRIMAL VARIABLE IN BUCKET WITH MIN EXPONENT " << e->bucket->min_exponent <<endl<<flush;//debug
+    //cout << "PERMANENT_MIN_EXPONENT" << permanent_min_exponent << endl<<flush; //debug
+    //cout << "E_EXPONENT" << e->exponent << endl << flush; //debug
+    //if (e->bucket == expt(permanent_min_exponent).bucket) { //debug
+    if (e->exponent < permanent_min_exponent + 2+exponents_per_bucket) {
+      //cout << "IN LEFTMOST PRIMAL BUCKET" << endl;
+      normalize_exponents();
+    }
+    remove(w);
+    e -= 1;
+    insert_in_bucket(w, e->bucket);
+  }
+  return -e->exponent;
+}
+
 //this approach to normalization doesn't directly take precision issues into account
 //maybe it would be better to normalize based on total weight in sampler
 void
 dual_u_sampler_t::normalize_exponents() {
+  //cout << "DUAL_U_NORMALIZE" << endl;
   int total_shift = NORMALIZE_SHIFT*exponents_per_bucket;
   exp_shift += total_shift;
   exp_shift_updated = true;
-  recalculate_weight = true;
+  //recalculate_weight = true;
+
   int updated_exponent;
   for (int i = 0;  i < items.size();  ++i) {
     updated_exponent = items[i].exponent_entry->exponent + items[i].exponent_overflow - total_shift;
@@ -377,10 +457,11 @@ dual_u_sampler_t::normalize_exponents() {
 
 void
 primal_u_sampler_t::normalize_exponents() {
+  //cout << "PRIMAL_U_NORMALIZE" << endl;
   int total_shift = NORMALIZE_SHIFT*exponents_per_bucket;
   exp_shift += total_shift;
   exp_shift_updated = true;
-  recalculate_weight = true;
+  //recalculate_weight = true;
 
   int updated_exponent;
   for (int i = 0;  i < items.size();  ++i) {
@@ -396,19 +477,16 @@ primal_u_sampler_t::normalize_exponents() {
 
 int
 dual_sampler_t::get_exponent_shift() {
-  //cout << "WRONG EXPONENT_SHIFT: " << current_min_bucket->min_exponent - permanent_min_exponent << endl << flush;
   return current_min_bucket->min_exponent - permanent_min_exponent;
 }
 
 int
 primal_sampler_t::get_exponent_shift() {
-  //cout << "RIGHT EXPONENT_SHIFT: " << current_min_bucket->min_exponent - permanent_min_exponent << endl << flush;
   return dual_sampler_t::get_exponent_shift();
 }
 
 int
 dual_u_sampler_t::get_exponent_shift() {
-  //cout << "EXPONENT_SHIFT: " << exp_shift + current_min_bucket->min_exponent - permanent_min_exponent << endl;
   return exp_shift + current_min_bucket->min_exponent - permanent_min_exponent;
 }
 
