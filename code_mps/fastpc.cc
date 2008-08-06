@@ -416,9 +416,9 @@ void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_s
   double temp_2 = p_dXu_wt/p_d_wt;
   double temp_3 = (double)p_shift_ratio/d_shift_ratio;
 
- //  cout << "TEMP_1: " << temp_1 << endl;
-//   cout << "TEMP_2: " << temp_2 << endl;
-//   cout << "TEMP_3: " << temp_3 << endl;
+  //cout << "TEMP_1: " << temp_1 << endl;
+  //cout << "TEMP_2: " << temp_2 << endl;
+  //cout << "TEMP_3: " << temp_3 << endl;
 
   double prob = 1.0 / (1 + (temp_1*temp_2*temp_3));
   // cout << "FINAL PROB: " << prob << endl;

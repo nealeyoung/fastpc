@@ -3,6 +3,9 @@
 
 #include <assert.h>
 #include <stdlib.h>
+#include <iostream>
+
+using namespace std;
 
 //#define inline
 
@@ -56,6 +59,7 @@ struct exponent_entry_t {
   bucket_t* bucket;		// which bucket (below) holds these items?
   bool at_boundary;		// is this exponent the max in the bucket?
   weight_t cached_weight;	// total weight of thse items
+  
   bucket_t* cached_weight_min_bucket; // (recalculate if global min_bucket changes)
 
   exponent_entry_t() :
@@ -121,7 +125,7 @@ public:
   weight_t total_weight; 	// upper bound on total of all weights
   //bucket_t* total_weight_min_bucket; // ...recalc if min_bucket changes
   bool recalculate_weight; //use instead of total_weight_min_bucket
-
+  
   // Instead of keeping track of total weight exactly,
   // we count the weight of each item in a given bucket
   // as the max possible weight of any item in that bucket.
@@ -158,21 +162,8 @@ public:
   }
 
 public:
-  inline int
-  increment_exponent(sampler_item_t *w) {
-    exponent_entry_t* &e = w->exponent_entry;
+  virtual int increment_exponent(sampler_item_t *w);
 
-    if (! e->at_boundary) {
-      e += 1;
-    } else {
-      count_ops(3);
-
-      remove(w);
-      e += 1;
-      insert_in_bucket(w, e->bucket);
-    }
-    return e->exponent;
-  }
 };
 
 // to implement the primal sampler,
@@ -200,21 +191,7 @@ public:
 
   virtual int get_exponent_shift();
 
-  inline int
-  increment_exponent(sampler_item_t *w) {
-    exponent_entry_t* &e = w->exponent_entry;
-
-    if (! e->at_boundary) {
-      e -= 1;
-    } else {
-      count_ops(3);
-      
-      remove(w);
-      e -= 1;
-      insert_in_bucket(w, e->bucket);
-   }
-    return -e->exponent;
-  }
+  virtual int increment_exponent(sampler_item_t *w);
 };
 
  //modified sampler p_dXu 
@@ -240,26 +217,7 @@ public:
 
      virtual int get_exponent_shift(); //how much items have been normalized
 
-     inline int
-       increment_exponent(sampler_item_t *w) {
-       exponent_entry_t* &e = w->exponent_entry;
-
-       if (! e->at_boundary) {
-	 e += 1;
-       } else if (e->exponent < permanent_max_exponent) {//boundary of a bucket but not the last bucket
-	 count_ops(3);
-
-	 remove(w);
-	 e += 1;
-	 insert_in_bucket(w, e->bucket);
-	 //normalize when NORMALIZE_SHIFT buckets are empty at beginning of list
-	 if (current_min_bucket->min_exponent >= (permanent_min_exponent + NORMALIZE_SHIFT*exponents_per_bucket))
-	   normalize_exponents();
-       } else { //its the boundary of the last bucket
-	 w->exponent_overflow++;
-       }
-       return e->exponent;
-     }
+     virtual int increment_exponent(sampler_item_t *w);
  };
 
  //modified sampler p_pXuh
@@ -284,27 +242,7 @@ public:
 
      virtual int get_exponent_shift(); //how much items have been normalized
 
-     inline int
-       increment_exponent(sampler_item_t *w) {
-       exponent_entry_t* &e = w->exponent_entry;
-
-       if (! e->at_boundary) {
-	 //change the exponent_entry only when the exponent_overflow has been decremented to zero (i.e. no overflow)
-	 if (w->exponent_overflow > 0)
-	   w->exponent_overflow--;
-	 else
-	   e -= 1;
-       } else {
-	 count_ops(3);
-	 if (e->exponent < permanent_min_exponent + exponents_per_bucket) {
-	   normalize_exponents();
-	 }
-	 remove(w);
-	 e -= 1;
-	 insert_in_bucket(w, e->bucket);
-       }
-       return -e->exponent;
-     }
+     virtual int increment_exponent(sampler_item_t *w);
 }; 
 
 #endif
