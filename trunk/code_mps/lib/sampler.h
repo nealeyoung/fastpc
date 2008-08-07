@@ -152,6 +152,11 @@ public:
   weight_t max_bucket_weight(bucket_t*);
   weight_t exponent_weight(exponent_entry_t*);
   weight_t random_weight_t(weight_t);
+
+  //outputs current sampler status to cerr; w is sampler item being removed or inserted
+  void output_sampler_insert(sampler_item_t* w);
+  void output_sampler_remove(sampler_item_t* w);
+
   //allows for insertion of element with arbitrary exponent, i.e.
   //arbitrary probability
   //void update_item_exponent(sampler_item_t* item, int exp);
