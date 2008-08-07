@@ -9,8 +9,8 @@ using namespace std;
 //debug-- define which samplers to trace
 const bool DUAL_TRACE = false;
 const bool DUAL_U_TRACE = false; 
-const bool PRIMAL_TRACE = true;
-const bool PRIMAL_U_TRACE = true;
+const bool PRIMAL_TRACE = false;
+const bool PRIMAL_U_TRACE = false;
 
 
 dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec)
