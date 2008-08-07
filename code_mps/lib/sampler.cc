@@ -131,73 +131,25 @@ dual_sampler_t::remove(sampler_item_t *w) {
   //dual_sampler
   if (DUAL_TRACE && typeid(*this) == typeid(dual_sampler_t)) {
     cerr << "CALLED FROM DUAL SAMPLER" << endl;
-    cerr << "B ";
-    for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
-      cerr << "|";
-    cerr << endl;    
-    for (int i=0; i < items.size(); i++) {
-      if (!items[i].removed) 
-	cerr << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
-      else {
-	cerr << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
-      }
-      if (&items[i] == w) cerr << "R";
-      cerr << endl;
-    }	
+    output_sampler_remove(w);
   }
 
   //dual_u sampler
   if (DUAL_U_TRACE && typeid(*this) == typeid(dual_u_sampler_t)) {
     cerr << "CALLED FROM DUAL_U SAMPLER" << endl;
-    cerr << "B ";
-    for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
-      cerr << "|";
-    cerr << endl;
-    for (int i=0; i < items.size(); i++) {
-      if (!items[i].removed) 
-	cerr << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
-      else {
-	cerr << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
-      }
-      if (&items[i] == w) cerr << "R";
-      cerr << endl;
-    }      
+    output_sampler_remove(w);
   }
 
   //primal sampler
   if (PRIMAL_TRACE && typeid(*this) == typeid(primal_sampler_t)) {
     cerr << "CALLED FROM PRIMAL SAMPLER" << endl;
-    cerr << "B ";
-    for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
-      cerr << "|";
-    cerr << endl;
-    for (int i=0; i < items.size(); i++) {
-      if (!items[i].removed) 
-	cerr << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
-      else {
-	cerr << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
-      }
-      if (&items[i] == w) cerr << "R";
-      cerr << endl;
-    }
+    output_sampler_remove(w);
   }
 
   //primal_u sampler
   if (PRIMAL_U_TRACE && typeid(*this) == typeid(primal_u_sampler_t)) {
     cerr << "CALLED FROM PRIMAL_U SAMPLER" << endl;
-    cerr << "B ";
-    for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
-      cerr << "|";
-    cerr << endl;
-    for (int i=0; i < items.size(); i++) {
-      if (!items[i].removed) 
-	cerr << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
-      else {
-	cerr << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
-      }
-      if (&items[i] == w) cerr << "R";
-      cerr << endl;
-    }
+    output_sampler_remove(w);
   }
 
   bucket_t* bucket = w->bucket;
@@ -267,86 +219,32 @@ dual_sampler_t::insert_in_bucket(sampler_item_t *w, bucket_t* b) {
     total_weight += max_bucket_weight(b);
 	}
 
-  //debug--print buckets status
+  //debug--print sampler status
   
 
   //dual_sampler
   if (DUAL_TRACE && typeid(*this) == typeid(dual_sampler_t)) {
     cerr << "CALLED FROM DUAL SAMPLER" << endl;
-    cerr << "B ";
-    for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
-      cerr << "|";
-    cerr << endl;
-      
-    for (int i=0; i < items.size(); i++) {
-      if (items[i].bucket != NULL) {
-	if (!items[i].removed) 
-	  cerr << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
-	else 
-	  cerr << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
-      }
-      if (&items[i] == w) cerr << "I";
-      cerr << endl;
-    }
+    output_sampler_insert(w);
   }
 
   //dual_u sampler
   if (DUAL_U_TRACE && typeid(*this) == typeid(dual_u_sampler_t)) {
     cerr << "CALLED FROM DUAL_U SAMPLER" << endl;
-    cerr << "B ";
-    for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
-      cerr << "|";
-    cerr << endl;
-    for (int i=0; i < items.size(); i++) {
-      if (items[i].bucket != NULL) {
-	if (!items[i].removed) 
-	  cerr << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
-	else 
-	  cerr << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
-      }
-      if (&items[i] == w) cerr << "I";
-      cerr << endl;
-           
-    }
+    output_sampler_insert(w);
          
   }  
 
   //primal sampler
   if (PRIMAL_TRACE && typeid(*this) == typeid(primal_sampler_t)) {
     cerr << "CALLED FROM PRIMAL SAMPLER" << endl;
-    cerr << "B ";
-    for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
-      cerr << "|";
-    cerr << endl;
-    for (int i=0; i < items.size(); i++) {
-      if (items[i].bucket != NULL) {
-	if (!items[i].removed) 
-	  cerr << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
-	else 
-	  cerr << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
-      }
-      if (&items[i] == w) cerr << "I";
-      cerr << endl;
-    }
+    output_sampler_insert(w);
   }
 
   //primal_u sampler
   if (PRIMAL_U_TRACE && typeid(*this) == typeid(primal_u_sampler_t)) {
     cerr << "CALLED FROM PRIMAL_U SAMPLER" << endl;
-    cerr << "B ";
-    for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
-      cerr << "|";
-    cerr << endl;
-    for (int i=0; i < items.size(); i++) {
-      if (items[i].bucket != NULL) {
-	if (!items[i].removed) 
-	  cerr << i << " " << setw((items[i].bucket->min_exponent)/exponents_per_bucket) << "|";
-	else 
-	  cerr << i << " " << setw((items[i].exponent_entry->exponent-permanent_min_exponent)/exponents_per_bucket) << "|X\n";
-      }
-      if (&items[i] == w) cerr << "I";
-      cerr << endl;         
-    }     
+    output_sampler_insert(w);
   }
   
 
@@ -671,4 +569,51 @@ primal_u_sampler_t::get_exponent_shift() {
 weight_t
 dual_sampler_t::exact_exp_weight(int exp) {
   return weight_t(pow(1.0-eps, exp)*(MAX_WEIGHT_T/(2*items.size())));
+}
+
+void 
+dual_sampler_t::output_sampler_insert(sampler_item_t* w) {
+  //print one vertical line for each bucket
+  cerr << "B ";
+  for (int i=0; i < buckets.size(); i++)  
+  //  for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
+    cerr << "|";
+  cerr << endl;    
+  //print vertical line for each sampler item corresponding to which bucket it's in
+  for (int i=0; i < items.size(); i++) {
+    if (items[i].bucket != NULL) {
+      int current_exp = items[i].exponent_entry->exponent;
+      if (!items[i].removed) {
+	cerr << i << " " << setw(1+((current_exp - permanent_min_exponent)/exponents_per_bucket)) << "|";
+	if (&items[i] == w) cerr << "I";
+	cerr << current_exp;
+	cerr << endl;
+      }
+      else
+	cerr << i << " " << setw(1+((current_exp - permanent_min_exponent)/exponents_per_bucket)) << "|X\n";
+    }
+    
+  }	
+}
+
+void 
+dual_sampler_t::output_sampler_remove(sampler_item_t* w) {
+  //print one vertical line for each bucket
+  cerr << "B ";
+  for (int i=0; i < buckets.size(); i++)  //num of iterations = num of buckets
+    cerr << "|";
+  cerr << endl;    
+  //print vertical line for each sampler item corresponding to which bucket it's in
+  for (int i=0; i < items.size(); i++) {
+    int current_exp = items[i].exponent_entry->exponent;
+    if (!items[i].removed) {      
+      cerr << i << " " << setw(1+((current_exp - permanent_min_exponent)/exponents_per_bucket)) << "|";
+      if (&items[i] == w) cerr << "R";
+      cerr << current_exp;
+      cerr << endl;
+    }
+    else
+      cerr << i << " " << setw(1+((current_exp-permanent_min_exponent)/exponents_per_bucket)) << "|X\n";
+    
+  }	
 }
