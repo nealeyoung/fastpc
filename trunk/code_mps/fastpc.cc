@@ -119,6 +119,9 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     int min_u_exp = MT[0].front()->exponent;
     int max_uh_exp = M[0].front()->exponent;
     int min_uh_exp = M[0].front()->exponent;
+
+
+    //Peter why no max_u_exp
     for (int j = 0; j < c; j++) {
       int temp = MT[j].front()->exponent;
       if (temp < min_u_exp)
@@ -243,7 +246,7 @@ solve_instance::solve() {
 	}
       }
       int size = MT[j].size();
-      count_ops(12);  //not actual value-- how many??
+      count_ops(12);  //not actual value-- how many???
       n_increments_p += size;
       count_ops(5*size);
     }
