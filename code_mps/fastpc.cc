@@ -94,7 +94,7 @@ solve_instance::solve_instance(double EPSILON, string infile) :
       cout << "Inside loop M "; //debug
       p->sort(list_sort_criteria()); //sort row linked list
       for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
-		cout << (*x)->coeff << " ";   
+	cout << (*x)->coeff << " ";   //debug
       }
       cout << "\n";
     }
@@ -106,7 +106,7 @@ solve_instance::solve_instance(double EPSILON, string infile) :
       cout << "Inside loop MT "; //debug
       p->sort(list_sort_criteria()); //sort row of MT linked list
       for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
-	cout << (*x)->coeff << " ";
+	cout << (*x)->coeff << " ";   //debug
       }
       cout << "\n";
     }
@@ -155,6 +155,8 @@ solve_instance::solve_instance(double EPSILON, string infile) :
 	      //cout << "exponent: " << exponent << endl;
 	      p_dXu->update_item_exponent(item,exponent);
 	    }
+	    p_dXu->exp_shift += min_u_exp;  //initial shift of sampler-- can be negative
+	    p_dXu->exp_shift_updated = true;
     }
     if (max_uh_exp != 0 || p_diff != 0) {
 	    for (int j = 0; j < r; j++) {
@@ -167,7 +169,34 @@ solve_instance::solve_instance(double EPSILON, string infile) :
 	      //cout << "exponent: " << exponent << endl;
 	      p_pXuh->update_item_exponent(item,exponent);
 	    }
+	    p_pXuh->exp_shift -= (max_uh_exp + p_diff); //initial shift of sampler-- can be negative
+	    p_pXuh->exp_shift_updated = true;
     }
+
+    //debug-- print normalized exponents
+    //print M
+    cout << "PRINTING M: SUBTRACTED " << max_uh_exp-p_diff << " TO NORMALIZE.\n";
+    for (int i = 0; i < r; ++i) {
+      for(list<nonzero_entry_t*>::iterator x = M[i].begin(); x != M[i].end(); ++x){
+	cout << "Coeff:" << (*x)->coeff << " Exponent:" << p_pXuh->get_ith(i)->exponent_entry->exponent 
+	       << " Overflow:" << (*x)->u_sampler_pointer->exponent_overflow << endl;   //debug
+      }
+      cout << "\n";
+    }
+
+
+    //print MT
+    cout << "PRINTING MT: SUBTRACTED " << min_u_exp << " TO NORMALIZE.\n";
+    first_t = &MT[0];
+    last_t = &MT[c-1];
+    for (int j=0; j <= c; ++j) {
+        for(list<nonzero_entry_t*>::iterator x = MT[j].begin(); x != MT[j].end(); ++x){
+	  cout << "Coeff:" << (*x)->coeff << " Exponent:" << p_dXu->get_ith(j)->exponent_entry->exponent 
+	       << " Overflow:" << (*x)->u_sampler_pointer->exponent_overflow << endl;   //debug
+      }
+      cout << "\n";
+    }
+    //end debug print normalized exponents
   }
 }
 
@@ -308,7 +337,7 @@ solve_instance::solve() {
 	    //cout << "J_SIZE: " << J_size << endl; //debug
 	  }
 	} else {
-	  break;
+	  break; 
 	}
       }
     }
@@ -438,7 +467,7 @@ void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_s
   //p_dXu->get_exponent_shift();
 
   if (p_p->exp_shift_updated || p_pXuh->exp_shift_updated) {
-    p_shift_ratio = p_p->exact_exp_weight(p_p->get_exponent_shift() - p_pXuh->get_exponent_shift());
+    p_shift_ratio = p_p->exact_exp_weight(p_p->get_exponent_shift() - p_pXuh->get_exponent_shift()); //@steve does this cause overflow if function called on neg exp?
     p_p->exp_shift_updated = false;
     p_pXuh->exp_shift_updated = false;
   }
