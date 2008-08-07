@@ -43,6 +43,7 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     //read and parse 1st line of input (parameters)
     string s;
     in_file >> r >> c >> total >> s;
+    cout << r << " " << c << " " << total << " " << s << endl;
 
     M.resize(r);
     MT.resize(c);
@@ -69,43 +70,47 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     p_pXuh->init();
     p_dXu->init();
 
-    
-
-    //cout << fixed << setprecision(1);
-
+   //cout << fixed << setprecision(1);
+   int non_zero_entry_count = 0;
     while(true) {
+    	if (non_zero_entry_count > total) break; //added because for some files this loop never ended, need to see why that happened
       in_file >> row  >> col >> val;  //took out string s 
-      // find b
+    	//cout << non_zero_entry_count << " --- " << row << " " << col << " " << val << " " << endl;
+      
       if (in_file.eof()) break;
       M[row].push_back(new nonzero_entry_t(val,eps*(-1.0), p_d->get_ith(col), p_dXu->get_ith(col)));
       M_copy[row].push_back(new nonzero_entry_t(val, eps*(-1.0), p_d->get_ith(col), p_dXu->get_ith(col)));
       MT[col].push_back(new nonzero_entry_t(val, eps, p_p->get_ith(row), p_pXuh->get_ith(row)));
+      non_zero_entry_count++;
     }
+    
+    //close file
+    in_file.close();
 
     //SORT ROWS OF M
     line_element* first = &M[0];
     line_element* last = &M[r-1];
     for (line_element* p = first; p <= last; ++p) {
-      //cout << "Inside loop "; //debug
+      cout << "Inside loop M "; //debug
       p->sort(list_sort_criteria()); //sort row linked list
       for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
-	//	cout << (*x)->exponent << " ";   
+		cout << (*x)->coeff << " ";   
       }
-      //cout << "\n";
+      cout << "\n";
     }
     
     //sort MT
     line_element* first_t = &MT[0];
     line_element* last_t = &MT[c-1];
     for (line_element* p = first_t; p <= last_t; ++p) {
-      //cout << "Inside loop MT "; //debug
+      cout << "Inside loop MT "; //debug
       p->sort(list_sort_criteria()); //sort row of MT linked list
       for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
-	//cout << (*x)->exponent << " ";
+	cout << (*x)->coeff << " ";
       }
-      //cout << "\n";
+      cout << "\n";
     }
-
+   	
     //find the minimum exponent for MT and maximum exponent for M
     //this is to normalize the exponents
     //these will be used to normalize the exponents in the matrices
