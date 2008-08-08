@@ -59,8 +59,12 @@ private:
   string file_name;
   double eps, epsilon;
 
-  weight_t p_shift_ratio;
-  weight_t d_shift_ratio;
+  double p_shift_ratio;
+  double d_shift_ratio;
+
+  //store relative shifts in p/pXuh and d/dXu
+  int p_exp_shift;
+  int d_exp_shift;
 
   void random_pair(sampler_item_t** wi, sampler_item_t** wj, dual_sampler_t* p_p, dual_sampler_t* p_d, dual_sampler_t* p_pXuh, dual_sampler_t* p_dXu);
 

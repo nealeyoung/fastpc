@@ -7,10 +7,10 @@ using namespace std;
 #include "sampler.h"
 
 //debug-- define which samplers to trace
-const bool DUAL_TRACE = false;
-const bool DUAL_U_TRACE = false; 
-const bool PRIMAL_TRACE = false;
-const bool PRIMAL_U_TRACE = false;
+const bool DUAL_TRACE = 0;
+const bool DUAL_U_TRACE = 0; 
+const bool PRIMAL_TRACE = 1;
+const bool PRIMAL_U_TRACE = 1;
 
 
 dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec)
@@ -504,7 +504,7 @@ int primal_u_sampler_t::increment_exponent(sampler_item_t *w) {
 //maybe it would be better to normalize based on total weight in sampler
 void
 dual_u_sampler_t::normalize_exponents() {
-  cerr << ">>>>>>>>>>>>>>>DUAL_U_NORMALIZE" << endl;
+  //cerr << ">>>>>>>>>>>>>>>DUAL_U_NORMALIZE" << endl;
   int total_shift = NORMALIZE_SHIFT*exponents_per_bucket;
   exp_shift += total_shift;
   exp_shift_updated = true;
@@ -522,12 +522,12 @@ dual_u_sampler_t::normalize_exponents() {
       update_item_exponent(&items[i], updated_exponent);
     }
   }
-  cerr << "END DUAL_U_NORMALIZE<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
+  //cerr << "END DUAL_U_NORMALIZE<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
 }
 
 void
 primal_u_sampler_t::normalize_exponents() {
-  //cerr << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>PRIMAL_U_NORMALIZE" << endl;
+  cerr << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>PRIMAL_U_NORMALIZE" << endl;
   int total_shift = NORMALIZE_SHIFT*exponents_per_bucket;
   exp_shift += total_shift;
   exp_shift_updated = true;
@@ -543,7 +543,7 @@ primal_u_sampler_t::normalize_exponents() {
     //cout << "NEW EXPONENT: " << updated_exponent << endl;
     update_item_exponent(&items[i], updated_exponent);
   }
-  //cerr << "END PRIMAL_U_NORMALIZE<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
+  cerr << "END PRIMAL_U_NORMALIZE<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
 }
 
 int
@@ -553,7 +553,8 @@ dual_sampler_t::get_exponent_shift() {
 
 int
 primal_sampler_t::get_exponent_shift() {
-  return dual_sampler_t::get_exponent_shift();
+  //return dual_sampler_t::get_exponent_shift();
+  return permanent_max_exponent - current_min_bucket->min_exponent - exponents_per_bucket + 1; //count shift from top down
 }
 
 int
@@ -563,16 +564,32 @@ dual_u_sampler_t::get_exponent_shift() {
 
 int
 primal_u_sampler_t::get_exponent_shift() {
-  return exp_shift + current_min_bucket->min_exponent - permanent_min_exponent;
+  return exp_shift + permanent_max_exponent - current_min_bucket->min_exponent - exponents_per_bucket + 1; //count shift from top down
+  // return exp_shift + current_min_bucket->min_exponent - permanent_min_exponent;
 }
 
 weight_t
 dual_sampler_t::exact_exp_weight(int exp) {
+  //cout << "MAX_WEIGHT_T: " << MAX_WEIGHT_T << endl;  //debug  
   return weight_t(pow(1.0-eps, exp)*(MAX_WEIGHT_T/(2*items.size())));
+  
 }
+
+// weight_t
+// dual_sampler_t::shift_exp_weight(int exp) {
+//   return weight_t(pow(1.0-eps, exp));
+// }
+
+// weight_t
+// primal_sampler_t::shift_exp_weight(int exp) {
+//   return weight_t(pow(1.0+eps, exp));
+// }
+
+
 
 void 
 dual_sampler_t::output_sampler_insert(sampler_item_t* w) {
+  cerr << "EXPONENT SHIFT: " << get_exponent_shift() << endl;
   //print one vertical line for each bucket
   cerr << "B ";
   for (int i=0; i < buckets.size(); i++)  
@@ -590,7 +607,7 @@ dual_sampler_t::output_sampler_insert(sampler_item_t* w) {
 	cerr << endl;
       }
       else
-	cerr << i << " " << setw(1+((current_exp - permanent_min_exponent)/exponents_per_bucket)) << "|X\n";
+	cerr << i << " " << setw(1+((current_exp - permanent_min_exponent)/exponents_per_bucket)) << "|X" << current_exp << endl;
     }
     
   }	
@@ -598,6 +615,7 @@ dual_sampler_t::output_sampler_insert(sampler_item_t* w) {
 
 void 
 dual_sampler_t::output_sampler_remove(sampler_item_t* w) {
+  cerr << "EXPONENT SHIFT: " << get_exponent_shift() << endl;
   //print one vertical line for each bucket
   cerr << "B ";
   for (int i=0; i < buckets.size(); i++)  //num of iterations = num of buckets
@@ -613,7 +631,7 @@ dual_sampler_t::output_sampler_remove(sampler_item_t* w) {
       cerr << endl;
     }
     else
-      cerr << i << " " << setw(1+((current_exp-permanent_min_exponent)/exponents_per_bucket)) << "|X\n";
+      cerr << i << " " << setw(1+((current_exp-permanent_min_exponent)/exponents_per_bucket)) << "|X" << current_exp << endl;
     
   }	
 }
