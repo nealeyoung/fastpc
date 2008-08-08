@@ -24,7 +24,9 @@ solve_instance::solve_instance(double EPSILON, string infile) :
   epsilon(EPSILON),
   file_name(infile),
   p_shift_ratio(-1),
-  d_shift_ratio(-1)
+  d_shift_ratio(-1),
+  p_exp_shift(0),
+  d_exp_shift(0)
 {
   // constructor reads the input and creates matrices M and MT (transpose)
   int row, col, total;
@@ -119,9 +121,7 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     int min_u_exp = MT[0].front()->exponent;
     int max_uh_exp = M[0].front()->exponent;
     int min_uh_exp = M[0].front()->exponent;
-
-
-    //Peter why no max_u_exp
+    
     for (int j = 0; j < c; j++) {
       int temp = MT[j].front()->exponent;
       if (temp < min_u_exp)
@@ -142,7 +142,7 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     	p_diff = max_uh_exp - min_uh_exp - (N+10-ceil(1/eps));
     }
 
-    //@TODO UPDATE EXP_SHIFT AND EXP_SHIFT_UPDATED HERE
+    //@TODO UPDATE EXP_SHIFT AND EXP_SHIFT_UPDATED HERE --done 8-6 steve
     //re-initialize u_sampler_items with normalized exponents
     if (min_u_exp != 0) {
 	    for (int i = 0; i < c; i++) {
@@ -155,7 +155,7 @@ solve_instance::solve_instance(double EPSILON, string infile) :
 	      //cout << "exponent: " << exponent << endl;
 	      p_dXu->update_item_exponent(item,exponent);
 	    }
-	    p_dXu->exp_shift += min_u_exp;  //initial shift of sampler-- can be negative
+	    p_dXu->exp_shift -= min_u_exp;  //initial shift of sampler-- can be negative
 	    p_dXu->exp_shift_updated = true;
     }
     if (max_uh_exp != 0 || p_diff != 0) {
@@ -169,7 +169,7 @@ solve_instance::solve_instance(double EPSILON, string infile) :
 	      //cout << "exponent: " << exponent << endl;
 	      p_pXuh->update_item_exponent(item,exponent);
 	    }
-	    p_pXuh->exp_shift -= (max_uh_exp + p_diff); //initial shift of sampler-- can be negative
+	    p_pXuh->exp_shift -= (max_uh_exp - p_diff); //initial shift of sampler-- can be negative
 	    p_pXuh->exp_shift_updated = true;
     }
 
@@ -318,7 +318,7 @@ solve_instance::solve() {
 	      nonzero_entry_t* row_active_second = NULL;
 	      get_two_largest_active(&M[rowIndex], &row_active_first, &row_active_second);
 	      //nonzero_entry_t* row_front = M[rowIndex].front();
-	      //update exponents for new uh if y is first element in row, i.e. current u-value came from y and it's not only remaining item
+	      //update exponents for new uh if y is first element in row, i.e. current u-value came from y and y is not the only remaining item
 	      if(row_active_first == *y && row_active_second != NULL) {    
 		int exp_diff = row_active_first->exponent - row_active_second->exponent; //dif b/t exponents of first and second active elements of row
 		if (exp_diff != 0) { //if y and next element don't have same exponent
@@ -465,32 +465,49 @@ void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_s
   //cout << "P_D_EXP_SHIFT: " << p_d->get_exponent_shift() << endl;
   //cout << "P_DXU_EXP_SHIFT: " << p_dXu->get_exponent_shift() << endl;
   //p_dXu->get_exponent_shift();
+  double temp_1;
+  double temp_2;
+  double temp_3;
 
+  //@steve be careful of precision issues here!!!
   if (p_p->exp_shift_updated || p_pXuh->exp_shift_updated) {
-    p_shift_ratio = p_p->exact_exp_weight(p_p->get_exponent_shift() - p_pXuh->get_exponent_shift()); //@steve does this cause overflow if function called on neg exp?
+    //p_shift_ratio = pow(1.0-eps,(p_pXuh->get_exponent_shift() - p_p->get_exponent_shift())); //@steve does this cause overflow if function called on neg exp?--YES!
+    p_exp_shift = p_pXuh->get_exponent_shift() - p_p->get_exponent_shift();     //@steve changed! --reversed p_p and p_pXuh
     p_p->exp_shift_updated = false;
     p_pXuh->exp_shift_updated = false;
   }
   if (p_d->exp_shift_updated || p_dXu->exp_shift_updated) {
-    d_shift_ratio = p_d->exact_exp_weight(p_d->get_exponent_shift() - p_dXu->get_exponent_shift());
+    //d_shift_ratio = pow(1.0-eps,(p_d->get_exponent_shift() - p_dXu->get_exponent_shift()));
+    d_exp_shift = p_d->get_exponent_shift() - p_dXu->get_exponent_shift();
     p_d->exp_shift_updated = false;
     p_dXu->exp_shift_updated = false;
   }
 
-  //cout << "P_SHIFT_RATIO: " << p_shift_ratio << endl;
-  //cout << "d_SHIFT_RATIO: " << d_shift_ratio << endl;
+  // if (p_exp_shift > d_exp_shift) 
+     temp_3 = pow(1.0-eps, (p_exp_shift - d_exp_shift));  //combine primal and dual ratio since they're both powers of 1-eps
+//   else
+//     temp_3 = 1.0/(p_d->exact_exp_weight(d_exp_shift - p_exp_shift));  //probably big precision issues here
 
-  double temp_1 = p_p_wt/p_pXuh_wt;
-  double temp_2 = p_dXu_wt/p_d_wt;
-  double temp_3 = (double)p_shift_ratio/d_shift_ratio;
+  cerr << "P_PXuh_SHIFT - P_P_SHIFT: " << p_pXuh->get_exponent_shift() - p_p->get_exponent_shift() << endl;
+  cerr << "P_D_SHIFT - P_DxU_SHIFT: " << p_d->get_exponent_shift() - p_dXu->get_exponent_shift() << endl;
+  //cerr << "P_SHIFT_RATIO: " << p_shift_ratio << endl;
+  //cerr << "D_SHIFT_RATIO: " << d_shift_ratio << endl;
+  cerr << "P_P_WT: " << p_p_wt << endl;
+  cerr << "P_PxUH_WT: " << p_pXuh_wt << endl;  
+  cerr << "P_D_WT: " << p_d_wt << endl;
+  cerr << "P_DxU_WT: " << p_dXu_wt << endl;
 
-  //cout << "TEMP_1: " << temp_1 << endl;
-  //cout << "TEMP_2: " << temp_2 << endl;
-  //cout << "TEMP_3: " << temp_3 << endl;
+  temp_1 = p_p_wt/p_pXuh_wt;
+  temp_2 = p_dXu_wt/p_d_wt;
+  //  temp_3 = (double)p_shift_ratio/d_shift_ratio;
+
+  cerr << "TEMP_1: " << temp_1 << endl;
+  cerr << "TEMP_2: " << temp_2 << endl;
+  cerr << "TEMP_3: " << temp_3 << endl;
 
   double prob = 1.0 / (1 + (temp_1*temp_2*temp_3));
-  // cout << "FINAL PROB: " << prob << endl;
-  //cout << endl << flush;
+   cerr << "FINAL PROB: " << prob << endl;
+  cerr << endl << flush;
   //restart entire sampling process if any sampler fails
   while (1) {
     float z = (rand()%1000)/999.0;
