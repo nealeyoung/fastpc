@@ -169,6 +169,12 @@ public:
 public:
   virtual int increment_exponent(sampler_item_t *w);
 
+  //allows access to exponent_weight in fastpc
+  inline
+    weight_t get_exponent_weight(exponent_entry_t* e) {
+    return exponent_weight(e);
+ }
+
 };
 
 // to implement the primal sampler,

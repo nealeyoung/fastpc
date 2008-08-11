@@ -71,6 +71,9 @@ private:
   nonzero_entry_t* get_largest_active(line_element* row);
   void get_two_largest_active(line_element* row, nonzero_entry_t** first, nonzero_entry_t** second);
 
+  //for debugging-- simulate sample and increment of x and xhat, but don't increment samplers
+  void freeze_and_sample(my_vector<line_element>& M, my_vector<line_element>& MT, int rows, int cols, dual_sampler_t* p_d, primal_sampler_t* p_p, dual_u_sampler_t* p_dXu, primal_u_sampler_t* p_pXuh, double epsilon, int prob);
+
 public:	
   solve_instance(double epsilon, string file_name);
   void solve();

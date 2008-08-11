@@ -9,8 +9,8 @@ using namespace std;
 //debug-- define which samplers to trace
 const bool DUAL_TRACE = 0;
 const bool DUAL_U_TRACE = 0; 
-const bool PRIMAL_TRACE = 1;
-const bool PRIMAL_U_TRACE = 1;
+const bool PRIMAL_TRACE = 0;
+const bool PRIMAL_U_TRACE = 0;
 
 
 dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec)
@@ -130,25 +130,25 @@ dual_sampler_t::remove(sampler_item_t *w) {
   
   //dual_sampler
   if (DUAL_TRACE && typeid(*this) == typeid(dual_sampler_t)) {
-    cerr << "CALLED FROM DUAL SAMPLER" << endl;
+    //cerr << "CALLED FROM DUAL SAMPLER" << endl;
     output_sampler_remove(w);
   }
 
   //dual_u sampler
   if (DUAL_U_TRACE && typeid(*this) == typeid(dual_u_sampler_t)) {
-    cerr << "CALLED FROM DUAL_U SAMPLER" << endl;
+    //cerr << "CALLED FROM DUAL_U SAMPLER" << endl;
     output_sampler_remove(w);
   }
 
   //primal sampler
   if (PRIMAL_TRACE && typeid(*this) == typeid(primal_sampler_t)) {
-    cerr << "CALLED FROM PRIMAL SAMPLER" << endl;
+    //cerr << "CALLED FROM PRIMAL SAMPLER" << endl;
     output_sampler_remove(w);
   }
 
   //primal_u sampler
   if (PRIMAL_U_TRACE && typeid(*this) == typeid(primal_u_sampler_t)) {
-    cerr << "CALLED FROM PRIMAL_U SAMPLER" << endl;
+    //cerr << "CALLED FROM PRIMAL_U SAMPLER" << endl;
     output_sampler_remove(w);
   }
 
@@ -224,26 +224,26 @@ dual_sampler_t::insert_in_bucket(sampler_item_t *w, bucket_t* b) {
 
   //dual_sampler
   if (DUAL_TRACE && typeid(*this) == typeid(dual_sampler_t)) {
-    cerr << "CALLED FROM DUAL SAMPLER" << endl;
+    //cerr << "CALLED FROM DUAL SAMPLER" << endl;
     output_sampler_insert(w);
   }
 
   //dual_u sampler
   if (DUAL_U_TRACE && typeid(*this) == typeid(dual_u_sampler_t)) {
-    cerr << "CALLED FROM DUAL_U SAMPLER" << endl;
+    //cerr << "CALLED FROM DUAL_U SAMPLER" << endl;
     output_sampler_insert(w);
          
   }  
 
   //primal sampler
   if (PRIMAL_TRACE && typeid(*this) == typeid(primal_sampler_t)) {
-    cerr << "CALLED FROM PRIMAL SAMPLER" << endl;
+    //cerr << "CALLED FROM PRIMAL SAMPLER" << endl;
     output_sampler_insert(w);
   }
 
   //primal_u sampler
   if (PRIMAL_U_TRACE && typeid(*this) == typeid(primal_u_sampler_t)) {
-    cerr << "CALLED FROM PRIMAL_U SAMPLER" << endl;
+    //cerr << "CALLED FROM PRIMAL_U SAMPLER" << endl;
     output_sampler_insert(w);
   }
   
@@ -417,8 +417,10 @@ int
 primal_u_sampler_t::non_overflow_size(bucket_t* b) {
   int num = 0;
   for (my_vector<sampler_item_t*>::iterator y = (*b).begin(); y != (*b).end(); ++y) {
-    if ((*y)->exponent_overflow == 0)
+    if ((*y)->exponent_overflow == 0){
       num++;
+
+    }
   }
   return num;
 }
@@ -527,7 +529,7 @@ dual_u_sampler_t::normalize_exponents() {
 
 void
 primal_u_sampler_t::normalize_exponents() {
-  cerr << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>PRIMAL_U_NORMALIZE" << endl;
+  //cerr << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>PRIMAL_U_NORMALIZE" << endl;
   int total_shift = NORMALIZE_SHIFT*exponents_per_bucket;
   exp_shift += total_shift;
   exp_shift_updated = true;
@@ -543,7 +545,7 @@ primal_u_sampler_t::normalize_exponents() {
     //cout << "NEW EXPONENT: " << updated_exponent << endl;
     update_item_exponent(&items[i], updated_exponent);
   }
-  cerr << "END PRIMAL_U_NORMALIZE<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
+  //cerr << "END PRIMAL_U_NORMALIZE<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
 }
 
 int
@@ -593,7 +595,7 @@ dual_sampler_t::output_sampler_insert(sampler_item_t* w) {
   //print one vertical line for each bucket
   cerr << "B ";
   for (int i=0; i < buckets.size(); i++)  
-  //  for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
+    for (int i=0; i < 2+((permanent_max_exponent-permanent_min_exponent)/exponents_per_bucket); i++)  //num of iterations = num of buckets
     cerr << "|";
   cerr << endl;    
   //print vertical line for each sampler item corresponding to which bucket it's in
@@ -620,7 +622,7 @@ dual_sampler_t::output_sampler_remove(sampler_item_t* w) {
   cerr << "B ";
   for (int i=0; i < buckets.size(); i++)  //num of iterations = num of buckets
     cerr << "|";
-  cerr << endl;    
+    cerr << endl;    
   //print vertical line for each sampler item corresponding to which bucket it's in
   for (int i=0; i < items.size(); i++) {
     int current_exp = items[i].exponent_entry->exponent;
