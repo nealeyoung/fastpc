@@ -55,6 +55,16 @@ private:
   dual_u_sampler_t *p_dXu;
 
   my_vector<line_element> M, MT, M_copy;
+  
+  //test samplers
+  float *u;
+  float *uh;
+  unsigned long*   p;
+  unsigned long* ph;
+  unsigned long* pXuh;
+  unsigned long* phXu;
+  unsigned long p_total,ph_total,pXuh_total,phXu_total;
+
 
   string file_name;
   double eps, epsilon;
@@ -67,7 +77,7 @@ private:
   int d_exp_shift;
 
   void random_pair(sampler_item_t** wi, sampler_item_t** wj, dual_sampler_t* p_p, dual_sampler_t* p_d, dual_sampler_t* p_pXuh, dual_sampler_t* p_dXu);
-
+  void random_pair(unsigned long* p,unsigned long* ph,unsigned long* pXuh,unsigned long* phXu,unsigned long p_total,unsigned long ph_total,unsigned long pXuh_total,unsigned long phXu_total);
   nonzero_entry_t* get_largest_active(line_element* row);
   void get_two_largest_active(line_element* row, nonzero_entry_t** first, nonzero_entry_t** second);
 
