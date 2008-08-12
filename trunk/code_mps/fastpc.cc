@@ -177,10 +177,10 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     cout << "PRINTING M: SUBTRACTED " << max_uh_exp-p_diff << " TO NORMALIZE.\n";
     for (int i = 0; i < r; ++i) {
       for(list<nonzero_entry_t*>::iterator x = M[i].begin(); x != M[i].end(); ++x){
-	//cout << "Coeff:" << (*x)->coeff << " Exponent:" << p_pXuh->get_ith(i)->exponent_entry->exponent 
-	//       << " Overflow:" << (*x)->u_sampler_pointer->exponent_overflow << endl;   //debug
+	cout << "Coeff:" << (*x)->coeff << " Exponent:" << p_pXuh->get_ith(i)->exponent_entry->exponent 
+	       << " Overflow:" << (*x)->u_sampler_pointer->exponent_overflow << endl;   //debug
       }
-      //cout << "\n";
+      cout << "\n";
     }
 
 
@@ -190,10 +190,10 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     last_t = &MT[c-1];
     for (int j=0; j < c; ++j) {
         for(list<nonzero_entry_t*>::iterator x = MT[j].begin(); x != MT[j].end(); ++x){
-	  //cout << "Coeff:" << (*x)->coeff << " Exponent:" << p_dXu->get_ith(j)->exponent_entry->exponent 
-	  //     << " Overflow:" << (*x)->u_sampler_pointer->exponent_overflow << endl;   //debug
+	  cout << "Coeff:" << (*x)->coeff << " Exponent:" << p_dXu->get_ith(j)->exponent_entry->exponent 
+	       << " Overflow:" << (*x)->u_sampler_pointer->exponent_overflow << endl;   //debug
       }
-	//cout << "\n";
+	cout << "\n";
     }
     //end debug print normalized exponents
   }
@@ -224,7 +224,7 @@ solve_instance::solve() {
 
   while (!done){
     iteration++;
-    //cout <<"iteration "<<iteration<<endl;
+    cout <<"iteration "<<iteration<<endl;
     //cerr <<"iteration "<<iteration<<endl;;
 
     if (iteration == N){ //arbitrary freeze point in middle of alg 
@@ -233,6 +233,9 @@ solve_instance::solve() {
       //exit(0); //don't continue with alg; just stop after sampler test
     }
 
+    //wi and wj store the sampler items which are chosen
+    //caveat-- could be from regular primal/dual samplers OR from p_pXuh/p_dXu, so the full
+    //value of each x will be distributed between TWO samplers for both primal and dual variables
     sampler_item_t* wi;
     sampler_item_t* wj;
     random_pair(&wi, &wj, p_p, p_d, p_pXuh, p_dXu);
@@ -256,6 +259,9 @@ solve_instance::solve() {
     double delta = 1/(uh_i + u_j);
     wj->x += delta;
     wi->x += delta;
+    cout << "Chosen column: " << j << " Chosen row: " << i << " Delta: " << delta << endl; //debug
+    cout << "wj: " << wj << "\twi: " << wi << endl;
+    cout << "Primal variable: " << wj->x << "\tDual variable: " << wi->x << endl;
 
     // line 7
     double z = (rand()%1000)/999.0;//@steve how much precision do we need here?
@@ -358,67 +364,80 @@ solve_instance::solve() {
   count_ops(3*r);
 
   double max_row = 0;
+  cout << "PRE-NORMALIZED VARS:\n";
+  cout << "PRIMAL:\n";
   for (int i=0; i<r; ++i){
     double tmp = 0;
     count_ops(3*M_copy[i].size());
     for (line_element::iterator iter = M_copy[i].begin(); 
 	 iter != M_copy[i].end(); 
-	 ++iter)
-      tmp += (*iter)->coeff * (*iter)->sampler_pointer->x;
-    //cout << "x_" << i << ": " << tmp << endl; //debug-- print each primal var
+	 ++iter) {
+      tmp += (*iter)->coeff * ((*iter)->sampler_pointer->x + (*iter)->u_sampler_pointer->x); //each sampler item stores part of var's value 
+      cout << "sampler_item: " << (*iter)->sampler_pointer << " u_sampler_item: " << (*iter)->u_sampler_pointer 
+	   << " Coeff: " << (*iter)->coeff << " sampler_item->x: " <<  (*iter)->sampler_pointer->x << " u_sampler_item->x: " <<  (*iter)->u_sampler_pointer->x<< endl;
+    }
+    cout << " x_" << i << ": "  << tmp << endl; //debug-- print each M_ix before normalization
     if (tmp > max_row)
       max_row = tmp;
   }
 
   count_ops(3*c);
 
+  cout << "DUAL:\n";
   double min_col = long(4*(N+2));
   for (int j=0; j<c; ++j){
     double tmp = 0;
     count_ops(3*MT[j].size());
     for (line_element::iterator iter = MT[j].begin();
          iter != MT[j].end(); 
-	 ++iter)
-      tmp += (*iter)->coeff * (*iter)->sampler_pointer->x;
-    //cout << "x_hat_" << j << ": " << tmp << endl; //debug-- print each dual var
+	 ++iter) {
+      tmp += (*iter)->coeff * ((*iter)->sampler_pointer->x + (*iter)->u_sampler_pointer->x); //each sampler item stores part of var's value 
+      cout << "sampler_item: " << (*iter)->sampler_pointer << " u_sampler_item: " << (*iter)->u_sampler_pointer 
+	   << " Coeff: " << (*iter)->coeff << " sampler_item->x: " <<  (*iter)->sampler_pointer->x << " u_sampler_item->x: " <<  (*iter)->u_sampler_pointer->x << endl;
+    }
+    cout <<" x_hat_" << j << ": " << tmp << endl; //debug-- print each MT_jxh  before normalization
     if (tmp < min_col)
       min_col = tmp;
   }
 
-  // //debug-- print normalized vars
-//   cout << "\nNORMALIZED VARS:\n";
-//   //normalized primal vars
-//   for (int i=0; i<r; ++i){
-//      double tmp = 0;
-//    for (line_element::iterator iter = M_copy[i].begin(); 
-// 	   iter != M_copy[i].end(); 
-// 	   ++iter)
-// 	tmp += (*iter)->coeff * (*iter)->sampler_pointer->x;
-//       cout << "x_" << i << ": " << tmp/max_row << endl; //debug-- print each primal var
+  cout << "Min-col: " << min_col << " 4*(N+2): " << 4*(N+2) << endl; //debug
+
+  //debug-- print normalized vars
+  cout << "\nNORMALIZED VARS:\n";
+  cout << "PRIMAL:\n";
+  //normalized primal vars
+  for (int i=0; i<r; ++i){
+     double tmp = 0;
+   for (line_element::iterator iter = M_copy[i].begin(); 
+	   iter != M_copy[i].end(); 
+	   ++iter)
+      tmp += (*iter)->coeff * ((*iter)->sampler_pointer->x + (*iter)->u_sampler_pointer->x); //each sampler item stores part of var's value 
+      cout << "x_" << i << ": " << tmp/max_row << endl; //debug-- print each primal var
     
-//     }
-//   //normalized dual vars
-//   for (int j=0; j<c; ++j){
-//     double tmp = 0;
-//     for (line_element::iterator iter = MT[j].begin();
-//          iter != MT[j].end(); 
-// 	 ++iter)
-//       tmp += (*iter)->coeff * (*iter)->sampler_pointer->x;
-//     cout << "x_hat_" << j << ": " << tmp/min_col << endl; //debug-- print each dual var
-//     if (tmp < min_col)
-//       min_col = tmp;
-//   }
+    }
+  //normalized dual vars
+  cout << "DUAL:\n";
+  for (int j=0; j<c; ++j){
+    double tmp = 0;
+    for (line_element::iterator iter = MT[j].begin();
+         iter != MT[j].end(); 
+	 ++iter)
+       tmp += (*iter)->coeff * ((*iter)->sampler_pointer->x + (*iter)->u_sampler_pointer->x); //each sampler item stores part of var's value 
+    cout << "x_hat_" << j << ": " << tmp/min_col << endl; //debug-- print each dual var
+    if (tmp < min_col)
+      min_col = tmp;
+  }
 
   double sum_x_p=0, sum_x_d=0;
 
   count_ops(2*c);
 
   //compute this in previous for loops to save time
-  for (int j=0; j<c; ++j) sum_x_p += p_d->get_ith(j)->x;
+  for (int j=0; j<c; ++j) sum_x_p += (p_d->get_ith(j)->x + p_dXu->get_ith(j)->x);
 
   count_ops(2*r);
 
-  for (int i=0; i<r; ++i) sum_x_d += p_p->get_ith(i)->x;
+  for (int i=0; i<r; ++i) sum_x_d += (p_p->get_ith(i)->x + p_pXuh->get_ith(i)->x);
 
   //cout << "iterations = " << iteration;
   if (max_row == 0)
@@ -566,9 +585,11 @@ void solve_instance::get_two_largest_active(line_element* row, nonzero_entry_t**
   }
 }
 
+
+//@TODO fix this function to incorporate portions of vars stored in p_pXuh and p_pXu 
 void
 solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_element>& MT, int rows, int cols, dual_sampler_t* p_d, primal_sampler_t* p_p, dual_u_sampler_t* p_dXu, primal_u_sampler_t* p_pXuh, double epsilon, int prob) {
-  //store current state of variables
+  //store current state of variables, prob distributions, expected values after frozen increments
   my_vector<double> x_p;
   my_vector<double> x_d;
   my_vector<double> x_p_prob;
@@ -693,6 +714,14 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
       cout << "\tOut of range!\n";
     else
       cout << "\tWithin range.\n"; 
+  }
+
+  //restore vars to original state
+  for (int i=0; i < cols; i++) 
+    p_d->get_ith(i)->x = x_p[i];
+
+  for (int i=0; i < rows; i++) {
+    p_p->get_ith(i)->x = x_d[i];
   }
 }
 
