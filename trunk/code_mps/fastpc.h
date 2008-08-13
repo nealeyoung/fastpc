@@ -21,27 +21,26 @@
 using namespace std;
 
 
-//these objects hold a coefficient and a pointer to a sampler object
-//one of these objects is created for every nonzero element in the input matrix
+//objects for nonzero elements in the input matrix
+//has a coefficient and pointers to sampler objects
 class nonzero_entry_t {
  public:
   double coeff;
-  sampler_item_t* sampler_pointer;
-  sampler_item_t* u_sampler_pointer;
-  int exponent;
+  sampler_item_t* sampler_pointer;    //element in p_p or p_d
+  sampler_item_t* u_sampler_pointer;  //element in p_pXuh or p_dXu
+  int exponent;  //coeff rounded to nearest power of (1-eps)
   nonzero_entry_t(double value, double eps, sampler_item_t* sampler, sampler_item_t* u_sampler);
-
-  //bool operator<(nonzero_entry_t* a);
 };
 
+//used for exact sorting of matrices M and MT
 struct list_sort_criteria{
   //compare and return
   bool operator()(nonzero_entry_t* left, nonzero_entry_t* right) 
   {
-    return (left->coeff > right->coeff);
+    return (left->coeff > right->coeff);  //sort in decreasing order
   };
 };
-typedef list <double> double_list;
+
 typedef list<nonzero_entry_t *> line_element;
 
 class solve_instance{
@@ -56,38 +55,34 @@ private:
 
   my_vector<line_element> M, MT, M_copy;
   
-  //test samplers
-  float *u;
-  float *uh;
-  unsigned long*   p;
-  unsigned long* ph;
-  unsigned long* pXuh;
-  unsigned long* phXu;
-  unsigned long p_total,ph_total,pXuh_total,phXu_total;
-
-
   string file_name;
   double eps, epsilon;
 
+  // To implement random_pair function in paper, we must compute |p_pXuh||p_d|/(|p_pXuh||p_d|+|p_p||p_dXu|)
+  // Because of normalization, sampler weights at any given time during alg are internally consistent,
+  // but not consistent relative to other samplers. So, we compute an offset for each sampler based on 
+  // how often it's been normalized and factor this in to the calculation to correct the ratios of the 
+  // sampler weights.
+  // So finally, we compute 1/(1+ratios), where ratios = (|p_p|/|p_pXuh|)*(|p_dXu|/|p_d|)*(1-eps)^(total offset).
+  // We also use the rejection method to ensure accurate distributions; if either chosen sampler rejects when sampling,
+  // the entire sampling process is re-started, including the choice of samplers
   double p_shift_ratio;
   double d_shift_ratio;
-
-  //store relative shifts in p/pXuh and d/dXu
   int p_exp_shift;
   int d_exp_shift;
-
   void random_pair(sampler_item_t** wi, sampler_item_t** wj, dual_sampler_t* p_p, dual_sampler_t* p_d, dual_sampler_t* p_pXuh, dual_sampler_t* p_dXu);
-  void random_pair(unsigned long* p,unsigned long* ph,unsigned long* pXuh,unsigned long* phXu,unsigned long p_total,unsigned long ph_total,unsigned long pXuh_total,unsigned long phXu_total);
+  
+  //find largest active entry/entries of a row in M; used to re-calculate uh_i when constraint is dropped
   nonzero_entry_t* get_largest_active(line_element* row);
   void get_two_largest_active(line_element* row, nonzero_entry_t** first, nonzero_entry_t** second);
 
-  //for debugging-- simulate sample and increment of x and xhat, but don't increment samplers
+  //for debugging test of sampling process-- simulate sample and increment of x and xhat, but don't increment samplers
   void freeze_and_sample(my_vector<line_element>& M, my_vector<line_element>& MT, int rows, int cols, dual_sampler_t* p_d, primal_sampler_t* p_p, dual_u_sampler_t* p_dXu, primal_u_sampler_t* p_pXuh, double epsilon, int prob);
 
 public:	
   solve_instance(double epsilon, string file_name);
   void solve();
-  void sudo_sort(my_vector<line_element> *matrix,int col );
+  void pseudo_sort(my_vector<line_element> *matrix,int col );
 };
 
  

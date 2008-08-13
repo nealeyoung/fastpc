@@ -27,12 +27,15 @@ class sampler_item_t {
   double x;			// value (to get or set, not used internally)
   bool removed;			// if removed from collection
 
-  // It will store the difference between the actual exponent of this item
-  //and the permanent_max_exponent. So, the actual exponent will be sum of the
-  // exponent in the exponent_entry and the exponent_overflow.
+  //when an item's weight is so small that it does not fit in the sampler,
+  //we keep it in the smallest-weight sampler bucket with exponent of permanent_max_exponent and 
+  //consider its weight to be 0, but we keep track of its exact exponent via an overflow variable so that
+  //if its weight increases again (due to normalization) it can re-join the sampler as normal.
+  //specifically, such an item's exact exponent will be sum of the
+  //exponent in its exponent_entry (permanent_max_exponent) and the exponent_overflow.
   unsigned int exponent_overflow;
   
-  struct exponent_entry_t* exponent_entry; //made public for PLonjers
+  struct exponent_entry_t* exponent_entry; 
 
 protected:
   struct bucket_t* bucket;
@@ -97,7 +100,7 @@ public:
   //return total_weight, updating if necessary
   weight_t get_update_total_weight();
 
-  //count number of non-overflown items in a bucket
+  //count number of non-overflowing items in a bucket-- only called on smallest-weight bucket
   virtual int non_overflow_size(bucket_t* b);  
   sampler_item_t* get_ith(int i) { return &items[i]; } 
 				// access item with index i
@@ -108,8 +111,10 @@ public:
   int get_exponent(sampler_item_t* s) { return s->exponent_entry->exponent; }
   virtual int get_exponent_shift(); //how much items have been normalized
   weight_t exact_exp_weight(int exp); //calculate exact weight for given exponent
+  weight_t shift_exp_weight(int exp); //calculate weight without scaling by MAX_WEIGHT_T
   int n_rebuilds();
   int n_rebuild_ops();
+
   //total shift in exponents between the ones currently stored and actual; incremented on normalization 
   int exp_shift; 
   bool exp_shift_updated; 
@@ -123,8 +128,7 @@ public:
 				// see bucket_t above
 
   weight_t total_weight; 	// upper bound on total of all weights
-  //bucket_t* total_weight_min_bucket; // ...recalc if min_bucket changes
-  bool recalculate_weight; //use instead of total_weight_min_bucket
+  bool recalculate_weight;      // signals recalculation of weight when current_min_bucket changes
   
   // Instead of keeping track of total weight exactly,
   // we count the weight of each item in a given bucket
@@ -143,7 +147,7 @@ public:
   const int permanent_min_exponent;
   const int permanent_max_exponent;
   const int exponents_per_bucket;
-  const int NORMALIZE_SHIFT;
+  const int NORMALIZE_SHIFT; //how many buckets to shift items by during normalization
 
   int rebuilds;			// just for profiling
   int rebuild_ops;
@@ -153,14 +157,10 @@ public:
   weight_t exponent_weight(exponent_entry_t*);
   weight_t random_weight_t(weight_t);
 
-  //outputs current sampler status to cerr; w is sampler item being removed or inserted
+  //for debugging-- outputs current sampler snapshot to cerr; w is sampler item being removed or inserted
   void output_sampler_insert(sampler_item_t* w);
   void output_sampler_remove(sampler_item_t* w);
-
-  //allows for insertion of element with arbitrary exponent, i.e.
-  //arbitrary probability
-  //void update_item_exponent(sampler_item_t* item, int exp);
-  
+   
   inline 
   exponent_entry_t& expt(int e) { 
     return exponents[e-permanent_min_exponent]; 
@@ -197,7 +197,7 @@ public:
 
   void init();
 	
-  //count number of non-overflown items in a bucket
+  //count number of non-overflowing items in a bucket
   virtual int non_overflow_size(bucket_t* b);
 
   virtual int get_exponent_shift();
@@ -205,25 +205,24 @@ public:
   virtual int increment_exponent(sampler_item_t *w);
 };
 
- //modified sampler p_dXu 
+ // sampler p_dXu 
  class dual_u_sampler_t : public dual_sampler_t { 
   public: 
    dual_u_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec = 0)
      : dual_sampler_t(n, epsilon, min_expt, max_expt, prec)
      { 
      } 
-     //dual_u_sampler_t(int n, double epsilon, int min_expt, int max_expt); 
-
+   
      //allows for insertion of element with arbitrary exponent, i.e.
      //arbitrary probability
      void update_item_exponent(sampler_item_t* item, int exp);
 
-     //when the exponent of an item being inserted into a bucket
-     //is very close to permanent_max_exponent, we need to normalize the exponents.
-     //By close we mean within a certain factor of permanent_max_exponent
+     //when buckets at front of sampler vacate, we shift all items' exponents downward (towards the front)
+     //so as to keep those buckets occupied; this ensures that items with overflow
+     //can be re-inserted into normal sampler activity when all items' exponents "catch up"
      void normalize_exponents();
      
-     //count number of non-overflown items in a bucket
+     //count number of non-overflowing items in a bucket
      virtual int non_overflow_size(bucket_t* b);
 
      virtual int get_exponent_shift(); //how much items have been normalized
@@ -231,24 +230,22 @@ public:
      virtual int increment_exponent(sampler_item_t *w);
  };
 
- //modified sampler p_pXuh
+ // sampler p_pXuh
  class primal_u_sampler_t : public primal_sampler_t { 
   public: 
    primal_u_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec = 0) 
      : primal_sampler_t(n, epsilon, min_expt, max_expt, prec)
      { 
      } 
-     //primal_u_sampler_t(int n, double epsilon, int min_expt, int max_expt); 
-     //allows for insertion of element with arbitrary exponent, i.e.
-     //arbitrary probability
+
+     // see comment for dual_u_sampler_t
      void update_item_exponent(sampler_item_t* item, int exp);
   
-     //when the exponent of an item being inserted into a bucket
-     //is very close to permanent_max_exponent, we need to normalize the exponents.
-     //By close we mean within a certain factor of permanent_max_exponent
+     // when items approach the permanent_min_exponent, we shift all exponents upward
+     // i.e. backwards in sampler, to prevent going off front of sampler
      void normalize_exponents();
 
-     //count number of non-overflown items in a bucket
+     // count number of non-overflowing items in a bucket
      virtual int non_overflow_size(bucket_t* b);
 
      virtual int get_exponent_shift(); //how much items have been normalized
