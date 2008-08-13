@@ -1,9 +1,9 @@
 import random
 
 
-c = 50
+c = 100
 r  = 50
-non_zero = 1000.0
+non_zero = 2500.0
 upper  = 100.0
 lower = 0.0
 out_file_name = 'lp_test_sort_3'
