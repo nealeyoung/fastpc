@@ -63,9 +63,9 @@ void solve_instance::sudo_sort( my_vector<line_element> *matrix, my_vector<line_
   
   //create buckets for the  bucket sort
   int num_buckets = (int)ceil(any_base_log(n_col/eps,delta))*2; //not sure about base 2
-  double_list** buckets = (double_list**)malloc(sizeof(double_list*)*num_buckets);    
+  list<nonzero_entry_t>** buckets = malloc(sizeof(list<nonzero_entry_t>*) * num_buckets);    
   for(int i = 0; i<num_buckets; i++){
-    buckets[i] =  new double_list();
+    buckets[i] =  new list<nonzero_entry_t>();
   }
 
   // bucket sort each row
@@ -75,15 +75,21 @@ void solve_instance::sudo_sort( my_vector<line_element> *matrix, my_vector<line_
     for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
     
       int index = (int)floor(any_base_log((*x)->coeff,delta)-any_base_log(b,delta)+any_base_log(c/eps,delta));
-      buckets[index]->push_back((*x)->coeff);
+      buckets[index]->push_back((*x));
     }
 
+    
     //add items from buckets back into the matrix
+    line_element::iterator temp;
     line_element::iterator row = p->begin();
+    
     for(int i = 0; i<num_buckets; i++){
       for (list<double>::iterator x = buckets[i]->begin(); x != buckets[i]->end(); ++x){
-	(*row)->coeff = (*x);
 	row++;
+	temp = row;
+	row--;
+	(*row) = (*x);
+	row= temp;
       }
     }
 
