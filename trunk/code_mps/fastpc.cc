@@ -227,11 +227,11 @@ solve_instance::solve() {
     //cout <<"iteration "<<iteration<<endl;
     //cerr <<"iteration "<<iteration<<endl;;
 
-    //    if (iteration == N){ //arbitrary freeze point in middle of alg 
-    //int prob_reciprocal = 6;   //prob is less than 1/6 of x deviating from E[x] by eps-factor
-    //freeze_and_sample(M, MT, r, c, p_d, p_p, p_dXu, p_pXuh, eps, prob_reciprocal);
+    if (iteration == N){ //arbitrary freeze point in middle of alg 
+      int prob_reciprocal = 6;   //prob is less than 1/6 of x deviating from E[x] by eps-factor
+      freeze_and_sample(M, MT, r, c, p_d, p_p, p_dXu, p_pXuh, eps, prob_reciprocal);
       //exit(0); //don't continue with alg; just stop after sampler test
-    //}
+    }
 
     //wi and wj store the sampler items which are chosen
     //caveat-- could be from regular primal/dual samplers OR from p_pXuh/p_dXu, so the full
@@ -608,12 +608,16 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
   //find total weight in samplers
   weight_t p_p_total = 0;
   weight_t p_d_total = 0;
+  weight_t p_pXuh_total = 0;
+  weight_t p_dXu_total = 0;
 
   for (int i = 0; i < cols; i++) {
     weight_t wt = p_d->get_exponent_weight(p_d->get_ith(i)->exponent_entry);
     p_d_total += wt;
     //cout << "Exponent: " << p_d->get_ith(i)->exponent_entry->exponent;
     cout << " x_" << i << " Item Weight (in dual sampler): " << wt << endl;
+    weight_t u_wt = p_dXu->get_exponent_weight(p_dXu->get_ith(i)->exponent_entry);
+    p_dXu_total += u_wt;
   }
 
   for (int i = 0; i < rows; i++) {
@@ -621,32 +625,64 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
     p_p_total += wt;
     //cout << "Exponent: " << p_p->get_ith(i)->exponent_entry->exponent;
     cout << "xhat_" << i << " Item Weight (in primal sampler): " << wt << endl;
+    weight_t u_wt = p_pXuh->get_exponent_weight(p_pXuh->get_ith(i)->exponent_entry);
+    p_pXuh_total += u_wt;
   }
 
-  //primal vars
+  
+  //@TODO-- bug in probability calc-- need to take into account all 4 samplers 
+  //as well as prob of selecting each set-- overall prob should be weighted avg
+  double temp_1;
+  double temp_2;
+  double temp_3;
+
+  int temp_p_exp_shift = 0;
+  int temp_d_exp_shift = 0;
+
+  //@steve be careful of precision issues here!!!
+  if (p_p->exp_shift_updated || p_pXuh->exp_shift_updated) 
+    temp_p_exp_shift = p_pXuh->get_exponent_shift() - p_p->get_exponent_shift();     //@steve changed! --reversed p_p and p_pXuh
+  if (p_d->exp_shift_updated || p_dXu->exp_shift_updated) 
+    temp_d_exp_shift = p_d->get_exponent_shift() - p_dXu->get_exponent_shift();
+
+  temp_1 = p_p_total/p_pXuh_total;
+  temp_2 = p_dXu_total/p_d_total;
+  temp_3 = pow(1.0-eps, (temp_p_exp_shift - temp_d_exp_shift));  //combine primal and dual ratio since they're both powers of 1-eps
+
+  double sampler_prob = 1.0 / (1 + (temp_1*temp_2*temp_3));
+  
+  //primal vars  
   for (int i = 0; i < cols; i++) {
     sampler_item_t* current_var = p_d->get_ith(i);
-    x_p.push_back(current_var->x);
+    sampler_item_t* current_u_var = p_dXu->get_ith(i);
+    x_p.push_back(current_var->x + current_u_var->x);
     cout << "x_" << i << ": " << x_p[i] << endl; //debug--print new vectors
     weight_t current_weight = p_d->get_exponent_weight(current_var->exponent_entry);
     double current_prob = (double)current_weight/p_d_total;
-    x_p_prob.push_back(current_prob);
-    total_x_p_prob += current_prob; 
-    if (current_prob < min_prob && current_prob > 0)
-      min_prob = current_prob;
+    weight_t current_u_weight = p_dXu->get_exponent_weight(current_u_var->exponent_entry);
+    double current_u_prob = (double)current_u_weight/p_dXu_total;
+    double combined_prob = sampler_prob*current_prob + (1-sampler_prob)*current_u_prob; //weighted avg of current_prob and current_u_prob
+    x_p_prob.push_back(combined_prob);  
+    total_x_p_prob += combined_prob; 
+    if (combined_prob < min_prob && combined_prob > 0)
+      min_prob = combined_prob;
   }
 
   //dual vars
   for (int i = 0; i < rows; i++) {
     sampler_item_t* current_var = p_p->get_ith(i);
-    x_d.push_back(p_p->get_ith(i)->x);
+    sampler_item_t* current_u_var = p_pXuh->get_ith(i);
+    x_d.push_back(p_p->get_ith(i)->x + current_u_var->x);
     cout << "xhat_" << i << ": " << x_d[i] << endl; //debug--print new vectors
     weight_t current_weight = p_p->get_exponent_weight(current_var->exponent_entry);
     double current_prob = (double)current_weight/p_p_total;
-    x_d_prob.push_back(current_prob);
-    total_x_d_prob += current_prob; 
-    if (current_prob < min_prob && current_prob > 0)
-      min_prob = current_prob;
+    weight_t current_u_weight = p_pXuh->get_exponent_weight(current_u_var->exponent_entry);
+    double current_u_prob = (double)current_u_weight/p_pXuh_total;
+    double combined_prob = sampler_prob*current_u_prob + (1-sampler_prob)*current_prob; //weighted avg of current_prob and current_u_prob
+    x_d_prob.push_back(combined_prob);
+    total_x_d_prob += combined_prob; 
+    if (combined_prob < min_prob && combined_prob > 0)
+      min_prob = combined_prob;
   }
 
   //debug
@@ -655,8 +691,8 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
   cout << "Sum of x_p probs: " << total_x_p_prob << endl;
 
   //compute how many iterations must be done-- fix this!  too big
-  if (min_prob < 0.01)
-    min_prob = 0.01;  //adjust min prob so # of iterations doesn't get huge
+    if (min_prob < 0.001)
+      min_prob = 0.001;  //adjust min prob so # of iterations doesn't get huge
   weight_t samples = ceil((3*log(prob)/(epsilon*epsilon))/min_prob);
   cout << "3*log(prob)/epsilon^2: " << (3*log(prob)/(epsilon*epsilon)) << " Samples: " << samples << endl;
 
@@ -698,7 +734,7 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
   //print final status
   for (int i=0; i < cols; i++) {
     double expt_x = x_p_expect[i];
-    double actual_x = p_d->get_ith(i)->x;
+    double actual_x = p_d->get_ith(i)->x + p_dXu->get_ith(i)->x;
     cout << "x_" << i << ": " << actual_x << " Expected val: " << expt_x;
     if (actual_x > (1+epsilon)*expt_x || actual_x < (1-epsilon)*expt_x)
       cout << "\tOut of range!\n";
@@ -708,7 +744,7 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
 
   for (int i=0; i < rows; i++) {
     double expt_x = x_d_expect[i];
-    double actual_x = p_p->get_ith(i)->x;
+    double actual_x = p_p->get_ith(i)->x + p_pXuh->get_ith(i)->x;
     cout << "xhat_" << i << ": " << actual_x << " Expected val: " << expt_x;
     if (actual_x > (1+epsilon)*expt_x || actual_x < (1-epsilon)*expt_x)
       cout << "\tOut of range!\n";
@@ -716,12 +752,15 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
       cout << "\tWithin range.\n"; 
   }
 
-  //restore vars to original state
-  for (int i=0; i < cols; i++) 
+  //restore vars to original state-- put entire val of var in main samplers
+  for (int i=0; i < cols; i++) {
     p_d->get_ith(i)->x = x_p[i];
+    p_dXu->get_ith(i)->x = 0;
+  }
 
   for (int i=0; i < rows; i++) {
     p_p->get_ith(i)->x = x_d[i];
+    p_pXuh->get_ith(i)->x = 0;
   }
 }
 
