@@ -10,45 +10,51 @@ using namespace std;
 nonzero_entry_t::nonzero_entry_t(double value, sampler_item_t* sampler):
   coeff(value),  sampler_pointer( sampler)
 {}
-// bool nonzero_entry_t::operator<(nonzero_entry_t* a) {
-//   cout << "testttttttttt ----- tttttt";
-//     return (this->coeff < a->coeff);
-//   }
 
 
-//should get both bs at once
-//need to fix r
-void solve_instance::sudo_sort(my_vector<line_element> *matrix,int col ){
+inline double solve_instance::any_base_log(double number, double base){
 
+  return log2(number)/log2(base);
+}
+
+void solve_instance::sudo_sort( my_vector<line_element> *matrix, my_vector<line_element> *matrix_T, int n_col, int n_row,double delta ){
+
+  delta = delta +1;
   //find b
   cout<<"start sudo sort \n";
-  line_element *last = (line_element*)&((*matrix)[r-1]);
+  line_element *last = (line_element*)&((*matrix)[n_row-1]);
   line_element *first = (line_element*)&((*matrix)[0]);
-  double b = 0;
-  for (line_element *p =first; p <= last; ++p) {
 
-    double min_temp = (*(p->begin()))->coeff;
-     for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
-      
-       if ((*x)->coeff < min_temp){
-	 min_temp = (*x)->coeff;   
-       }
-     }
-     
-     if (min_temp >b){
-       b = min_temp;
-     }
+  line_element *last_t = (line_element*)&((*matrix_T)[n_row-1]);
+  line_element *first_t = (line_element*)&((*matrix_T)[0]);
+
+  double b = -1; // b starts as negative 1 to mark first loop
+  for (line_element *p =first_t; p <= last_t; ++p) {
+
+    double max_temp = (*(p->begin()))->coeff;
+    
+    for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){ 
+      if ((*x)->coeff > max_temp){
+	max_temp = (*x)->coeff;   
+      }
+    }
+    if (max_temp <b || b == -1){
+      b = max_temp;
+    }
   }
 
+
+ 
   //scale all  elements
-  double bound = b*eps/col;
-  double replace = b*col/eps;
+  double bound = b*eps/n_col;
+  double replace = b*n_col/eps;
   for (line_element* p = first; p <= last; ++p) {
 
     for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
       
       if ((*x)->coeff < bound ){
-	(*x)->coeff = 0;
+	p->erase(x);
+	x--;
       }else{
 	(*x)->coeff = min((*x)->coeff,replace);
       }
@@ -56,7 +62,7 @@ void solve_instance::sudo_sort(my_vector<line_element> *matrix,int col ){
   }
   
   //create buckets for the  bucket sort
-  int num_buckets = (int)ceil(log2(col/eps))*2; //not sure about base 2
+  int num_buckets = (int)ceil(any_base_log(n_col/eps,delta))*2; //not sure about base 2
   double_list** buckets = (double_list**)malloc(sizeof(double_list*)*num_buckets);    
   for(int i = 0; i<num_buckets; i++){
     buckets[i] =  new double_list();
@@ -65,22 +71,20 @@ void solve_instance::sudo_sort(my_vector<line_element> *matrix,int col ){
   // bucket sort each row
   for (line_element* p = first; p <= last; ++p) {
 
-    cout <<"new row \n";
-
     //bucket sort
     for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
     
-      //not sure about base 2 and the round might be floor
-      int index = (int)floor(log2((*x)->coeff)-log2(b)+log2(c/eps));
+      int index = (int)floor(any_base_log((*x)->coeff,delta)-any_base_log(b,delta)+any_base_log(c/eps,delta));
       buckets[index]->push_back((*x)->coeff);
     }
 
-    //print out the buckets need to add them to new list
+    //add items from buckets back into the matrix
+    line_element::iterator row = p->begin();
     for(int i = 0; i<num_buckets; i++){
       for (list<double>::iterator x = buckets[i]->begin(); x != buckets[i]->end(); ++x){
-	cout << (*x)<< " item ";   
+	(*row)->coeff = (*x);
+	row++;
       }
-     cout <<"bucket \n";
     }
 
     //erase elements in buckets so they can be used for next row
@@ -90,15 +94,27 @@ void solve_instance::sudo_sort(my_vector<line_element> *matrix,int col ){
 
   }
 
-  
-  cout <<"done with sudo sort \n";
-  cout <<flush;
+  cout<<"deallocate in sort \n";
+  cout<<flush;
+  //deallocate memory for  buckets
+  for(int i =0; i<num_buckets; i++){
+
+    free(buckets[i]);
+  }
+  free(buckets);
+
+  cout<<"end sort \n";
+  cout<<flush;
+
 }
 
-solve_instance::solve_instance(double EPSILON, string infile) :
-  eps(0.9*EPSILON),
+
+solve_instance::solve_instance(double DELTA , double EPSILON, string infile) :
+  delta(DELTA),
+  eps(0.9*EPSILON), //???
   epsilon(EPSILON),
   file_name(infile)
+  
 {
   // constructor reads the input and creates matrices M and MT (transpose)
   int row, col, total;
@@ -144,7 +160,6 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     while(true) {
       in_file >> row  >> col >> val;  //took out string s 
 
-      // find b
       if (in_file.eof()) break;
       M[row].push_back(new nonzero_entry_t(val,p_d->get_ith(col)));
       M_copy[row].push_back(new nonzero_entry_t(val,p_d->get_ith(col)));
@@ -152,14 +167,15 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     }
 
     //sudo sorts
-    //sudo_sort(&M,c);
+    sudo_sort(&M,&MT,c,r,delta);
+    sudo_sort(&MT,&M_copy,r,c,delta);
     //sudo_sort(MT,r);
 
     //sort rows of M
     line_element* last = &M[r-1];
     for (line_element* p = &M[0]; p <= last; ++p) {
       cout << "Inside loop "; //debug
-      p->sort(list_sort_criteria()); //sort row linked list
+      //      p->sort(list_sort_criteria()); //sort row linked list
       for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
 	cout << (*x)->coeff << " ";   
       }
@@ -170,7 +186,7 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     line_element* last_t = &MT[c-1];
     for (line_element* p = &MT[0]; p <= last_t; ++p) {
       cout << "Inside loop MT "; //debug
-      p->sort(list_sort_criteria()); //sort row of MT linked list
+      // p->sort(list_sort_criteria()); //sort row of MT linked list
       for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
 	cout << (*x)->coeff << " ";   
       }
@@ -439,24 +455,26 @@ solve_instance::solve() {
 
 int main(int argc, char *argv[])
 {
-  double epsilon = 0.1;
-  string input_file="";
+  double epsilon;
+  string input_file;
+  double delta;
 		
-  if (argc >= 2)
-    epsilon = atof(argv[1]);
-
-  if (argc >= 3)
-    input_file = argv[2];
-  else {
-    cout << "Error!  Too few arguments.\n";
-    return 1;
+  if (argc<4){
+     cout << "Error!  Too few arguments.\n";
+     return 1;
   }
+
+  delta = atof(argv[1]);
+  epsilon = atof(argv[2]);
+  input_file = argv[3];
+  
+ 
 		
 #ifdef NDEBUG
   srand(time(NULL));
 #endif
 
-  solve_instance I(epsilon, input_file);
+  solve_instance I( delta, epsilon, input_file);
   I.solve();
 
   return 0;
