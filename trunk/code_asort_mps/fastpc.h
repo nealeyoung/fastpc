@@ -62,7 +62,7 @@ public:
   double any_base_log(double number, double base);
   solve_instance(double delta, double epsilon, string file_name);
   void solve();
-  void sudo_sort(my_vector<line_element> *matrix,my_vector<line_element> *matrix_T, int n_col,int n_row,double delta );
+  void pseudo_sort(my_vector<line_element> *matrix,my_vector<line_element> *matrix_T, int n_col,int n_row,double delta );
 };
 
 /* struct nonzero_entry_t_comparator { */

@@ -17,11 +17,11 @@ inline double solve_instance::any_base_log(double number, double base){
   return log2(number)/log2(base);
 }
 
-void solve_instance::sudo_sort( my_vector<line_element> *matrix, my_vector<line_element> *matrix_T, int n_col, int n_row,double delta ){
+void solve_instance::pseudo_sort( my_vector<line_element> *matrix, my_vector<line_element> *matrix_T, int n_col, int n_row,double delta ){
 
-  delta = delta +1;
+  //delta = delta +1;
   //find b
-  cout<<"start sudo sort \n";
+  cout<<"start pseudo sort \n";
   line_element *last = (line_element*)&((*matrix)[n_row-1]);
   line_element *first = (line_element*)&((*matrix)[0]);
 
@@ -30,9 +30,12 @@ void solve_instance::sudo_sort( my_vector<line_element> *matrix, my_vector<line_
 
   double b = -1; // b starts as negative 1 to mark first loop
   for (line_element *p =first_t; p <= last_t; ++p) {
+    double max_temp;
+    if (1)
+      max_temp = (*(p->begin()))->coeff;
+    else
+      continue;    
 
-    double max_temp = (*(p->begin()))->coeff;
-    
     for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){ 
       if ((*x)->coeff > max_temp){
 	max_temp = (*x)->coeff;   
@@ -63,9 +66,9 @@ void solve_instance::sudo_sort( my_vector<line_element> *matrix, my_vector<line_
   
   //create buckets for the  bucket sort
   int num_buckets = (int)ceil(any_base_log(n_col/eps,delta))*2; //not sure about base 2
-  list<nonzero_entry_t>** buckets = malloc(sizeof(list<nonzero_entry_t>*) * num_buckets);    
+  list<nonzero_entry_t*>*  *buckets = (list<nonzero_entry_t*>**)(malloc( sizeof(list<nonzero_entry_t*>*) * num_buckets));    
   for(int i = 0; i<num_buckets; i++){
-    buckets[i] =  new list<nonzero_entry_t>();
+    buckets[i] =  new list<nonzero_entry_t*>();
   }
 
   // bucket sort each row
@@ -84,7 +87,7 @@ void solve_instance::sudo_sort( my_vector<line_element> *matrix, my_vector<line_
     line_element::iterator row = p->begin();
     
     for(int i = 0; i<num_buckets; i++){
-      for (list<double>::iterator x = buckets[i]->begin(); x != buckets[i]->end(); ++x){
+      for (list<nonzero_entry_t *>::iterator x = buckets[i]->begin(); x != buckets[i]->end(); ++x){
 	row++;
 	temp = row;
 	row--;
@@ -172,10 +175,10 @@ solve_instance::solve_instance(double DELTA , double EPSILON, string infile) :
       MT[col].push_back(new nonzero_entry_t(val,p_p->get_ith(row)));
     }
 
-    //sudo sorts
-    sudo_sort(&M,&MT,c,r,delta);
-    sudo_sort(&MT,&M_copy,r,c,delta);
-    //sudo_sort(MT,r);
+    //pseudo sorts
+    pseudo_sort(&M,&MT,c,r,delta);
+    pseudo_sort(&MT,&M_copy,r,c,delta);
+    //pseudo_sort(MT,r);
 
     //sort rows of M
     line_element* last = &M[r-1];
