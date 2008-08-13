@@ -27,8 +27,13 @@ main() {
       cout << s.get_exponent(s.get_ith(i)) << " ";
     cout << endl;
 
-    for (int i = 0;  i < 80;  ++i)
-      cout << s.sample()->i << " ";
+    for (int i = 0;  i < 80;  ++i) {
+      sampler_item_t* item = s.sample();
+      if (item != NULL)
+	cout << item->i << " ";
+      else
+	cout << "NULL ";
+    }
     cout << endl;
   }
   cout << endl;
@@ -40,8 +45,13 @@ main() {
       cout << s.get_exponent(s.get_ith(i)) << " ";
     cout << endl;
 
-    for (int i = 0;  i < 80;  ++i)
-      cout << s.sample()->i << " ";
+    for (int i = 0;  i < 80;  ++i) {
+      sampler_item_t* item = s.sample();
+      if (item != NULL)
+	cout << item->i << " ";
+      else
+	cout << "NULL ";
+    }
     cout << endl;
   }
   cout << endl;
