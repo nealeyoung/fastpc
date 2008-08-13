@@ -6,7 +6,7 @@ using namespace std;
 
 #include "sampler.h"
 
-//debug-- define which samplers to trace
+//for debugging-- define which samplers to trace by setting to 1
 const bool DUAL_TRACE = 0;
 const bool DUAL_U_TRACE = 0; 
 const bool PRIMAL_TRACE = 0;
@@ -23,13 +23,13 @@ dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt
   total_weight = 0;
   current_min_bucket = NULL;
   current_max_bucket = NULL;
-  //  total_weight_min_bucket = 0;
   rebuilds = 0;
   rebuild_ops = 0;
-  recalculate_weight = true;
+  recalculate_weight = true;  //causes calculation of initial total weight
 
+  //no normalization has happened yet
   exp_shift = 0;
-  exp_shift_updated = true;
+  exp_shift_updated = true; //used in fastpc
   
   int n_expts = 1 + max_expt - min_expt;
 
@@ -84,19 +84,15 @@ dual_sampler_t::init() {
   // insert items in buckets
   current_min_bucket = expt(permanent_min_exponent).bucket;
   current_max_bucket = current_min_bucket;
-  
-  // cout << "IN INIT() \n";
 
   for (int i = 0;  i < items.size();  ++i) {
     items[i].exponent_entry = &expt(permanent_min_exponent);
-    // cout << "EXPONENT: " << items[i].exponent_entry->exponent << "\n";
     insert_in_bucket(&items[i],  items[i].exponent_entry->bucket);
   }
 }
 
 void
 primal_sampler_t::init() {
-  //cout << "PRIMAL INIT --------" << endl;
   count_ops(buckets.size() + items.size()*2);
 
   // primal exponents decrease
@@ -126,29 +122,29 @@ dual_sampler_t::remove(sampler_item_t *w) {
   assert(w);
   assert(! w->removed);
 
-//DEBUG--print buckets status
+  //for debugging--print sampler snapshot
   
   //dual_sampler
   if (DUAL_TRACE && typeid(*this) == typeid(dual_sampler_t)) {
-    //cerr << "CALLED FROM DUAL SAMPLER" << endl;
+    cerr << "CALLED FROM DUAL SAMPLER" << endl;
     output_sampler_remove(w);
   }
 
   //dual_u sampler
   if (DUAL_U_TRACE && typeid(*this) == typeid(dual_u_sampler_t)) {
-    //cerr << "CALLED FROM DUAL_U SAMPLER" << endl;
+    cerr << "CALLED FROM DUAL_U SAMPLER" << endl;
     output_sampler_remove(w);
   }
 
   //primal sampler
   if (PRIMAL_TRACE && typeid(*this) == typeid(primal_sampler_t)) {
-    //cerr << "CALLED FROM PRIMAL SAMPLER" << endl;
+    cerr << "CALLED FROM PRIMAL SAMPLER" << endl;
     output_sampler_remove(w);
   }
 
   //primal_u sampler
   if (PRIMAL_U_TRACE && typeid(*this) == typeid(primal_u_sampler_t)) {
-    //cerr << "CALLED FROM PRIMAL_U SAMPLER" << endl;
+    cerr << "CALLED FROM PRIMAL_U SAMPLER" << endl;
     output_sampler_remove(w);
   }
 
@@ -156,7 +152,6 @@ dual_sampler_t::remove(sampler_item_t *w) {
   assert(bucket);
   int i = w->index_in_bucket;
   assert(i >= 0);
-  //cout << "bucket " << bucket << "removed " << !w->removed << endl << flush; //debug
   int n = bucket->size()-1;
   if (i != n) {
     (*bucket)[i] = (*bucket)[n];
@@ -219,31 +214,30 @@ dual_sampler_t::insert_in_bucket(sampler_item_t *w, bucket_t* b) {
     total_weight += max_bucket_weight(b);
 	}
 
-  //debug--print sampler status
+  //for debugging--print sampler snapshot
   
-
   //dual_sampler
   if (DUAL_TRACE && typeid(*this) == typeid(dual_sampler_t)) {
-    //cerr << "CALLED FROM DUAL SAMPLER" << endl;
+    cerr << "CALLED FROM DUAL SAMPLER" << endl;
     output_sampler_insert(w);
   }
 
   //dual_u sampler
   if (DUAL_U_TRACE && typeid(*this) == typeid(dual_u_sampler_t)) {
-    //cerr << "CALLED FROM DUAL_U SAMPLER" << endl;
+    cerr << "CALLED FROM DUAL_U SAMPLER" << endl;
     output_sampler_insert(w);
          
   }  
 
   //primal sampler
   if (PRIMAL_TRACE && typeid(*this) == typeid(primal_sampler_t)) {
-    //cerr << "CALLED FROM PRIMAL SAMPLER" << endl;
+    cerr << "CALLED FROM PRIMAL SAMPLER" << endl;
     output_sampler_insert(w);
   }
 
   //primal_u sampler
   if (PRIMAL_U_TRACE && typeid(*this) == typeid(primal_u_sampler_t)) {
-    //cerr << "CALLED FROM PRIMAL_U SAMPLER" << endl;
+    cerr << "CALLED FROM PRIMAL_U SAMPLER" << endl;
     output_sampler_insert(w);
   }
   
@@ -264,7 +258,6 @@ dual_sampler_t::exponent_weight(exponent_entry_t* expt) {
   assert(expt->bucket);
   assert(current_min_bucket);
   
-  //@TODO check if the weight is recalculated when it is required to
   if (expt->cached_weight_min_bucket != current_min_bucket) {
     count_ops(30);
 
@@ -302,8 +295,9 @@ dual_sampler_t::random_weight_t(weight_t upper) {
 sampler_item_t*
 dual_sampler_t::sample() {
 
-  get_update_total_weight();  //does nothing if called from inside random_pair 
-  
+  get_update_total_weight();  //updates total weight if sampler has been normalized
+                              // since last calculation of it
+                              
   assert(total_weight > 0);
   while (1) {
     bool tried = false;
@@ -331,7 +325,6 @@ dual_sampler_t::sample() {
 	if (r < exponent_weight((*b)[i]->exponent_entry))
 	  return (*b)[i];
 	else {
-	  // break; //this restarts sampling process only from current sampler
 	  return NULL; //allows sampling to be restarted from beginning of RANDOM_PAIR
 	}
       }
@@ -342,13 +335,12 @@ dual_sampler_t::sample() {
   return NULL;
 }
 
-//check if appropriate attributes get updated for items and buckets
 void 
 dual_u_sampler_t::update_item_exponent(sampler_item_t* item, int exp) {
   if(!item->removed) {
     exponent_entry_t* e = &expt(exp);
     item->exponent_entry = e;
-    if (item->bucket != e->bucket) {//remove and re-insert only if the item goes into another bucket
+    if (item->bucket != e->bucket) { //remove and re-insert only if the item goes into another bucket
       remove(item);
       insert_in_bucket(item, e->bucket);
     }
@@ -360,7 +352,7 @@ primal_u_sampler_t::update_item_exponent(sampler_item_t* item, int exp) {
   if(!item->removed) {
     exponent_entry_t* e = &expt(exp);
     item->exponent_entry = e;
-    if (item->bucket != e->bucket) {//remove and re-insert only if the item goes into another bucket
+    if (item->bucket != e->bucket) { //remove and re-insert only if the item goes into another bucket
       remove(item);
       insert_in_bucket(item, e->bucket);
     }
@@ -376,7 +368,6 @@ if (recalculate_weight) {
     assert(current_max_bucket);
 
     total_weight = 0;
-    //    total_weight_min_bucket = current_min_bucket;
     recalculate_weight = false;
 
     for (bucket_t* b = current_min_bucket;  b < current_max_bucket;  ++b) { //handle last bucket separately
@@ -387,7 +378,8 @@ if (recalculate_weight) {
       if (w == 0) break;
       total_weight += w*b->size();
     }
-    //don't add weights for the items that have overflow as their weights are small enough (relative) to be ignored
+    // in last bucket, don't add weights for the items that have overflow 
+    // since their (relative) weights are small enough to be ignored
     total_weight += max_bucket_weight(current_max_bucket)*non_overflow_size(current_max_bucket);
   }
   return total_weight;
@@ -419,7 +411,6 @@ primal_u_sampler_t::non_overflow_size(bucket_t* b) {
   for (my_vector<sampler_item_t*>::iterator y = (*b).begin(); y != (*b).end(); ++y) {
     if ((*y)->exponent_overflow == 0){
       num++;
-
     }
   }
   return num;
@@ -442,7 +433,6 @@ int dual_sampler_t::increment_exponent(sampler_item_t *w) {
 
 int primal_sampler_t::increment_exponent(sampler_item_t *w) {
   exponent_entry_t* &e = w->exponent_entry;
-  //cout << "PRIMAL INCREMENT_EXPONENT" << endl<<flush; //debug
   if (! e->at_boundary) {
     e -= 1;
   } else {
@@ -478,23 +468,16 @@ int dual_u_sampler_t::increment_exponent(sampler_item_t *w) {
 
 int primal_u_sampler_t::increment_exponent(sampler_item_t *w) {
   exponent_entry_t* &e = w->exponent_entry;
-  //cout << "PRIMAL_U INCREMENT_EXPONENT" << endl << flush; //debug
   if (! e->at_boundary) {
-    //change the exponent_entry only when the exponent_overflow has been decremented to zero (i.e. no overflow)
+    //change the exponent_entry only when there is no overflow, otherwise change only the overflow
     if (w->exponent_overflow > 0)
       w->exponent_overflow--;
     else
       e -= 1;
   } else {
     count_ops(3);
-    //cout << "PRIMAL VARIABLE IN BUCKET WITH MIN EXPONENT " << e->bucket->min_exponent <<endl<<flush;//debug
-    //cout << "PERMANENT_MIN_EXPONENT" << permanent_min_exponent << endl<<flush; //debug
-    //cout << "E_EXPONENT" << e->exponent << endl << flush; //debug
-    //if (e->bucket == expt(permanent_min_exponent).bucket) { //debug
-    if (e->exponent < permanent_min_exponent + 2+exponents_per_bucket) {
-      //cout << "IN LEFTMOST PRIMAL BUCKET" << endl;
+    if (e->exponent < permanent_min_exponent + 2+exponents_per_bucket)
       normalize_exponents();
-    }
     remove(w);
     e -= 1;
     insert_in_bucket(w, e->bucket);
@@ -502,16 +485,11 @@ int primal_u_sampler_t::increment_exponent(sampler_item_t *w) {
   return -e->exponent;
 }
 
-//this approach to normalization doesn't directly take precision issues into account
-//maybe it would be better to normalize based on total weight in sampler
 void
 dual_u_sampler_t::normalize_exponents() {
-  //cerr << ">>>>>>>>>>>>>>>DUAL_U_NORMALIZE" << endl;
   int total_shift = NORMALIZE_SHIFT*exponents_per_bucket;
   exp_shift += total_shift;
   exp_shift_updated = true;
-  //recalculate_weight = true;
-
 
   int updated_exponent;
   for (int i = 0;  i < items.size();  ++i) {
@@ -524,28 +502,23 @@ dual_u_sampler_t::normalize_exponents() {
       update_item_exponent(&items[i], updated_exponent);
     }
   }
-  //cerr << "END DUAL_U_NORMALIZE<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
 }
 
 void
 primal_u_sampler_t::normalize_exponents() {
-  //cerr << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>PRIMAL_U_NORMALIZE" << endl;
   int total_shift = NORMALIZE_SHIFT*exponents_per_bucket;
   exp_shift += total_shift;
   exp_shift_updated = true;
-  //recalculate_weight = true;
 
   int updated_exponent;
   for (int i = 0;  i < items.size();  ++i) {
     updated_exponent = items[i].exponent_entry->exponent + items[i].exponent_overflow + total_shift;
     if (updated_exponent > permanent_max_exponent) {
       items[i].exponent_overflow = updated_exponent - permanent_max_exponent;
-      updated_exponent = permanent_max_exponent;//these items have a low probability and probably will not be chosen any time
+      updated_exponent = permanent_max_exponent;
     }
-    //cout << "NEW EXPONENT: " << updated_exponent << endl;
     update_item_exponent(&items[i], updated_exponent);
   }
-  //cerr << "END PRIMAL_U_NORMALIZE<<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
 }
 
 int
@@ -555,38 +528,30 @@ dual_sampler_t::get_exponent_shift() {
 
 int
 primal_sampler_t::get_exponent_shift() {
-  //return dual_sampler_t::get_exponent_shift();
-  return permanent_max_exponent - current_min_bucket->min_exponent - exponents_per_bucket + 1; //count shift from top down
+  //shift is diff b/t min exponent in bucket of permanent_max_exponent and min exponent in current_min_bucket
+  return (permanent_max_exponent - exponents_per_bucket + 1) - current_min_bucket->min_exponent; 
 }
 
 int
 dual_u_sampler_t::get_exponent_shift() {
+  //dual_u_sampler also has shift from coeffs and normalization
   return exp_shift + current_min_bucket->min_exponent - permanent_min_exponent;
 }
 
 int
 primal_u_sampler_t::get_exponent_shift() {
-  return exp_shift + permanent_max_exponent - current_min_bucket->min_exponent - exponents_per_bucket + 1; //count shift from top down
-  // return exp_shift + current_min_bucket->min_exponent - permanent_min_exponent;
+  return exp_shift + (permanent_max_exponent - exponents_per_bucket + 1) - current_min_bucket->min_exponent; 
 }
 
 weight_t
 dual_sampler_t::exact_exp_weight(int exp) {
-  //cout << "MAX_WEIGHT_T: " << MAX_WEIGHT_T << endl;  //debug  
-  return weight_t(pow(1.0-eps, exp)*(MAX_WEIGHT_T/(2*items.size())));
-  
+  return weight_t(pow(1.0-eps, exp)*(MAX_WEIGHT_T/(2*items.size())));  
 }
 
-// weight_t
-// dual_sampler_t::shift_exp_weight(int exp) {
-//   return weight_t(pow(1.0-eps, exp));
-// }
-
-// weight_t
-// primal_sampler_t::shift_exp_weight(int exp) {
-//   return weight_t(pow(1.0+eps, exp));
-// }
-
+weight_t
+dual_sampler_t::shift_exp_weight(int exp) {
+  return weight_t(pow(1.0-eps, exp));
+}
 
 
 void 

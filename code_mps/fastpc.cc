@@ -9,13 +9,13 @@ using namespace std;
 
 
 nonzero_entry_t::nonzero_entry_t(double value, double eps, sampler_item_t* sampler, sampler_item_t* u_sampler):
-  coeff(value),  sampler_pointer( sampler), u_sampler_pointer(u_sampler) 
+  coeff(value),  sampler_pointer(sampler), u_sampler_pointer(u_sampler) 
 {
-  //Need to be careful about taking floor or ceiling
+  //always round to make approximation an upper bd on value of coefficient
   if (eps > 0) //dual
-    exponent = floor(log(value)/log(1-eps));//   =log base 1-eps (value)
+    exponent = floor(log(value)/log(1-eps));   // =log base 1-eps (value)
   else //primal
-    exponent = ceil(log(value)/log(1-eps));//   =log base 1-eps (value)
+    exponent = ceil(log(value)/log(1-eps));    // =log base 1-eps (value)
 
 }
 
@@ -72,14 +72,12 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     p_pXuh->init();
     p_dXu->init();
 
-   //cout << fixed << setprecision(1);
    int non_zero_entry_count = 0;
     while(true) {
-    	if (non_zero_entry_count > total) break; //added because for some files this loop never ended, need to see why that happened
+    	if (non_zero_entry_count > total) break; //stop scanning input if all nonzeros have been scanned
       in_file >> row  >> col >> val;  //took out string s 
-    	//cout << non_zero_entry_count << " --- " << row << " " << col << " " << val << " " << endl;
-      
       if (in_file.eof()) break;
+
       M[row].push_back(new nonzero_entry_t(val,eps*(-1.0), p_d->get_ith(col), p_dXu->get_ith(col)));
       M_copy[row].push_back(new nonzero_entry_t(val, eps*(-1.0), p_d->get_ith(col), p_dXu->get_ith(col)));
       MT[col].push_back(new nonzero_entry_t(val, eps, p_p->get_ith(row), p_pXuh->get_ith(row)));
@@ -93,11 +91,11 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     line_element* first = &M[0];
     line_element* last = &M[r-1];
     for (line_element* p = first; p <= last; ++p) {
-      //cout << "Inside loop M "; //debug
       p->sort(list_sort_criteria()); //sort row linked list
-      for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
-	//	cout << (*x)->coeff << " ";   //debug
-      }
+      //print sorted matrix
+      //for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
+      // 	cout << (*x)->coeff << " ";   
+      //}
       //cout << "\n";
     }
     
@@ -105,19 +103,18 @@ solve_instance::solve_instance(double EPSILON, string infile) :
     line_element* first_t = &MT[0];
     line_element* last_t = &MT[c-1];
     for (line_element* p = first_t; p <= last_t; ++p) {
-      //cout << "Inside loop MT "; //debug
       p->sort(list_sort_criteria()); //sort row of MT linked list
-      for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
-	//cout << (*x)->coeff << " ";   //debug
-      }
+      //print sorted matrix
+      //for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
+	//cout << (*x)->coeff << " ";   
+      //}
       //cout << "\n";
     }
    	
     //find the minimum exponent for MT and maximum exponent for M
-    //this is to normalize the exponents
-    //these will be used to normalize the exponents in the matrices
-    //and that is required to ensure that all exponents in u are non-negative
-    //and all exponents in u_hat are non-positive
+    //this is done to normalize the exponents so that all exponents in 
+    //dual samplers are positive and all exponents in primal samplers
+    //are negative
     int min_u_exp = MT[0].front()->exponent;
     int max_uh_exp = M[0].front()->exponent;
     int min_uh_exp = M[0].front()->exponent;
@@ -135,15 +132,14 @@ solve_instance::solve_instance(double EPSILON, string infile) :
 				min_uh_exp = temp;
     }
 
-    int p_diff = 0;
     //shift the min exponent to the min exponent of the second bucket from left
-    //in the primal sampler
+    //in the primal sampler if it's too small
+    int p_diff = 0;
     if (N+10-ceil(1/eps) > 0 && max_uh_exp - min_uh_exp > N+10-ceil(1/eps)) {
     	p_diff = max_uh_exp - min_uh_exp - (N+10-ceil(1/eps));
     }
    
-    //@TODO UPDATE EXP_SHIFT AND EXP_SHIFT_UPDATED HERE --done 8-6 steve
-    //re-initialize u_sampler_items with normalized exponents
+    //re-initialize u_sampler_items with normalized exponents if necessary
     if (min_u_exp != 0) {
 	    for (int i = 0; i < c; i++) {
 	      sampler_item_t* item = p_dXu->get_ith(i);
@@ -152,29 +148,30 @@ solve_instance::solve_instance(double EPSILON, string infile) :
 	      	item->exponent_overflow = exponent - max_exp; //initialize overflow if necessary
 		exponent = max_exp;
 	      }
-	      //cout << "exponent: " << exponent << endl;
 	      p_dXu->update_item_exponent(item,exponent);
 	    }
 	    p_dXu->exp_shift -= min_u_exp;  //initial shift of sampler-- can be negative
 	    p_dXu->exp_shift_updated = true;
     }
-    if (max_uh_exp != 0 || p_diff != 0) {
+
+    int p_exp_shift_init = max_uh_exp - p_diff; //total shift amt needed
+    if (p_exp_shift_init != 0) {
 	    for (int j = 0; j < r; j++) {
 	      sampler_item_t* item = p_pXuh->get_ith(j);
-	      int exponent = M[j].front()->exponent - max_uh_exp + p_diff;
+	      int exponent = M[j].front()->exponent - p_exp_shift_init;
 	      if (exponent > 0) {
 	      	item->exponent_overflow = exponent;
 		exponent = 0;
 	      }
 	      p_pXuh->update_item_exponent(item,exponent);
 	    }
-	    p_pXuh->exp_shift -= (max_uh_exp - p_diff); //initial shift of sampler-- can be negative
+	    p_pXuh->exp_shift -= p_exp_shift_init;   //initial shift of sampler-- can be negative
 	    p_pXuh->exp_shift_updated = true;
     }
 
-    //debug-- print normalized exponents
+    //print normalized exponents
     //print M
-    cout << "PRINTING M: SUBTRACTED " << max_uh_exp-p_diff << " TO NORMALIZE.\n";
+    //cout << "PRINTING M: SUBTRACTED " << max_uh_exp-p_diff << " TO NORMALIZE.\n";
     // for (int i = 0; i < r; ++i) {
 //       for(list<nonzero_entry_t*>::iterator x = M[i].begin(); x != M[i].end(); ++x){
 // 	cout << "Coeff:" << (*x)->coeff << " Exponent:" << p_pXuh->get_ith(i)->exponent_entry->exponent 
@@ -186,8 +183,8 @@ solve_instance::solve_instance(double EPSILON, string infile) :
 
     //print MT
     //cout << "PRINTING MT: SUBTRACTED " << min_u_exp << " TO NORMALIZE.\n";
-    first_t = &MT[0];
-    last_t = &MT[c-1];
+    //first_t = &MT[0];
+    //last_t = &MT[c-1];
     // for (int j=0; j < c; ++j) {
 //         for(list<nonzero_entry_t*>::iterator x = MT[j].begin(); x != MT[j].end(); ++x){
 // 	  cout << "Coeff:" << (*x)->coeff << " Exponent:" << p_dXu->get_ith(j)->exponent_entry->exponent 
@@ -195,7 +192,7 @@ solve_instance::solve_instance(double EPSILON, string infile) :
 //       }
 // 	cout << "\n";
 //     }
-    //end debug print normalized exponents
+    //end print normalized exponents
   }
 }
 
@@ -225,13 +222,13 @@ solve_instance::solve() {
   while (!done){
     iteration++;
     //cout <<"iteration "<<iteration<<endl;
-    //cerr <<"iteration "<<iteration<<endl;;
 
-    if (iteration == N){ //arbitrary freeze point in middle of alg 
-      int prob_reciprocal = 6;   //prob is less than 1/6 of x deviating from E[x] by eps-factor
-      freeze_and_sample(M, MT, r, c, p_d, p_p, p_dXu, p_pXuh, eps, prob_reciprocal);
-      //exit(0); //don't continue with alg; just stop after sampler test
-    }
+    //call function to freeze samplers and test them
+    // if (iteration == N){ //arbitrary freeze point in middle of alg 
+//       int prob_reciprocal = 6;   //prob is less than 1/6 of x deviating from E[x] by eps-factor
+//       freeze_and_sample(M, MT, r, c, p_d, p_p, p_dXu, p_pXuh, eps, prob_reciprocal);
+//       //exit(0); //don't continue with alg; just stop after sampler test
+//     }
 
     //wi and wj store the sampler items which are chosen
     //caveat-- could be from regular primal/dual samplers OR from p_pXuh/p_dXu, so the full
@@ -259,14 +256,10 @@ solve_instance::solve() {
     double delta = 1/(uh_i + u_j);
     wj->x += delta;
     wi->x += delta;
-    //cout << "Chosen column: " << j << " Chosen row: " << i << " Delta: " << delta << endl; //debug
-    //cout << "wj: " << wj << "\twi: " << wi << endl;
-    //cout << "Primal variable: " << wj->x << "\tDual variable: " << wi->x << endl;
-
+ 
     // line 7
-    double z = (rand()%1000)/999.0;//@steve how much precision do we need here?
-    //cout << "z: " << z << endl; //debug
-
+    double z = (rand()%1000)/999.0;
+ 
     //line 8
     {
       for (list<nonzero_entry_t*>::iterator x = MT[j].begin(); x != MT[j].end(); ++x) {
@@ -278,8 +271,8 @@ solve_instance::solve() {
 	}	
 
 	if (increment >= z) {
-	  // stop when a packing constraint becomes tight
 	  p_pXuh->increment_exponent((*x)->u_sampler_pointer);
+	  // stop when a packing constraint becomes tight
 	  if (p_p->increment_exponent((*x)->sampler_pointer) >= N)
 	    done = true;  
 	} else {
@@ -287,50 +280,39 @@ solve_instance::solve() {
 	}
       }
       int size = MT[j].size();
-      count_ops(12);  //not actual value-- how many???
+      count_ops(12); 
       n_increments_p += size;
       count_ops(5*size);
     }
 
     // line 9 
     {
-
       for (list<nonzero_entry_t*>::iterator x = M[i].begin(); x != M[i].end(); ++x) {
 	double increment = ((*x)->coeff)*delta;
 	
 	//if the column is not active any more
 	if ((*x)->sampler_pointer->removed){
-	  x = M[i].erase(x); // delete it //@steve should we still use x??
-	  --x;//test
-	  //read comments in the next block below
-	  //uh_i = M[i].front()->coeff;
-	  //delta = 1/(u_j + uh_i); //this probably is not needed
+	  x = M[i].erase(x); // delete it
+	  --x;
 	  ++n_deletes;
 	  continue;
 	}	
 
 	if (increment >= z) {
-	  // remove covering constraint when it's met
-	  //cout << (*x)->u_sampler_pointer->exponent_entry->exponent << " --- EXPONENT \n";
 	  p_dXu->increment_exponent((*x)->u_sampler_pointer);
-	  if (p_d->increment_exponent((*x)->sampler_pointer) >= N) {
-	    //@steve - why don't we delete x from M[i] here?
-	    //we can recalculate delta every time x is deleted
-	    //and that could be a minor performance enhancement
-	    //even though we evaluate u_j and delta again, which is O(c) overall
-
-	    
-	    //update p_pXuh if u_hat changed for that row
-	    //iterate through this column in MT
-	    //and update if u for a row has changed
+	  // remove covering constraint when it's met
+	  if (p_d->increment_exponent((*x)->sampler_pointer) >= N) {	    
+	    //update p_pXuh if uh_i changed for that row
+	    //to do this, iterate through dropped column in MT and update uh_i for each row if necessary
 	    int colIndex = (*x)->sampler_pointer->i;
 	    for (list<nonzero_entry_t*>::iterator y = MT[colIndex].begin(); y != MT[colIndex].end(); ++y) {
-	      int rowIndex = (*y)->sampler_pointer->i;
+	      int rowIndex = (*y)->sampler_pointer->i; //locate which row this entry is in
 	      nonzero_entry_t* row_active_first = NULL;
 	      nonzero_entry_t* row_active_second = NULL;
 	      get_two_largest_active(&M[rowIndex], &row_active_first, &row_active_second);
-	      //nonzero_entry_t* row_front = M[rowIndex].front();
-	      //update exponents for new uh if y is first element in row, i.e. current u-value came from y and y is not the only remaining item
+ 
+	      //update exponents for new uh_i if y is first active element in row, 
+	      //i.e. current uh_i-value came from y and y is not the only remaining item
 	      if(row_active_first == *y && row_active_second != NULL) {    
 		int exp_diff = row_active_first->exponent - row_active_second->exponent; //dif b/t exponents of first and second active elements of row
 		if (exp_diff != 0) { //if y and next element don't have same exponent
@@ -340,13 +322,9 @@ solve_instance::solve() {
 	    }
 
 	    p_d->remove((*x)->sampler_pointer);
-	    
-	    //remove the corresponding sampler pointer from p_dXu
 	    p_dXu->remove((*x)->u_sampler_pointer);
-	    
-	    
+	    	    
 	    --J_size;
-	    //cout << "J_SIZE: " << J_size << endl; //debug
 	  }
 	} else {
 	  break; 
@@ -364,8 +342,6 @@ solve_instance::solve() {
   count_ops(3*r);
 
   double max_row = 0;
-  //cout << "PRE-NORMALIZED VARS:\n";
-  //cout << "PRIMAL:\n";
   for (int i=0; i<r; ++i){
     double tmp = 0;
     count_ops(3*M_copy[i].size());
@@ -373,10 +349,7 @@ solve_instance::solve() {
 	 iter != M_copy[i].end(); 
 	 ++iter) {
       tmp += (*iter)->coeff * ((*iter)->sampler_pointer->x + (*iter)->u_sampler_pointer->x); //each sampler item stores part of var's value 
-      //cout << "sampler_item: " << (*iter)->sampler_pointer << " u_sampler_item: " << (*iter)->u_sampler_pointer 
-      // << " Coeff: " << (*iter)->coeff << " sampler_item->x: " <<  (*iter)->sampler_pointer->x << " u_sampler_item->x: " <<  (*iter)->u_sampler_pointer->x<< endl;
     }
-    //cout << " x_" << i << ": "  << tmp << endl; //debug-- print each M_ix before normalization
     if (tmp > max_row)
       max_row = tmp;
   }
@@ -392,41 +365,11 @@ solve_instance::solve() {
          iter != MT[j].end(); 
 	 ++iter) {
       tmp += (*iter)->coeff * ((*iter)->sampler_pointer->x + (*iter)->u_sampler_pointer->x); //each sampler item stores part of var's value 
-      //cout << "sampler_item: " << (*iter)->sampler_pointer << " u_sampler_item: " << (*iter)->u_sampler_pointer 
-      //  << " Coeff: " << (*iter)->coeff << " sampler_item->x: " <<  (*iter)->sampler_pointer->x << " u_sampler_item->x: " <<  (*iter)->u_sampler_pointer->x << endl;
     }
     //cout <<" x_hat_" << j << ": " << tmp << endl; //debug-- print each MT_jxh  before normalization
     if (tmp < min_col)
       min_col = tmp;
   }
-
-  //cout << "Min-col: " << min_col << " 4*(N+2): " << 4*(N+2) << endl; //debug
-
-//   //debug-- print normalized vars
-//   cout << "\nNORMALIZED VARS:\n";
-//   cout << "PRIMAL:\n";
-//   //normalized primal vars
-//   for (int i=0; i<r; ++i){
-//      double tmp = 0;
-//    for (line_element::iterator iter = M_copy[i].begin(); 
-// 	   iter != M_copy[i].end(); 
-// 	   ++iter)
-//       tmp += (*iter)->coeff * ((*iter)->sampler_pointer->x + (*iter)->u_sampler_pointer->x); //each sampler item stores part of var's value 
-//    //cout << "x_" << i << ": " << tmp/max_row << endl; //debug-- print each primal var
-    
-//     }
-//   //normalized dual vars
-//   cout << "DUAL:\n";
-//   for (int j=0; j<c; ++j){
-//     double tmp = 0;
-//     for (line_element::iterator iter = MT[j].begin();
-//          iter != MT[j].end(); 
-// 	 ++iter)
-//        tmp += (*iter)->coeff * ((*iter)->sampler_pointer->x + (*iter)->u_sampler_pointer->x); //each sampler item stores part of var's value 
-//     // cout << "x_hat_" << j << ": " << tmp/min_col << endl; //debug-- print each dual var
-//     if (tmp < min_col)
-//       min_col = tmp;
-//   }
 
   double sum_x_p=0, sum_x_d=0;
 
@@ -482,59 +425,30 @@ void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_s
   double p_pXuh_wt = p_pXuh->get_update_total_weight();
   double p_dXu_wt = p_dXu->get_update_total_weight();
 
-  //cout << "P_P_WT: " << p_p_wt << endl;
-  //cout << "P_D_WT: " << p_d_wt << endl;
-  //cout << "P_PXUH_WT: " << p_pXuh_wt << endl;
-  //cout << "P_DXU_WT: " << p_dXu_wt << endl;
-
-  //cout << "P_D_EXP_SHIFT: " << p_d->get_exponent_shift() << endl;
-  //cout << "P_DXU_EXP_SHIFT: " << p_dXu->get_exponent_shift() << endl;
-  //p_dXu->get_exponent_shift();
+  //store partial quantities of desired ratio
   double temp_1;
   double temp_2;
   double temp_3;
 
-  //@steve be careful of precision issues here!!!
+  //shift in primal is tricky since it moves in a way opposite the dual
   if (p_p->exp_shift_updated || p_pXuh->exp_shift_updated) {
-    //p_shift_ratio = pow(1.0-eps,(p_pXuh->get_exponent_shift() - p_p->get_exponent_shift())); //@steve does this cause overflow if function called on neg exp?--YES!
-    p_exp_shift = p_pXuh->get_exponent_shift() - p_p->get_exponent_shift();     //@steve changed! --reversed p_p and p_pXuh
+    p_shift_ratio = p_p->shift_exp_weight(p_pXuh->get_exponent_shift() - p_p->get_exponent_shift());
     p_p->exp_shift_updated = false;
     p_pXuh->exp_shift_updated = false;
   }
   if (p_d->exp_shift_updated || p_dXu->exp_shift_updated) {
-    //d_shift_ratio = pow(1.0-eps,(p_d->get_exponent_shift() - p_dXu->get_exponent_shift()));
-    d_exp_shift = p_d->get_exponent_shift() - p_dXu->get_exponent_shift();
+    d_shift_ratio = p_d->shift_exp_weight(p_d->get_exponent_shift() - p_dXu->get_exponent_shift());
     p_d->exp_shift_updated = false;
     p_dXu->exp_shift_updated = false;
   }
 
-  // if (p_exp_shift > d_exp_shift) 
-     temp_3 = pow(1.0-eps, (p_exp_shift - d_exp_shift));  //combine primal and dual ratio since they're both powers of 1-eps
-//   else
-//     temp_3 = 1.0/(p_d->exact_exp_weight(d_exp_shift - p_exp_shift));  //probably big precision issues here
-
-  // cerr << "P_PXuh_SHIFT - P_P_SHIFT: " << p_pXuh->get_exponent_shift() - p_p->get_exponent_shift() << endl;
-//   cerr << "P_D_SHIFT - P_DxU_SHIFT: " << p_d->get_exponent_shift() - p_dXu->get_exponent_shift() << endl;
-//   //cerr << "P_SHIFT_RATIO: " << p_shift_ratio << endl;
-//   //cerr << "D_SHIFT_RATIO: " << d_shift_ratio << endl;
-//   cerr << "P_P_WT: " << p_p_wt << endl;
-//   cerr << "P_PxUH_WT: " << p_pXuh_wt << endl;  
-//   cerr << "P_D_WT: " << p_d_wt << endl;
-//   cerr << "P_DxU_WT: " << p_dXu_wt << endl;
-
   temp_1 = p_p_wt/p_pXuh_wt;
   temp_2 = p_dXu_wt/p_d_wt;
-  //  temp_3 = (double)p_shift_ratio/d_shift_ratio;
+  temp_3 = (double)p_shift_ratio/d_shift_ratio;  //must keep ratios separate since they use different epsilons
 
-  // cerr << "TEMP_1: " << temp_1 << endl;
-//   cerr << "TEMP_2: " << temp_2 << endl;
-//   cerr << "TEMP_3: " << temp_3 << endl;
-
-  double prob = 1.0 / (1 + (temp_1*temp_2*temp_3));
-  // cerr << "FINAL PROB: " << prob << endl;
-  //cerr << endl << flush;
-  //restart entire sampling process if any sampler fails
-  while (1) {
+  double prob = 1.0 / (1 + (temp_1*temp_2*temp_3));  //overall prob used to choose samplers
+  
+  while (1) {  //go until neither chosen sampler fails
     float z = (rand()%1000)/999.0;
   
     if (prob > z) {
@@ -559,7 +473,6 @@ void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_s
 }
 
 nonzero_entry_t* solve_instance::get_largest_active(line_element* row) {
-  //list<nonzero_entry_t*>::iterator y;
   for (list<nonzero_entry_t*>::iterator	 y = (*row).begin(); y != (*row).end(); ++y) {
     if (!(*y)->sampler_pointer->removed) {
       return *y;
@@ -569,7 +482,6 @@ nonzero_entry_t* solve_instance::get_largest_active(line_element* row) {
 }
 
 void solve_instance::get_two_largest_active(line_element* row, nonzero_entry_t** first, nonzero_entry_t** second) {
-  //list<nonzero_entry_t*>::iterator y;
   bool got_first = false;
   for (list<nonzero_entry_t*>::iterator	 y = (*row).begin(); y != (*row).end(); ++y) {
     if (!(*y)->sampler_pointer->removed) {
@@ -611,6 +523,7 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
   weight_t p_pXuh_total = 0;
   weight_t p_dXu_total = 0;
 
+  //get total dual weights
   for (int i = 0; i < cols; i++) {
     weight_t wt = p_d->get_exponent_weight(p_d->get_ith(i)->exponent_entry);
     p_d_total += wt;
@@ -620,6 +533,7 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
     p_dXu_total += u_wt;
   }
 
+  //get total primal weights
   for (int i = 0; i < rows; i++) {
     weight_t wt = p_p->get_exponent_weight(p_p->get_ith(i)->exponent_entry);
     p_p_total += wt;
@@ -629,9 +543,7 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
     p_pXuh_total += u_wt;
   }
 
-  
-  //@TODO-- bug in probability calc-- need to take into account all 4 samplers 
-  //as well as prob of selecting each set-- overall prob should be weighted avg
+  //get prob of using each sampler, just as in main alg  
   double temp_1;
   double temp_2;
   double temp_3;
@@ -639,9 +551,8 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
   int temp_p_exp_shift = 0;
   int temp_d_exp_shift = 0;
 
-  //@steve be careful of precision issues here!!!
   if (p_p->exp_shift_updated || p_pXuh->exp_shift_updated) 
-    temp_p_exp_shift = p_pXuh->get_exponent_shift() - p_p->get_exponent_shift();     //@steve changed! --reversed p_p and p_pXuh
+    temp_p_exp_shift = p_pXuh->get_exponent_shift() - p_p->get_exponent_shift();
   if (p_d->exp_shift_updated || p_dXu->exp_shift_updated) 
     temp_d_exp_shift = p_d->get_exponent_shift() - p_dXu->get_exponent_shift();
 
@@ -690,9 +601,9 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
   cout << "Sum of x_d probs: " << total_x_d_prob << endl;
   cout << "Sum of x_p probs: " << total_x_p_prob << endl;
 
-  //compute how many iterations must be done-- fix this!  too big
-    if (min_prob < 0.001)
-      min_prob = 0.001;  //adjust min prob so # of iterations doesn't get huge
+  //compute how many iterations must be done--hard-code min prob so #iterations doesn't get huge
+    if (min_prob < 0.01)
+      min_prob = 0.01;  //adjust min prob so # of iterations doesn't get huge
   weight_t samples = ceil((3*log(prob)/(epsilon*epsilon))/min_prob);
   cout << "3*log(prob)/epsilon^2: " << (3*log(prob)/(epsilon*epsilon)) << " Samples: " << samples << endl;
 
