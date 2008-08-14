@@ -17,7 +17,7 @@ inline double solve_instance::any_base_log(double number, double base){
   return log2(number)/log2(base);
 }
 
-void solve_instance::pseudo_sort( my_vector<line_element> *matrix, my_vector<line_element> *matrix_T, int n_col, int n_row,double delta ){
+void solve_instance::pseudo_sort( my_vector<line_element> *matrix, my_vector<line_element> *matrix_T, int n_row, int n_col,double delta ){
 
   //delta = delta +1;
   //find b
@@ -25,7 +25,7 @@ void solve_instance::pseudo_sort( my_vector<line_element> *matrix, my_vector<lin
   line_element *last = (line_element*)&((*matrix)[n_row-1]);
   line_element *first = (line_element*)&((*matrix)[0]);
 
-  line_element *last_t = (line_element*)&((*matrix_T)[n_row-1]);
+  line_element *last_t = (line_element*)&((*matrix_T)[n_col-1]);
   line_element *first_t = (line_element*)&((*matrix_T)[0]);
 
   double b = -1; // b starts as negative 1 to mark first loop
@@ -78,7 +78,7 @@ void solve_instance::pseudo_sort( my_vector<line_element> *matrix, my_vector<lin
     for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
     
       int index = (int)floor(any_base_log((*x)->coeff,delta)-any_base_log(b,delta)+any_base_log(c/eps,delta));
-      buckets[index]->push_back((*x));
+      buckets[num_buckets-index]->push_back((*x));  //sorts in decreasing order
     }
 
     
@@ -88,11 +88,12 @@ void solve_instance::pseudo_sort( my_vector<line_element> *matrix, my_vector<lin
     
     for(int i = 0; i<num_buckets; i++){
       for (list<nonzero_entry_t *>::iterator x = buckets[i]->begin(); x != buckets[i]->end(); ++x){
-	row++;
-	temp = row;
-	row--;
+	//row++;
+	//temp = row;
+	//row--;
 	(*row) = (*x);
-	row= temp;
+	//row= temp;
+	row++;
       }
     }
 
@@ -176,8 +177,8 @@ solve_instance::solve_instance(double DELTA , double EPSILON, string infile) :
     }
 
     //pseudo sorts
-    pseudo_sort(&M,&MT,c,r,delta);
-    pseudo_sort(&MT,&M_copy,r,c,delta);
+    pseudo_sort(&M,&MT,r,c,delta);
+    pseudo_sort(&MT,&M_copy,c,r,delta);
     //pseudo_sort(MT,r);
 
     //sort rows of M

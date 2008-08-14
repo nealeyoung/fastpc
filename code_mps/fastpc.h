@@ -57,6 +57,7 @@ private:
   
   string file_name;
   double eps, epsilon;
+  double sort_ratio;  //factor by which elements are pseudo-sorted
 
   // To implement random_pair function in paper, we must compute |p_pXuh||p_d|/(|p_pXuh||p_d|+|p_p||p_dXu|)
   // Because of normalization, sampler weights at any given time during alg are internally consistent,
@@ -79,9 +80,20 @@ private:
   void freeze_and_sample(my_vector<line_element>& M, my_vector<line_element>& MT, int rows, int cols, dual_sampler_t* p_d, primal_sampler_t* p_p, dual_u_sampler_t* p_dXu, primal_u_sampler_t* p_pXuh, double epsilon, int prob);
 
 public:	
-  solve_instance(double epsilon, string file_name);
+  solve_instance(double epsilon, string file_name, double delta_sort);
   void solve();
-  void pseudo_sort(my_vector<line_element> *matrix,int col );
+  inline double any_base_log(double number, double base){
+    return log2(number)/log2(base);
+  };
+
+  void bound_sort(); //sort or pseudo-sort M and MT based on sorting factor
+  //pseudo-sorts a matrix and its transpose by method described in paper
+  //delta defines approximation factor of sort, i.e. if delta = 2 then
+  //no element is out of order relative to any element more than a factor of 2
+  //from itself
+  void pseudo_sort(my_vector<line_element>& matrix, int n_cols, double b );
+  void exact_sort(my_vector<line_element>& matrix ); //uses c function to exactly sort matrices
+  void bound_exponents( my_vector<line_element>& matrix, my_vector<line_element>& matrix_T, double& b );
 };
 
  
