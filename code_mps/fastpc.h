@@ -68,8 +68,7 @@ private:
   // the entire sampling process is re-started, including the choice of samplers
   double p_shift_ratio;
   double d_shift_ratio;
-  int p_exp_shift;
-  int d_exp_shift;
+
   void random_pair(sampler_item_t** wi, sampler_item_t** wj, dual_sampler_t* p_p, dual_sampler_t* p_d, dual_sampler_t* p_pXuh, dual_sampler_t* p_dXu);
   
   //find largest active entry/entries of a row in M; used to re-calculate uh_i when constraint is dropped

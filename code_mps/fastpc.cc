@@ -24,9 +24,7 @@ solve_instance::solve_instance(double EPSILON, string infile) :
   epsilon(EPSILON),
   file_name(infile),
   p_shift_ratio(-1),
-  d_shift_ratio(-1),
-  p_exp_shift(0),
-  d_exp_shift(0)
+  d_shift_ratio(-1)
 {
   // constructor reads the input and creates matrices M and MT (transpose)
   int row, col, total;
@@ -543,22 +541,26 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
     p_pXuh_total += u_wt;
   }
 
-  //get prob of using each sampler, just as in main alg  
+  //store partial quantities of desired ratio
   double temp_1;
   double temp_2;
   double temp_3;
 
-  int temp_p_exp_shift = 0;
-  int temp_d_exp_shift = 0;
-
-  if (p_p->exp_shift_updated || p_pXuh->exp_shift_updated) 
-    temp_p_exp_shift = p_pXuh->get_exponent_shift() - p_p->get_exponent_shift();
-  if (p_d->exp_shift_updated || p_dXu->exp_shift_updated) 
-    temp_d_exp_shift = p_d->get_exponent_shift() - p_dXu->get_exponent_shift();
+  //shift in primal is tricky since it moves in a way opposite the dual
+  if (p_p->exp_shift_updated || p_pXuh->exp_shift_updated) {
+    p_shift_ratio = p_p->shift_exp_weight(p_pXuh->get_exponent_shift() - p_p->get_exponent_shift());
+    p_p->exp_shift_updated = false;
+    p_pXuh->exp_shift_updated = false;
+  }
+  if (p_d->exp_shift_updated || p_dXu->exp_shift_updated) {
+    d_shift_ratio = p_d->shift_exp_weight(p_d->get_exponent_shift() - p_dXu->get_exponent_shift());
+    p_d->exp_shift_updated = false;
+    p_dXu->exp_shift_updated = false;
+  }
 
   temp_1 = p_p_total/p_pXuh_total;
   temp_2 = p_dXu_total/p_d_total;
-  temp_3 = pow(1.0-eps, (temp_p_exp_shift - temp_d_exp_shift));  //combine primal and dual ratio since they're both powers of 1-eps
+  temp_3 = (double)p_shift_ratio/d_shift_ratio;  //must keep ratios separate since they use different epsilons
 
   double sampler_prob = 1.0 / (1 + (temp_1*temp_2*temp_3));
   
