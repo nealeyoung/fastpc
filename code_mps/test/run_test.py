@@ -1,6 +1,7 @@
 import random
 import math
 import os
+import sys
 
 def create_input_file(r, c, non_zero, lower, upper, file_name):
     #setup parameters
@@ -47,14 +48,14 @@ def create_input_file(r, c, non_zero, lower, upper, file_name):
         glpk_file.write(row[-1][:-1] + ' < 1 \n')
     glpk_file.write('Bounds \n')
     glpk_file.write('End \n')
-
+  
 def main():
 
-    max_inputs = 2
+    max_inputs = 4
     max_runs_per_input = 2
 
-    row_min = 10
-    row_max = 500
+    row_min = 100
+    row_max = 100
     col_min = 30
     col_max = 500
     fraction_nonzero_low = 0.1
@@ -65,11 +66,13 @@ def main():
     eps_low = 0.001
     eps_high = 0.1
 
-    sort_ratio = 1 #change this to more than 1 for approximate sorting
+    sort_ratio = 1 #make this random (1 or 2) to test both exact and sudo sorting
 
     input_file_prefix = 'input_test_m'
     output_file_name = 'output_test_m'
     output_file = open(output_file_name, 'w')
+    input_config_name = input_file_prefix + '_config'
+    sys.stdout = open(input_config_name, 'w')
 
     for i in range(max_inputs):
         #set up parameters for the test
@@ -77,10 +80,19 @@ def main():
         test_col = random.randint(col_min, col_max)
         test_total = test_row*test_col
         test_nonzero = random.randint(math.ceil(fraction_nonzero_low*test_total), math.floor(fraction_nonzero_high*test_total))
-        test_lower = random.randint(max_lower, max_upper/2)
+        test_lower = random.randint(max_lower, (max_lower+max_upper)/2)
         test_upper = random.randint(test_lower, max_upper)
         test_input_file = input_file_prefix + "_"  + str(i)
-        
+
+        #record the parameters for the input file
+        print "Input file name: ", test_input_file
+        print "Rows : ", test_row
+        print "Columns : ", test_col
+        print "Coefficient lower bound: ", test_lower
+        print "Coefficient upper bound: ", test_upper, "\n"
+        #write_input_config(test_row, test_col, test_nonzero, test_lower, test_upper, test_input_file)
+
+        #create input file
         create_input_file(test_row, test_col, test_nonzero, test_lower, test_upper, test_input_file)
         
         #for each file run test for different values of eps
