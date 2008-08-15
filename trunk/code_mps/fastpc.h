@@ -57,7 +57,7 @@ private:
   
   string file_name;
   double eps, epsilon;
-  double sort_ratio;  //factor by which elements are pseudo-sorted
+  int sort_ratio;  //factor by which elements are pseudo-sorted
 
   // To implement random_pair function in paper, we must compute |p_pXuh||p_d|/(|p_pXuh||p_d|+|p_p||p_dXu|)
   // Because of normalization, sampler weights at any given time during alg are internally consistent,
@@ -80,7 +80,7 @@ private:
   void freeze_and_sample(my_vector<line_element>& M, my_vector<line_element>& MT, int rows, int cols, dual_sampler_t* p_d, primal_sampler_t* p_p, dual_u_sampler_t* p_dXu, primal_u_sampler_t* p_pXuh, double epsilon, int prob);
 
 public:	
-  solve_instance(double epsilon, string file_name, double delta_sort);
+  solve_instance(double epsilon, string file_name, int sort_ratio);
   void solve();
   inline double any_base_log(double number, double base){
     return log2(number)/log2(base);

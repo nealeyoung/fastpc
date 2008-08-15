@@ -22,7 +22,7 @@ void solve_instance::bound_sort(){
   double b;
   bound_exponents(M,MT,b);
   bound_exponents(MT,M_copy,b);
-  if(sort_ratio <= 1){
+  if(sort_ratio == 1){
     exact_sort(M);
     exact_sort(MT);
   }else{
@@ -126,11 +126,11 @@ solve_instance::bound_exponents( my_vector<line_element>& matrix, my_vector<line
   }
 }
 
-solve_instance::solve_instance(double EPSILON, string infile, double delta_sort) :
+solve_instance::solve_instance(double EPSILON, string infile, int SORT_RATIO) :
   eps(0.9*EPSILON),
   epsilon(EPSILON),
   file_name(infile),
-  sort_ratio(delta_sort),
+  sort_ratio(SORT_RATIO),
   p_shift_ratio(-1),
   d_shift_ratio(-1)
 {
@@ -148,9 +148,10 @@ solve_instance::solve_instance(double EPSILON, string infile, double delta_sort)
       exit(1);
     }
 
+    cout << "INPUT FILE: " << file_name << endl;
     //read and parse 1st line of input (parameters)
     string s;
-    in_file >> r >> c >> total >> s;
+    in_file >> r >> c >> total;
     cout << "ROWS: " <<  r << " COLUMNS: " << c << " NON ZERO's: " << total << endl;
 
     M.resize(r);
@@ -491,6 +492,7 @@ solve_instance::solve() {
 
   cout << " eps = " << eps << endl;
   cout << " epsilon = " << epsilon << endl;
+  cout << " sort ratio = " << sort_ratio << endl;
   cout << " n_samples = " << n_samples << endl;
   cout << " n_increments_d = " << n_increments_d << endl;
   cout << " n_increments_p = " << n_increments_p << endl;
@@ -507,13 +509,14 @@ solve_instance::solve() {
   cout << " alloc_time = " << alloc_time/1000000.0 << "s" << endl;
   cout << " alloc_space = " << alloc_space << endl;
   cout << " allocs_per_usec = " << alloc_space/alloc_time << endl;
+  cout << endl;
 }
 
 void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_sampler_t* p_p, dual_sampler_t* p_d, dual_sampler_t* p_pXuh, dual_sampler_t* p_dXu) {
-  double p_p_wt = p_p->get_update_total_weight();
-  double p_d_wt = p_d->get_update_total_weight();
-  double p_pXuh_wt = p_pXuh->get_update_total_weight();
-  double p_dXu_wt = p_dXu->get_update_total_weight();
+  weight_t p_p_wt = p_p->get_update_total_weight();
+  weight_t p_d_wt = p_d->get_update_total_weight();
+  weight_t p_pXuh_wt = p_pXuh->get_update_total_weight();
+  weight_t p_dXu_wt = p_dXu->get_update_total_weight();
 
   //store partial quantities of desired ratio
   double temp_1;
@@ -532,8 +535,8 @@ void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_s
     p_dXu->exp_shift_updated = false;
   }
 
-  temp_1 = p_p_wt/p_pXuh_wt;
-  temp_2 = p_dXu_wt/p_d_wt;
+  temp_1 = (double)p_p_wt/p_pXuh_wt;
+  temp_2 = (double)p_dXu_wt/p_d_wt;
   temp_3 = (double)p_shift_ratio/d_shift_ratio;  //must keep ratios separate since they use different epsilons
 
   double prob = 1.0 / (1 + (temp_1*temp_2*temp_3));  //overall prob used to choose samplers
@@ -773,7 +776,7 @@ int main(int argc, char *argv[])
 {
   double epsilon = 0.1;
   string input_file="";
-  double sort_factor = 1;
+  double sort_ratio = 1;
   string usage = "Usage: fastpc <epsilon-factor> <filename> [<sort-factor>]";
 
 		
@@ -786,14 +789,21 @@ int main(int argc, char *argv[])
     cout << usage << endl;
     return 1;
   }
-  if (argc >= 4)
-    sort_factor = atof(argv[3]);
+  if (argc >= 4) {
+    sort_ratio = atoi(argv[3]);
+    if (sort_ratio == 0) {
+      cout << "Zero is not a valid sort ratio. Default sort ratio (1) will be used." << endl;
+      sort_ratio = 1;
+    }
+  } else {
+    cout << "TEST NOT CORRECT" << endl;
+  }
 		
 #ifdef NDEBUG
   srand(time(NULL));
 #endif
 
-  solve_instance I(epsilon, input_file, sort_factor);
+  solve_instance I(epsilon, input_file, sort_ratio);
   I.solve();
   return 0;
 }
