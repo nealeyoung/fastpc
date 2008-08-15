@@ -77,10 +77,10 @@ def main():
         test_col = random.randint(col_min, col_max)
         test_total = test_row*test_col
         test_nonzero = random.randint(math.ceil(fraction_nonzero_low*test_total), math.floor(fraction_nonzero_high*test_total))
-        test_lower = random.randint(0, max_lower)
+        test_lower = random.randint(max_lower, max_upper/2)
         test_upper = random.randint(test_lower, max_upper)
         test_input_file = input_file_prefix + "_"  + str(i)
-
+        
         create_input_file(test_row, test_col, test_nonzero, test_lower, test_upper, test_input_file)
         
         #for each file run test for different values of eps
