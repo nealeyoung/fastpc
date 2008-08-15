@@ -53,6 +53,9 @@ private:
   primal_u_sampler_t *p_pXuh;
   dual_u_sampler_t *p_dXu;
 
+  // M_copy preserves the original coefficients for primal and dual scaling back at the end
+  // M and MT coefficients may be updated to bound them
+  // Entries in M are dropped if any constraint is dropped
   my_vector<line_element> M, MT, M_copy;
   
   string file_name;
@@ -82,9 +85,6 @@ private:
 public:	
   solve_instance(double epsilon, string file_name, int sort_ratio);
   void solve();
-  inline double any_base_log(double number, double base){
-    return log2(number)/log2(base);
-  };
 
   void bound_sort(); //sort or pseudo-sort M and MT based on sorting factor
   //pseudo-sorts a matrix and its transpose by method described in paper
@@ -96,5 +96,8 @@ public:
   void bound_exponents( my_vector<line_element>& matrix, my_vector<line_element>& matrix_T, double& b );
 };
 
- 
+inline double log_base(double number, double base){
+  return log2(number)/log2(base);
+};
+
 #endif

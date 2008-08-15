@@ -51,19 +51,19 @@ def create_input_file(r, c, non_zero, lower, upper, file_name):
   
 def main():
 
-    max_inputs = 4
+    max_inputs = 2
     max_runs_per_input = 2
 
-    row_min = 100
+    row_min = 30
     row_max = 100
     col_min = 30
-    col_max = 500
+    col_max = 100
     fraction_nonzero_low = 0.1
     fraction_nonzero_high = 0.9
     max_lower = 0
-    max_upper = 100
+    max_upper = 50
 
-    eps_low = 0.001
+    eps_low = 0.005
     eps_high = 0.1
 
     sort_ratio = 1 #make this random (1 or 2) to test both exact and sudo sorting
@@ -80,8 +80,10 @@ def main():
         test_col = random.randint(col_min, col_max)
         test_total = test_row*test_col
         test_nonzero = random.randint(math.ceil(fraction_nonzero_low*test_total), math.floor(fraction_nonzero_high*test_total))
-        test_lower = random.randint(max_lower, (max_lower+max_upper)/2)
+        test_lower = random.randint(max_lower, math.ceil((max_lower+max_upper)/2))
         test_upper = random.randint(test_lower, max_upper)
+        if (test_upper == test_lower):
+            test_upper = test_upper + 1
         test_input_file = input_file_prefix + "_"  + str(i)
 
         #record the parameters for the input file
