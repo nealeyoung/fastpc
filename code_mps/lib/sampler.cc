@@ -1,5 +1,5 @@
 #include <math.h>
-#include <iostream.h>
+#include <iostream>
 #include <iomanip>
 #include <typeinfo>
 using namespace std;
@@ -15,7 +15,7 @@ const bool PRIMAL_U_TRACE = 0;
 
 dual_sampler_t::dual_sampler_t(int n, double epsilon, int min_expt, int max_expt, int prec)
     : permanent_min_exponent(min_expt), permanent_max_exponent(max_expt),
-      eps(epsilon), exponents_per_bucket(ceil(1/eps)), NORMALIZE_SHIFT(1)
+      eps(epsilon), exponents_per_bucket((int)ceil(1/eps)), NORMALIZE_SHIFT(1)
 {
   assert(epsilon > 0 && epsilon <= 0.5);
   assert(min_expt < max_expt);

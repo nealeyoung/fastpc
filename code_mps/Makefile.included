@@ -3,10 +3,10 @@
 #CXXFLAGS = -O3
 
 # for debugging
-CXXFLAGS = -g
+#CXXFLAGS = -g
 
 # for profiling
-#CXXFLAGS = -pg -g
+CXXFLAGS = -pg -g
 
 # for profiling with shark (on the mac)
 #CXXFLAGS = -DNDEBUG -g
