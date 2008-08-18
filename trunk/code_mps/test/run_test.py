@@ -3,56 +3,9 @@ import math
 import os
 import sys
 
-def create_input_file(r, c, non_zero, lower, upper, file_name):
-    #setup parameters
-    error = False
-    glpk_file_name = 'glpk_' + file_name
-
-    #open files to write
-    glpk_file = open(glpk_file_name,'w')
-    file = open(file_name,'w')
-
-    file.write(str(r) +' ' + str(c)+ ' ' + str(non_zero) + '\n')
-
-    population = []
-    for x in range(r):
-        for y  in range(c):
-           population.append( [x,y])
-
-    entries = random.sample(population,int(non_zero))
-    for index, entry in enumerate(entries):
-        entries[index].append(random.uniform(lower,upper))
-
-    #write entries in file
-    for entry in entries:
-        file.write(str(entry[0]) +' ' + str(entry[1])+ ' ' + str(entry[2]) + '\n')
-
-    row_array =[[]]*r
-
-    #write entries in GLPK file
-    glpk_file.write('Maximize \n')
-    glpk_file.write('value: ')
-    for x in range(c-1):
-        glpk_file.write('1.0  var' + str(x) + ' + ')
-    glpk_file.write('1.0  var' + str(c-1) + ' \n')
-    glpk_file.write('Subject To \n')
-
-    row_array = [ ['row' + str(index) + ':  ']  for index in range(r)]
-
-    for entry in entries:
-        row_array[entry[0]].append( ' '+ str(entry[2]) +  ' var' + str(entry[1]) + ' +')
-
-    for row in row_array:
-        for item in row[:-1]:
-            glpk_file.write(item)
-        glpk_file.write(row[-1][:-1] + ' < 1 \n')
-    glpk_file.write('Bounds \n')
-    for x in range( c):
-        glpk_file.write('0 < var' +str(x)+ ' \n')
-    glpk_file.write('End \n')
-  
 def main():
 
+    #-------RUN PARAMETERS - BEGIN -------------
     #total number of input files to be generated
     max_inputs = 2
     #total number of runs to be done for each input file generated
@@ -83,6 +36,8 @@ def main():
 
     input_file_prefix = 'input_test_m'
     output_file_name = 'output_test_m'
+    #-------RUN PARAMETERS - END -------------    
+
     output_file = open(output_file_name, 'w')
     input_config_name = input_file_prefix + '_config'
     sys.stdout = open(input_config_name, 'w')
@@ -107,7 +62,10 @@ def main():
         print "Coefficient upper bound: ", test_upper, "\n"
 
         #create input file
-        create_input_file(test_row, test_col, test_nonzero, test_lower, test_upper, test_input_file)
+        cmd_create = 'python generate_full_input.py ' + ' ' + str(test_row) + ' ' + str(test_col) + ' ' + str(test_nonzero) + ' ' + str(test_lower) + ' ' + str(test_upper) + ' ' + test_input_file
+        os.system(cmd_create)
+        #the following line has been commented because instead of the method call we use generate_full_input to create the input file
+        #create_input_file(test_row, test_col, test_nonzero, test_lower, test_upper, test_input_file)
         
         #for each file run test for different values of eps
         for j in range(max_runs_per_input):
@@ -115,13 +73,13 @@ def main():
             test_eps = random.uniform(eps_low, eps_high)
 
             #run with sort_ratio = 1 (exact sorting)
-            cmd = "../fastpc" + ' ' + str(test_eps) + ' ' + test_input_file + " 1 >> " + output_file_name
-            os.system(cmd)
+            cmd_exact = '../fastpc' + ' ' + str(test_eps) + ' ' + test_input_file + ' 1 >> ' + output_file_name
+            os.system(cmd_exact)
 
-            if (a_sort_ratio > 1) :
-                #run with sort_ration > 1 (approx sorting)
-                cmd = "../fastpc" + ' ' + str(test_eps) + ' ' + test_input_file + ' ' + str(a_sort_ratio) + " >> " + output_file_name
-                os.system(cmd)
+            if (a_sort_ratio > 1):
+                #run with sort_ratio > 1 (approx sorting)
+                cmd_approx = '../fastpc' + ' ' + str(test_eps) + ' ' + test_input_file + ' ' + str(a_sort_ratio) + ' >> ' + output_file_name
+                os.system(cmd_approx)
             
     output_file.close()
 
