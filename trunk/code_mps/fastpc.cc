@@ -14,9 +14,9 @@ nonzero_entry_t::nonzero_entry_t(double value, double eps, sampler_item_t* sampl
   u_sampler_pointer(u_sampler) {
   //always round to make approximation an upper bd on value of coefficient
   if (eps > 0) //dual
-    exponent = floor(log_base(value, 1-eps));   // =log base 1-eps (value)
+    exponent = (int)floor(log_base(value, 1-eps));   // =log base 1-eps (value)
   else //primal
-    exponent = ceil(log_base(value, 1-eps));    // =log base 1-eps (value)
+    exponent = (int)ceil(log_base(value, 1-eps));    // =log base 1-eps (value)
 }
 
 void solve_instance::bound_sort() {
@@ -220,12 +220,12 @@ solve_instance::solve_instance(double EPSILON, string infile, int SORT_RATIO) :
     //in the primal sampler if it's too small
     int p_diff = 0;
     if (N+10-ceil(1/eps) > 0 && max_uh_exp - min_uh_exp > N+10-ceil(1/eps)) {
-    	p_diff = max_uh_exp - min_uh_exp - (N+10-ceil(1/eps));
+      p_diff = max_uh_exp - min_uh_exp - (N+10-(int)ceil(1/eps));
     }
    
     //re-initialize u_sampler_items with normalized exponents if necessary
     //min_u_exp may not be the actual min and so we compensate by adding the exponent for sort_ratio
-    int d_exp_shift_init = min_u_exp + ceil(log_base(sort_ratio, 1-eps));
+    int d_exp_shift_init = min_u_exp + (int)ceil(log_base(sort_ratio, 1-eps));
     if (min_u_exp != 0) {
       for (int i = 0; i < c; i++) {
 	sampler_item_t* item = p_dXu->get_ith(i);
@@ -240,7 +240,7 @@ solve_instance::solve_instance(double EPSILON, string infile, int SORT_RATIO) :
       p_dXu->exp_shift_updated = true;
     }
 
-    int p_exp_shift_init = max_uh_exp - p_diff + ceil(log_base(sort_ratio, 1+eps)); //total shift amt needed
+    int p_exp_shift_init = max_uh_exp - p_diff + (int)ceil(log_base(sort_ratio, 1+eps)); //total shift amt needed
     if (p_exp_shift_init != 0) {
       for (int j = 0; j < r; j++) {
 	sampler_item_t* item = p_pXuh->get_ith(j);
@@ -426,9 +426,7 @@ solve_instance::solve() {
 
   // end of iterations. compute final x_p and x_d values as in line 10 of the algorithm
   // cout<<"end of iterations"<<endl;
-  // @TODO-- account for possible change in coeffs during bounding by dividing by original coeffs 
-  // instead of bounded ones
-
+  
   count_ops(3*r);
 
   double max_row = 0;
@@ -607,7 +605,9 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
   double total_x_d_prob = 0;
   double total_x_p_prob = 0;
 
-  //find total weight in samplers
+  // find total weight in samplers
+  // unlike in main alg, weight is computed exactly 
+  //in order to get correct distributions
   weight_t p_p_total = 0;
   weight_t p_d_total = 0;
   weight_t p_pXuh_total = 0;
@@ -698,7 +698,7 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
   //compute how many iterations must be done--hard-code min prob so #iterations doesn't get huge
     if (min_prob < 0.01)
       min_prob = 0.01;  //adjust min prob so # of iterations doesn't get huge
-  weight_t samples = ceil((3*log(prob)/(epsilon*epsilon))/min_prob);
+    weight_t samples = (weight_t)ceil((3*log(prob)/(epsilon*epsilon))/min_prob);
   cout << "3*log(prob)/epsilon^2: " << (3*log(prob)/(epsilon*epsilon)) << " Samples: " << samples << endl;
 
   //store expected val of each variable after sampling
@@ -773,22 +773,20 @@ int main(int argc, char *argv[])
 {
   double epsilon = 0.1;
   string input_file="";
-  double sort_ratio = 1;
-  string usage = "Usage: fastpc <epsilon-factor> <filename> [<sort-factor>]";
+  int sort_ratio = 1;
+  string usage = "Usage: fastpc <epsilon-factor> <filename> [sort-factor]";
 
-		
-  if (argc >= 2)
-    epsilon = atof(argv[1]);
-
-  if (argc >= 3)
+  if (argc >= 3) {
+    epsilon = atof(argv[1]);   
     input_file = argv[2];
+  }
   else {
     cout << usage << endl;
     return 1;
   }
   if (argc >= 4) {
     sort_ratio = atoi(argv[3]);
-    if (sort_ratio == 0) {
+    if (sort_ratio < 1) {
       cout << "Zero is not a valid sort ratio. Default sort ratio (1) will be used." << endl;
       sort_ratio = 1;
     }
