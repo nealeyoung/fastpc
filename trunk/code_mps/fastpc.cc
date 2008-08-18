@@ -36,28 +36,31 @@ void solve_instance::bound_sort() {
 
 void solve_instance::pseudo_sort( my_vector<line_element>& matrix, int n_cols, double b ){
   int n_rows = matrix.size();
-  line_element *last = &matrix[n_rows-1];
-  line_element *first = &matrix[0];
+  //line_element *last = &matrix[n_rows-1];
+  //line_element *first = &matrix[0];
  
   //create buckets for the  bucket sort
   int num_buckets = (int)ceil(log_base(n_cols/eps,sort_ratio))*2;
   list<nonzero_entry_t*>*  *buckets = (list<nonzero_entry_t*>**)(malloc( sizeof(list<nonzero_entry_t*>*) * num_buckets));    
-  for(int i = 0; i<num_buckets; i++)
+  for(int i = 0; i < num_buckets; i++)
     buckets[i] =  new list<nonzero_entry_t*>();
 
   // bucket sort each row
-  for (line_element* p = first; p <= last; ++p) { 
-    for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
+  for (int i=0; i < n_rows; i++) {
+    for(list<nonzero_entry_t*>::iterator x = matrix[i].begin(); x != matrix[i].end(); ++x){
+  //for (line_element* p = first; p <= last; ++p) { 
+    //for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
       //index is normalized such that index of smallest item will be 0 and index of largest item will be 2*log(n_cols/eps) = log(n_cols^2/eps^2)
       int index = (int)floor(log_base((*x)->coeff,sort_ratio) - log_base(b,sort_ratio) + log_base(n_cols/eps,sort_ratio));
       buckets[num_buckets-1-index]->push_back((*x));  //sorts in decreasing order
     }
     
     //add items from buckets back into the matrix
-    line_element::iterator row = p->begin();
+    //line_element::iterator row = p->begin();
+    line_element::iterator row = matrix[i].begin();
        
     //scan through all sorted items and reset row items to these
-    for(int i = 0; i<num_buckets; i++){
+    for(int i = 0; i < num_buckets; i++){
       for (list<nonzero_entry_t *>::iterator x = buckets[i]->begin(); x != buckets[i]->end(); ++x){
 	(*row) = (*x); //reset current pointer in row to pointer in bucket
 	row++;
@@ -69,7 +72,7 @@ void solve_instance::pseudo_sort( my_vector<line_element>& matrix, int n_cols, d
   }
 
   //deallocate memory for  buckets
-  for(int i =0; i<num_buckets; i++)
+  for(int i =0; i < num_buckets; i++)
     free(buckets[i]);
   free(buckets);
 }
@@ -88,17 +91,18 @@ solve_instance::bound_exponents( my_vector<line_element>& matrix, my_vector<line
   //find b
   int n_row = matrix.size();
   int n_col = matrix_T.size();
-  line_element *last = &matrix[n_row-1];
-  line_element *first = &matrix[0];
+  //line_element *last = &matrix[n_row-1];
+  //line_element *first = &matrix[0];
 
-  line_element *last_t = &matrix_T[n_col-1];
-  line_element *first_t = &matrix_T[0];
+  //line_element *last_t = &matrix_T[n_col-1];
+  //line_element *first_t = &matrix_T[0];
 
   b = -1; // sentinel to mark first loop
-  for (line_element *p = first_t; p <= last_t; ++p) {
-    double max_temp = (*(p->begin()))->coeff;    
+  //for (line_element *p = first_t; p <= last_t; ++p) {
+  for (int i=0; i < n_col; ++i) {
+    double max_temp = matrix_T[i].front()->coeff;    
 
-    for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){ 
+    for(list<nonzero_entry_t*>::iterator x = matrix_T[i].begin(); x != matrix_T[i].end(); ++x){ 
       if ((*x)->coeff > max_temp){
 	max_temp = (*x)->coeff;   
       }
@@ -112,10 +116,11 @@ solve_instance::bound_exponents( my_vector<line_element>& matrix, my_vector<line
   double bound = b*eps/n_col;
   double replace = b*n_col/eps;
 
-  for (line_element* p = first; p <= last; ++p) {
-    for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){  
+  //for (line_element* p = first; p <= last; ++p) {
+  for (int i=0; i < n_row; ++i) {
+    for(list<nonzero_entry_t*>::iterator x = matrix[i].begin(); x != matrix[i].end(); ++x){  
       if ((*x)->coeff < bound ){
-	p->erase(x);
+	matrix[i].erase(x);
 	x--;
       }else{
 	(*x)->coeff = min((*x)->coeff,replace);
@@ -192,7 +197,7 @@ solve_instance::solve_instance(double EPSILON, string infile, int SORT_RATIO) :
     //close file
     in_file.close();
 
-    //sort or pseudo-sort M and MT
+    //sort or pseudo-sort M and MT, bounding their coefficients
     bound_sort();
    	
     //find the minimum exponent for MT and maximum exponent for M
@@ -223,8 +228,8 @@ solve_instance::solve_instance(double EPSILON, string infile, int SORT_RATIO) :
       p_diff = max_uh_exp - min_uh_exp - (N+10-(int)ceil(1/eps));
     }
    
-    //re-initialize u_sampler_items with normalized exponents if necessary
-    //min_u_exp may not be the actual min and so we compensate by adding the exponent for sort_ratio
+    // re-initialize u_sampler_items with normalized exponents if necessary
+    // min_u_exp may not be the actual min and so we compensate by adding the exponent for sort_ratio
     int d_exp_shift_init = min_u_exp + (int)ceil(log_base(sort_ratio, 1-eps));
     if (min_u_exp != 0) {
       for (int i = 0; i < c; i++) {
@@ -308,7 +313,7 @@ solve_instance::solve() {
 
     //call function to freeze samplers and test them
     // if (iteration == N){ //arbitrary freeze point in middle of alg 
-//       int prob_reciprocal = 6;   //prob is less than 1/6 of x deviating from E[x] by eps-factor
+//       int prob_reciprocal = 10;   //prob is less than 1/6 of x deviating from E[x] by eps-factor
 //       freeze_and_sample(M, MT, r, c, p_d, p_p, p_dXu, p_pXuh, eps, prob_reciprocal);
 //       //exit(0); //don't continue with alg; just stop after sampler test
 //     }
@@ -429,6 +434,8 @@ solve_instance::solve() {
   
   count_ops(3*r);
 
+  double sum_x_p=0, sum_x_d=0;
+
   double max_row = 0;
   for (int i=0; i<r; ++i){
     double tmp = 0;
@@ -440,6 +447,7 @@ solve_instance::solve() {
     }
     if (tmp > max_row)
       max_row = tmp;
+    sum_x_d += (p_p->get_ith(i)->x + p_pXuh->get_ith(i)->x);
   }
 
   count_ops(3*c);
@@ -455,18 +463,12 @@ solve_instance::solve() {
     }
     if (tmp < min_col)
       min_col = tmp;
+    sum_x_p += (p_d->get_ith(j)->x + p_dXu->get_ith(j)->x);
   }
 
-  double sum_x_p=0, sum_x_d=0;
-
-  count_ops(2*c);
-
-  //compute this in previous for loops to save time
-  for (int j=0; j<c; ++j) sum_x_p += (p_d->get_ith(j)->x + p_dXu->get_ith(j)->x);
-
-  count_ops(2*r);
-
-  for (int i=0; i<r; ++i) sum_x_d += (p_p->get_ith(i)->x + p_pXuh->get_ith(i)->x);
+  count_ops(2*c); //for totaling primal vars
+  
+  count_ops(2*r); //for totaling dual vars
 
   //cout << "iterations = " << iteration;
   if (max_row == 0)
@@ -585,8 +587,6 @@ void solve_instance::get_two_largest_active(line_element* row, nonzero_entry_t**
   }
 }
 
-
-//@TODO fix this function to incorporate portions of vars stored in p_pXuh and p_pXu 
 void
 solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_element>& MT, int rows, int cols, dual_sampler_t* p_d, primal_sampler_t* p_p, dual_u_sampler_t* p_dXu, primal_u_sampler_t* p_pXuh, double epsilon, int prob) {
   //store current state of variables, prob distributions, expected values after frozen increments
@@ -618,7 +618,7 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
     weight_t wt = p_d->get_exponent_weight(p_d->get_ith(i)->exponent_entry);
     p_d_total += wt;
     //cout << "Exponent: " << p_d->get_ith(i)->exponent_entry->exponent;
-    cout << " x_" << i << " Item Weight (in dual sampler): " << wt << endl;
+    //cout << " x_" << i << " Item Weight (in dual sampler): " << wt << endl;
     weight_t u_wt = p_dXu->get_exponent_weight(p_dXu->get_ith(i)->exponent_entry);
     p_dXu_total += u_wt;
   }
@@ -628,7 +628,7 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
     weight_t wt = p_p->get_exponent_weight(p_p->get_ith(i)->exponent_entry);
     p_p_total += wt;
     //cout << "Exponent: " << p_p->get_ith(i)->exponent_entry->exponent;
-    cout << "xhat_" << i << " Item Weight (in primal sampler): " << wt << endl;
+    //cout << "xhat_" << i << " Item Weight (in primal sampler): " << wt << endl;
     weight_t u_wt = p_pXuh->get_exponent_weight(p_pXuh->get_ith(i)->exponent_entry);
     p_pXuh_total += u_wt;
   }
@@ -661,7 +661,7 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
     sampler_item_t* current_var = p_d->get_ith(i);
     sampler_item_t* current_u_var = p_dXu->get_ith(i);
     x_p.push_back(current_var->x + current_u_var->x);
-    cout << "x_" << i << ": " << x_p[i] << endl; //debug--print new vectors
+    //cout << "x_" << i << ": " << x_p[i] << endl; //debug--print new vectors
     weight_t current_weight = p_d->get_exponent_weight(current_var->exponent_entry);
     double current_prob = (double)current_weight/p_d_total;
     weight_t current_u_weight = p_dXu->get_exponent_weight(current_u_var->exponent_entry);
@@ -678,7 +678,7 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
     sampler_item_t* current_var = p_p->get_ith(i);
     sampler_item_t* current_u_var = p_pXuh->get_ith(i);
     x_d.push_back(p_p->get_ith(i)->x + current_u_var->x);
-    cout << "xhat_" << i << ": " << x_d[i] << endl; //debug--print new vectors
+    //cout << "xhat_" << i << ": " << x_d[i] << endl; //debug--print new vectors
     weight_t current_weight = p_p->get_exponent_weight(current_var->exponent_entry);
     double current_prob = (double)current_weight/p_p_total;
     weight_t current_u_weight = p_pXuh->get_exponent_weight(current_u_var->exponent_entry);
@@ -704,11 +704,11 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
   //store expected val of each variable after sampling
   for (int i=0; i < cols; i++) {
     x_p_expect.push_back(x_p[i]+(x_p_prob[i]*samples));
-    cout << "x_ " << i << ": " << x_p[i] << " Prob: " << x_p_prob[i] << " Expected val: " << x_p_expect[i] << endl;
+    //cout << "x_" << i << ": " << x_p[i] << " Prob: " << x_p_prob[i] << " Expected val: " << x_p_expect[i] << endl;
   }
   for (int i=0; i < rows; i++) {
     x_d_expect.push_back(x_d[i]+x_d_prob[i]*samples);
-    cout << "xhat_ " << i << ": " << x_d[i] << " Prob: " << x_d_prob[i] << " Expected val: " << x_d_expect[i] << endl;
+    //cout << "xhat_" << i << ": " << x_d[i] << " Prob: " << x_d_prob[i] << " Expected val: " << x_d_expect[i] << endl;
   }
   
   //main sampling loop-- note that vars are always incremented by 1, so non-uniform increments are NOT being tested!
@@ -740,7 +740,8 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
   for (int i=0; i < cols; i++) {
     double expt_x = x_p_expect[i];
     double actual_x = p_d->get_ith(i)->x + p_dXu->get_ith(i)->x;
-    cout << "x_" << i << ": " << actual_x << " Expected val: " << expt_x;
+    cout << "x_" << i << ": " << left << setw(10) << actual_x << "Expected val: " << expt_x 
+	 << "\tProb: " << x_p_prob[i];
     if (actual_x > (1+epsilon)*expt_x || actual_x < (1-epsilon)*expt_x)
       cout << "\tOut of range!\n";
     else
@@ -750,7 +751,8 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
   for (int i=0; i < rows; i++) {
     double expt_x = x_d_expect[i];
     double actual_x = p_p->get_ith(i)->x + p_pXuh->get_ith(i)->x;
-    cout << "xhat_" << i << ": " << actual_x << " Expected val: " << expt_x;
+    cout << "xhat_" << i << ": " << left << setw(10) << actual_x << "Expected val: " << expt_x
+	 << "\tProb: " << x_p_prob[i];
     if (actual_x > (1+epsilon)*expt_x || actual_x < (1-epsilon)*expt_x)
       cout << "\tOut of range!\n";
     else
@@ -790,9 +792,7 @@ int main(int argc, char *argv[])
       cout << "Zero is not a valid sort ratio. Default sort ratio (1) will be used." << endl;
       sort_ratio = 1;
     }
-  } else {
-    cout << "TEST NOT CORRECT" << endl;
-  }
+  } 
 		
 #ifdef NDEBUG
   srand(time(NULL));
