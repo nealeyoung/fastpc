@@ -58,6 +58,10 @@ def main():
                 glpk_file.write(item)
             glpk_file.write(row[-1][:-1] + ' < 1 \n')
         glpk_file.write('Bounds \n')
+        
+        for x in range( c):
+            glpk_file.write('0 < var' +str(x)+ ' \n')
+
         glpk_file.write('End \n')
     
 main()
