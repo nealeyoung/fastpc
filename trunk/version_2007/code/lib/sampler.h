@@ -132,8 +132,7 @@ protected:
   }
 
 public:
-  inline int
-  dual_sampler_t::increment_exponent(sampler_item_t *w) {
+  virtual int increment_exponent(sampler_item_t *w) {
     exponent_entry_t* &e = w->exponent_entry;
 
     if (! e->at_boundary) {
@@ -170,7 +169,7 @@ public:
   }
   void init();
 
-  inline int
+  virtual int
   increment_exponent(sampler_item_t *w) {
     exponent_entry_t* &e = w->exponent_entry;
 
