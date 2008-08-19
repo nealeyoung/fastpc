@@ -50,6 +50,8 @@ solve_instance::solve_instance(double EPSILON) :
     MT.resize(c);
     M_copy.resize(r);
 
+    cout << "Read first line of input\n" ; //debug
+
     N = int(ceil(2*log(r*c)/(eps*eps)));
 
     p_p = new primal_sampler_t(r, eps, 0, N+10);
@@ -68,6 +70,7 @@ solve_instance::solve_instance(double EPSILON) :
       M_copy[row].push_back(p_d->get_ith(col));
       MT[col].push_back(p_p->get_ith(row));
     }
+    cout << "Finished with input\n"; //debug
   }
 }
 
