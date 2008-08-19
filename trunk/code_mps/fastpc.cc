@@ -158,7 +158,7 @@ solve_instance::solve_instance(double EPSILON, string infile, int SORT_RATIO) :
     //read and parse 1st line of input (parameters)
     string s;
     in_file >> r >> c >> total;
-    cout << "ROWS: " <<  r << " COLUMNS: " << c << " NON ZERO's: " << total << " DENSITY: " << total/(r*c)<< endl;
+    cout << "ROWS: " <<  r << " COLUMNS: " << c << " NON ZERO's: " << total << " DENSITY: " << (double)total/(r*c)<< endl;
 
     M.resize(r);
     MT.resize(c);
