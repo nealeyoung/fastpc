@@ -1,7 +1,7 @@
 import random
 #import math
 import os
-#import sys
+import sys
 
 def main():
 
@@ -23,7 +23,12 @@ def main():
     lower = 0
     upper = 100
 
-    input_file_prefix = 'input_test_m'
+    try:
+        args = sys.argv
+        input_file_prefix = args[1]
+    except:
+        print 'did not input argument so using default file name'
+        input_file_prefix = 'input_test_m'
 
     #------- INPUT FILE PARAMETERS - END -------------    
 
