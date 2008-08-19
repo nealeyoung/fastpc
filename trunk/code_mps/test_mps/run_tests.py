@@ -27,7 +27,7 @@ def main():
     #and also for the sort_ratio defined here (approximate sorting)
     a_sort_ratio = 2 #if set to 0 or 1, only exact sorting run will be done
 
-    output_file_name = 'output_'+input_file_prefix
+    output_file_name = input_file_prefix + '_output'
     output_file_location = './output/'+output_file_name
     output_file_glpk_location = output_file_location + '_glpk'
 
