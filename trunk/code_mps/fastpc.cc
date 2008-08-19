@@ -141,6 +141,9 @@ solve_instance::solve_instance(double EPSILON, string infile, int SORT_RATIO) :
   int row, col, total;
   double val;
   string s;
+
+  //bookkeeping
+  unsigned long preprocess_start = get_time();
   {
     //open input file
     ifstream in_file;
@@ -259,6 +262,10 @@ solve_instance::solve_instance(double EPSILON, string infile, int SORT_RATIO) :
       p_pXuh->exp_shift -= p_exp_shift_init;   //initial shift of sampler-- can be negative
       p_pXuh->exp_shift_updated = true;
     }
+
+    unsigned long preprocess_time = get_time() - preprocess_start;
+    cout << "Preprocessing: " << preprocess_time/1000000.0 << " s" << endl;
+
 
     //print normalized exponents
     //print M
