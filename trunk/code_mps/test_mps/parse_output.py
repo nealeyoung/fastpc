@@ -9,6 +9,13 @@ def parse_output_file(file_name, file_type):
         fastpc_run = False
         glpk_run = True
 
+    try:
+        my_file = open(file_name)
+        total_string = my_file.read()
+    except:
+        print file_name + ', NOT FOUND'
+        return
+
     if fastpc_run:
         time_reg = re.compile(r' time = [0-9]*.*[0-9]*')
         ans_reg =  re.compile(r'primal = [0-9]*.[0-9]* dual = [0-9]*.[0-9]* ratio = [0-9]*.[0-9]*')
@@ -19,15 +26,8 @@ def parse_output_file(file_name, file_type):
     elif glpk_run:
         time_reg = re.compile(r'[0-9]*.*[0-9]* secs')
         ans_reg = re.compile(r'obj =[ ]*[0-9]*.[0-9]*e[+-][0-9]*')
-        input_reg = re.compile(r'glp_read_lp: [0-9]* rows, [0-9]* columns, [0-9]* non-zeros') 
-        name_reg = re.compile(r"glp_read_lp: reading problem data from `[/0-9a-zA-Z._]*'")
-
-    try:
-        my_file = open(file_name)
-        total_string = my_file.read()
-    except:
-        print 'Can not find ' + file_name + ' in output directory'
-        return
+        input_reg = re.compile(r'[0-9a-zA-Z:_]* [0-9]* rows, [0-9]* columns, [0-9]* non-zeros') 
+        name_reg = re.compile(r"[0-9a-zA-Z:_]* reading problem data from `[/0-9a-zA-Z._]*'")
 
     time_array = time_reg.findall(total_string)
     ans_array = ans_reg.findall(total_string)

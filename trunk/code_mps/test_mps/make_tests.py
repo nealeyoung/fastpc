@@ -7,14 +7,14 @@ def main():
 
     #------- INPUT FILE PARAMETERS - BEGIN -------------
     #total number of input sets to be generated (each set has dif num of rows/cols)
-    input_sets = 1
+    input_sets = 4
     
     #no of rows, r, starts in the range 10* [row_min, row_max] and increases by factor of 10 for each run
     row_min = 3
-    row_max = 20
+    row_max = 10
     #no of columns, c, is in the range [col_min, col_max]    
     col_min = 3
-    col_max = 20
+    col_max = 10
 
     #range of densities for each matrix size
     densities = [0.2, 0.4, 0.6, 0.8]
