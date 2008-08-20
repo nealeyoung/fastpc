@@ -21,7 +21,7 @@ def main():
         both = True
 
     # epsilons to be run for each input file generated        
-    epsilons = [0.1]
+    epsilons = [0.1, .05, 0.01 ]
     
     #each run is done with sort_ratio 1 (exact sorting)
     #and also for the sort_ratio defined here (approximate sorting)
@@ -36,7 +36,7 @@ def main():
     glpk_input_dir = curr_dir + '/test_cases_glpk/'
     fastpc_files = os.listdir(fastpc_input_dir)
     glpk_files = os.listdir(glpk_input_dir)
-    glpk_command = "../../../glpk-4.30/examples/glpsol --cpxlp "
+    glpk_command = "../../../glpk/glpk-4.15/examples/glpsol --cpxlp "
 
     if both or fastpc_run:
         for fp_file in fastpc_files:
