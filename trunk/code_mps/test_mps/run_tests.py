@@ -36,7 +36,7 @@ def main():
     glpk_input_dir = curr_dir + '/test_cases_glpk/'
     fastpc_files = os.listdir(fastpc_input_dir)
     glpk_files = os.listdir(glpk_input_dir)
-    glpk_command = "../../../glpk/glpk-4.15/examples/glpsol --cpxlp "
+    glpk_command = "../../../glpk/glpk-4.??/examples/glpsol --cpxlp " #works with glpk 4.x
 
     if both or fastpc_run:
         for fp_file in fastpc_files:
