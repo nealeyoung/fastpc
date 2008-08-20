@@ -41,12 +41,8 @@ def main():
         test_col *= 10
 
         for d in densities:
-            #record the parameters for the input file in the input_config_file
-            name_list =[input_file_prefix,str(test_row),str(test_col),str(d)]
-            input_file_name = '_'.join(name_list)
-
             #create input file
-            cmd_create = 'python generate_input.py ' + ' ' + str(test_row) + ' ' + str(test_col) + ' ' + str(d) + ' ' + str(lower) + ' ' + str(upper) + ' ' + input_file_name
+            cmd_create = 'python generate_input.py ' + ' ' + str(test_row) + ' ' + str(test_col) + ' ' + str(d) + ' ' + str(lower) + ' ' + str(upper) + ' ' + input_file_prefix
             os.system(cmd_create)
             
 main()
