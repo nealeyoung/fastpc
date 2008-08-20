@@ -310,10 +310,11 @@ dual_sampler_t::sample() {
 
       int s = b->size();
 
-      total_weight_check += w*s;
+      weight_t temp = w*s;
+      total_weight_check += temp;
 
-      if (r >= w*s)  {
-	r -= w*s;
+      if (r >= temp)  {
+	r -= temp;
       } else {
 	count_ops(4);
 
