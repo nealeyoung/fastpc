@@ -7,7 +7,7 @@ def main():
 
     #------- INPUT FILE PARAMETERS - BEGIN -------------
     #total number of input sets to be generated (each set has dif num of rows/cols)
-    input_sets = 4
+    input_sets = 3
     
     #no of rows, r, starts in the range 10* [row_min, row_max] and increases by factor of 10 for each run
     row_min = 3
