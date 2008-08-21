@@ -79,7 +79,7 @@ def main():
     fp_file_name = './output/' + file_prefix + '_output'
     glpk_file_name = fp_file_name + '_glpk'
 
-    output_file_name = './output/' + file_prefix + '_run_stats'
+    output_file_name = './output/' + file_prefix + '_run_stats.csv'
     sys.stdout = open(output_file_name, 'w')
     print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Ratio,Epsilon"
 

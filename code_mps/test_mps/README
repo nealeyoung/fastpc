@@ -1,0 +1,84 @@
+This directory contains files to automatiaclly test fastpc and compare it to glpk.
+
+do_all.sh:
+
+	Explanation: runs make_tests.py run_test.py and parse_output.py using the same file_prefix
+
+	Input: <file_prefix>[string]
+
+	Output: See the programs it runs
+
+	Example: ./do_all.sh my_problems
+
+time_test.py
+
+	Explanation: runs an lp problem specified in two different formats on cpxlp and fastpc
+
+	Input: None, but change the firt two lines of the script to provide the files for glpk and fastpc to run that  you want to compare
+
+	Output: times and results for runs of glpk and fastpc on the problem files you gave them
+
+	Example: python time_test.py
+
+make_tests.py:
+
+	Explanation: Calls generate_input.py several times 
+
+	Input: <file_prefix>[string]
+	
+	Additional Inputs: Program can be easily modified internally
+
+	Output: 12 runs of generate_input with differing parameters
+
+	Example: python make_tests.py my_problems
+
+
+generate_input.py:
+
+	Explanation: Generates a random liner programming problem of specified size with a specified dencity of non zeroes in a given range.
+
+	Input: <rows>[int] <columns>[int] <density>[float] <coeff lower>[float] <coeff upper>[float]  <file_prefix>[string]
+
+	Output: test_cases/($file_prefix)_r_c_dencity[fastpc input file] test_cases_glpk/($file_prefix)_r_c_dencity_glpk[cpxlp file]
+	
+	Example:
+		python generate_input.py 10 10 0.5 0.5 100 my_problems
+	
+	Note: Actual dencity of output problem might vary from input parameter by a small amount.
+
+run_tests.py:
+
+	Explantion: runs glpk and fastpc on a selection of input files in the test_cases and glpk_test_cases directory
+
+	Input: <file_prefix>[string|] <run_type>[glpk|fastpc|]:
+	        Where file_prefix is the prefix of the files you want to run. If not given all files in the  directory/directories are run.
+		Run type weather to run files in the test_cases or test_cases_glpk directories. Using glpk and fastpc respectivly.
+		If no run type is given both will run. 
+
+
+	Output: <output/($file_prefix)_output>[file] <output/($file_prefix)_output_glpk>[file]
+			The first file contains the output of each run of fastpc
+			The second file contains the output of each run of glpk
+
+	Example: python run_tests.py my_problems glpk
+
+	Notes: for fastpc file will run with default exact sort and with epsilons of 0.1 0.05 0.01
+
+	Bugs: Will mess up if run_type given but no file_prefix
+
+parse_output.py
+
+
+	Explanation: Parse glpk and fastpc output files from the output directory into a csv file for easy import into spread sheets
+
+	Input: <file_prefix>[string]
+	       File prefix of files you want parsed from the outpt directory.
+
+	Output: <output/$(file_prefix)_run_stats.csv>[file]
+		  Contents: Filename,Rows,Columns,Nonzeros,Density,Time(s),Ratio,Epsilon for each run on a new line for each file
+
+	Example: python parse_output.py my_problems
+
+
+
+
