@@ -353,11 +353,13 @@ solve_instance::solve() {
     wi->x += delta;
  
     // line 7
-    double z = (rand()%1000)/999.0;
+    register double z = (rand()%1000)/999.0;
  
     //line 8
     {
-      for (list<nonzero_entry_t*>::iterator x = MT[j].begin(); x != MT[j].end(); ++x) { 
+      register list<nonzero_entry_t*>::iterator mt_end = MT[j].end();
+
+      for (register list<nonzero_entry_t*>::iterator x = MT[j].begin(); x != mt_end; ++x) { 
 	double increment = ((*x)->coeff)*delta;
 	
 	//if the row is not active any more
@@ -386,7 +388,9 @@ solve_instance::solve() {
 
     // line 9 
     {
-      for (list<nonzero_entry_t*>::iterator x = M[i].begin(); x != M[i].end(); ++x) {
+      register list<nonzero_entry_t*>::iterator m_end = M[i].end();
+
+      for (register list<nonzero_entry_t*>::iterator x = M[i].begin(); x != m_end; ++x) {
 	double increment = ((*x)->coeff)*delta;
 	
 	//if the column is not active any more
