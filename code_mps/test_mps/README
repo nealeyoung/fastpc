@@ -35,25 +35,25 @@ make_tests.py:
 
 generate_input.py:
 
-	Explanation: Generates a random liner programming problem of specified size with a specified dencity of non zeroes in a given range.
+	Explanation: Generates a random liner programming problem of specified size with a specified density of non zeroes in a given range.
 
 	Input: <rows>[int] <columns>[int] <density>[float] <coeff lower>[float] <coeff upper>[float]  <file_prefix>[string]
 
-	Output: test_cases/($file_prefix)_r_c_dencity[fastpc input file] test_cases_glpk/($file_prefix)_r_c_dencity_glpk[cpxlp file]
+	Output: test_cases/($file_prefix)_r_c_density[fastpc input file] test_cases_glpk/($file_prefix)_r_c_density_glpk[cpxlp file]
 	
 	Example:
 		python generate_input.py 10 10 0.5 0.5 100 my_problems
 	
-	Note: Actual dencity of output problem might vary from input parameter by a small amount.
+	Note: Actual density of output problem might vary from input parameter by a small amount.
 
 run_tests.py:
 
 	Explantion: runs glpk and fastpc on a selection of input files in the test_cases and glpk_test_cases directory
 
 	Input: <file_prefix>[string|] <run_type>[glpk|fastpc|]:
-	        Where file_prefix is the prefix of the files you want to run. If not given all files in the  directory/directories are run.
-		Run type weather to run files in the test_cases or test_cases_glpk directories. Using glpk and fastpc respectivly.
-		If no run type is given both will run. 
+	        Where file_prefix is the prefix of the files you want to run. By default all files in the  directory/directories are run.
+		Run_type specifies whether to run files in the test_cases or test_cases_glpk directories, using fastpc and glpk respectively.
+		By default both will run. 
 
 
 	Output: <output/($file_prefix)_output>[file] <output/($file_prefix)_output_glpk>[file]
@@ -62,9 +62,9 @@ run_tests.py:
 
 	Example: python run_tests.py my_problems glpk
 
-	Notes: for fastpc file will run with default exact sort and with epsilons of 0.1 0.05 0.01
+	Notes: for fastpc file will run with exact sort as default and with epsilons of 0.1 0.05 0.01
 
-	Bugs: Will mess up if run_type given but no file_prefix
+	Bugs: Doesn't work if run_type given but no file_prefix
 
 parse_output.py
 
@@ -72,7 +72,7 @@ parse_output.py
 	Explanation: Parse glpk and fastpc output files from the output directory into a csv file for easy import into spread sheets
 
 	Input: <file_prefix>[string]
-	       File prefix of files you want parsed from the outpt directory.
+	       File prefix of files you want parsed from the output directory.
 
 	Output: <output/$(file_prefix)_run_stats.csv>[file]
 		  Contents: Filename,Rows,Columns,Nonzeros,Density,Time(s),Ratio,Epsilon for each run on a new line for each file
