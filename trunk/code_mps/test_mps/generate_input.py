@@ -108,69 +108,10 @@ def main() :
         glpk_file.write('End \n')
         glpk_file.close()
         file.close()
-        name_list =[out_file_prefix,str(r),str(c),str(float(non_zeros_actual)/(float(r)*float(c)))]
+        d_str = str(float(non_zeros_actual)/(float(r)*float(c)))
+        name_list =[out_file_prefix,str(r),str(c), d_str[0:4]]
         input_file_name = '_'.join(name_list)
         os.rename(fp_dir + out_file_prefix, fp_dir + input_file_name)
         os.rename(glpk_dir + glpk_file_name, glpk_dir + input_file_name + '_glpk')
-        #population = []
-        #for x in range(r):
-        #    for y  in range(c):
-        #       population.append( [x,y])
-
-        ## entries = random.sample(population,int(non_zero))
-##         for index, entry in enumerate(entries):
-##             entries[index].append(random.uniform(lower,upper))
-
-        #write entries in file
-        ## write_count = 0
-##         for entry in entries:
-##             file.write(str(entry[0]) +' ' + str(entry[1])+ ' ' + str(entry[2]) + '\n')
-##             write_count = write_count + 1
-##             if write_count == max_write_rows:
-##                 file.close()
-##                 file = open(fp_dir + out_file_prefix, 'a')
-##                 write_count = 0
-
-##         row_array =[[]]*r
-
-##         if not file.closed:
-##             file.close()
-        
-##         #write entries in GLPK file
-##         glpk_file.write('Maximize \n')
-##         glpk_file.write('value: ')
-##         for x in range(c-1):
-##             glpk_file.write('1.0  var' + str(x) + ' + ')
-##         glpk_file.write('1.0  var' + str(c-1) + ' \n')
-##         glpk_file.write('Subject To \n')
-
-##         for index, rows in enumerate(r):
-            
-            
-        
-        ## row_array = [ ['row' + str(index) + ':  ']  for index in range(r)]
-
-##         for entry in entries:
-##             row_array[entry[0]].append( ' '+ str(entry[2]) +  ' var' + str(entry[1]) + ' +')
-
-##         for row in row_array:
-##             for item in row[:-1]:
-##                 glpk_file.write(item)
-##             glpk_file.write(row[-1][:-1] + ' < 1 \n')
-##         glpk_file.write('Bounds \n')
-
-##         write_count = 0
-##         for x in range( c):
-##             glpk_file.write('0 < var' +str(x)+ ' \n')
-##             write_count = write_count + 1
-##             if write_count == max_write_rows:
-##                 glpk_file.close()
-##                 glpk_file = open(glpk_dir + glpk_file_name, 'a')
-##                 write_count = 0
-                
-##         if glpk_file.closed:
-##             glpk_file = open(glpk_dir + glpk_file_name, 'a')
-##         glpk_file.write('End \n')
-##         glpk_file.close()
     
 main()

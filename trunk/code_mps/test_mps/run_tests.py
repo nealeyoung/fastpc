@@ -53,9 +53,10 @@ def main():
                         #run with sort_ratio > 1 (approx sorting)
                         cmd_approx = '../fastpc' + ' ' + str(eps) + ' ./test_cases/' + fp_file + ' ' + str(a_sort_ratio) + ' >> ' + output_file_location
                         os.system(cmd_approx)
-		    #profile each run, both regularly and line-by-line
-		    cmd_prof = '../gprof fastpc > ' + fp_file + '_prof.txt'
-		    cmd_prof_line = '../gprof -l fastpc > ' + fp_file + '_prof_line.txt'
+		    #profile each run, both regularly and line-by-line.
+                    #To generate profile we also need to copy the gmon.out file in the current folder.
+		    cmd_prof = 'gprof ../fastpc > ./profile/' + fp_file + '_prof.txt'
+		    cmd_prof_line = 'gprof -l ../fastpc > ./profile/' + fp_file + '_prof_line.txt'
 		    os.system(cmd_prof)
 		    os.system(cmd_prof_line)
                         
