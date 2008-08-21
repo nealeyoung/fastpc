@@ -38,7 +38,7 @@ def main() :
         error = True
 
     if(error):
-        print "Arguments expected: <rows> <columns> <density> <coeff lower> <coeff upper> <file name to generate>"
+        print "Arguments expected: <rows> <columns> <density> <coeff lower> <coeff upper> <file name prefix>"
     else:
         #open files to write
         
