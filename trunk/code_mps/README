@@ -1,0 +1,68 @@
+This directory contains the program fastpc its code and possibly some tests and test scripts.
+
+Name: 
+
+      fastpc(fast packing and covering)
+
+Compiling: 
+	   
+	   To compile type make.
+	   To change compile options modify the Makefile.include
+
+Running: 
+
+	 ./fastpc epsilon_factor contraint_file [sort_factor|]
+
+Synopsis:
+
+	fastpc approximatly solves a liner programming problem(lp) specified by constriant_file. 
+
+
+Problem type:
+
+The lp must be scaled so each constaint equation is of the form
+variable * coefficient + variable * coefficient ... + variable coefficient <= 1
+Where each coefficients is a non_negative rational number > 0.
+
+fastpc approximatly maximizes the sum of the variables while satisfying all the constraint equations.
+
+File Format:
+
+     Contraint_file is an ascii file that begins with a header line of the form:
+     integer integer integer
+     Where:
+	The first integer is the number of contraint equations.
+	The second integer is the maximum number of coefficients for a constraint.
+	The third interger is the total  number of coefficients for all constraints.
+     
+     The rest of the lines of the file are of the form:
+     integer integer float
+     Where:
+	The float is the value of a coefficient in a constraint.
+	The first integer is what constriant the coefficient belongs to.
+	The second integer is what variable the coefficient corresponds to.
+
+Other arguments:
+
+      epsilon_factor is a 0> float < 1 that specifies the accuracy of the algorythem. The algorythem will return a solution to the lp with an objective function value of at least the optimum value of the objective function for the lp multiplied by  (1 - epsilon_factor) with high probability.
+
+      sort_factor is a 1 <= float. When 1 is given the alorythem uses exact sorting for preprocessing coefficients. When a larger number is given a partial_sort is used with the  sort_factor being equal to the largest ratio of the two miss-sorted coefficints. This results in faster preprocessing but a slower run of the main algorythem by potentially a factor of sort_factor. A version of radix sort is used for partial sorting. It is useful only for very large dense coefficient matrixes.
+
+Run_Time:
+	pre_processing: n * log(n)
+	When: sort_factor is equal to 1.
+	Main algorythem:
+	     (r+c)*log(n)/(epsilon_factor)squared
+	Where:
+		r is the number of constriants.
+		c is the number of variables.
+		n is the number of non_zeros.
+	With high probability.
+
+Output:
+
+	The program outputs to std_out. With the main result being the objective value to the lp and the objective value of its dual.
+
+Reference:
+
+	 This program is based on the paper Beating Simplex for Fractional Packing and Covering Linear Programs by Christos Koufogiannakis and Neal E. Young that can be found at http://arxiv.org/abs/0801.1987.
