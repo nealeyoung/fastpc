@@ -7,17 +7,17 @@ def main():
 
     #------- INPUT FILE PARAMETERS - BEGIN -------------
     #total number of input sets to be generated (each set has dif num of rows/cols)
-    input_sets = 3
+    input_sets = 4
     
     #no of rows, r, starts in the range 10* [row_min, row_max] and increases by factor of 10 for each run
     row_min = 3
-    row_max = 10
+    row_max = 6
     #no of columns, c, is in the range [col_min, col_max]    
     col_min = 3
-    col_max = 10
+    col_max = 6
 
     #range of densities for each matrix size
-    densities = [0.2, 0.4, 0.6, 0.8]
+    densities = [0.4, 0.6]
     
     #the range for coefficients in an input are in range [min_lower,max_upper]
     lower = 0
@@ -37,8 +37,8 @@ def main():
 
     for i in range(input_sets):
         #set up parameters for the test
-        test_row *= 10
-        test_col *= 10
+        test_row *= 5
+        test_col *= 5
 
         for d in densities:
             #create input file
