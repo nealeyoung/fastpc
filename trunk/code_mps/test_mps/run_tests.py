@@ -53,12 +53,16 @@ def main():
                         #run with sort_ratio > 1 (approx sorting)
                         cmd_approx = '../fastpc' + ' ' + str(eps) + ' ./test_cases/' + fp_file + ' ' + str(a_sort_ratio) + ' >> ' + output_file_location
                         os.system(cmd_approx)
+		    #profile each run, both regularly and line-by-line
+		    cmd_prof = '../gprof fastpc > ' + fp_file + '_prof.txt'
+		    cmd_prof_line = '../gprof -l fastpc > ' + fp_file + '_prof_line.txt'
+		    os.system(cmd_prof)
+		    os.system(cmd_prof_line)
                         
                 glpk_file = fp_file + '_glpk'
                 if glpk_file in glpk_files and both:
                     print glpk_file
                     os.system(glpk_command + glpk_input_dir+ glpk_file + ' >> ' + output_file_glpk_location)
-
 
     if glpk_run and not both:
         for glpk_file in glpk_files:
