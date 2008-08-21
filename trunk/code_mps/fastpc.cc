@@ -367,6 +367,7 @@ solve_instance::solve() {
 
 	if (sort_ratio*increment >= z) { //must include sort_ratio factor b/c elements could be out of order if pseudo-sorting
 	  if (increment >= z) {
+	    n_increments_p++;
 	    p_pXuh->increment_exponent((*x)->u_sampler_pointer);
 	    // stop when a packing constraint becomes tight
 	    if (p_p->increment_exponent((*x)->sampler_pointer) >= N)
@@ -379,7 +380,7 @@ solve_instance::solve() {
 
       int size = MT[j].size();
       count_ops(12); 
-      n_increments_p += size;
+ 
       count_ops(5*size);
     }
 
@@ -398,6 +399,7 @@ solve_instance::solve() {
 
 	if (sort_ratio*increment >= z) { //must include sort_ratio factor b/c elements could be out of order if pseudo-sorting
 	  if (increment >= z) {
+	    n_increments_d++;
 	    p_dXu->increment_exponent((*x)->u_sampler_pointer);
 	    // remove covering constraint when it's met
 	    if (p_d->increment_exponent((*x)->sampler_pointer) >= N) {	    
@@ -477,7 +479,7 @@ solve_instance::solve() {
   
   count_ops(2*r); //for totaling dual vars
 
-  //cout << "iterations = " << iteration;
+  cout << "iterations = " << iteration;
   if (max_row == 0)
     cout << " primal = infinity ";
   else

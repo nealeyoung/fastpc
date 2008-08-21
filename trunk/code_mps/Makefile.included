@@ -6,7 +6,7 @@
 #CXXFLAGS = -g
 
 # for profiling
-CXXFLAGS = -pg -g
+CXXFLAGS = -pg -g -fprofile-arcs -ftest-coverage
 
 # for profiling with shark (on the mac)
 #CXXFLAGS = -DNDEBUG -g

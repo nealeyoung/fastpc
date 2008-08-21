@@ -4,8 +4,8 @@ include Makefile.included
 LIB = ./lib
 all: lib fastpc test
 
-fastpc: fastpc.o $(LIB)/sampler.o $(LIB)/get_time.o Makefile
-	$(CXX) $(CXXFLAGS) -o fastpc fastpc.o $(LIB)/sampler.o $(LIB)/get_time.o
+fastpc:  fastpc.o $(LIB)/sampler.o $(LIB)/get_time.o Makefile
+	$(CXX) $(CXXFLAGS)  -o  fastpc fastpc.o $(LIB)/sampler.o $(LIB)/get_time.o
 
 fastpc: $(LIB)/my_vector.h $(LIB)/sampler.h fastpc.h
 
