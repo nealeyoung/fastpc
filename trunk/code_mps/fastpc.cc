@@ -25,7 +25,7 @@ void solve_instance::bound_sort() {
   bound_exponents(M_copy, MT, b);
   bound_exponents(MT, M_copy, b);
 
-  if(sort_ratio == 1) {
+  if(sort_ratio <= 1.0) {
     exact_sort(M);
     exact_sort(MT);
   } else {
@@ -129,7 +129,7 @@ solve_instance::bound_exponents( my_vector<line_element>& matrix, my_vector<line
   }
 }
 
-solve_instance::solve_instance(double EPSILON, string infile, int SORT_RATIO) :
+solve_instance::solve_instance(double EPSILON, string infile, float SORT_RATIO) :
   eps(0.9*EPSILON),
   epsilon(EPSILON),
   file_name(infile),
@@ -345,8 +345,10 @@ solve_instance::solve() {
       p_pXuh->remove(p_pXuh->get_ith(i));
       continue;
     }
-    else
+    else{
       uh_i = sort_ratio*(front_active->coeff); //include sort_ratio b/c of pseudo-sort
+    }
+
     double u_j = MT[j].front()->coeff;
     double delta = 1/(uh_i + u_j);
     wj->x += delta;
@@ -421,7 +423,7 @@ solve_instance::solve() {
 		if(row_active_first == *y && row_active_second != NULL) {    
 		  int exp_diff = row_active_first->exponent - row_active_second->exponent; //dif b/t exponents of first and second active elements of row
 		  if (exp_diff != 0) { //if y and next element don't have same exponent
-		    p_pXuh->update_item_exponent(row_active_first->u_sampler_pointer, sort_ratio*(row_active_first->u_sampler_pointer->exponent_entry->exponent - exp_diff));
+		    p_pXuh->update_item_exponent(row_active_first->u_sampler_pointer, (row_active_first->u_sampler_pointer->exponent_entry->exponent - exp_diff));
 		  }
 		}
 	      }
@@ -788,7 +790,7 @@ int main(int argc, char *argv[])
 {
   double epsilon = 0.1;
   string input_file="";
-  int sort_ratio = 1;
+  float sort_ratio = 1;
   string usage = "Usage: fastpc <epsilon-factor> <filename> [sort-factor]";
 
   if (argc >= 3) {
@@ -800,7 +802,7 @@ int main(int argc, char *argv[])
     return 1;
   }
   if (argc >= 4) {
-    sort_ratio = atoi(argv[3]);
+    sort_ratio = atof(argv[3]);
     if (sort_ratio < 1) {
       cout << "Zero is not a valid sort ratio. Default sort ratio (1) will be used." << endl;
       sort_ratio = 1;
