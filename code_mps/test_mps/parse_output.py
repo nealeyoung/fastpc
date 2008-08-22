@@ -17,6 +17,7 @@ def parse_output_file(file_name, file_type):
         return
 
     if fastpc_run:
+        sort_reg = re.compile(r'sort ratio = [0-9]*.[0-9]*')
         time_reg = re.compile(r' time = [0-9]*.*[0-9]*')
         ans_reg =  re.compile(r'primal = [0-9]*.[0-9]* dual = [0-9]*.[0-9]* ratio = [0-9]*.[0-9]*')
         eps_reg = re.compile(r'epsilon = 0.[0-9]*')
@@ -29,6 +30,7 @@ def parse_output_file(file_name, file_type):
         input_reg = re.compile(r'[0-9a-zA-Z:_]* [0-9]* rows, [0-9]* columns, [0-9]* non-zeros') 
         name_reg = re.compile(r"[0-9a-zA-Z:_]* reading problem data from `[/0-9a-zA-Z._]*'")
 
+
     time_array = time_reg.findall(total_string)
     ans_array = ans_reg.findall(total_string)
     input_array = input_reg.findall(total_string)
@@ -36,6 +38,7 @@ def parse_output_file(file_name, file_type):
 
     if fastpc_run:
         eps_array = eps_reg.findall(total_string)
+        s_array = sort_reg.findall(total_string)
 
     if glpk_run:
         for index, item in enumerate(time_array):
@@ -67,6 +70,8 @@ def parse_output_file(file_name, file_type):
             print str(ratio)+',',
             eps_list = eps_array[index].split()
             print eps_list[eps_list.index("=")+1]
+            s_list = s_array[index].split()
+            print str(s_list[s_list.index("=")+1])
 
 def main():
     args = sys.argv
@@ -81,7 +86,7 @@ def main():
 
     output_file_name = './output/' + file_prefix + '_run_stats.csv'
     sys.stdout = open(output_file_name, 'w')
-    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Ratio,Epsilon"
+    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Ratio,Epsilon,SortRatio"
 
     parse_output_file(fp_file_name, 'fastpc')
     parse_output_file(glpk_file_name, 'glpk')
