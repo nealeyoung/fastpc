@@ -1,3 +1,5 @@
+#generate random lp matrices
+
 import random
 import sys
 import math
@@ -95,19 +97,21 @@ def main() :
                     file.write(str(rows) +' ' + str(col)+ ' ' + str(value) + '\n')
                     col += 1
                     first = False
-                glpk_file.write(' < 1 \n')
+                glpk_file.write(' < 1 \n') #format of end of each constraint
                 
         glpk_file.write('Bounds \n')
         for x in range(c):
             glpk_file.write('0 < var' +str(x)+ ' \n')
 
 
-        
+        #overwrite first line of fastpc file to reflect true nonzeros 
         file.seek(0)
         file.write(str(r)+' ' +str(c)+ ' '+ str(non_zeros_actual))
+
         glpk_file.write('End \n')
         glpk_file.close()
         file.close()
+
         d_str = str(float(non_zeros_actual)/(float(r)*float(c)))
         name_list =[out_file_prefix,str(r),str(c), d_str[0:4]]
         input_file_name = '_'.join(name_list)

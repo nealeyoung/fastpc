@@ -1,0 +1,15 @@
+#!/bin/bash
+#converts files from code_mps input format to version_2007 input format
+
+if [ $# -le 1 ]
+then
+echo "Usage: $0 filename"
+else
+for file in $1
+do
+if ! head -n 1 $file | grep -e '\.' &> /dev/null 
+then
+sed -i '1 s/ *$/.0/' $file
+fi
+done
+fi
