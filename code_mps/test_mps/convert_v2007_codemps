@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#convert from version_2007 input format to codemps input format
+
+if [ $# -le 1 ]
+then
+echo "Usage: $0 filename"
+else
+for file in $1
+do
+sed -i '1 s/.0$//' $file
+done
+fi
