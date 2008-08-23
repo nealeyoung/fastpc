@@ -4,6 +4,7 @@ import random
 import sys
 import math
 import os
+import shutil
 
 def random_i(p):
     '''Return non-negative integer i from distribution p_i = p(1-p)^i.
@@ -17,11 +18,10 @@ def random_i(p):
     if p == 1: return 0
     return int(math.ceil(math.log(random.random())/math.log(1-p))) - 1
 
-
-
 def main() :
     fp_dir = './test_cases/'
     glpk_dir = './test_cases_glpk/'
+    v07_dir = './test_cases_v07/'
     max_write_rows = 500  #periodically write output to save memory
     non_zeros_actual = 0
     error = False
@@ -46,6 +46,11 @@ def main() :
         
         file = open(fp_dir + out_file_prefix,'w')
         glpk_file = open(glpk_dir + glpk_file_name,'w')
+
+        # Enter spaces in the first line
+        # This is required because the final density and number of non-zeros can be different
+        # from what was in the argument. Once the file is prepared, the density and non-zeros
+        # are recalculated and the first line of the file and the name are updated accordingly
         my_string = str(r) +' ' + str(c)+ ' ' + str(non_zero)
         my_spaces = reduce(lambda a,b: a+b, [' ']*(len(my_string)+5))
         file.write( my_spaces + '\n')
@@ -102,8 +107,7 @@ def main() :
         glpk_file.write('Bounds \n')
         for x in range(c):
             glpk_file.write('0 < var' +str(x)+ ' \n')
-
-
+            
         #overwrite first line of fastpc file to reflect true nonzeros 
         file.seek(0)
         file.write(str(r)+' ' +str(c)+ ' '+ str(non_zeros_actual))
@@ -117,5 +121,12 @@ def main() :
         input_file_name = '_'.join(name_list)
         os.rename(fp_dir + out_file_prefix, fp_dir + input_file_name)
         os.rename(glpk_dir + glpk_file_name, glpk_dir + input_file_name + '_glpk')
+
+        #copy fastpc (mps version) to v07
+        v07_file_name = v07_dir + input_file_name + '_v07'
+        shutil.copy(fp_dir + input_file_name, v07_file_name)
+        #convert the file to v07 format
+        cmd_convert = 'convert_codemps_v2007 ' + v07_file_name
+        os.system(cmd_convert)
     
 main()
