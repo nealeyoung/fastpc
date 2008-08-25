@@ -27,15 +27,17 @@ private:
   my_vector<line_element> M, MT, M_copy;
 
   double eps, epsilon;
+  string file_name;
 
 public:	
-  solve_instance(double epsilon);
+  solve_instance(double epsilon, string file_name);
   void solve();
 };
 
-solve_instance::solve_instance(double EPSILON) :
+solve_instance::solve_instance(double EPSILON, string FILE_NAME) :
   eps(0.9*EPSILON),
-  epsilon(EPSILON)
+  epsilon(EPSILON),
+  file_name(FILE_NAME)
 {
   // constructor reads the input and creates matrices M and MT (transpose)
   int row, col, total;
@@ -44,14 +46,25 @@ solve_instance::solve_instance(double EPSILON) :
 
   {
     string s;
-    cin >> r >> c >> total >> s;
+    
+    ifstream in_file;
+    in_file.open(file_name.c_str());
+
+    if (in_file.fail()) {
+      cout << "Error opening " << file_name << endl;
+      exit(1);
+    }
+
+    cout << "INPUT FILE: " << file_name << endl;
+    
+    in_file >> r >> c >> total;
     // cout<< r << ", " << c << endl;
     M.resize(r);
     MT.resize(c);
     M_copy.resize(r);
 
     cout << "ROWS: " <<  r << " COLUMNS: " << c << " NON-ZEROS: " << total 
-	 << " DENSITY: " << (double)total/(r*c)<< endl;
+	 << " DENSITY: " << (double)total/(r*c) << endl;
 
     N = int(ceil(2*log(r*c)/(eps*eps)));
 
@@ -64,8 +77,8 @@ solve_instance::solve_instance(double EPSILON) :
     p_d->init();
 
     while(true) {
-      cin >> row  >> col >> val >> s;
-      if(cin.eof()) break;
+      in_file >> row  >> col >> val >> s;
+      if(in_file.eof()) break;
       //cout<< row << ", " << col << endl;
       M[row].push_back(p_d->get_ith(col));
       M_copy[row].push_back(p_d->get_ith(col));
@@ -254,15 +267,22 @@ solve_instance::solve() {
 int main(int argc, char *argv[])
 {
   double epsilon = 0.1;
+  string file_name = "";
+  string usage = "Usage: fastpc <epsilon-factor> <filename>";
 		
-  if (argc >= 2)
+  if (argc >= 3) {
     epsilon = atof(argv[1]);
+    file_name = argv[2];
+  } else {
+    cout << usage << endl;
+    return 1;
+  }
 		
 #ifdef NDEBUG
   srand(time(NULL));
 #endif
 
-  solve_instance I(epsilon);
+  solve_instance I(epsilon, file_name);
   I.solve();
 
   return 0;
