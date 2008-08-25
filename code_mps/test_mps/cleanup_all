@@ -1,0 +1,25 @@
+#!/bin/bash
+#deletes all test cases-- fastpc, glpk, v2007
+#deletes everything from output folder
+
+if [ -d test_cases ] 
+then
+rm -f ./test_cases/*
+fi
+
+if [ -d test_cases_glpk ] 
+then
+rm -f ./test_cases_glpk/*
+fi
+
+
+if [ -d test_cases_v07 ] 
+then
+rm -f ./test_cases_v07/*
+fi
+
+
+if [ -d output ] 
+then
+rm -f ./output/*output*
+fi
