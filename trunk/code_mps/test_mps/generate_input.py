@@ -126,7 +126,7 @@ def main() :
         v07_file_name = v07_dir + input_file_name + '_v07'
         shutil.copy(fp_dir + input_file_name, v07_file_name)
         #convert the file to v07 format
-        cmd_convert = 'convert_codemps_v2007 ' + v07_file_name
+        cmd_convert = './convert_codemps_v2007 ' + v07_file_name
         os.system(cmd_convert)
     
 main()
