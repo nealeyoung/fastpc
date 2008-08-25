@@ -110,5 +110,11 @@ def main():
                     for eps in epsilons:
                         print 'version_2007: ', eps, ' ',  v07_file
                         os.system(v07_command + str(eps) + ' ' + fp_input_dir + v07_file + ' >> ' + output_file_v07_location)
+                        if profile:
+                            #profile each run, both regular and line-by-line.
+                            cmd_prof = 'gprof ../../version_2007/code/fastpc > ./profile/' + fp_file + '_v07_prof.txt'
+                            cmd_prof_line = 'gprof -l ../../version_2007/code/fastpc > ./profile/' + fp_file + '_v07_prof_line.txt'
+                            os.system(cmd_prof) 
+                            os.system(cmd_prof_line)
 
 main()
