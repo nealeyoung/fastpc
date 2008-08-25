@@ -61,8 +61,8 @@ def parse_glpk_output_file(file_name):
 
     time_reg = re.compile(r'[0-9]*.*[0-9]* secs')
     ans_reg = re.compile(r'obj =[ ]*[0-9]*.[0-9]*e[+-][0-9]*')
-    input_reg = re.compile(r'[0-9a-zA-Z:_]* [0-9]* rows, [0-9]* columns, [0-9]* non-zeros') 
-    name_reg = re.compile(r"[0-9a-zA-Z:_]* reading problem data from `[/0-9a-zA-Z._]*'")
+    input_reg = re.compile(r'[.]*: [0-9]* rows, [0-9]* columns, [0-9]* non-zeros') 
+    name_reg = re.compile(r"[.]* reading problem data from `[/0-9a-zA-Z._]*'")
 
     time_array = time_reg.findall(total_string)
     ans_array = ans_reg.findall(total_string)

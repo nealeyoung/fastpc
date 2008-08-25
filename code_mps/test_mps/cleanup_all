@@ -2,23 +2,38 @@
 #deletes all test cases-- fastpc, glpk, v2007
 #deletes everything from output folder
 
+delPrefix=""
+
+if [ $# -lt 1 ] #no argument specified
+then
+   echo -n 'No file prefix specified. Delete all? (y or n): '
+   read deleteAll
+   if [ "$deleteAll" = "y" ]
+   then 
+      delPrefix="*"
+   else
+      echo 'Clean cancelled.'
+      exit 0
+   fi
+else
+  delPrefix="$1"
+    
 if [ -d test_cases ] 
 then
-    rm -f ./test_cases/*
+   "rm -f ./test_cases/$delPrefix"
 fi
 
 if [ -d test_cases_glpk ] 
 then
-    rm -f ./test_cases_glpk/*
+   "rm -f ./test_cases_glpk/$delPrefix"
 fi
-
 
 if [ -d output ] 
 then
-rm -f ./output/*output*
+   "rm -f ./output/$delPrefix*output*"
 fi
 
 if [ -d profile ]
 then
-    rm -rf ./profile/*
+   "rm -rf ./profile/$delPrefix*"
 fi
