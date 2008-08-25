@@ -54,7 +54,7 @@ def main() :
         my_string = str(r) +' ' + str(c)+ ' ' + str(non_zero)
         my_spaces = reduce(lambda a,b: a+b, [' ']*(len(my_string)+5))
         file.write( my_spaces + '\n')
-
+        
         #write entries in GLPK file
         glpk_file.write('Maximize \n')
         glpk_file.write('value: ')
@@ -65,29 +65,39 @@ def main() :
 
         #generate random input 
         exact = False
-
+        
         #exact method, slow for sparse matrices
         if exact:
             slots = r*c
+            written = False
+            row_count = 0
             for rows in range(r):
-                glpk_file.write('row' + str(rows) + ':  ')
+                row_string = ''
                 first = True
                 for cols in range(c):
-                    if random.random()*slots <= nonzero:
+                    if random.random()*slots <= non_zero:
                         value = random.uniform(lower,upper)
+                        written = True
                         non_zeros_actual = non_zeros_actual + 1
+                        if first:
+                            row_string = row_string +'row' + str(row_count) + ':  '
                         if not first:
-                            glpk_file.write(' + ')
-                        glpk_file.write(str(value) +  ' var' + str(cols) + ' ')
+                            row_string = row_string + ' + '
+                        row_string = row_string + str(value) +  ' var' + str(cols) + ' '
                         file.write(str(rows) +' ' + str(cols)+ ' ' + str(value) + '\n')
-                        nonzero -= 1
+                        non_zero -= 1
                         first = False
                     slots -= 1
-                glpk_file.write(' < 1 \n')
+                if written:
+                    written = False
+                    glpk_file.write(row_string + ' < 1 \n')
+                    row_count = row_count + 1
         else:
-        #inexact method, faster for sparse matrices
+            written= False
+            row_count = 0
             for rows in range(r):
-                glpk_file.write('row' + str(rows) + ':  ')
+                
+                row_string = ''
                 col = 0
                 first = True
                 while True:
@@ -96,13 +106,22 @@ def main() :
                         break
                     value = random.uniform(lower,upper)
                     non_zeros_actual = non_zeros_actual + 1
+                    if first:
+                        row_string ='row' + str(row_count) + ':  '
                     if not first:
-                        glpk_file.write(' + ')
-                    glpk_file.write(str(value) +  ' var' + str(col) + ' ')
+                        row_string = row_string + ' + '
+                    written = True
+                    row_string = row_string +str(value) +  ' var' + str(col) + ' '
                     file.write(str(rows) +' ' + str(col)+ ' ' + str(value) + '\n')
                     col += 1
                     first = False
-                glpk_file.write(' < 1 \n') #format of end of each constraint
+                
+                if  written:
+                    written = False
+                    row_count = row_count + 1
+                    glpk_file.write(row_string +' < 1 \n')
+                
+                
                 
         glpk_file.write('Bounds \n')
         for x in range(c):
@@ -124,6 +143,10 @@ def main() :
 
         #copy fastpc (mps version) to v07
         v07_file_name = v07_dir + input_file_name + '_v07'
+        if not os.access(v07_dir,os.F_OK):
+            os.mkdir(v07_dir)
+            print 'making new directory for version 2007 tests'
+            
         shutil.copy(fp_dir + input_file_name, v07_file_name)
         #convert the file to v07 format
         cmd_convert = './convert_codemps_v2007 ' + v07_file_name
