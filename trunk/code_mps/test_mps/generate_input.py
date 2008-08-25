@@ -142,14 +142,16 @@ def main() :
         os.rename(glpk_dir + glpk_file_name, glpk_dir + input_file_name + '_glpk')
 
         #copy fastpc (mps version) to v07
-        v07_file_name = v07_dir + input_file_name + '_v07'
-        if not os.access(v07_dir,os.F_OK):
-            os.mkdir(v07_dir)
-            print 'making new directory for version 2007 tests'
+        #v07_file_name = v07_dir + input_file_name + '_v07'
+        #shutil.copy(fp_dir + input_file_name, v07_file_name)
+        #v07_file_name = v07_dir + input_file_name + '_v07'
+        #if not os.access(v07_dir,os.F_OK):
+        #    os.mkdir(v07_dir)
+        #    print 'making new directory for version 2007 tests'
             
-        shutil.copy(fp_dir + input_file_name, v07_file_name)
+        #shutil.copy(fp_dir + input_file_name, v07_file_name)
         #convert the file to v07 format
-        cmd_convert = './convert_codemps_v2007 ' + v07_file_name
-        os.system(cmd_convert)
+        #cmd_convert = './convert_codemps_v2007 ' + v07_file_name
+        #os.system(cmd_convert)
     
 main()

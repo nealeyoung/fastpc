@@ -16,13 +16,14 @@ def main():
     v07_run = True
     profile = False
     input_file_prefix = ''
-    all_run = True
 
     try:
         args = sys.argv        
         l = len(args)
         if l == 1:
-            all_run = True
+            fastpc_run = True
+            glpk_run = True
+            v07_run = True
         else:
             for i in range(1,l):
                 arg = args[i]
@@ -38,12 +39,6 @@ def main():
                     profile = True
                 else:
                     input_file_prefix = arg
-        if fastpc_run and v07_run and glpk_run:
-            all_run = True
-        else:
-            all_run = False
-        if not v07_run and not glpk_run:
-            fastpc_run = True
     except:
         print_help()
         sys.exit()
@@ -60,47 +55,49 @@ def main():
     output_file_v07_location = output_file_location + '_v07'
 
     curr_dir = os.getcwd()
-    fastpc_input_dir = curr_dir + '/test_cases'
+    fp_input_dir = curr_dir + '/test_cases/'
     glpk_input_dir = curr_dir + '/test_cases_glpk/'
-    v07_input_dir = curr_dir + '/test_cases_v07/'
-    fastpc_files = os.listdir(fastpc_input_dir)
+    #v07_input_dir = curr_dir + '/test_cases_v07/'
+    fastpc_files = os.listdir(fp_input_dir)
     glpk_files = os.listdir(glpk_input_dir)
-    v07_files = os.listdir(v07_input_dir)
+    #v07_files = os.listdir(v07_input_dir)
     glpk_command = "../../../glpk/glpk-4.??/examples/glpsol --cpxlp " #works with glpk 4.x
     v07_command = '../../version_2007/code/fastpc '
 
-    if all_run or fastpc_run:
+    if fastpc_run:
         for fp_file in fastpc_files:
             if fp_file.startswith(input_file_prefix) and not fp_file.startswith('.'):
                 #for each file run test for different values of eps
                 for eps in epsilons:
-
-
                     # for each input file and eps, run for all sort_ratios
                     for sort_ratio in sort_ratios:
                         print 'fastpc: ', eps, ' ', fp_file, ' ', sort_ratio
-                        cmd_exact = '../fastpc' + ' ' + str(eps) + ' ./test_cases/' + fp_file + ' ' + str(sort_ratio) +  ' >> ' + output_file_location
+                        cmd_exact = '../fastpc' + ' ' + str(eps) + ' ' + fp_input_dir + fp_file + ' ' + str(sort_ratio) +  ' >> ' + output_file_location
                         os.system(cmd_exact)
-
-                    # if all_run or v07_run: run v07 for eps and v07 input_file
-                    v07_file = fp_file + '_v07'
-                    if v07_file in v07_files and (all_run or v07_run):
-                        print 'version_2007: ', eps, ' ',  v07_file
-                        os.system(v07_command + str(eps) + ' < ' + v07_input_dir + v07_file + ' >> ' + output_file_v07_location)
 
                     if profile:
 		        #profile each run, both regular and line-by-line.
                         cmd_prof = 'gprof ../fastpc > ./profile/' + fp_file + '_prof.txt'
                         cmd_prof_line = 'gprof -l ../fastpc > ./profile/' + fp_file + '_prof_line.txt'
-
                         os.system(cmd_prof) 
                         os.system(cmd_prof_line)
 
-                # if all_run or glpk_run: run glpk for the glpk input file
+                    # if v07_run: run v07 for eps and v07 input_file
+                    if v07_run:
+                        print 'version_2007: ', eps, ' ',  fp_file
+                        os.system(v07_command + str(eps) + ' ' + fp_input_dir + fp_file + ' >> ' + output_file_v07_location)
+                        if profile:
+                            #profile each run, both regular and line-by-line.
+                            cmd_prof = 'gprof ../../version_2007/code/fastpc > ./profile/' + fp_file + '_v07_prof.txt'
+                            cmd_prof_line = 'gprof -l ../../version_2007/code/fastpc > ./profile/' + fp_file + '_v07_prof_line.txt'
+                            os.system(cmd_prof) 
+                            os.system(cmd_prof_line)
+
+                # if glpk_run: run glpk for the glpk input file
                 glpk_file = fp_file + '_glpk'
-                if glpk_file in glpk_files and (all_run or glpk_run):
+                if glpk_file in glpk_files and glpk_run:
                     print 'GLPK: ', glpk_file
-                    os.system(glpk_command + glpk_input_dir+ glpk_file + ' >> ' + output_file_glpk_location)
+                    os.system(glpk_command + glpk_input_dir + glpk_file + ' >> ' + output_file_glpk_location)
     else: #run glpk and/or v07 based on flags
         if glpk_run:
             for glpk_file in glpk_files:
@@ -108,10 +105,10 @@ def main():
                     print 'GLPK: ', glpk_file
                     os.system(glpk_command + glpk_input_dir+glpk_file + ' >> ' + output_file_glpk_location)
         if v07_run:
-            for v07_file in v07_files:
+            for v07_file in fastpc_files:
                 if v07_file.startswith(input_file_prefix) and not v07_file.startswith('.'):
                     for eps in epsilons:
                         print 'version_2007: ', eps, ' ',  v07_file
-                        os.system(v07_command + str(eps) + ' < ' + v07_input_dir + v07_file + ' >> ' + output_file_v07_location)
+                        os.system(v07_command + str(eps) + ' ' + fp_input_dir + v07_file + ' >> ' + output_file_v07_location)
 
 main()
