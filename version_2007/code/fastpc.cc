@@ -50,7 +50,8 @@ solve_instance::solve_instance(double EPSILON) :
     MT.resize(c);
     M_copy.resize(r);
 
-    cout << "Read first line of input\n" ; //debug
+    cout << "ROWS: " <<  r << " COLUMNS: " << c << " NON-ZEROS: " << total 
+	 << " DENSITY: " << (double)total/(r*c)<< endl;
 
     N = int(ceil(2*log(r*c)/(eps*eps)));
 
@@ -70,7 +71,6 @@ solve_instance::solve_instance(double EPSILON) :
       M_copy[row].push_back(p_d->get_ith(col));
       MT[col].push_back(p_p->get_ith(row));
     }
-    cout << "Finished with input\n"; //debug
   }
 }
 
