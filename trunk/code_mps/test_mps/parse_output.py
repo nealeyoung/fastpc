@@ -68,7 +68,7 @@ def parse_output_file(file_name, file_type):
             input_list = input_array[index].split()
             rows = input_list[input_list.index("ROWS:")+1]
             cols =  input_list[input_list.index("COLUMNS:")+1]
-            non_zeros = input_list[input_list.index("ZEROS:")+1]
+            non_zeros = input_list[input_list.index("NON-ZEROS:")+1]
             density = float(non_zeros)/(float(rows)*float(cols))
             print str(rows)+',', str(cols)+',', str(non_zeros)+',', str(density)+',',
             time_list = time_array[index].split()
@@ -78,12 +78,12 @@ def parse_output_file(file_name, file_type):
             ratio = ans_list[ans_list.index("=")-1]
             print str(ratio)+',',
             eps_list = eps_array[index].split()
-            print eps_list[eps_list.index("=")+1]
+            print eps_list[eps_list.index("=")+1]+',',
             if fastpc_run:
                 s_list = s_array[index].split()
                 print str(s_list[s_list.index("=")+1])
             else:
-                print ',',
+                print ','
 
 def main():
     args = sys.argv
