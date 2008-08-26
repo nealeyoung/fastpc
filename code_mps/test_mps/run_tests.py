@@ -44,7 +44,7 @@ def main():
         sys.exit()
 
     # epsilons to be run for each input file generated        
-    epsilons = [0.1, 0.05]
+    epsilons = [0.1, 0.01]
     
     # sort_ratio to be used for runs
     sort_ratios = [1, 2]

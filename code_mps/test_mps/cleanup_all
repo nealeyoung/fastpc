@@ -17,23 +17,24 @@ then
    fi
 else
   delPrefix="$1"
+fi
     
 if [ -d test_cases ] 
 then
-   "rm -f ./test_cases/$delPrefix"
+   rm -f ./test_cases/"$delPrefix"*
 fi
 
 if [ -d test_cases_glpk ] 
 then
-   "rm -f ./test_cases_glpk/$delPrefix"
+   rm -f ./test_cases_glpk/"$delPrefix"*
 fi
 
 if [ -d output ] 
 then
-   "rm -f ./output/$delPrefix*output*"
+   rm -f ./output/"$delPrefix"*
 fi
 
 if [ -d profile ]
 then
-   "rm -rf ./profile/$delPrefix*"
+   rm -f ./profile/"$delPrefix"*
 fi
