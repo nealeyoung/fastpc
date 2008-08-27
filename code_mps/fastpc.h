@@ -20,16 +20,37 @@
 
 using namespace std;
 
+struct entry{
+
+  int row;
+  int col;
+  double value;
+  
+};
 
 //objects for nonzero elements in the input matrix
 //has a coefficient and pointers to sampler objects
 class nonzero_entry_t {
  public:
+  nonzero_entry_t(){}
+  bool zeroed;
   double coeff;
   sampler_item_t* sampler_pointer;    //element in p_p or p_d
   sampler_item_t* u_sampler_pointer;  //element in p_pXuh or p_dXu
   int exponent;  //coeff rounded to nearest power of (1-eps)
-  nonzero_entry_t(double value, double eps, sampler_item_t* sampler, sampler_item_t* u_sampler);
+  void init(double value, double eps, sampler_item_t* sampler, sampler_item_t* u_sampler);
+  bool operator<(nonzero_entry_t t) {
+    return coeff > t.coeff;
+  }
+  bool operator<=(nonzero_entry_t t) {
+    return coeff >= t.coeff;
+  }
+  bool operator>(nonzero_entry_t t) {
+    return coeff < t.coeff;
+  }
+  bool operator>=(nonzero_entry_t t) {
+    return coeff <= t.coeff;
+  }
 };
 
 //used for exact sorting of matrices M and MT
@@ -41,7 +62,7 @@ struct list_sort_criteria{
   };
 };
 
-typedef list<nonzero_entry_t *> line_element;
+typedef my_vector<nonzero_entry_t> line_element;
 
 class solve_instance{
 private:
@@ -91,6 +112,8 @@ public:
   //delta defines approximation factor of sort, i.e. if delta = 2 then
   //no element is out of order relative to any element more than a factor of 2
   //from itself
+  void compress_back(my_vector<nonzero_entry_t> *array);
+  void compress_forward(my_vector<nonzero_entry_t> *array,int start);
   void pseudo_sort(my_vector<line_element>& matrix, int n_cols, double b );
   void exact_sort(my_vector<line_element>& matrix ); //uses c function to exactly sort matrices
   void bound_exponents( my_vector<line_element>& matrix, my_vector<line_element>& matrix_T, double& b );

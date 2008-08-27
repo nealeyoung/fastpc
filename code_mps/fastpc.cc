@@ -1,5 +1,4 @@
 #include "fastpc.h"
-
 #include <iomanip>
 #include<fstream>
 #include <ctime>
@@ -7,11 +6,11 @@
 
 using namespace std;
 
-
-nonzero_entry_t::nonzero_entry_t(double value, double eps, sampler_item_t* sampler, sampler_item_t* u_sampler):
-  coeff(value),  
-  sampler_pointer(sampler), 
-  u_sampler_pointer(u_sampler) {
+void nonzero_entry_t::init(double value, double eps, sampler_item_t* sampler, sampler_item_t* u_sampler){
+  coeff = value;
+  sampler_pointer = sampler;
+  u_sampler_pointer = u_sampler;
+  zeroed = false;
   //always round to make approximation an upper bd on value of coefficient
   if (eps > 0) //dual
     exponent = (int)floor(log_base(value, 1-eps));   // =log base 1-eps (value)
@@ -20,6 +19,7 @@ nonzero_entry_t::nonzero_entry_t(double value, double eps, sampler_item_t* sampl
 }
 
 void solve_instance::bound_sort() {
+
   double b;
   bound_exponents(M, MT, b);
   bound_exponents(M_copy, MT, b);
@@ -34,6 +34,46 @@ void solve_instance::bound_sort() {
   }
 }
 
+
+void solve_instance::compress_back(my_vector<nonzero_entry_t> *array){
+
+  int swap_level = 0;
+  int i = 0;
+  for(i= 0; i<array->size(); i++){
+    //cout<<i<<endl<<flush;
+    if((*array)[i].zeroed){ //when removed element seen
+      swap_level = swap_level + 1;
+    }else{
+      (*array)[i-swap_level] = (*array)[i];
+    }
+  }
+  
+  int my_size = array->size();
+  for(i=my_size-1; i>=my_size-swap_level; i--){
+    //cout<<my_size<<endl<<flush;
+    //cout<<i<<endl<<flush;
+    //cout<<swap_level<<endl<<flush;
+    array->remove(i);
+  }
+}
+
+void solve_instance::compress_forward(my_vector<nonzero_entry_t> *array,int start){
+  //cout << "Compress forward" << endl;
+  int swap_level = 0;
+  int i = start;
+  for(i= start; i>=0; i--){
+    //cout << array << " " << i << endl;
+    //cout << (*array)[i].sampler_pointer << " " << i << endl;
+    if( (*array)[i].sampler_pointer->removed){ //when removed element seen
+      swap_level = swap_level + 1;
+    }else{
+      (*array)[i+swap_level] = (*array)[i];
+    }
+  }
+  array->start_index = array->start_index + swap_level; 
+}
+
+
 void solve_instance::pseudo_sort( my_vector<line_element>& matrix, int n_cols, double b ){
   int n_rows = matrix.size();
   //line_element *last = &matrix[n_rows-1];
@@ -41,17 +81,16 @@ void solve_instance::pseudo_sort( my_vector<line_element>& matrix, int n_cols, d
  
   //create buckets for the  bucket sort
   int num_buckets = (int)ceil(log_base(n_cols/eps,sort_ratio))*2;
-  list<nonzero_entry_t*>*  *buckets = (list<nonzero_entry_t*>**)(malloc( sizeof(list<nonzero_entry_t*>*) * num_buckets));    
+  list<nonzero_entry_t>*  *buckets = (list<nonzero_entry_t>**)(malloc( sizeof(list<nonzero_entry_t>*) * num_buckets));    
   for(int i = 0; i < num_buckets; i++)
-    buckets[i] =  new list<nonzero_entry_t*>();
+    buckets[i] =  new list<nonzero_entry_t>();
 
   // bucket sort each row
   for (int i=0; i < n_rows; i++) {
-    for(list<nonzero_entry_t*>::iterator x = matrix[i].begin(); x != matrix[i].end(); ++x){
-  //for (line_element* p = first; p <= last; ++p) { 
-    //for(list<nonzero_entry_t*>::iterator x = p->begin(); x != p->end(); ++x){
+    for(line_element::iterator x = matrix[i].begin(); x != matrix[i].end(); ++x){
+  
       //index is normalized such that index of smallest item will be 0 and index of largest item will be 2*log(n_cols/eps) = log(n_cols^2/eps^2)
-      int index = (int)floor(log_base((*x)->coeff,sort_ratio) - log_base(b,sort_ratio) + log_base(n_cols/eps,sort_ratio));
+      int index = (int)floor(log_base((*x).coeff,sort_ratio) - log_base(b,sort_ratio) + log_base(n_cols/eps,sort_ratio));
       buckets[num_buckets-1-index]->push_back((*x));  //sorts in decreasing order
     }
     
@@ -61,8 +100,9 @@ void solve_instance::pseudo_sort( my_vector<line_element>& matrix, int n_cols, d
        
     //scan through all sorted items and reset row items to these
     for(int i = 0; i < num_buckets; i++){
-      for (list<nonzero_entry_t *>::iterator x = buckets[i]->begin(); x != buckets[i]->end(); ++x){
-	(*row) = (*x); //reset current pointer in row to pointer in bucket
+      for (list<nonzero_entry_t>::iterator x = buckets[i]->begin(); x != buckets[i]->end(); ++x){
+	(*row) = (*x); //reset current pointer in row to pointer in bucket Peter check this
+	//iter_swap(row,x);
 	row++;
       }
     }
@@ -79,10 +119,8 @@ void solve_instance::pseudo_sort( my_vector<line_element>& matrix, int n_cols, d
 
 void 
 solve_instance::exact_sort(my_vector<line_element>& matrix) { //uses c function to exactly sort matrices
-  line_element* first = &matrix[0];
-  line_element* last = &matrix[matrix.size()-1];
-  for (line_element* p = first; p <= last; ++p) {
-    p->sort(list_sort_criteria()); //sort row linked list
+  for(my_vector<line_element>::iterator x = matrix.begin(); x != matrix.end(); ++x){
+    (*x).sort(); //sort row linked list
   }
 }
 
@@ -100,11 +138,11 @@ solve_instance::bound_exponents( my_vector<line_element>& matrix, my_vector<line
   b = -1; // sentinel to mark first loop
   //for (line_element *p = first_t; p <= last_t; ++p) {
   for (int i=0; i < n_col; ++i) {
-    double max_temp = matrix_T[i].front()->coeff;    
+    double max_temp = matrix_T[i][0].coeff;    //peter fix
 
-    for(list<nonzero_entry_t*>::iterator x = matrix_T[i].begin(); x != matrix_T[i].end(); ++x){ 
-      if ((*x)->coeff > max_temp){
-	max_temp = (*x)->coeff;   
+    for(line_element::iterator x = matrix_T[i].begin(); x != matrix_T[i].end(); ++x){ 
+      if ((*x).coeff > max_temp){
+	max_temp = (*x).coeff;   
       }
     }
     if (max_temp < b || b == -1){
@@ -118,15 +156,16 @@ solve_instance::bound_exponents( my_vector<line_element>& matrix, my_vector<line
 
   //for (line_element* p = first; p <= last; ++p) {
   for (int i=0; i < n_row; ++i) {
-    for(list<nonzero_entry_t*>::iterator x = matrix[i].begin(); x != matrix[i].end(); ++x){  
-      if ((*x)->coeff < bound ){
-	matrix[i].erase(x);
-	x--;
+    for(line_element::iterator x = matrix[i].begin(); x != matrix[i].end(); ++x){  
+      if ((*x).coeff < bound ){
+	(*x).zeroed = true;
       }else{
-	(*x)->coeff = min((*x)->coeff,replace);
+	(*x).coeff = min((*x).coeff,replace);
       }
     }
+    compress_back(&(matrix[i]));
   }
+  
 }
 
 solve_instance::solve_instance(double EPSILON, string infile, float SORT_RATIO) :
@@ -141,7 +180,6 @@ solve_instance::solve_instance(double EPSILON, string infile, float SORT_RATIO) 
   int row, col, total;
   double val;
   string s;
-
   //bookkeeping
   unsigned long preprocess_start = get_time();
   {
@@ -161,16 +199,13 @@ solve_instance::solve_instance(double EPSILON, string infile, float SORT_RATIO) 
     cout << "ROWS: " <<  r << " COLUMNS: " << c << " NON-ZEROS: " << total 
 	 << " DENSITY: " << (double)total/(r*c)<< endl;
 
-    M.resize(r);
-    MT.resize(c);
-    M_copy.resize(r);
 
-    N = int(ceil(2*log(r*c)/(eps*eps)));
-
-    cout << "N = " << N << endl;
     
+    //set up samplers
+    N = int(ceil(2*log(r*c)/(eps*eps)));
+    cout << "N = " << N << endl;
+
     int max_exp = N+10;
- 
     p_p = new primal_sampler_t(r, eps, 0, max_exp);
     p_d = new dual_sampler_t(c, eps, 0, max_exp);
     p_pXuh = new primal_u_sampler_t(r, eps, 0, max_exp);
@@ -186,39 +221,90 @@ solve_instance::solve_instance(double EPSILON, string infile, float SORT_RATIO) 
     p_pXuh->init();
     p_dXu->init();
 
-   int non_zero_entry_count = 0;
+
+    //set up Matrix
+    int *row_sizes = (int*)calloc(r,sizeof(int));
+    int *col_sizes = (int*)calloc(c,sizeof(int));
+    
+    int *row_index = (int*)calloc(r,sizeof(int));
+    int *col_index = (int*)calloc(c,sizeof(int));
+    
+    struct entry **input_entries = (struct entry**)malloc(total*sizeof(struct entry*));
+    int non_zero_entry_count = 0;
+    int i = 0;
     while(true) {
       if (non_zero_entry_count > total) break; //stop scanning input if all nonzeros have been scanned
       in_file >> row  >> col >> val;  //took out string s 
       if (in_file.eof()) break;
-
-      M[row].push_back(new nonzero_entry_t(val,eps*(-1.0), p_d->get_ith(col), p_dXu->get_ith(col)));
-      M_copy[row].push_back(new nonzero_entry_t(val, eps*(-1.0), p_d->get_ith(col), p_dXu->get_ith(col)));
-      MT[col].push_back(new nonzero_entry_t(val, eps, p_p->get_ith(row), p_pXuh->get_ith(row)));
-      non_zero_entry_count++;
+      row_sizes[row]++;
+      col_sizes[col]++;
+      input_entries[i] = (struct entry*)malloc(sizeof(struct entry));
+      input_entries[i]->row = row;
+      input_entries[i]->col = col;
+      input_entries[i]->value = val;
+      i++;
     }
     
-    //close file
+    non_zero_entry_count = i;
+
+    M.resize(r);
+    MT.resize(c);
+    M_copy.resize(r);
+
+    i = 0;
+    for(my_vector<line_element>::iterator x =  M.begin(); x != M.end(); ++x){
+      (*x).resize(row_sizes[i]);
+      i++;
+    }
+    i = 0;
+    for(my_vector<line_element>::iterator x =  M_copy.begin(); x != M_copy.end(); ++x){
+      (*x).resize(row_sizes[i]);
+      i++;
+    }
+    i = 0;
+    for(my_vector<line_element>::iterator x =  MT.begin(); x != MT.end(); ++x){
+      (*x).resize(col_sizes[i]);
+      i++;
+    }
+    //need to do for copy
+    //free(row_sizes);
+    //free(col_sizes);
+    
+    for(i = 0; i <non_zero_entry_count; i++){
+      row = input_entries[i]->row;
+      col = input_entries[i]->col;
+      val = input_entries[i]->value;
+      M[row][row_index[row]].init(val,eps*(-1.0), p_d->get_ith(col), p_dXu->get_ith(col));
+      M_copy[row][row_index[row]].init(val, eps*(-1.0), p_d->get_ith(col), p_dXu->get_ith(col));
+      row_index[row]++;
+      
+      MT[col][col_index[col]].init(val, eps, p_p->get_ith(row), p_pXuh->get_ith(row));
+      col_index[col]++;
+      free(input_entries[i]);
+    }
+    free(input_entries);
+    
     in_file.close();
 
+    
     //sort or pseudo-sort M and MT, bounding their coefficients
     bound_sort();
-   	
+
     //find the minimum exponent for MT and maximum exponent for M
     //this is done to normalize the exponents so that all exponents in 
     //dual samplers are positive and all exponents in primal samplers
     //are negative
-    int min_u_exp = MT[0].front()->exponent;
-    int max_uh_exp = M[0].front()->exponent;
-    int min_uh_exp = M[0].front()->exponent;
+    int min_u_exp = MT[0][0].exponent;
+    int max_uh_exp = M[0][0].exponent;
+    int min_uh_exp = M[0][0].exponent;
     
     for (int j = 0; j < c; j++) {
-      int temp = MT[j].front()->exponent;
+      int temp = MT[j][0].exponent;
       if (temp < min_u_exp)
 				min_u_exp = temp;
     }
     for (int i = 0; i < r; i++) {
-      int temp = M[i].front()->exponent;
+      int temp = M[i][0].exponent;
       if (temp > max_uh_exp)
        	max_uh_exp = temp;
       if (temp < min_uh_exp)
@@ -238,7 +324,7 @@ solve_instance::solve_instance(double EPSILON, string infile, float SORT_RATIO) 
     if (min_u_exp != 0) {
       for (int i = 0; i < c; i++) {
 	sampler_item_t* item = p_dXu->get_ith(i);
-	int exponent = MT[i].front()->exponent - d_exp_shift_init;
+	int exponent = MT[i][0].exponent - d_exp_shift_init;
 	if (exponent > max_exp) {
 	  item->exponent_overflow = exponent - max_exp; //initialize overflow if necessary
 	  exponent = max_exp;
@@ -253,7 +339,7 @@ solve_instance::solve_instance(double EPSILON, string infile, float SORT_RATIO) 
     if (p_exp_shift_init != 0) {
       for (int j = 0; j < r; j++) {
 	sampler_item_t* item = p_pXuh->get_ith(j);
-	int exponent = M[j].front()->exponent - p_exp_shift_init;
+	int exponent = M[j][0].exponent - p_exp_shift_init;
 	if (exponent > 0) {
 	  item->exponent_overflow = exponent;
 	  exponent = 0;
@@ -267,28 +353,28 @@ solve_instance::solve_instance(double EPSILON, string infile, float SORT_RATIO) 
     unsigned long preprocess_time = get_time() - preprocess_start;
     cout << "Preprocessing: " << preprocess_time/1000000.0 << " s" << endl;
 
-
     //print normalized exponents
     //print M
-    //cout << "PRINTING M: SUBTRACTED " << max_uh_exp-p_diff << " TO NORMALIZE.\n";
+
+//     cout << "PRINTING M: SUBTRACTED " << max_uh_exp-p_diff << " TO NORMALIZE.\n";
 //     for (int i = 0; i < r; ++i) {
-//       for(list<nonzero_entry_t*>::iterator x = M[i].begin(); x != M[i].end(); ++x){
-// 	cout << "Coeff:" << (*x)->coeff << " Exponent:" << p_pXuh->get_ith(i)->exponent_entry->exponent 
-// 	       << " Overflow:" << (*x)->u_sampler_pointer->exponent_overflow << endl;   //debug
+//       for(my_vector<nonzero_entry_t>::iterator x = M[i].begin(); x != M[i].end(); ++x){
+// 	if ((*x).sampler_pointer == NULL  or (*x).u_sampler_pointer == NULL)
+// 	  cout << "Coeff:" << (*x).coeff << endl;
 //       }
 //       cout << "\n";
 //     }
 
-//     //print MT
+   //  //print MT
 //     cout << "PRINTING MT: SUBTRACTED " << min_u_exp << " TO NORMALIZE.\n";
 //     for (int j=0; j < c; ++j) {
-//         for(list<nonzero_entry_t*>::iterator x = MT[j].begin(); x != MT[j].end(); ++x){
-// 	  cout << "Coeff:" << (*x)->coeff << " Exponent:" << p_dXu->get_ith(j)->exponent_entry->exponent 
-// 	       << " Overflow:" << (*x)->u_sampler_pointer->exponent_overflow << endl;   //debug
+//       for(my_vector<nonzero_entry_t>::iterator x = MT[i].begin(); x != MT[i].end(); ++x){
+// 	if ((*x).sampler_pointer == NULL or (*x).u_sampler_pointer == NULL)
+// 	  cout << "Coeff:" << (*x).coeff << endl;
 //       }
-// 	cout << "\n";
+//       cout << "\n";
 //     }
-    //end print normalized exponents
+//     end print normalized exponents
   }
 }
 
@@ -350,32 +436,33 @@ solve_instance::solve() {
       uh_i = sort_ratio*(front_active->coeff); //include sort_ratio b/c of pseudo-sort
     }
 
-    double u_j = MT[j].front()->coeff;
+    double u_j = MT[j][0].coeff;
     double delta = 1/(uh_i + u_j);
     wj->x += delta;
     wi->x += delta;
  
-    // line 7
+    // line 7nnnn
     register double z = (rand()%1000)/999.0;
  
     //line 8
     {
-      register list<nonzero_entry_t*>::iterator mt_end = MT[j].end();
+      register my_vector<nonzero_entry_t>::iterator mt_end = MT[j].end();
 
-      for (register list<nonzero_entry_t*>::iterator x = MT[j].begin(); x != mt_end; ++x) { 
-	double increment = ((*x)->coeff)*delta;
+      for (register my_vector<nonzero_entry_t>::iterator x = MT[j].begin(); x != mt_end; ++x) { 
+	double increment = ((*x).coeff)*delta;
 	
 	//if the row is not active any more
-	if ((*x)->u_sampler_pointer->removed){
+	//Peter fix this
+	if ((*x).u_sampler_pointer->removed){
 	  continue;
 	}	
 
 	if (sort_ratio*increment >= z) { //must include sort_ratio factor b/c elements could be out of order if pseudo-sorting
 	  if (increment >= z) {
 	    n_increments_p++;
-	    p_pXuh->increment_exponent((*x)->u_sampler_pointer);
+	    p_pXuh->increment_exponent((*x).u_sampler_pointer);
 	    // stop when a packing constraint becomes tight
-	    if (p_p->increment_exponent((*x)->sampler_pointer) >= N)
+	    if (p_p->increment_exponent((*x).sampler_pointer) >= N)
 	      done = true;  
 	  }
 	} else {
@@ -391,37 +478,39 @@ solve_instance::solve() {
 
     // line 9 
     {
-      register list<nonzero_entry_t*>::iterator m_end = M[i].end();
-
-      for (register list<nonzero_entry_t*>::iterator x = M[i].begin(); x != m_end; ++x) {
-	double increment = ((*x)->coeff)*delta;
-	
+      register my_vector<nonzero_entry_t>::iterator m_end = M[i].end();
+      int num_remove_marked = 0;
+      int index = 0;
+      for (register my_vector<nonzero_entry_t>::iterator x = M[i].begin(); x != m_end; ++x) {
+	double increment = ((*x).coeff)*delta;
+	index++;
 	//if the column is not active any more
-	if ((*x)->sampler_pointer->removed){
-	  x = M[i].erase(x); // delete it
-	  --x;
-	  ++n_deletes;
+	if ((*x).sampler_pointer->removed){ //Peter fix this
+	  //x = M[i].erase(x); 
+	  //--x;
+	  //++n_deletes;
+	  num_remove_marked++;
 	  continue;
 	}	
 
 	if (sort_ratio*increment >= z) { //must include sort_ratio factor b/c elements could be out of order if pseudo-sorting
 	  if (increment >= z) {
 	    n_increments_d++;
-	    p_dXu->increment_exponent((*x)->u_sampler_pointer);
+	    p_dXu->increment_exponent((*x).u_sampler_pointer);
 	    // remove covering constraint when it's met
-	    if (p_d->increment_exponent((*x)->sampler_pointer) >= N) {	    
+	    if (p_d->increment_exponent((*x).sampler_pointer) >= N) {	    
 	      //update p_pXuh if uh_i changed for that row
 	      //to do this, iterate through dropped column in MT and update uh_i for each row if necessary
-	      int colIndex = (*x)->sampler_pointer->i;
-	      for (list<nonzero_entry_t*>::iterator y = MT[colIndex].begin(); y != MT[colIndex].end(); ++y) {
-		int rowIndex = (*y)->sampler_pointer->i; //locate which row this entry is in
+	      int colIndex = (*x).sampler_pointer->i;
+	      for (my_vector<nonzero_entry_t>::iterator y = MT[colIndex].begin(); y != MT[colIndex].end(); ++y) {
+		int rowIndex = (*y).sampler_pointer->i; //locate which row this entry is in
 		nonzero_entry_t* row_active_first = NULL;
 		nonzero_entry_t* row_active_second = NULL;
 		get_two_largest_active(&M[rowIndex], &row_active_first, &row_active_second);
  
 		//update exponents for new uh_i if y is first active element in row, 
 		//i.e. current uh_i-value came from y and y is not the only remaining item
-		if(row_active_first == *y && row_active_second != NULL) {    
+		if(row_active_first == &(*y) && row_active_second != NULL) {    
 		  int exp_diff = row_active_first->exponent - row_active_second->exponent; //dif b/t exponents of first and second active elements of row
 		  if (exp_diff != 0) { //if y and next element don't have same exponent
 		    p_pXuh->update_item_exponent(row_active_first->u_sampler_pointer, (row_active_first->u_sampler_pointer->exponent_entry->exponent - exp_diff));
@@ -429,8 +518,8 @@ solve_instance::solve() {
 		}
 	      }
 
-	      p_d->remove((*x)->sampler_pointer);
-	      p_dXu->remove((*x)->u_sampler_pointer);
+	      p_d->remove((*x).sampler_pointer); //Peter fix this
+	      p_dXu->remove((*x).u_sampler_pointer); //Peter fix this
 	    	    
 	      --J_size;
 	    }
@@ -438,6 +527,9 @@ solve_instance::solve() {
 	} else {
 	  break; 
 	}
+      }
+      if(num_remove_marked > 20){//Peter fix magic number
+	compress_forward(&(M[i]),index-1);
       }
     }
     if (J_size == 0) 
@@ -459,7 +551,7 @@ solve_instance::solve() {
     for (line_element::iterator iter = M_copy[i].begin(); 
 	 iter != M_copy[i].end(); 
 	 ++iter) {
-      tmp += (*iter)->coeff * ((*iter)->sampler_pointer->x + (*iter)->u_sampler_pointer->x); //each sampler item stores part of var's value 
+      tmp += (*iter).coeff * ((*iter).sampler_pointer->x + (*iter).u_sampler_pointer->x); //each sampler item stores part of var's value 
     }
     if (tmp > max_row)
       max_row = tmp;
@@ -475,7 +567,7 @@ solve_instance::solve() {
     for (line_element::iterator iter = MT[j].begin();
          iter != MT[j].end(); 
 	 ++iter) {
-      tmp += (*iter)->coeff * ((*iter)->sampler_pointer->x + (*iter)->u_sampler_pointer->x); //each sampler item stores part of var's value 
+      tmp += (*iter).coeff * ((*iter).sampler_pointer->x + (*iter).u_sampler_pointer->x); //each sampler item stores part of var's value 
     }
     if (tmp < min_col)
       min_col = tmp;
@@ -579,9 +671,9 @@ void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_s
 }
 
 nonzero_entry_t* solve_instance::get_largest_active(line_element* row) {
-  for (list<nonzero_entry_t*>::iterator	 y = (*row).begin(); y != (*row).end(); ++y) {
-    if (!(*y)->sampler_pointer->removed) {
-      return *y;
+  for (my_vector<nonzero_entry_t>::iterator y = (*row).begin(); y != (*row).end(); ++y) {
+    if (!(*y).sampler_pointer->removed) {
+      return &(*y);
     }
   }
   return NULL;  //gets here when all row items have been marked for deletion
@@ -589,14 +681,14 @@ nonzero_entry_t* solve_instance::get_largest_active(line_element* row) {
 
 void solve_instance::get_two_largest_active(line_element* row, nonzero_entry_t** first, nonzero_entry_t** second) {
   bool got_first = false;
-  for (list<nonzero_entry_t*>::iterator	 y = (*row).begin(); y != (*row).end(); ++y) {
-    if (!(*y)->sampler_pointer->removed) {
+  for (my_vector<nonzero_entry_t>::iterator y = (*row).begin(); y != (*row).end(); ++y) {
+    if (!(*y).sampler_pointer->removed) {
       if (!got_first){
-	*first = *y;
+	*first = &(*y);
 	got_first = true;
       }
       else {
-	*second = *y;
+	*second = &(*y);
 	break;
       }
     }
@@ -746,7 +838,7 @@ solve_instance::freeze_and_sample(my_vector<line_element>& M, my_vector<line_ele
     }
     else
       uh_i = front_active->coeff;
-    double u_j = MT[j].front()->coeff;
+    double u_j = MT[j][0].coeff;
     double delta = 1/(uh_i + u_j);
     wj->x += 1; //delta;
     wi->x += 1; //delta;

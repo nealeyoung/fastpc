@@ -1,9 +1,9 @@
 
 # -DNDEBUG turns off assert() statements
-CXXFLAGS = -O3
+#CXXFLAGS = -O3
 
 # for debugging
-#CXXFLAGS = -g
+CXXFLAGS = -g
 
 # for profiling
 #CXXFLAGS = -pg -g -fprofile-arcs -ftest-coverage
@@ -13,4 +13,4 @@ CXXFLAGS = -O3
 
 # := does immediate expansion
 
-CXXFLAGS := $(CXXFLAGS) -DNDEBUG -Ilib -I../lib
+CXXFLAGS := $(CXXFLAGS)  -Ilib -I../lib
