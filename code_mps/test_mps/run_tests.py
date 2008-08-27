@@ -29,13 +29,13 @@ def main():
                 arg = args[i]
                 if arg == '--help':
                     sys.exit()
-                elif arg.startswith('fastpc') and arg[8:] == 'false':
+                elif arg.startswith('-fastpc') and arg[8:] == 'false':
                     fastpc_run = False
-                elif arg.startswith('v07') and arg[5:] == 'false':
-                    v07_run == False
-                elif arg.startswith('glpk') and arg[6:] == 'false':
-                    glpk_run == False
-                elif arg.startswith('profile') and arg[9:] == 'true':
+                elif arg.startswith('-v07') and arg[5:] == 'false':
+                    v07_run = False
+                elif arg.startswith('-glpk') and arg[6:] == 'false':
+                    glpk_run = False
+                elif arg.startswith('-profile') and arg[9:] == 'true':
                     profile = True
                 else:
                     input_file_prefix = arg
