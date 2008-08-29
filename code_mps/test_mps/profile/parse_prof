@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#parse files created by gprof
+
+for file in *
+do
+if [ ! ${file##*_} = "line.txt" ] #non lin-by-line files
+then
+echo $file
+echo
+head $file | awk '{ print $0 "  " $5 }'
+echo '------------------------------------'
+echo
+fi
+done
