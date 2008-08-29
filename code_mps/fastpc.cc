@@ -145,13 +145,13 @@ solve_instance::solve_instance(double EPSILON, string infile, int SORT_RATIO) :
     string s;
     in_file >> r >> c >> total;
     cout << "ROWS: " <<  r << " COLUMNS: " << c << " NON-ZEROS: " << total 
-	 << " DENSITY: " << (double)total/(r*c)<< endl;
+	 << " DENSITY: " << (double)total/((double)r*(double)c)<< endl;
 
     M.resize(r);
     MT.resize(c);
     M_copy.resize(r);
 
-    N = int(ceil(2*log(r*c)/(eps*eps)));
+    N = int(ceil(2*(log(r)+log(c))/(eps*eps)));
 
     cout << "N = " << N << endl;
     
@@ -177,7 +177,10 @@ solve_instance::solve_instance(double EPSILON, string infile, int SORT_RATIO) :
       if (non_zero_entry_count > total) break; //stop scanning input if all nonzeros have been scanned
       in_file >> row  >> col >> val;  //took out string s 
       if (in_file.eof()) break;
-
+      //cout <<row<<endl;
+      //cout <<col<<endl;
+      //cout <<val <<endl;
+      //cout <<M.size()<<endl;
       M[row].push_back(new nonzero_entry_t(val,eps*(-1.0), p_d->get_ith(col), p_dXu->get_ith(col)));
       M_copy[row].push_back(new nonzero_entry_t(val, eps*(-1.0), p_d->get_ith(col), p_dXu->get_ith(col)));
       MT[col].push_back(new nonzero_entry_t(val, eps, p_p->get_ith(row), p_pXuh->get_ith(row)));
@@ -456,6 +459,14 @@ solve_instance::solve() {
     sum_x_d += (p_p->get_ith(i)->x + p_pXuh->get_ith(i)->x);
   }
 
+  
+  ofstream out;
+  out.open("tomog_solution");
+  for(int index=0; index < c; ++index){
+    out << ( p_d->get_ith(index)->x + p_dXu->get_ith(index)->x)/max_row << endl; 
+  }
+  out.close();
+  
   count_ops(3*c);
 
   double min_col = long(4*(N+2));
