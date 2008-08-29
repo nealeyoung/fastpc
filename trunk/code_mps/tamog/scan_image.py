@@ -1,6 +1,7 @@
 import Image
 import math
 import sys
+import os
 
 ###################################
 #sizes are wrong for not squares switch them
@@ -37,9 +38,9 @@ def gen_row(angle,x,y,step,array,region,bound ):
     
 
 
-im = Image.open("test2.jpg")
-box = (0, 100, 80, 180)
-converted = im.crop(box).convert('L')
+im = Image.open("3dudes.png")
+#box = (0, 100, 80, 180)
+converted = im.convert('L')
 converted.show()
 
 print converted.size[0]
@@ -58,13 +59,6 @@ for i in range(0,len(data),converted.size[0]):
 
 
 my_file = open("tom_test_small_crazy",'w')
-
-
-
-my_string = str(converted.size[0]/5) +' ' + str(converted.size[0]*converted.size[1])
-my_spaces = reduce(lambda a,b: a+b, [' ']*(len(my_string)+20))
-my_file.write( my_spaces)
-
 
 non_zeros = 0
 rows = 0
@@ -141,18 +135,7 @@ for var in range(converted.size[0]*converted.size[1]):
     my_file.write(str(rows-1) + ' ' + str(var) + ' ' + str(1.0/255.0) + '\n')
     non_zeros = non_zeros + 1
     
-                  
-
-my_file.seek(0)
-my_file.write(str( rows) +' ' + str(converted.size[0]*converted.size[1])+ ' ' + str(non_zeros) + '\n')
-
-    
-
-
-
-
-
-                  
-    
-    
-    
+filename = my_file.name
+my_file.close()    
+cmd = "sed -i '1i\\" + str( rows) +' ' + str(converted.size[0]*converted.size[1])+ ' ' + str(non_zeros) + "' " + filename
+os.system(cmd)

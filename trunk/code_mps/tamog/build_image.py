@@ -1,18 +1,8 @@
 import Image
 import math
-my_image = Image.new("L",(80,80))
 
-
-
-my_file = open("../tomog_solution_2")
-
-
-
-im = Image.open("test2.jpg")
-box = (0, 100, 80, 180)
-converted = im.crop(box).convert('L')
-
-
+my_image = Image.new("L",(95,95))
+my_file = open("../tomog_solution")
 
 data = []
 for line in my_file:
@@ -20,16 +10,6 @@ for line in my_file:
     else: data.append(255)
 
 old_data= list(converted.getdata())
-
-
-
-test = [0,0,255,255]
-test_image = Image.new("1",(2,2))
-test_image.putdata(test)
-test_array =test_image.getdata()
-print list(test_array)
-
-
 
 #print data
 total = reduce(lambda a, b: a+b, data)
@@ -40,6 +20,5 @@ print 'Total lightness in original image: ' + str(total1)
 
 my_image.putdata(data)
 
-
-my_image.save("out_converted3.png")
-converted.save("out_old2.png")
+my_image.save("out_3dudes.png")
+#converted.save("out_old2.png")
