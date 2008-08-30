@@ -459,15 +459,9 @@ solve_instance::solve() {
     sum_x_d += (p_p->get_ith(i)->x + p_pXuh->get_ith(i)->x);
   }
 
-  
-  ofstream out;
-  out.open("tomog_solution");
-  for(int index=0; index < c; ++index){
-    out << ( p_d->get_ith(index)->x + p_dXu->get_ith(index)->x)/max_row << endl; 
-  }
-  out.close();
-  
   count_ops(3*c);
+
+  int max_p_var = 0;
 
   double min_col = long(4*(N+2));
   for (int j=0; j<c; ++j){
@@ -480,8 +474,22 @@ solve_instance::solve() {
     }
     if (tmp < min_col)
       min_col = tmp;
-    sum_x_p += (p_d->get_ith(j)->x + p_dXu->get_ith(j)->x);
+    int p_var = p_d->get_ith(j)->x + p_dXu->get_ith(j)->x;
+    sum_x_p += p_var;
+    if (p_var > max_p_var)
+      max_p_var = p_var;
   }
+
+  double var_scale_ratio = (double)255/max((double)max_p_var/max_row, 255.0);
+  cout << "max_p_var = " << max_p_var << endl;
+  cout << "var_scale_ratio = " << var_scale_ratio << endl;
+  
+  ofstream out;
+  out.open("tomog_solution");
+  for(int index=0; index < c; ++index){
+    out << var_scale_ratio * ((p_d->get_ith(index)->x + p_dXu->get_ith(index)->x)/max_row) << endl; 
+  }
+  out.close();
 
   count_ops(2*c); //for totaling primal vars
   

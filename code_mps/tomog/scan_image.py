@@ -3,11 +3,10 @@ import math
 import sys
 import os
 
-###################################
+###########################################
 #sizes are wrong for not squares switch them
 #size[0] size[1] are switched in this code
 ###########################################
-
 
 def gen_row(angle,x,y,step,array,region,bound ):
 
@@ -31,41 +30,38 @@ def gen_row(angle,x,y,step,array,region,bound ):
             variable_track.append([cur_y*region.size[1]+cur_x,1])
             last_x = cur_x
             last_y = cur_y
-            
-
     return variable_track, total_density
-    
-    
 
+args = sys.argv
+if len(args) < 2:
+    print 'Usage: python run_test.py <image_name>'
+    sys.exit(0)
+img_name = args[1]
+img_name_no_ext = img_name[:img_name.find('.')]
+out_file_name = 'fastpc_input_' + img_name_no_ext
 
-im = Image.open("3dudes.png")
-#box = (0, 100, 80, 180)
-converted = im.convert('L')
+im = Image.open(img_name)
+box = (0, 100, 80, 180)
+converted = im.convert('L').crop(box)
 converted.show()
+converted.save(img_name_no_ext + '_converted.png')
 
 print converted.size[0]
 print converted.size[1]
-
-
-#new.show()
 
 data= list(converted.getdata())
 array = []
 for i in range(0,len(data),converted.size[0]):
     array.append(data[i:i+converted.size[0]])
 
-#print array
-#print ""
-
-
-my_file = open("tom_test_small_crazy",'w')
+my_file = open(out_file_name,'w')
 
 non_zeros = 0
 rows = 0
 
 #change angle down from left 
 for i in range(0,converted.size[0],1):
-    for j in range(-90,90,5):
+    for j in range(-90,90,2):
         rows = rows + 1
         equ_array,t_size = gen_row(j*math.pi/180 , 0.0, i, 0.01, array,converted,math.floor)
         if len(equ_array)<1:
@@ -75,11 +71,9 @@ for i in range(0,converted.size[0],1):
             my_file.write(str(rows-1) + ' ' + str(item[0]) + ' ' + str(float(item[1])/float(t_size)) + '\n')
             non_zeros = non_zeros + 1
 
-
-
 #change angle down from right
 for i in range(0,converted.size[0],1):
-    for j in range(90,270,5):
+    for j in range(90,270,2):
         rows = rows + 1
         equ_array,t_size = gen_row(j*math.pi/180 , converted.size[1], i, 0.01, array,converted,math.floor)
         if len(equ_array)<1:
@@ -89,22 +83,9 @@ for i in range(0,converted.size[0],1):
             my_file.write(str(rows-1) + ' ' + str(item[0]) + ' ' + str(float(item[1])/float(t_size)) + '\n')
             non_zeros = non_zeros + 1
 
-## #change angle up from left side
-## for i in range(0,converted.size[0],1):
-##     for j in map(lambda a: a*-1,range(0,90,5)):
-##         rows = rows + 1
-##         equ_array,t_size = gen_row(j*math.pi/180 , 0.0,i, 0.01, array,converted,math.floor)
-##         if len(equ_array)<1:
-##             rows = rows -1
-##             continue
-##         for item in equ_array:
-##             my_file.write(str(rows-1) + ' ' + str(item[0]) + ' ' + str(float(item[1])/float(t_size)) + '\n')
-##             non_zeros = non_zeros + 1
-
-
-#chang angle from top
+#change angle from top
 for i in range(0,converted.size[1],1):
-    for j in map(lambda a: a*-1,range(0,180,5)):
+    for j in map(lambda a: a*-1,range(0,180,2)):
         rows = rows + 1
         equ_array,t_size = gen_row(j*math.pi/180 , i,0.0, 0.01, array,converted,math.floor)
         if len(equ_array)<1:
@@ -114,10 +95,9 @@ for i in range(0,converted.size[1],1):
             my_file.write(str(rows-1) + ' ' + str(item[0]) + ' ' + str(float(item[1])/float(t_size)) + '\n')
             non_zeros = non_zeros + 1
 
-
-#chang angle from bottum
+#change angle from bottom
 for i in range(0,converted.size[1],1):
-    for j in map(lambda a: a*-1,range(0,-180,5)):
+    for j in map(lambda a: a*-1,range(0,-180,2)):
         rows = rows + 1
         equ_array,t_size = gen_row(j*math.pi/180 , i,converted.size[0], 0.01, array,converted,math.floor)
         if len(equ_array)<1:
@@ -127,15 +107,13 @@ for i in range(0,converted.size[1],1):
             my_file.write(str(rows-1) + ' ' + str(item[0]) + ' ' + str(float(item[1])/float(t_size)) + '\n')
             non_zeros = non_zeros + 1
 
-
-
+#commented this because now we are scaling the solution to have values bounded in fastpc
 #keep in color bounds
-for var in range(converted.size[0]*converted.size[1]):
-    rows = rows + 1
-    my_file.write(str(rows-1) + ' ' + str(var) + ' ' + str(1.0/255.0) + '\n')
-    non_zeros = non_zeros + 1
+#for var in range(converted.size[0]*converted.size[1]):
+#    rows = rows + 1
+#    my_file.write(str(rows-1) + ' ' + str(var) + ' ' + str(1.0/255.0) + '\n')
+#    non_zeros = non_zeros + 1
     
-filename = my_file.name
-my_file.close()    
-cmd = "sed -i '1i\\" + str( rows) +' ' + str(converted.size[0]*converted.size[1])+ ' ' + str(non_zeros) + "' " + filename
+my_file.close()
+cmd = "sed -i '1i\\" + str( rows) +' ' + str(converted.size[0]*converted.size[1])+ ' ' + str(non_zeros) + "' " + out_file_name
 os.system(cmd)
