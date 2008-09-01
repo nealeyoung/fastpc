@@ -1,5 +1,4 @@
 import Image
-import math
 import sys
 
 args = sys.argv
@@ -13,9 +12,17 @@ my_image = Image.new("L",(80,80))
 my_file = open("tomog_solution")
 
 data = []
+max_var = 0
 for line in my_file:
-    if int(math.floor(float(line))) < 255: data.append(int(math.floor(float(line))))
-    else: data.append(255)
+    val = int(float(line))
+    data.append(val)
+    if val > max_var:
+        max_var = val
+
+#scale all variables if necessary
+if max_var > 255:
+    scale_ratio = 255.0/float(max_var)
+    data = map(lambda x: int(x*scale_ratio), data)
 
 my_image.putdata(data)
 my_image.save(img_name_no_ext + "_generated.png")
