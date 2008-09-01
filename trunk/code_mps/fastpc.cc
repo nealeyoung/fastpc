@@ -461,7 +461,7 @@ solve_instance::solve() {
 
   count_ops(3*c);
 
-  int max_p_var = 0;
+  //int max_p_var = 0;
 
   double min_col = long(4*(N+2));
   for (int j=0; j<c; ++j){
@@ -476,18 +476,21 @@ solve_instance::solve() {
       min_col = tmp;
     int p_var = p_d->get_ith(j)->x + p_dXu->get_ith(j)->x;
     sum_x_p += p_var;
-    if (p_var > max_p_var)
-      max_p_var = p_var;
+    //if (p_var > max_p_var)
+    //max_p_var = p_var;
   }
 
-  double var_scale_ratio = (double)255/max((double)max_p_var/max_row, 255.0);
-  cout << "max_p_var = " << max_p_var << endl;
-  cout << "var_scale_ratio = " << var_scale_ratio << endl;
+  // Scaling (to max 255) moved to build_image.py as this scaling is relevant only to that
+  // For all other cases no scaling should be sone
+  //  double var_scale_ratio = (double)255/max((double)max_p_var/max_row, 255.0);
+  //cout << "max_p_var = " << max_p_var << endl;
+  //cout << "var_scale_ratio = " << var_scale_ratio << endl;
   
   ofstream out;
   out.open("tomog_solution");
   for(int index=0; index < c; ++index){
-    out << var_scale_ratio * ((p_d->get_ith(index)->x + p_dXu->get_ith(index)->x)/max_row) << endl; 
+    out << (p_d->get_ith(index)->x + p_dXu->get_ith(index)->x)/max_row << endl;
+    //out << var_scale_ratio * ((p_d->get_ith(index)->x + p_dXu->get_ith(index)->x)/max_row) << endl; 
   }
   out.close();
 
