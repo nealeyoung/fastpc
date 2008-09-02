@@ -53,20 +53,29 @@ converted.save(img_name_no_ext + '_converted.png')
 
 print converted.size[0]  # width
 print converted.size[1]  # height
+width = converted.size[0]
+height = converted.size[1]
 
 data= list(converted.getdata())
 array = []  # stores bitmap as 2d array row by row; [0][0] is top-left corner
-for i in range(0,len(data),converted.size[1]):
-    array.append(data[i:i+converted.size[1]])
+for i in range(0,len(data),height):
+    array.append(data[i:i+height])
 
 my_file = open(out_file_name,'w')
 
 non_zeros = 0
 rows = 0
 
-#change angle down from left 
-for i in range(0,converted.size[1],1): #number of slices per angle
-    for j in range(-90,90,2):  #angles
+#use when iterating through rows
+num_row_angles = width/2
+row_increment = 180/num_row_angles
+#use to iterate through cols
+num_col_angles = height/2
+col_increment = 180/num_col_angles
+
+#change angle down from left
+for i in range(0,height,1): #number of slices per angle
+    for j in range(-90,90,row_increment):  #angles
         rows = rows + 1
         equ_array,t_size = gen_row(j*math.pi/180 , 0.0, i, 0.01, array,converted,math.floor)
 
@@ -79,10 +88,10 @@ for i in range(0,converted.size[1],1): #number of slices per angle
             non_zeros = non_zeros + 1
 
 #change angle up from right
-for i in range(0,converted.size[1],1):
-    for j in range(90,270,2):
+for i in range(0,height,1):
+    for j in range(90,270,row_increment):
         rows = rows + 1
-        equ_array,t_size = gen_row(j*math.pi/180 , converted.size[0], i, 0.01, array,converted,math.floor)
+        equ_array,t_size = gen_row(j*math.pi/180 , width, i, 0.01, array,converted,math.floor)
         if len(equ_array)<1 or t_size==0:
             rows =  rows -1
             continue
@@ -91,25 +100,22 @@ for i in range(0,converted.size[1],1):
             non_zeros = non_zeros + 1
 
 #change angle from top
-print "In change angle from top"  #debug
-for i in range(0,converted.size[0],1):
-   # for j in map(lambda a: a*-1,range(0,180,2)):
-   for j in range(0,180,2):
+for i in range(1,width,1):
+   for j in range(0,180,col_increment):
         rows = rows + 1
         equ_array,t_size = gen_row(j*math.pi/180 , i,0.0, 0.01, array,converted,math.floor)
         if len(equ_array)<1 or t_size==0:
             rows = rows -1
             continue
-        #print "Column:", i, "Angle:", j, "Length of equ_array:", len(equ_array), "T size:", t_size #debug
         for item in equ_array:
             my_file.write(str(rows-1) + ' ' + str(item[0]) + ' ' + str(float(item[1])/float(t_size)) + '\n')
             non_zeros = non_zeros + 1
 
 #change angle from bottom
-for i in range(0,converted.size[0],1):
-    for j in map(lambda a: a*-1,range(0,180,2)):
+for i in range(0,width,1):
+    for j in map(lambda a: a*-1,range(0,180,col_increment)):
         rows = rows + 1
-        equ_array,t_size = gen_row(j*math.pi/180 , i,converted.size[1], 0.01, array,converted,math.floor)
+        equ_array,t_size = gen_row(j*math.pi/180 , i,height, 0.01, array,converted,math.floor)
         if len(equ_array)<1 or t_size==0:
             rows = rows -1
             continue
@@ -119,7 +125,7 @@ for i in range(0,converted.size[0],1):
 
 #commented this because now we are scaling the solution to have values bounded in fastpc
 #keep in color bounds
-#for var in range(converted.size[1]*converted.size[0]):
+#for var in range(height*width):
 #    rows = rows + 1
 #    my_file.write(str(rows-1) + ' ' + str(var) + ' ' + str(1.0/255.0) + '\n')
 #    non_zeros = non_zeros + 1
@@ -127,5 +133,5 @@ for i in range(0,converted.size[0],1):
 my_file.close()
 
 #prepend first line of output file showing rows, cols, nonzeros
-cmd = "sed -i '1i\\" + str( rows) +' ' + str(converted.size[1]*converted.size[0])+ ' ' + str(non_zeros) + "' " + out_file_name
+cmd = "sed -i '1i\\" + str( rows) +' ' + str(height*width)+ ' ' + str(non_zeros) + "' " + out_file_name
 os.system(cmd)
