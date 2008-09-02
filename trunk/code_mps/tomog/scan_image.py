@@ -46,8 +46,8 @@ img_name_no_ext = img_name[:img_name.find('.')]
 out_file_name = 'fastpc_input_' + img_name_no_ext
 
 im = Image.open(img_name)
-box = (0, 100, 80, 180)
-converted = im.convert('L').crop(box)
+#box = (0, 0, 80, 180)
+converted = im.convert('L')  #.crop(box)
 converted.show()
 converted.save(img_name_no_ext + '_converted.png')
 
