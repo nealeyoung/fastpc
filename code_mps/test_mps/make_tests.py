@@ -19,8 +19,8 @@ def main():
     densities = [0.3, 0.5]
     
     #the range for coefficients in an input are in range [min_lower,max_upper]
-    lower = 0
-    upper = 100
+    lower = 1
+    upper = 1
 
     random.seed()
 
