@@ -10,7 +10,7 @@ then
    read deleteAll
    if [ "$deleteAll" = "y" ]
    then 
-      delPrefix="*"
+      delPrefix=""
    else
       echo 'Clean cancelled.'
       exit 0
