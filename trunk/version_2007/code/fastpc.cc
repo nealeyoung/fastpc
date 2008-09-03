@@ -43,7 +43,9 @@ solve_instance::solve_instance(double EPSILON, string FILE_NAME) :
   int row, col, total;
   int val;
   string s;
-
+  
+  //bookkeeping
+  unsigned long preprocess_start = get_time();
   {
     string s;
     
@@ -85,6 +87,8 @@ solve_instance::solve_instance(double EPSILON, string FILE_NAME) :
       MT[col].push_back(p_p->get_ith(row));
     }
   }
+  unsigned long preprocess_time = get_time() - preprocess_start;
+  cout << "preprocessing_time = " << preprocess_time/1000000.0 << " s" << endl; 
 }
 
 void
@@ -188,6 +192,7 @@ solve_instance::solve() {
 
   // end of iterations. compute final x_p and x_d values as in line 10 of the algorithm
   // cout<<"end of iterations"<<endl;
+  unsigned long main_loop_time = get_time() - start_time;
 
   count_ops(3*r);
 
@@ -257,6 +262,7 @@ solve_instance::solve() {
   cout << " n_rebuild_ops = " << p_d->n_rebuild_ops() << endl;
   cout << " basic_ops = " << basic_ops << endl;
   cout << " ops_per_increment = " << ops_per_increment << endl;
+  cout << " main_loop_time = " << main_loop_time/1000000.0 << "s" << endl;
   cout << " time = " << elapsed_time/1000000.0 << "s" << endl;
   cout << " ops_per_usec = " << ops_per_usec << endl;
   cout << " alloc_time = " << alloc_time/1000000.0 << "s" << endl;

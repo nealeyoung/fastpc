@@ -16,11 +16,15 @@ def parse_fastpc_output_file(file_name, v07):
     eps_reg = re.compile(r'epsilon = 0.[0-9]*')
     input_reg = re.compile(r"ROWS: [0-9]* COLUMNS: [0-9]* NON-ZEROS: [0-9]* DENSITY: [0-9]*.*[0-9]*")
     name_reg = re.compile(r"INPUT FILE: .[/a-zA-Z0-9._]*")
-
+    preprocess_reg = re.compile(r'preprocessing_time = [0-9]*.[0-9]*')
+    main_loop_reg = re.compile(r' main_loop_time = [0-9]*.[0-9]*')
+    
     time_array = time_reg.findall(total_string)
     ans_array = ans_reg.findall(total_string)
     input_array = input_reg.findall(total_string)
     name_array = name_reg.findall(total_string)
+    preprocess_array = preprocess_reg.findall(total_string)
+    main_loop_array = main_loop_reg.findall(total_string)
 
     eps_array = eps_reg.findall(total_string)
     if not v07:
@@ -39,6 +43,10 @@ def parse_fastpc_output_file(file_name, v07):
         print str(rows)+',', str(cols)+',', str(non_zeros)+',', str(density)+',',
         time_list = time_array[index].split()
         print str(time_list[time_list.index("=")+1][:-1])+',',
+        main_loop_list = main_loop_array[index].split()
+        print str(main_loop_list[main_loop_list.index("=")+1][:-1])+',',
+        preprocess_list = preprocess_array[index].split()
+        print str(preprocess_list[preprocess_list.index("=")+1][:-1])+',',
         ans_list = ans_array[index].split()
         ans_list.reverse()
         ratio = ans_list[ans_list.index("=")-1]
@@ -94,7 +102,7 @@ def main():
 
     output_file_name = './output/' + file_prefix + '_run_stats.csv'
     sys.stdout = open(output_file_name, 'w')
-    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Ratio,Epsilon,SortRatio"
+    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Main Loop Time (s), Preprocessing Time (s), Ratio,Epsilon,SortRatio"
 
     parse_fastpc_output_file(fp_file_name, False)
     parse_glpk_output_file(glpk_file_name)
