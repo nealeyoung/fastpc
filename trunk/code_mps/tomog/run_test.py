@@ -11,7 +11,7 @@ def main():
 	img_name_no_ext = img_name[:img_name.find('.')]
 	input_file_name = 'fastpc_input_' + img_name_no_ext
 	cmd_scan = 'python scan_image.py ' + img_name
-	if len(args) == 4:
+	if len(args) == 5:
 		cmd_tomog = './tomog tomog_input_' + img_name_no_ext + ' '+ input_file_name +' ' + args[3] + ' ' + args[4]
 	else:
 		cmd_tomog = './tomog tomog_input_' + img_name_no_ext + ' '+ input_file_name +' ' + args[3]	
