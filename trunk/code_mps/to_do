@@ -1,0 +1,69 @@
+To Do(Not sure about order of priorities)
+
+Critical
+
+    Why do we do we get bad ratios for very sparse matrixes?(possibly negative coeffs we are missing)
+    Why does our constant factor change with size?(vs version 2007)
+    Compare against glpk and cplex.
+    Why do we not have to scale at the end of the program?
+    Fix overflow on timer.
+
+High
+
+    Count operations so we can make an accurate prediction of time correctly.
+    When should we deleted constraints marked for deleting?(compress_forward)
+    Why does least squares does not work for non-liner equations?
+    Use real tomography data for tomography problems.
+    Why does fastpc use so much memory?
+    Ask around for big liner problems.(forums,glpk mailing list,??)
+    Use random distributions for tests.
+
+Medium
+ 
+     Algorithm
+
+	Parallel algorithm
+     	Input fastpc solutions to simplex as a starting point.
+	Could you use standard tomography algorithm to solve liner programs?
+     	Heuristics
+
+		Increment variables by a greater amount early in the algorithm
+		Batch increments
+		???
+
+     Stability
+
+	Initial check for input errors.
+
+		Bad number of rows.
+		Negative coefficients
+		Incorrect types
+		Overflows
+		Variables not in any constraints
+
+	Check for overflows on all operations
+	Check returns from standard functions for error codes
+	Run memory checker on fastpc
+     
+     Integration with glpk
+
+     Stand alone functionality
+
+     	     clean up repository
+     	     code clean up
+     	     documentation
+	     packaging(fastpc and scripts)
+     	     other objective functions
+     	     covering
+     	     scaling constraints
+	     general interface 
+	     api
+
+     Some sort of write up on why repeated sampling works for random pair.
+     Write up on why rounding errors in sampling are too small to make a difference.
+
+Low
+
+     non-liner programs
+     packing+covering
+     
