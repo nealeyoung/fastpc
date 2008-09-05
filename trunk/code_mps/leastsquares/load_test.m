@@ -57,12 +57,12 @@ fclose(ofid);
 
 %run fastpc
 system('../fastpc .05 fastpc_input_matlab');
-load tomog_solution
-tomog_solution
+load fastpc_solution;
+sol = fastpc_solution;
 %build solution function as linear combo of input functions
 big_func = @(x)0
 for i=1:size_funcs
-	big_func = @(x)tomog_solution(i)*funcs{i}(x) + big_func(x);
+	big_func = @(x)sol(i)*funcs{i}(x) + big_func(x);
 end
 
 %graph solution function and original points
