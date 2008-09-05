@@ -1,4 +1,4 @@
-out_file = 'fastpc_input_matlab'
+out_file = 'fastpc_input_matlab';
 
 %read data points
 load my_xy.txt
@@ -22,7 +22,6 @@ while 1
     size_funcs = size_funcs + 1;
 end
 fclose(fid);
-
 M = zeros(size_x, size_funcs);
 
 %evaluate functions for each x value
@@ -35,17 +34,21 @@ end
 
 %set up lsf problem: (M'M)c = M'y 
 %    => for each row i, (M'M)(i)/(M'y)(i)*c <= 1; solve for c
-M = M*M.';
-y = M.'*y;
-for k=1:size_x
+MT = M.'
+M = MT*M;
+y = MT*y;
+dims_M = size(M)
+rows_M = dims_M(1)
+cols_M = dims_M(2)
+for k=1:rows_M
 	M(k,:) = M(k,:)/y(k);
 end
 
 %output constraints in fastpc format
 ofid = fopen(out_file,'w');
-fprintf(ofid,'%d %d %d\n',[size_x,size_funcs,size_x*size_funcs]);
-for i=1:size_x
-    for j=1:size_funcs
+fprintf(ofid,'%d %d %d\n',[rows_M,cols_M,rows_M*cols_M]);
+for i=1:rows_M
+    for j=1:cols_M
 	    M(i,j);
         fprintf(ofid,'%d %d %f\n', [i-1, j-1, M(i,j)]);
     end
@@ -55,7 +58,7 @@ fclose(ofid);
 %run fastpc
 system('../fastpc .05 fastpc_input_matlab');
 load tomog_solution
-
+tomog_solution
 %build solution function as linear combo of input functions
 big_func = @(x)0
 for i=1:size_funcs
@@ -63,9 +66,11 @@ for i=1:size_funcs
 end
 
 %graph solution function and original points
-%x_cor=0:0.5:10;
 x_cor = x;
-x
-y_org
-y_cor=big_func(x_cor);
-plot(x_cor,y_cor,'r',x,y_org,'g')
+y_cor=arrayfun(big_func,x_cor);
+plot(x_cor,y_cor,'--rs',x,y_org,'g')
+
+%calculate absolute squared error
+ls = @(x,y) (y-x)^2
+ls_array = arrayfun(ls,y_org,y_cor);
+ls_total = sum(ls_array)
