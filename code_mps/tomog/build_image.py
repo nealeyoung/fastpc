@@ -9,7 +9,7 @@ img_name = args[1]
 img_name_no_ext = img_name[:img_name.find('.')]
 
 my_image = Image.new("L",(95,95))
-my_file = open("tomog_solution")
+my_file = open("fastpc_solution")
 
 data = []
 max_var = 0
