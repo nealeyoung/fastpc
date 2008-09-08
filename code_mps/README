@@ -61,7 +61,7 @@ Run Time:
 
 Output:
 
-	The program outputs to std_out, with the main result being the objective value of the lp solution and the objective value of its dual solution.
+	The program outputs to std_out, with the main result being the objective value of the lp solution and the objective value of its dual solution. It also outputs a file called fastpc_solution that contains the value of each variable of the primal solution on a new line.
 
 Reference:
 
