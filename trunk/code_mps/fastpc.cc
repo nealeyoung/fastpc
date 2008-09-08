@@ -350,9 +350,10 @@ solve_instance::solve() {
     {
       register my_vector<nonzero_entry_t*>::iterator mt_end = MT[j].end();
 
+      
       for (register my_vector<nonzero_entry_t*>::iterator x = MT[j].begin(); x != mt_end; ++x) { 
 	double increment = ((*x)->coeff)*delta;
-	
+	count_ops(10);  // 3 ops for floating-pt mult
 	//if the row is not active any more
 	if ((*x)->u_sampler_pointer->removed){
 	  continue;
@@ -360,6 +361,7 @@ solve_instance::solve() {
 
 	if (sort_ratio*increment >= z) { //must include sort_ratio factor b/c elements could be out of order if pseudo-sorting
 	  if (increment >= z) {
+	    count_ops(6);
 	    n_increments_p++;
 	    p_pXuh->increment_exponent((*x)->u_sampler_pointer);
 	    // stop when a packing constraint becomes tight
@@ -371,10 +373,6 @@ solve_instance::solve() {
 	}
       }
 
-      int size = MT[j].size();
-      count_ops(12); 
- 
-      count_ops(5*size);
     }
 
     // line 9 
@@ -383,7 +381,11 @@ solve_instance::solve() {
       int num_removed = 0; // number of items removed
       int index_removed = 0; // index of the last item deleted
       int index = 0; // number of elements iterated through
+
+
+
       for (register my_vector<nonzero_entry_t*>::iterator x = M[i].begin(); x != m_end; ++x) {
+	count_ops(11);
 	double increment = ((*x)->coeff)*delta;
 	
 	//if the column is not active any more
@@ -396,6 +398,8 @@ solve_instance::solve() {
 	index++;
 	if (sort_ratio*increment >= z) { //must include sort_ratio factor b/c elements could be out of order if pseudo-sorting
 	  if (increment >= z) {
+	    count_ops(13);
+
 	    n_increments_d++;
 	    p_dXu->increment_exponent((*x)->u_sampler_pointer);
 	    // remove covering constraint when it's met
@@ -404,6 +408,7 @@ solve_instance::solve() {
 	      //to do this, iterate through dropped column in MT and update uh_i for each row if necessary
 	      int colIndex = (*x)->sampler_pointer->i;
 	      for (my_vector<nonzero_entry_t*>::iterator y = MT[colIndex].begin(); y != MT[colIndex].end(); ++y) {
+		count_ops(9);
 		int rowIndex = (*y)->sampler_pointer->i; //locate which row this entry is in
 		nonzero_entry_t* row_active_first = NULL;
 		nonzero_entry_t* row_active_second = NULL;
@@ -442,14 +447,14 @@ solve_instance::solve() {
 
   unsigned long main_loop_time = get_time() - start_time;
   
-  count_ops(3*r);
+  count_ops(4*r);
 
   double sum_x_p=0, sum_x_d=0;
 
   double max_row = 0;
   for (int i=0; i<r; ++i){
     double tmp = 0;
-    count_ops(3*M_copy[i].size());
+    count_ops(7*M_copy[i].size());
     for (line_element::iterator iter = M_copy[i].begin(); 
 	 iter != M_copy[i].end(); 
 	 ++iter) {
@@ -460,12 +465,12 @@ solve_instance::solve() {
     sum_x_d += (p_p->get_ith(i)->x + p_pXuh->get_ith(i)->x);
   }
 
-  count_ops(3*c);
+  count_ops(6*c);
 
   double min_col = long(4*(N+2));
   for (int j=0; j<c; ++j){
     double tmp = 0;
-    count_ops(3*MT[j].size());
+    count_ops(7*MT[j].size());
     for (line_element::iterator iter = MT[j].begin();
          iter != MT[j].end(); 
 	 ++iter) {
@@ -552,13 +557,16 @@ void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_s
     p_dXu->exp_shift_updated = false;
   }
 
+  count_ops(60); //20 per float division
   temp_1 = (double)p_p_wt/p_pXuh_wt;
   temp_2 = (double)p_dXu_wt/p_d_wt;
   temp_3 = (double)p_shift_ratio/d_shift_ratio;  //must keep ratios separate since they use different epsilons
 
+  count_ops(23);
   double prob = 1.0 / (1 + (temp_1*temp_2*temp_3));  //overall prob used to choose samplers
   
   while (1) {  //go until neither chosen sampler fails
+    count_ops(60); //30 for z, 30 to acct for multiple sampling
     float z = (rand()%1000)/999.0;
   
     if (prob > z) {
@@ -584,6 +592,7 @@ void solve_instance::random_pair(sampler_item_t** wi,sampler_item_t** wj, dual_s
 
 nonzero_entry_t* solve_instance::get_largest_active(line_element* row) {
   for (my_vector<nonzero_entry_t*>::iterator	 y = (*row).begin(); y != (*row).end(); ++y) {
+    count_ops(3);
     if (!(*y)->sampler_pointer->removed) {
       return *y;
     }
@@ -594,6 +603,7 @@ nonzero_entry_t* solve_instance::get_largest_active(line_element* row) {
 void solve_instance::get_two_largest_active(line_element* row, nonzero_entry_t** first, nonzero_entry_t** second) {
   bool got_first = false;
   for (my_vector<nonzero_entry_t*>::iterator y = (*row).begin(); y != (*row).end(); ++y) {
+    count_ops(3);
     if (!(*y)->sampler_pointer->removed) {
       if (!got_first){
 	*first = *y;
@@ -609,6 +619,7 @@ void solve_instance::get_two_largest_active(line_element* row, nonzero_entry_t**
 
 void solve_instance::compress_forward(my_vector<nonzero_entry_t*> *array, int end){
   int swap_level = 0;
+  count_ops(4*(end-array->start_index));
   for(int i = end; i >= array->start_index; i--){ //go from the last element deleted to the start_index
     if( (*array)[i]->sampler_pointer->removed){ //when removed element seen
       swap_level = swap_level + 1;
