@@ -1,6 +1,5 @@
 % output file in fastpc format
-% note: space must be preserved at beginning of string
-out_file = ' fastpc_input_matlab';
+out_file = 'fastpc_input_matlab';
 
 % read data points
 load data_input
@@ -58,7 +57,7 @@ end
 fclose(ofid);
 
 % run fastpc
-system(strcat('../fastpc .05 ',out_file));
+system(['../fastpc .05 ' out_file]);
 
 % build solution function as linear combo of input functions
 load fastpc_solution;
