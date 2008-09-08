@@ -3,7 +3,8 @@
 out_file = ' fastpc_input_matlab';
 
 % read data points
-load my_xy.txt
+load data_input
+my_xy = data_input;
 
 x = my_xy(:,1);
 y = my_xy(:,2);
@@ -12,7 +13,7 @@ size_x_temp = size(x);
 size_x = size_x_temp(1);
 
 % read functions
-fid=fopen('input');
+fid=fopen('function_input');
 funcs = {};
 size_funcs = 0;
 
@@ -32,7 +33,6 @@ for i=1:size_x
        M(i,j) = funcs{j}(x(i));
     end
 end
-
 
 % set up lsf problem: (M'M)c = M'y 
 %    => for each row i, (M'M)(i)/(M'y)(i)*c <= 1; solve for c
