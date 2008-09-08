@@ -171,16 +171,27 @@ int main(int argc, char **argv){
   scan(&current,width,height,0,180,col_increment,0,width,1,0,1,1,&rows,&non_zeros,step,image);
   scan(&current,width,height,-180,0,col_increment,0,width,1,height,height+1,1,&rows,&non_zeros,step,image);
 
-  fprintf(output,"%d %d %d\n",rows,width*height,non_zeros);
-  current = start;
+  fprintf(output,"%d %d %d\n",rows+(width*height),width*height,non_zeros+(width*height));
+	  /*fprintf(output,"%d %d %d\n",rows,width*height,non_zeros); //original-- w/o 256-constraints */
+  current = start;  
 
+  int last_row = 0;
   while(1){
     fprintf(output,"%d %d %lf\n",current->row,current->col,current->val);
+    last_row = current->row;
     if(current->next == NULL){
       break;
     }else{
       current = current->next;
     }
   }
+
+	  /*take these out in final implementation; they are added to reproduce erratic behavior of alg */
+  int total_vars = width*height;
+  for (i=0; i < total_vars; i++) {
+    last_row++;
+    fprintf(output, "%d %d %lf\n", last_row, i, 255);
+  }
+
   return 0;
 }
