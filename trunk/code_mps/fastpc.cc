@@ -22,7 +22,7 @@ nonzero_entry_t::nonzero_entry_t(double value, double eps, sampler_item_t* sampl
 void solve_instance::bound_sort() {
   double b;
   bound_exponents(M, MT, b);
-  bound_exponents(M_copy, MT, b);
+  // bound_exponents(M_copy, MT, b);//scale by original problem
   bound_exponents(MT, M_copy, b);
 
   if(sort_ratio <= 1) {
@@ -172,7 +172,7 @@ solve_instance::solve_instance(double EPSILON, string infile, int SORT_RATIO) :
     p_pXuh->init();
     p_dXu->init();
 
-   int non_zero_entry_count = 0;
+   non_zero_entry_count = 0;
     while(true) {
       if (non_zero_entry_count > total) break; //stop scanning input if all nonzeros have been scanned
       in_file >> row  >> col >> val;  //took out string s 
@@ -293,12 +293,15 @@ solve_instance::solve() {
   unsigned long n_increments_d = 0;
   unsigned long start_time = get_time();
 
-  double assumed_ops_per_usec = 1e2; // ckou's machine
+  double assumed_ops_per_usec = 1.20e2; // ckou's machine
   double assumed_time_per_op = 1/assumed_ops_per_usec;
 
   cout << "predict at most " << double(N)*(r+c) << " increments" << endl;
   cout << "predict at most " << double(N)*eps/2 << " rebuilds of each sampler" << endl;
-  cout << "predict " << 6.0*N*(r+c)*assumed_time_per_op/1000000 << " seconds ";
+  cout << "predict " << (253.0/2*(double)(r+c)*log_base(non_zero_entry_count,2)/(eps*eps))*assumed_time_per_op/1000000 << " seconds ";
+
+  //cout << "predict " << (365.0/2*(double)(r+c)*log(non_zero_entry_count)/(eps*eps))*assumed_time_per_op/1000000 << " seconds ";//do not know what the divide by 2is for.
+  
   cout << "assuming " << assumed_ops_per_usec << "ops per usec" << endl;
 
   //srand(time(0));
