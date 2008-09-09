@@ -18,15 +18,17 @@ def parse_fastpc_output_file(file_name, v07):
     name_reg = re.compile(r"INPUT FILE: .[/a-zA-Z0-9._]*")
     preprocess_reg = re.compile(r'preprocessing_time = [0-9]*.[0-9]*')
     main_loop_reg = re.compile(r' main_loop_time = [0-9]*.[0-9]*')
-    
+    ops_reg = re.compile(r'basic_ops = [0-9]*')
+
+    ops_array = ops_reg.findall(total_string)
     time_array = time_reg.findall(total_string)
     ans_array = ans_reg.findall(total_string)
     input_array = input_reg.findall(total_string)
     name_array = name_reg.findall(total_string)
     preprocess_array = preprocess_reg.findall(total_string)
     main_loop_array = main_loop_reg.findall(total_string)
-
     eps_array = eps_reg.findall(total_string)
+    
     if not v07:
         s_array = sort_reg.findall(total_string)
 
@@ -35,6 +37,8 @@ def parse_fastpc_output_file(file_name, v07):
             print str(name_array[index][name_array[index].rfind('/')+1:])+'_v07,',
         else:
             print str(name_array[index][name_array[index].rfind('/')+1:])+',',
+
+        
         input_list = input_array[index].split()
         rows = input_list[input_list.index("ROWS:")+1]
         cols =  input_list[input_list.index("COLUMNS:")+1]
@@ -53,6 +57,8 @@ def parse_fastpc_output_file(file_name, v07):
         print str(ratio)+',',
         eps_list = eps_array[index].split()
         print eps_list[eps_list.index("=")+1]+',',
+        ops_list = ops_array[index].split()
+        print str(ops_list[ops_list.index('=')+1])+',',
         if not v07:
             s_list = s_array[index].split()
             print str(s_list[s_list.index("=")+1])
@@ -102,7 +108,7 @@ def main():
 
     output_file_name = './output/' + file_prefix + '_run_stats.csv'
     sys.stdout = open(output_file_name, 'w')
-    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Main Loop Time (s), Preprocessing Time (s), Ratio,Epsilon,SortRatio"
+    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Main Loop Time (s), Preprocessing Time (s), Ratio,Epsilon,basic_ops,SortRatio"
 
     parse_fastpc_output_file(fp_file_name, False)
     parse_glpk_output_file(glpk_file_name)
