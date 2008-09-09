@@ -2,7 +2,7 @@
 include Makefile.included
 
 LIB = ./lib
-all: lib fastpc test
+all: lib fastpc test v07 tomog
 
 fastpc:  fastpc.o $(LIB)/sampler.o $(LIB)/get_time.o Makefile
 	$(CXX) $(CXXFLAGS)  -o  fastpc fastpc.o $(LIB)/sampler.o $(LIB)/get_time.o
@@ -16,6 +16,14 @@ test:
 .PHONY: lib
 lib:
 	cd lib && $(MAKE)
+
+.PHONY:	v07
+v07:
+	cd ../version_2007/code && $(MAKE)
+
+.PHONY:	tomog
+tomog:
+	cd tomog && $(MAKE)
 
 
 clean: 
