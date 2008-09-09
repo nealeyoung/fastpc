@@ -5,10 +5,13 @@ args = sys.argv
 if len(args) < 2:
     print 'Usage: python build_image.py <image_name>'
     sys.exit(0)
+    
+input_img_dir = 'input_images/'
+output_img_dir = 'output_images/'
 img_name = args[1]
 img_name_no_ext = img_name[:img_name.find('.')]
 
-im = Image.open(img_name)
+im = Image.open(input_img_dir + img_name)
 width = im.size[0]
 height = im.size[1]
 
@@ -29,4 +32,4 @@ if max_var > 255:
     data = map(lambda x: int(x*scale_ratio), data)
 
 my_image.putdata(data)
-my_image.save(img_name_no_ext + "_generated.png")
+my_image.save(output_img_dir + img_name_no_ext + "_generated.png")
