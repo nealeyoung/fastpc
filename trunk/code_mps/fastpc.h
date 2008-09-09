@@ -48,8 +48,8 @@ typedef my_vector<nonzero_entry_t *> line_element;
 
 class solve_instance{
 private:
-  int r, c, N;
-
+  int r, c, N,non_zero_entry_count;
+  
   primal_sampler_t *p_p;
   dual_sampler_t *p_d;
 
