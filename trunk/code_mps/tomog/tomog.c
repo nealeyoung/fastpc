@@ -110,7 +110,7 @@ int main(int argc, char **argv){
   int width,height,i,j;
 
   if(argc <4 || argc >5){
-    printf("usage: ./tomog <input_file_name> <output_file_name> <step_size>[optional <angle_increment_size>]\n");
+    printf("usage: ./tomog <input_file_name> <output_file_name> <step_size> [optional <angle_increment_size>]\n");
   }
   FILE *input = fopen(argv[1],"r");
   if(input == NULL){
@@ -192,6 +192,5 @@ int main(int argc, char **argv){
     last_row++;
     fprintf(output, "%d %d %lf\n", last_row, i, 255);
   }
-
   return 0;
 }
