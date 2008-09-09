@@ -172,7 +172,7 @@ solve_instance::solve_instance(double EPSILON, string infile, int SORT_RATIO) :
     p_pXuh->init();
     p_dXu->init();
 
-   non_zero_entry_count = 0;
+    non_zero_entry_count = 0;
     while(true) {
       if (non_zero_entry_count > total) break; //stop scanning input if all nonzeros have been scanned
       in_file >> row  >> col >> val;  //took out string s 
