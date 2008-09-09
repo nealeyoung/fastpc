@@ -1,12 +1,12 @@
 
 # -DNDEBUG turns off assert() statements
-CXXFLAGS = -O3 
+#CXXFLAGS = -O3 
 
 # for debugging
 #CXXFLAGS = -g
 
 # for profiling
-#CXXFLAGS = -pg -g -fprofile-arcs -ftest-coverage
+CXXFLAGS = -pg -g 
 
 # for profiling with shark (on the mac)
 #CXXFLAGS = -DNDEBUG -g
