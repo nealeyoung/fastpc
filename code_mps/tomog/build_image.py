@@ -3,12 +3,16 @@ import sys
 
 args = sys.argv
 if len(args) < 2:
-    print 'Usage: python run_test.py <image_name>'
+    print 'Usage: python build_image.py <image_name>'
     sys.exit(0)
 img_name = args[1]
 img_name_no_ext = img_name[:img_name.find('.')]
 
-my_image = Image.new("L",(95,95))
+im = Image.open(img_name)
+width = im.size[0]
+height = im.size[1]
+
+my_image = Image.new("L",(width, height))
 my_file = open("fastpc_solution")
 
 data = []
