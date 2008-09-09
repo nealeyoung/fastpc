@@ -9,14 +9,16 @@ if len(args) < 4:
     print 'Usage: python scan_image.py <image_name> <output_location> <tomog step size> [optional <angle_increment_size>]'
     sys.exit(0)
 
+input_img_dir = 'input_images/'
+output_img_dir = 'output_images/'
 img_name = args[1]
 img_name_no_ext = img_name[:img_name.find('.')]
 out_file_name = 'tomog_input_' + img_name_no_ext
 
-im = Image.open(img_name)
+im = Image.open(input_img_dir + img_name)
 converted = im.convert('L')
 converted.show()
-converted.save(img_name_no_ext + '_converted.png')
+converted.save(output_img_dir + img_name_no_ext + '_converted.png')
 
 width = converted.size[0]
 height = converted.size[1]
