@@ -14,7 +14,7 @@ def main():
 		cmd_scan = 'python scan_image.py ' + img_name + ' ./ ' + args[3]
 	img_name_no_ext = img_name[:img_name.find('.')]
 	input_file_name = 'fastpc_input_' + img_name_no_ext
-	cmd_fastpc = '../fastpc ' + args[2] + ' ' + input_file_name
+	cmd_fastpc = '../../fastpc ' + args[2] + ' ' + input_file_name
 	cmd_build = 'python build_image.py ' + img_name
 	os.system(cmd_scan)
 	print 'Scan completed.'
