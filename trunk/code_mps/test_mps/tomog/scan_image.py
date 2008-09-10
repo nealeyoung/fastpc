@@ -5,15 +5,15 @@ import os
 
 
 args = sys.argv
-if len(args) < 4:
-    print 'Usage: python scan_image.py <image_name> <output_location> <tomog step size> [optional <angle_increment_size>]'
+if len(args) < 5:
+    print 'Usage: python scan_image.py <input_file_prefix> <image_name> <output_location> <tomog step size> [optional <angle_increment_size>]'
     sys.exit(0)
 
 directory_of_this_script =reduce(lambda a,b: a +'/'+ b,args[0].split('/')[:-1]+['.'])
 
 input_img_dir = directory_of_this_script + '/input_images/'
 output_img_dir = directory_of_this_script+ '/output_images/'
-img_name = args[1]
+img_name = args[2]
 img_name_no_ext = img_name[:img_name.find('.')]
 out_file_name = directory_of_this_script+ '/tomog_input_' + img_name_no_ext
 
@@ -33,11 +33,11 @@ for item in data:
 
 my_file.close()
 
-input_file_name = args[2] + '/fastpc_input_' + img_name_no_ext
+input_file_name = args[3] + '/' + args[1] + '_' + img_name_no_ext
 
-if len(args) < 5:
-    cmd_tomog = directory_of_this_script+'/tomog ' + out_file_name + ' '+ input_file_name +' ' + args[3]
+if len(args) < 6:
+    cmd_tomog = directory_of_this_script+'/tomog ' + out_file_name + ' '+ input_file_name +' ' + args[4]
 else:
-    cmd_tomog = directory_of_this_script+'/tomog ' + out_file_name + ' '+ input_file_name +' ' + args[3] + ' ' + args[4]
+    cmd_tomog = directory_of_this_script+'/tomog ' + out_file_name + ' '+ input_file_name +' ' + args[4] + ' ' + args[5]
 
 os.system(cmd_tomog)
