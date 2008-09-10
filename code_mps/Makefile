@@ -23,18 +23,15 @@ v07:
 
 .PHONY:	tomog
 tomog:
-	cd tomog && $(MAKE)
+	cd test_mps/tomog && $(MAKE)
 
-glpsol_filter:	glpsol_filter.o
-	$(CXX) glpsol_filter.o -o glpsol_filter
-
-glpsol_filter.o: glpsol_filter.cc
-	$(CXX) -c $(CXXFLAGS) glpsol_filter.cc
-
+.PHONY:	glpsol_filter
+glpsol_filter:
+	cd test_mps && $(MAKE)
 
 clean: 
-	rm -rf fastpc glpsol_filter *.o
 	cd test && $(MAKE) clean
 	cd lib && $(MAKE) clean
 	cd ../version_2007/code && $(MAKE) clean
-	cd tomog && $(MAKE) clean
+	cd test_mps/tomog && $(MAKE) clean
+	cd test_mps && $(MAKE) clean
