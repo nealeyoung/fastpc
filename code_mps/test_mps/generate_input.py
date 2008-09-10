@@ -19,9 +19,9 @@ def random_i(p):
     return int(math.ceil(math.log(random.random())/math.log(1-p))) - 1
 
 def main() :
-    fp_dir = './test_cases/'
-    glpk_dir = './test_cases_glpk/'
-    v07_dir = './test_cases_v07/'
+    fp_dir = '../test_cases/'
+    glpk_dir = '../test_cases_glpk/'
+    v07_dir = '../test_cases_v07/'
     max_write_rows = 500  #periodically write output to save memory
     non_zeros_actual = 0
     error = False
