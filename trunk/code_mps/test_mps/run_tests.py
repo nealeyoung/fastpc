@@ -50,13 +50,13 @@ def main():
     sort_ratios = [1, 2]
 
     output_file_name = input_file_prefix + '_output'
-    output_file_location = './output/' + output_file_name
+    output_file_location = 'output/' + output_file_name
     output_file_glpk_location = output_file_location + '_glpk'
     output_file_v07_location = output_file_location + '_v07'
 
     curr_dir = os.getcwd()
-    fp_input_dir = curr_dir + './test_cases/'
-    glpk_input_dir = curr_dir + './test_cases_glpk/'
+    fp_input_dir = curr_dir + '/test_cases/'
+    glpk_input_dir = curr_dir + '/test_cases_glpk/'
     #v07_input_dir = curr_dir + './test_cases_v07/'
     fastpc_files = os.listdir(fp_input_dir)
     glpk_files = os.listdir(glpk_input_dir)

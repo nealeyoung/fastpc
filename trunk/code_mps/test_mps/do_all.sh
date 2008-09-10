@@ -10,11 +10,13 @@ read $random
 echo -n 'Make tomog tests (y or n)?'
 read $tomog
 if [ "$random" = "y" ]
+then
   echo 'Creating random tests...'
   python make_tests.py $1
   echo 'Done creating random tests'
 fi
 if [ "$tomog" = "y" ]
+then
   echo 'Creating tomog tests...'
   python tomog/scan_all.py $1 test_cases test_cases_glpk 0.01 2
   echo 'Done making tomog tests'
