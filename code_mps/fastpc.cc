@@ -21,14 +21,15 @@ nonzero_entry_t::nonzero_entry_t(double value, double eps, sampler_item_t* sampl
 
 void solve_instance::bound_sort() {
   double b;
-  bound_exponents(M, MT, b);
-  // bound_exponents(M_copy, MT, b);//scale by original problem
-  bound_exponents(MT, M_copy, b);
 
   if(sort_ratio <= 1) {
     exact_sort(M);
     exact_sort(MT);
   } else {
+    bound_exponents(M, MT, b);
+    // bound_exponents(M_copy, MT, b);  //leave commented to scale by original problem
+    bound_exponents(MT, M_copy, b);
+
     pseudo_sort(M,MT.size(), b);
     pseudo_sort(MT, M.size(), b);
   }
@@ -481,8 +482,7 @@ solve_instance::solve() {
     }
     if (tmp < min_col)
       min_col = tmp;
-    int p_var = p_d->get_ith(j)->x + p_dXu->get_ith(j)->x;
-    sum_x_p += p_var;
+    sum_x_p += p_d->get_ith(j)->x + p_dXu->get_ith(j)->x;
   }
 
   ofstream out;
