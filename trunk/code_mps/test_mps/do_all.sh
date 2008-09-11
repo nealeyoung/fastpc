@@ -6,9 +6,12 @@ then
   exit 1
 fi
 echo -n 'Make random tests (y or n)?'
-read $random
+read random
+echo $random
 echo -n 'Make tomog tests (y or n)?'
-read $tomog
+read tomog
+echo $tomog
+echo "$tomog"
 if [ "$random" = "y" ]
 then
   echo 'Creating random tests...'
