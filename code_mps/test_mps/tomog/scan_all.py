@@ -12,7 +12,7 @@ img_files = os.listdir(input_img_dir)
 
 for img_file in img_files:
     if not img_file.startswith('.'):
-        if len(args) < 7:
+        if len(args) < 6:
             scan_cmd = 'python '+ directory_of_this_script + '/scan_image.py ' + args[1] + ' ' + img_file + ' ' + args[2] + ' ' + args[4] + ' ' + args[1]
         else:
             scan_cmd = 'python ' + directory_of_this_script + '/scan_image.py ' + args[1] + ' ' + img_file + ' ' + args[2] + ' ' + args[4] + ' ' + args[5]
