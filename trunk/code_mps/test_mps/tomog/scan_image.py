@@ -17,6 +17,7 @@ img_name = args[2]
 img_name_no_ext = img_name[:img_name.find('.')]
 out_file_name = directory_of_this_script+ '/tomog_input_' + img_name_no_ext
 
+
 im = Image.open(input_img_dir + img_name)
 converted = im.convert('L')
 converted.show()
