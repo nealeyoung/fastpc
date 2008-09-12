@@ -19,14 +19,17 @@ def random_i(p):
     return int(math.ceil(math.log(random.random())/math.log(1-p))) - 1
 
 def main() :
-    fp_dir = '../test_cases/'
-    glpk_dir = '../test_cases_glpk/'
-    v07_dir = '../test_cases_v07/'
+    
     max_write_rows = 500  #periodically write output to save memory
     non_zeros_actual = 0
     error = False
     try:
         args = sys.argv
+        full_pathname = args[0]
+        pathname = full_pathname[:full_pathname.rfind('/')+1]
+        fp_dir = pathname + '../test_cases/'
+        glpk_dir = pathname + '../test_cases_glpk/'
+        v07_dir = pathname + '../test_cases_v07/'
         r = int(args[1])
         c = int(args[2])
         density = float(args[3])

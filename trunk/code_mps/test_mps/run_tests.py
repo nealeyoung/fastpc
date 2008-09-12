@@ -14,6 +14,7 @@ def main():
     glpk_run = True
     fastpc_run = True
     v07_run = True
+    cplex_run = True
     profile = False
     input_file_prefix = ''
 
@@ -35,6 +36,8 @@ def main():
                     v07_run = False
                 elif arg.startswith('-glpk') and arg[6:] == 'false':
                     glpk_run = False
+                elif arg.startswith('-cplex') and arg[7:] == 'false':
+                    cplex_run  = False
                 elif arg.startswith('-profile') and arg[9:] == 'true':
                     profile = True
                 else:
@@ -44,16 +47,18 @@ def main():
         sys.exit()
 
     # epsilons to be run for each input file generated        
-    epsilons = [0.1, 0.01]
+    epsilons = [0.1, 0.05, 0.01]
     
     # sort_ratio to be used for runs
-    sort_ratios = [1, 2]
+    sort_ratios = [1]
 
     output_file_name = input_file_prefix + '_output'
-    output_file_location = 'output/' + output_file_name
+    output_dir = 'output/'
+    output_file_location = output_dir + output_file_name
     output_file_glpk_location = output_file_location + '_glpk'
     output_file_v07_location = output_file_location + '_v07'
-
+    output_file_cplex_location = output_file_location + '_cplex'
+    
     curr_dir = os.getcwd()
     fp_input_dir = curr_dir + '/test_cases/'
     glpk_input_dir = curr_dir + '/test_cases_glpk/'
@@ -98,6 +103,20 @@ def main():
                 if glpk_file in glpk_files and glpk_run:
                     print 'GLPK: ', glpk_file
                     os.system(glpk_command + glpk_input_dir + glpk_file + ' >> ' + output_file_glpk_location)
+
+                # if cplex_run: run cplex for the glpk input file
+                cplex_file = fp_file + '_glpk'
+                if cplex_file in glpk_files and cplex_run:
+                    print 'CPLEX: ', glpk_file
+                    cplex_input = 'cplex_input'
+                    file = open(cplex_input, 'w')
+                    file.write('read ' + glpk_input_dir + cplex_file + ' \n')
+                    file.write('lp \n')
+                    file.write('optimize \n')
+                    file.write('write ' + output_dir + cplex_file + '_cplex_out.sol \n')
+                    cplex_cmd = '../../../cplex111/bin/x86_debian4.0_4.1/cplex >> ' + output_file_cplex_location + ' < ' + cplex_input
+                    os.system(cplex_cmd)
+                    #os.system('cat cplex_out.sol >> ' + cplex_file + '_output')
     else: #run glpk and/or v07 based on flags
         if glpk_run:
             for glpk_file in glpk_files:
@@ -116,5 +135,17 @@ def main():
                             cmd_prof_line = 'gprof -l ../../version_2007/code/fastpc > ./profile/' + fp_file + '_v07_prof_line.txt'
                             os.system(cmd_prof) 
                             os.system(cmd_prof_line)
+        if cplex_run:
+            for cplex_file in glpk_files:
+                if cplex_file.startswith(input_file_prefix) and not cplex_file.startswith('.'):
+                    print 'CPLEX: ', glpk_file
+                    cplex_input = 'cplex_input'
+                    file = open(cplex_input, 'w')
+                    file.write('read ' + glpk_input_dir + cplex_file + ' \n')
+                    file.write('lp \n')
+                    file.write('optimize \n')
+                    file.write('write ' + output_dir + cplex_file + '_cplex_out.sol \n')
+                    cplex_cmd = '../../../cplex111/bin/x86_debian4.0_4.1/cplex >> ' + output_file_cplex_location + ' < ' + cplex_input
+                    os.system(cplex_cmd)
 
 main()
