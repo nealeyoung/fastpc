@@ -94,6 +94,32 @@ def parse_glpk_output_file(file_name):
         time_list = time_array[index].split()
         print time_list[time_list.index("secs")-1]
 
+def parse_cplex_output_file(file_name):
+    try:
+        my_file = open(file_name)
+        total_string = my_file.read()
+    except:
+        print file_name + ', NOT FOUND'
+        return
+
+    time_reg = re.compile(r'Solution time =[ ]*[0-9]*.[0-9]*')
+    name_reg = re.compile(r"File type: Problem '.*'")
+
+    time_array = time_reg.findall(total_string)
+    name_array = name_reg.findall(total_string)
+    
+    for index, item in enumerate(time_array):
+        filename = str(name_array[index][name_array[index].rfind('/')+1:-1])
+        input_list = filename.split('_')
+        input_list[-1] = 'cplex'
+        filename = '_'.join(input_list)
+        density = input_list[-2]
+        cols = input_list[-3]
+        rows = input_list[-4]
+        time_list = time_array[index].split()
+        time = time_list[-1]
+        print filename+','+rows+','+cols+','+'NULL'+','+density+','+time
+
 def main():
     args = sys.argv
     try:
@@ -105,6 +131,7 @@ def main():
     fp_file_name = './output/' + file_prefix + '_output'
     glpk_file_name = fp_file_name + '_glpk'
     v07_file_name = fp_file_name + '_v07'
+    cplex_file_name = fp_file_name + '_cplex'
 
     output_file_name = './output/' + file_prefix + '_run_stats.csv'
     sys.stdout = open(output_file_name, 'w')
@@ -113,5 +140,6 @@ def main():
     parse_fastpc_output_file(fp_file_name, False)
     parse_glpk_output_file(glpk_file_name)
     parse_fastpc_output_file(v07_file_name, True)
+    parse_cplex_output_file(cplex_file_name)
     
 main()
