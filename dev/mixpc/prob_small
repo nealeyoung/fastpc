@@ -1,0 +1,41 @@
+
+#espilon, number of packing constraints, number of covering constraints, number of variables note this particular probablem is actually infeasable but the epsilon of 0.05 is just enogh wiggle room to allow the algorythem to output.
+0.05 3 3 3
+
+#covering
+# 3x +3Y >5
+# 3x +3y >5
+# 3z >7
+
+covering_coeffs
+
+0 0 3
+0 1 3
+1 0 3
+1 1 3
+2 2 3
+
+covering_constraint_values
+
+5
+5
+7
+
+
+#packing
+# 2x + 4y <5
+# 4x + 2.5y <5
+# 3z < 7
+
+packing_coeffs
+
+0 0 2
+0 1 4
+1 0 4
+1 1 2.5
+2 2 3
+packing_constraint_values
+
+5
+5
+7
