@@ -1,0 +1,8 @@
+my alg
+
+do round_robin
+
+except
+
+do the incrament find out what the ratio (change in lmax(px)/ change in  lmin(cx))
+if the ratio is not bad then do the increment for real
