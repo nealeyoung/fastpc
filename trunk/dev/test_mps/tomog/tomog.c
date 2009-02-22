@@ -48,6 +48,9 @@ int gen_row(double angle, double x, double y, double step, int **array,int bound
       if((*start)->track.index == -1){
 	(*start)->track.index = cur_y*bound_x+cur_x;
 	(*start)->track.hits =  1;
+	//changed this
+	last_x = cur_x;
+	last_y = cur_y;
       }else{
 	list_node *new = malloc(sizeof(list_node));
 	new->next = NULL;
