@@ -107,7 +107,7 @@ def main():
                 # if cplex_run: run cplex for the glpk input file
                 cplex_file = fp_file + '_glpk'
                 if cplex_file in glpk_files and cplex_run:
-                    print 'CPLEX: ', glpk_file
+                    print 'CPLEX: ', cplex_file
                     cplex_input = 'cplex_input'
                     file = open(cplex_input, 'w')
                     file.write('read ' + glpk_input_dir + cplex_file + ' \n')
