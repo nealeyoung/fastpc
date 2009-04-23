@@ -9,8 +9,11 @@ def parse_cplex_output_file(file_name):
         print file_name + ', NOT FOUND'
         return
 
+    method_list = ['Primal', 'Dual', 'Barrier']
+
     time_reg = re.compile(r'Solution time = .*')
     name_reg = re.compile(r"File type: Problem '.*'")
+    method_reg = re.compile(r"CPLEX> Solution written to file '.*'")
 
     time_array = time_reg.findall(total_string)
     name_array = name_reg.findall(total_string)
@@ -28,7 +31,8 @@ def parse_cplex_output_file(file_name):
             time_list = time_array[index].split()
             time = time_list[3]
             iter = time_list[-2]
-            print filename + ',' + rows + ',' + cols + ',' + str(non_zeros) + ',' + density + ',' + time + ',' + iter
+            if not (float(iter) == 0 and float(time) == 0):
+                print filename + ',' + rows + ',' + cols + ',' + str(non_zeros) + ',' + density + ',' + time + ',' + iter + ',' + method_list[index%3]
 
 def main():
     args = sys.argv
@@ -42,7 +46,7 @@ def main():
 
     output_file_name = './output_cplex/' + file_prefix + '_run_stats.csv'
     sys.stdout = open(output_file_name, 'w')
-    print "Filename,Rows,Columns,Nonzeros,Density,Time (s),Iterations"
+    print "Filename,Rows,Columns,Nonzeros,Density,Time (s),Iterations, Method"
 
     parse_cplex_output_file(cplex_file_name)
     
