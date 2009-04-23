@@ -24,10 +24,11 @@ def parse_cplex_output_file(file_name):
         cols = input_list[-3]
         rows = input_list[-4]
         non_zeros = int(int(rows)*int(cols)*float(density))
-        time_list = time_array[index].split()
-        time = time_list[3]
-        iter = time_list[-2]
-        print filename + ',' + rows + ',' + cols + ',' + str(non_zeros) + ',' + density + ',' + time + ',' + iter
+        if non_zeros > 0:
+            time_list = time_array[index].split()
+            time = time_list[3]
+            iter = time_list[-2]
+            print filename + ',' + rows + ',' + cols + ',' + str(non_zeros) + ',' + density + ',' + time + ',' + iter
 
 def main():
     args = sys.argv
