@@ -17,6 +17,8 @@ def parse_cplex_output_file(file_name):
 
     time_array = time_reg.findall(total_string)
     name_array = name_reg.findall(total_string)
+
+#    print len(time_array), len(name_array)
     
     for index, item in enumerate(time_array):
         filename = str(name_array[index][name_array[index].rfind('/')+1:-1])
@@ -26,6 +28,7 @@ def parse_cplex_output_file(file_name):
         density = input_list[-2]
         cols = input_list[-3]
         rows = input_list[-4]
+#        print rows, cols, density
         non_zeros = int(int(rows)*int(cols)*float(density))
         if non_zeros > 0:
             time_list = time_array[index].split()
