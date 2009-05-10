@@ -6,20 +6,20 @@ def main():
 
     #------- INPUT FILE PARAMETERS - BEGIN -------------
     #total number of input sets to be generated (each set has dif num of rows/cols)
-    input_sets = 40
+    input_sets = 16
     
     #no of rows, r, starts in the range 10* [row_min, row_max] and increases by factor of 10 for each run
-    row_min = 300
-    row_max = 400
+    row_min = 500
+    row_max = 550
     #no of columns, c, is in the range [col_min, col_max]    
-    col_min = 300
-    col_max = 400
+    col_min = 500
+    col_max = 550
     #increment
-    row_increment = 100
-    col_increment = 100
+    row_increment = 500
+    col_increment = 500
 
     #range of densities for each matrix size
-    densities = [0.001, 0.01, 0.1, 0.4]
+    densities = [0.01, 0.1, 0.4]
     
     #the range for coefficients in an input are in range [min_lower,max_upper]
     lower = 0
