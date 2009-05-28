@@ -12,13 +12,12 @@ class Sampler {
 public:
 	// Sampler(int *initial_exponents, int n) {};
 	// Sampler() {};
+	static Sampler* create(int *initial_exponents, int n);
 	virtual void increment_exponent(unsigned int id) = 0;
 	virtual int sample() = 0;
 	virtual void remove(unsigned int id) = 0;
-	virtual void dump() = 0;
+	virtual void dump() const = 0;
 	virtual ~Sampler() {};
 };
-
-Sampler* create_Sampler(int *initial_exponents, int n);
 
 #endif /* SAMPLER_H_ */
