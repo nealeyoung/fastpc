@@ -42,7 +42,7 @@ private:
 	int		total_weight_exponent() const { return _base_exponent; }
 
 	// The weight of item with exponent e is defined to be max(1, 2^(e - _base_exponent)).
-	// _base_exponent is maintained to keep _total_weight from overflowing.
+	// _base_exponent is adjusted to keep _total_weight from overflowing.
 	inline Bigint weight_of_exponent(Exponent e) const {
 		e -= _base_exponent;
 		if (e <= 0) return 1;
@@ -67,17 +67,18 @@ private:
 		const Exponent	_exponent;			// Elements pointed to by pointers *_lo ... *_hi
 		Element**		_lo;				// are the ones with this particular _exponent.
 		Element**		_hi;
-		Iterator		_iterator;			// Where the interval occurs in the _intervals list of my _Sampler.
-											// STL linked list iterators are stable unless node is deleted.
+		Iterator		_iterator;			// The iterator for this interval in _Sampler::_intervals.
+											// (STL linked list iterators are stable unless node is deleted.)
 
+		// constructor
 		Interval(Exponent exponent, Element** lo) : _exponent(exponent), _lo(lo), _hi(lo-1) {}
 
-		// Relocate an element* in _storage to a new spot, updating the element's back reference.
+		// Relocate an element* in _storage to a new spot, updating the element's back pointer.
 		inline static void move(Element* e, Element** where) {
 			*where = e;
 			e->_back_ptr = where;
 		}
-		// Exchange the location of two Element* 's in _storage.
+		// Exchange the location of two Element* 's in _storage, updating their back pointers.
 		inline static void swap(Element** w1, Element **w2) {
 			Element& e1(**w1);
 			Element& e2(**w2);
@@ -98,8 +99,9 @@ private:
 			e._interval = NULL;
 			e._back_ptr = NULL;
 		}
-		// Relocate the pointers in this interval in _storage.
+		// Shift this _interval's pointers in _storage.
 		// (For compacting after many items are removed.)
+		// See _Sampler::compactify_intervals_to_left
 		void shift_storage_right(Element **new_hi) {
 			int			delta	= new_hi - _hi;
 			Element**	new_lo	= _lo + delta;
@@ -107,6 +109,7 @@ private:
 			Element**	to		= new_hi;
 			assert(delta >= 0);
 
+			// shift the pointers to the right by delta
 			while (from < new_lo  &&  to >= new_lo) {
 				assert(*to == NULL);		// overwrite only empty pointers
 				move(*from, to);
@@ -138,23 +141,40 @@ private:
 		next->_iterator = next;
 		return next;
 	}
+	// Insert element ptr into an interval.  Expand the interval
+	// and update _Sampler fields accordingly.
+	// Insert at lo end:
 	void insert_lo(Iterator it, Element* e) {
 		it->insert(e, --it->_lo);
 		_total_weight += weight_of_exponent(it->_exponent);
 		if (it->_exponent < _base_exponent)  _base_rank += 1;
+
+		maintain_base_exponent();
 	}
+	// Insert at hi end:
 	void insert_hi(Iterator it, Element* e) {
 		it->insert(e, ++it->_hi);
 		_total_weight += weight_of_exponent(it->_exponent);
 		if (it->_exponent < _base_exponent)  _base_rank += 1;
+
+		maintain_base_exponent();
 	}
+	// Remove an element ptr from an interval,
+	// freeing the array location at the high end.
 	void remove_hi(Iterator it, Element* elt) {
+		// swap the element ptr with the high end one
 		if (elt->_back_ptr != it->_hi)
 			it->swap(elt->_back_ptr, it->_hi);
+
+		// remove the element and adjust _hi
 		it->remove(elt->_back_ptr);
 		it->_hi -= 1;
+
+		// maintain _Sampler invariants
 		_total_weight -= weight_of_exponent(it->_exponent);
 		if (it->_exponent < _base_exponent)  _base_rank -= 1;
+
+		// free up interval if empty
 		if (it->empty())  {
 			if (it == _base_exponent_interval) ++ _base_exponent_interval;
 			_intervals.erase(it);
@@ -176,19 +196,38 @@ private:
 	inline static Bigint two_to_the(int e)	{  return Bigint(1) << e;  }
 	inline static Bigint ls_bits(int e)		{  return two_to_the(e) - Bigint(1);  }
 
+	inline void maintain_base_exponent() {
+		// _total_weight >= half max value?  most-significant bit set?
+		while (_total_weight & ls_bits(8*sizeof(Bigint)))
+			shift_base_exponent_right();
+	}
+
+	// Increase the _base_exponent,
+	// maintaining the _total_weight and _base_rank invariants.
+	// Increase it to the minimum existing element exponent
+	// that is greater than the current _base_exponent.
+	// This might not increase _base_rank.
 	void shift_base_exponent_right() {
 		Iterator	new_base_exponent_interval	= _base_exponent_interval;
 		int			new_base_rank				= _base_rank;
 
 		if (_base_exponent >= _base_exponent_interval->_exponent)  {
-			// move _base_exponent to left of interval to right of _base_exponent_interval
+			// jump _base_exponent to next interval
 			++ new_base_exponent_interval;
 			new_base_rank += _base_exponent_interval->size();
 			_total_weight -= weight_of_exponent(_base_exponent_interval->_exponent);
 			assert(new_base_exponent_interval != _intervals.end());
 		}
+		// else interval stays same but _base_exponent
+		// increases to the interval's exponent
+
 		Exponent new_base_exponent = new_base_exponent_interval->_exponent;
 
+		// Adjust _total_weight in O(1) time.
+		// Subtract off weight of elements less than _base_exponent.
+		// Divide remaining weight by 2^(increase in _base_exponent).
+		// (The new total weight of the remaining elements.)
+		// Add back in weight for elements less than _base_exponent.
 		_total_weight -= _base_rank;
 		assert((_total_weight & ls_bits(new_base_exponent - _base_exponent)) == 0);
 		_total_weight >>= new_base_exponent - _base_exponent;
@@ -199,6 +238,8 @@ private:
 		_base_exponent_interval = new_base_exponent_interval;
 	}
 
+	// Remove NULLS between all intervals to the left of this one
+	// by shifting these intervals maximally to the right.
 	void compactify_intervals_to_left(Iterator i)  {
 		++i;
 		Element** new_hi;
@@ -225,27 +266,32 @@ public:
 
 		assert(_elements && _storage);
 
-		std::pair<int, Id> sorted_exponents[n];
+		// set up _elements and _storage
+		{
+			std::pair<int, Id> sorted_exponents[n];
 
-		for (int i = 0;  i < n;  ++i) {
-			sorted_exponents[i].first = initial_exponents[i];
-			sorted_exponents[i].second = i;
-		}
-		sort(sorted_exponents, sorted_exponents+n);
+			for (int i = 0;  i < n;  ++i) {
+				sorted_exponents[i].first = initial_exponents[i];
+				sorted_exponents[i].second = i;
+			}
+			sort(sorted_exponents, sorted_exponents+n);
 
-		Exponent min_exponent = Exponent(sorted_exponents[0].first);
+			Exponent min_exponent = Exponent(sorted_exponents[0].first);
 
-		Iterator it = create_first_interval(min_exponent);
-		_base_exponent = min_exponent;
-		_base_rank = 0;
-		_base_exponent_interval = it;
+			Iterator it = create_first_interval(min_exponent);
 
-		for (int i = 0;  i < n;  ++i) {
-			Exponent	e	= sorted_exponents[i].first;
-			Id			id	= sorted_exponents[i].second;
+			// start with _base_exponent as small as possible
+			_base_exponent = min_exponent;
+			_base_rank = 0;
+			_base_exponent_interval = it;
 
-			if (e != it->_exponent)  it = get_or_make_successor(it);
-			insert_hi(it, &_elements[id]);
+			for (int i = 0;  i < n;  ++i) {
+				Exponent	e	= sorted_exponents[i].first;
+				Id			id	= sorted_exponents[i].second;
+
+				if (e != it->_exponent)  it = get_or_make_successor(it);
+				insert_hi(it, &_elements[id]);
+			}
 		}
 
 		// check work
@@ -309,10 +355,6 @@ public:
 
 		remove_hi(it, &elt);  // may delete it->_interval!
 		insert_lo(next, &elt);
-
-		// _total_weight >= half max value?  most-significant bit set?
-		while (_total_weight & ls_bits(8*sizeof(Bigint)))
-			shift_base_exponent_right();
 	}
 
 	int sample() {
