@@ -10,32 +10,33 @@
 #include "sampler.h"
 
 int main() {
-	int exponents[3] = {1,4,5};
-	int count[4] = {0, 0, 0, 0};
+	const int n = 100000;
+	int exponents[n];
+	int count[n+1];
 
-	Sampler* s = Sampler::create(exponents, 3);
+	for (int i = 0;  i < n;  ++i)  {
+		exponents[i] = 0;
+		count[i] = 0;
+	}
+	count[n] = 0;
 
-	s->dump();
-	s->increment_exponent(0);
-	s->dump();
-	s->increment_exponent(0);
-	s->dump();
-	s->increment_exponent(0);
-	s->dump();
-	s->increment_exponent(0);
-	s->dump();
+	Sampler* s = Sampler::create(10, exponents, n);
 
-	for (int i = 0;  i < 7000;  ++i) {
+	for (int i = 0;  i < 20*n;  ++i) {
 		int j = s->sample();
-		//std::cout << j << std::endl;
+		assert(j >= -1 && j < n);
 		count[j+1] += 1;
-		for (int j = 0;  j < 2;  ++j)
-			s->increment_exponent(j);
-		s->dump();
+		s->decrement_exponent(i % (n - 1000));
 	}
-	for (int i = 0;  i < 4;  ++i) {
-		std::cout << i-1 << " " << count[i] << std::endl;
+	int cum = 0;
+	int max_i = 1;
+	for (int i = 0;  i <= n;  ++i) {
+		if (i > 0) cum += count[i];
+		if (i > 0 && count[i] > count[max_i])  max_i = i;
+		if (i < 100 || i % 10000 == 0 || i >= n - 100)
+			std::cout << i-1 << " " << count[i] << " " << double(cum)/(i+1) << std::endl;
 	}
+	std::cout << "max: " << max_i-1 << " " << count[max_i] << std::endl;
 
 	return 0;
 }
