@@ -42,11 +42,11 @@ private:
 	List		_intervals;					// In _storage, for each maximal contiguous sequence of pointers
 											// to elements with equal exponents, there is an interval structure.
 											// This is a list of them ordered by increasing exponent.
-	Exponent	_base_exponent;				// See update_cached_weight().
-	Weight		_cached_weight_to_right;	// Cached sum of weights of elements with exponent >= _base_exponent; see _weight_of_exponent().
-	int			_cached_n_to_left;			// Number of elements with exponent < _base_exponent.
+	Exponent	_base_exponent;				// See weight_of_exponent().
+	Weight		_cached_weight_to_right;	// Cached sum of weights of elements with exponent > _base_exponent; see _weight_of_exponent().
+	int			_cached_n_to_left;			// Number of elements with exponent <= _base_exponent.
 	bool		_cached_weight_valid;		// Is the cached sum up to date?
-	Iterator	_cached_interval;			// leftmost interval with exponent >= _base_exponent
+	Iterator	_cached_interval;			// leftmost interval with exponent > _base_exponent
 
 	// The weight of item with exponent e is defined to be max(1, 2^(e - _base_exponent)).
 	inline Weight weight_of_exponent(Exponent e) const {
@@ -164,7 +164,8 @@ private:
 
 	// Remove an element ptr from an interval,
 	// freeing the array location at the high end.
-	inline void remove_hi(Iterator it, Element* elt) {
+	inline void remove_hi(Element* elt) {
+		Iterator it(elt->_interval->_iterator);
 		// swap the element ptr with the high end one
 		if (elt->_back_ptr != it->_hi)			it->swap(elt->_back_ptr, it->_hi);
 
@@ -176,7 +177,8 @@ private:
 	}
 	// Remove an element ptr from an interval,
 	// freeing the array location at the low end.
-	inline void remove_lo(Iterator it, Element* elt) {
+	inline void remove_lo(Element* elt) {
+		Iterator it(elt->_interval->_iterator);
 		// swap the element ptr with the lo end one
 		if (elt->_back_ptr != it->_lo)			it->swap(elt->_back_ptr, it->_lo);
 
@@ -212,6 +214,7 @@ private:
 		do {
 			--i;
 			i->shift_storage_right(new_hi);
+			new_hi = i->_lo - 1;
 		} while (i != _intervals.begin());
 	}
 
@@ -229,7 +232,7 @@ private:
 		}
 
 		-- _cached_interval;											// rightmost interval
-		_base_exponent				=	_cached_interval->_exponent;  		// largest exponent
+		_base_exponent				=	_cached_interval->_exponent - 1;
 		_cached_weight_to_right		=	_cached_interval->size();
 		_cached_n_to_left			=	_n_remaining - _cached_interval->size();
 
@@ -237,16 +240,16 @@ private:
 
 		while (_cached_weight_to_right < Weight(_cached_n_to_left)) {
 			-- _cached_interval;
-			int to_shift				= _base_exponent - _cached_interval->_exponent;
+			int to_shift				= _base_exponent - (_cached_interval->_exponent-1);
 			assert(to_shift > 0);
-			int msb						= most_significant_bit(_cached_weight_to_right);
+			int msb						= most_significant_bit(_cached_weight_to_right | _cached_interval->size());
 
 			if (to_shift <= max_bits - msb) {
 				assert(_cached_interval->size() < ((Weight(1) << max_bits)));
-				_base_exponent			=	_cached_interval->_exponent;
+				_base_exponent			=	_cached_interval->_exponent - 1;
 				_cached_weight_to_right	<<=	to_shift;
-				_cached_weight_to_right	+=	_cached_interval->size();  // could cause overflow if size > 2^max_bits ?
-				_cached_n_to_left 		-=	_cached_interval->size();
+				_cached_weight_to_right	+=	_cached_interval->size() * 2; // 2 = weight_of_exponent(_cached_interval->_exponent);
+				_cached_n_to_left 		-=	_cached_interval->size();     // beware overflow
 				assert(_cached_weight_to_right < ((Weight(1) << (8*sizeof(Weight)-1))));
 				assert(_cached_weight_to_right < RAND_MAX);
 			} else {
@@ -280,9 +283,9 @@ public:
 			std::pair<int, Id> sorted_exponents[n];
 			assert(sorted_exponents);
 
-			for (int i = 0;  i < n;  ++i) {
-				sorted_exponents[i].first = initial_exponents[i];
-				sorted_exponents[i].second = i;
+			for (int id = 0;  id < n;  ++id) {
+				sorted_exponents[id].first = initial_exponents[id];
+				sorted_exponents[id].second = id;
 			}
 			sort(sorted_exponents, sorted_exponents+n);
 
@@ -346,8 +349,7 @@ public:
 
 	void remove(unsigned int id)	{		assert(int(id) <= _max_id);
 		Element& elt(_elements[id]);		assert(elt._interval);
-		Interval* i(elt._interval);
-		remove_hi(i->_iterator, &elt);
+		remove_hi(&elt);
 	}
 
 	void increment_exponent(unsigned int id) {		assert(int(id) <= _max_id);
@@ -355,7 +357,7 @@ public:
 		Iterator it = elt._interval->_iterator;
 		Iterator next = get_or_make_successor(it);
 
-		remove_hi(it, &elt);  // may delete it->_interval!
+		remove_hi(&elt);  // may delete it->_interval!
 		insert_lo(next, &elt);
 	}
 	void decrement_exponent(unsigned int id) {		assert(int(id) <= _max_id);
@@ -363,13 +365,13 @@ public:
 		Iterator it = elt._interval->_iterator;
 		Iterator next = get_or_make_predecessor(it);
 
-		remove_lo(it, &elt);  // may delete it->_interval!
+		remove_lo(&elt);  // may delete it->_interval!
 		insert_hi(next, &elt);
 	}
 
 	int sample() {
 		static const Exponent RAND_BITS(8*sizeof(RAND_MAX) - 1);
-		assert(RAND_MAX == (((unsigned int) 1) << RAND_BITS) - 1);
+		assert(RAND_MAX == ls_bits(RAND_BITS));
 
 		if (! _cached_weight_valid) update_cached_weight();
 		assert(_cached_weight_to_right > 0);
@@ -408,16 +410,17 @@ public:
 				chosen = leftmost_lo[random_weight(n_slots-1)];
 			while (chosen == NULL);
 
-			// accept it (don't reject) with probability 1/2^e.  e can be large
+			// accept it (don't reject) with probability...
+			//   true weight / 1
+			//     = 2^(_exponent - _base_exponent)
 			Exponent	e			= _base_exponent - chosen->_interval->_exponent;
 			assert(e >= 0);
-			if (e == 0)  return element_id(chosen);
 			while (e > RAND_BITS) {
 				if (rand() != 0) return -1;
 				e -= RAND_BITS;
 			}
-			if ((rand() & ls_bits(e)) == 0) return element_id(chosen);
-			return -1;
+			if (e > 0  &&  (rand() & ls_bits(e)) != 0) return -1;
+			return element_id(chosen);
 		}
 		assert(false);
 		return -1;
@@ -438,51 +441,52 @@ class _Sampler : public Sampler {
 	class _Sampler1	_s1;
 	int				_k;
 	int*			_exponent_gaps;  // distance to next multiple of k:  k*ceil(exponent/k) - exponent
-	int*			_powers;
+	int*			_powers;		 // _powers[i] = RAND_MAX * 2^(-i/_k)
 
 public:
 	_Sampler(int k, int *initial_exponents, int n) : _k(k) {
 		assert(n > 0);
 		assert(k > 0);
 
-		int next_multiple[n];
-		assert(next_multiple);
+		int next_powers_of_two[n];
+		assert(next_powers_of_two);
 
 		_exponent_gaps = new int[n];
 		assert(_exponent_gaps);
 
 		for (int i = 0;  i < n;  ++i) {
 			if (initial_exponents[i] > 0)
-				next_multiple[i] = 1 + (initial_exponents[i] - 1) / k;
+				next_powers_of_two[i] = 1 + (initial_exponents[i] - 1) / k;
 				// e.g. if k = 10
 				//      1 + (10 - 1) / 10 = 1 +  9/10 = 1
 				// 		1 + (11 - 1) / 10 = 1 + 10/10 = 2
 			else // int division with negative numerator can round up!
-				next_multiple[i] = - ((- initial_exponents[i]) / k);
+				next_powers_of_two[i] = - ((- initial_exponents[i]) / k);
 				// e.g. if k = 10
 				//		- ( -  -9) / 10 = -  9/10 =  0
 				//      - ( - -10) / 10 = - 10/10 = -1
 
-			_exponent_gaps[i] = next_multiple[i]*k - initial_exponents[i];
+			_exponent_gaps[i] = next_powers_of_two[i]*k - initial_exponents[i];
 			assert(0 <= _exponent_gaps[i] &&  _exponent_gaps[i] < k);
 		}
-		_s1.initialize(next_multiple, n);
+		_s1.initialize(next_powers_of_two, n);
 
 		_powers = new int[k];
 		assert(_powers);
 		for (int i = 0;  i < k;  ++i)
 			_powers[i] = int(RAND_MAX * pow(2.0, -double(i)/double(k)));
 	}
-	void increment_exponent(unsigned int id) {
+	void decrement_exponent(unsigned int id) {
+		// decreasing exponent increases the gap
 		if (++_exponent_gaps[id] == _k) {
 			_exponent_gaps[id] = 0;
-			_s1.increment_exponent(id);
+			_s1.decrement_exponent(id);
 		}
 	}
-	void decrement_exponent(unsigned int id) {
+	void increment_exponent(unsigned int id) {
 		if (--_exponent_gaps[id] == -1) {
 			_exponent_gaps[id] = _k-1;
-			_s1.decrement_exponent(id);
+			_s1.increment_exponent(id);
 		}
 	}
 	int sample() {

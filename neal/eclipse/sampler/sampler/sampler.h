@@ -13,6 +13,7 @@ public:
 	// Create a Sampler containing the n integers in initial_exponents[0..n-1].
 	// The integer initial_exponents[i] is associated with id i.
 	// (The array initial_exponents is used only for initialization, not for storage.)
+	// right now k is assumed > 0.
 	static Sampler* create				(int k, int *initial_exponents, int n);
 
 	// Increment the integer (thought of as an exponent) associated with id i.
@@ -27,7 +28,7 @@ public:
 
 	// Return an upper bound mantissa * 2^exponent on the sum of the weights.
 	// In sample(), above, the probability of returning an id exactly equals
-	// 2^(integer associated with that id / k) / total_weight().
+	// 2^(integer associated with that id / k) / (mantissa * 2^exponent)
 	// The probability of returning -1 is the remaining probability.
 	virtual void	total_weight		(int& mantissa, int& exponent)	= 0; // const
 
