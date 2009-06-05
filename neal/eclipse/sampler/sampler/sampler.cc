@@ -25,7 +25,12 @@ private:
 	class						Element;
 	class						Interval;
 
-	inline static int			most_significant_bit(Weight w)  {  return fls(w);  }  // man ffs, google __builtin_fls
+	inline static int			count_leading_zeros(Weight w)   {  return __builtin_clz(w);  }
+	// see http://gcc.gnu.org/onlinedocs/gcc-4.3.3/gcc/Other-Builtins.html for clz
+	// Ñ Built-in Function: int __builtin_clz (unsigned int x)
+	// Returns the number of leading 0-bits in x, starting at the most significant bit position. If x is 0, the result is undefined.
+	// Ñ Built-in Function: int __builtin_clzl (unsigned long)
+	// Similar to __builtin_clz, except the argument type is unsigned long.
 
 	inline static Weight 		two_to_the(int e)				{  return Weight(1) << e;  }
 	inline static Weight 		ls_bits(int e)					{  return two_to_the(e) - Weight(1);  }
@@ -236,16 +241,13 @@ private:
 		_cached_weight_to_right		=	_cached_interval->size();
 		_cached_n_to_left			=	_n_remaining - _cached_interval->size();
 
-		static const int max_bits = 8*sizeof(Weight)-2;
-
 		while (_cached_weight_to_right < Weight(_cached_n_to_left)) {
 			-- _cached_interval;
-			int to_shift				= _base_exponent - (_cached_interval->_exponent-1);
+			int to_shift			= _base_exponent - (_cached_interval->_exponent-1);
 			assert(to_shift > 0);
-			int msb						= most_significant_bit(_cached_weight_to_right | _cached_interval->size());
+			int zeros_left			= count_leading_zeros(_cached_weight_to_right | _cached_interval->size());
 
-			if (to_shift <= max_bits - msb) {
-				assert(_cached_interval->size() < ((Weight(1) << max_bits)));
+			if (to_shift <= zeros_left - 2) {
 				_base_exponent			=	_cached_interval->_exponent - 1;
 				_cached_weight_to_right	<<=	to_shift;
 				_cached_weight_to_right	+=	_cached_interval->size() * 2; // 2 = weight_of_exponent(_cached_interval->_exponent);
@@ -253,7 +255,7 @@ private:
 				assert(_cached_weight_to_right < ((Weight(1) << (8*sizeof(Weight)-1))));
 				assert(_cached_weight_to_right < RAND_MAX);
 			} else {
-				to_shift = max_bits - msb;
+				to_shift = zeros_left - 1;
 				assert(to_shift > 0);
 				++ _cached_interval;
 				_base_exponent			-=	to_shift;
