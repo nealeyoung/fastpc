@@ -18,11 +18,13 @@ public:
 
 private:
 	struct EntryVector;
+
 	int 			_n_rows, _n_cols;
 	Entry*			_storage;
 	EntryVector**	_rows;
 	EntryVector**	_cols;
-	list<Entry*>	_entries;  // working
+	std::list<Entry*>	_entries;
+	bool			_done_adding_entries;
 
 public:
 	typedef double Scalar;
@@ -30,13 +32,22 @@ public:
 	struct Entry {
 		int _row, _col;
 		Scalar _value;
-		void set(int row, int col, Scalar value) {
+		Entry(int row, int col, Scalar value) {
 			_row = row; _col = col; _value = value; _removed = false;
 		}
 		bool _removed;
 	};
 
-	Matrix(Entry* entries, int n_entries);
+	Matrix() :
+		_storage(NULL),
+		_rows(NULL),
+		_cols(NULL),
+		_done_adding_entries(false) {}
+
+	// use the following routines to initialize matrix
+	void add_entry(int row, int col, Scalar value) { _entries.push_back(new Entry(row, col, value)); }
+	void done_adding_entries();
+
 	~Matrix() {
 		for (int i = 0;  i < _n_rows;  ++i)  delete _rows[i];
 		for (int i = 0;  i < _n_cols;  ++i)  delete _cols[i];
@@ -98,6 +109,7 @@ private:
 					if (removed(entry)) --entry;
 					else *(_last_scanned_removed--) = *(entry--);
 				_lo = _last_scanned_removed + 1;
+				_last_scanned_removed = NULL;
 			}
 			return NULL;
 		}
