@@ -10,14 +10,13 @@
 #include "matrix.h"
 
 int main() {
-	Matrix::Entry entries[4];
+	Matrix M;
 
-	entries[0].set(0,0,2);
-	entries[1].set(0,1,1);
-	entries[2].set(1,0,1);
-	entries[3].set(1,1,2);
-
-	Matrix M(entries, 4);
+	M.add_entry(0,0,2);
+	M.add_entry(0,1,1);
+	M.add_entry(1,0,1);
+	M.add_entry(1,1,2);
+	M.done_adding_entries();
 
 	M.dump();
 
