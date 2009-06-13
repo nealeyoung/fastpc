@@ -27,6 +27,8 @@ public:
 	// Needed when covering constraint deleted (row maxes can decrease).
 	virtual void 	decrease_exponent	(unsigned int id, int new_exponent)	= 0;
 
+	virtual int		get_exponent		(unsigned int id)				= 0;
+
 	// Return a random id, or -1, where the probability of selecting any id
 	// is proportional to the id weight:  2^(integer associated with that id / k).
 	virtual int 	sample				()								= 0;
@@ -39,6 +41,9 @@ public:
 
 	// Remove an integer from the set.
 	virtual void	remove				(unsigned int id)				= 0;
+
+	virtual int		n_remaining			()						const	= 0;
+	virtual bool	empty				()						const	= 0;
 
 	// For debugging...
 	virtual void	dump				()						const	= 0;

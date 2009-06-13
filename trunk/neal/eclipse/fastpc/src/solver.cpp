@@ -6,9 +6,11 @@
  */
 
 #include <cmath>
+#include <iostream>
 
 #include "solver.h"
 #include "matrix.h"
+#include "sampler.h"
 
 class _Solver : public Solver {
 private:
@@ -24,7 +26,42 @@ private:
 		// 2^(i/k) >= value
 		// i/k ln(2) >= ln(value)
 		// i >= k ln(value) / ln(2)
-		return int(std::floor(_k * std::log(value)/std::log(2.0)));
+		return int(std::ceil(_k * std::log(value)/std::log(2.0)));
+	}
+
+	void random_pair(Sampler* pr, Sampler* pc, Sampler* pur, Sampler* puc,
+			int* row, int* col) {
+		int pr_M, pr_E,
+			pc_M, pc_E,
+			pur_M, pur_E,
+			puc_M, puc_E;
+
+		pr	->total_weight(&pr_M, 	&pr_E);
+		pc	->total_weight(&pc_M, 	&pc_E);
+		pur	->total_weight(&pur_M,	&pur_E);
+		puc	->total_weight(&puc_M,	&puc_E);
+
+		double p = 1.0/(1.0 + std::ldexp((double(pr_M) * double(puc_M))
+										 / (double(pur_M) * double(pc_M)),
+									    pr_E + puc_E - pur_E - pc_E));
+		// with probability |pur||pc| / ( |pur||pc| + |pr||puc| )    = 1/(1 + |pr||puc|/|pur||pc|)
+		// choose row from pur and col from pc
+		// otherwise
+		// choose row from pr and col from puc
+
+		do {
+			if (std::rand() >= p*RAND_MAX) {
+				*row = pur->sample();
+				if (*row == -1) continue;
+				*col = pc->sample();
+				if (*col != -1) break;
+			} else {
+				*row = pr->sample();
+				if (*row == -1) continue;
+				*col = puc->sample();
+				if (*col != -1) break;
+			}
+		} while (1);
 	}
 
 public:
@@ -34,10 +71,13 @@ public:
 		// 2^(1/k) <= 1+epsilon
 		// 1/k ln(2) <= ln(1+epsilon)
 		// k >= ln(2)/ln(1+epsilon)
-		_k = int(std::floor(std::log(2.0)/std::log(1+epsilon)));
-		_epsilon = std::pow(2.0, 1.0/_k);
+		_k = int(std::ceil(std::log(2.0)/std::log(1+epsilon)));
+		_epsilon = std::pow(2.0, 1.0/_k) - 1.0;
 	}
+	~_Solver() { delete[] _xr; delete[] _xc;}
+
 	void add_entry(int row, int col, Scalar value) {
+		assert(!_xr);
 		_M.add_entry(row, col, value, exponent_of_value(value));
 	}
 	bool solve();
@@ -53,9 +93,9 @@ public:
 	}
 };
 
-#include "sampler.h"
-
 bool _Solver::solve() {
+	assert(!_xr);
+
 	_M.done_adding_entries();
 
 	int n_rows = _M.n_rows();
@@ -64,8 +104,8 @@ bool _Solver::solve() {
 	assert(n_rows);
 	assert(n_cols);
 
-	_xr = new Scalar(n_rows);
-	_xc = new Scalar(n_cols);
+	_xr = new Scalar[n_rows];
+	_xc = new Scalar[n_cols];
 
 	int row_exponents[n_rows];
 	int col_exponents[n_cols];
@@ -101,23 +141,28 @@ bool _Solver::solve() {
 
 	Sampler*	pr		= Sampler::create(_k, n_rows);
 	Sampler*	pc		= Sampler::create(_k, n_cols);
-	Sampler*	pr_ur	= Sampler::create(_k, n_rows, row_exponents);
-	Sampler*	pc_uc	= Sampler::create(_k, n_cols, col_exponents);
+	Sampler*	pur		= Sampler::create(_k, n_rows, row_exponents);
+	Sampler*	puc		= Sampler::create(_k, n_cols, col_exponents);
 
+	// delete empty rows from row samplers
 	for (int row = 0;  row < n_rows;  ++row)
 		if (! _M.max_entry_in_row(row)) {
 			// delete row
 			pr->remove(row);
-			pr_ur->remove(row);
+			pur->remove(row);
 		}
 
 	int N = int(std::ceil(2*std::log(n_rows*n_cols) / (_epsilon*_epsilon)));
+	int iteration = 0, empty_iterations = 0;
 
 	do {
-		int row, col;  // row is i',  col is j'
+		bool empty_iteration = true;
+		++iteration;
 
-		random_pair(pr, pc, pr_ur, pc_uc, &row, &col);
-		// TODO: write random_pair
+		int row, col;  // row is i',  col is j' (w.r.t. published alg)
+
+		random_pair(pr, pc, pur, puc, &row, &col);
+		assert(0 <= row && row < n_rows && 0 <= col && col < n_cols);
 
 		Matrix::Entry** row_max = _M.max_entry_in_row(row);
 		Matrix::Entry** col_max = _M.max_entry_in_col(col);
@@ -136,18 +181,84 @@ bool _Solver::solve() {
 		for (Matrix::Entry** r = _M.first_entry_in_col(col, z_over_delta);
 			  r;
 			  r = _M.next_entry_in_col(col, r, z_over_delta)) {
-			pr->increment_exponent((*r)->_row);
-			pr_ur->increment_exponent((*r)->_row);
+			empty_iteration = false;
+			int row_prime = (*r)->_row;
+			pr->increment_exponent(row_prime);
+			pur->increment_exponent(row_prime);
+			if (pr->get_exponent(row_prime) >= N) break;
 		}
 		for (Matrix::Entry** c = _M.first_entry_in_row(row, z_over_delta);
 			  c;
 			  c = _M.next_entry_in_row(row, c, z_over_delta)) {
-			pc->increment_exponent((*c)->_col);
-			pc_uc->increment_exponent((*c)->_col);
-			// TODO: delete col if pc exponent reaches N
-			// and BREAK loop if all cols are gone.
-			// (consider case when row becomes empty -> all cov constraints sat -> freeze row var)
+			int col_prime = (*c)->_col;
+			empty_iteration = false;
+			pc->decrement_exponent(col_prime);
+			puc->decrement_exponent(col_prime);
+
+			if (pc->get_exponent(col_prime) <= -N) {
+				// delete satisfied covering constraint col_prime
+
+				std::list<int> rows_affected;  // collect rows whose max entries will be deleted
+				for (Matrix::Entry** r = _M.first_entry_in_col(col_prime);
+						r;
+						r = _M.next_entry_in_col(col_prime, r)) {
+					// r ranges over entries in col_prime
+					if (*_M.max_entry_in_row((*r)->_row) == *r)
+						rows_affected.push_back((*r)->_row);
+				}
+				// remove column col_prime from matrix and samplers
+				_M.remove_col(col_prime);
+				pc->remove(col_prime);
+				puc->remove(col_prime);
+				// update sampler pur, as max M_ij in row may have decreased
+				for (std::list<int>::iterator it = rows_affected.begin();
+						it != rows_affected.end();
+						++it) {
+					Matrix::Entry** max_in_row = _M.max_entry_in_row(*it);
+					if (! max_in_row) {
+						// No non-zeros in row in active columns.
+						// => Row variable contributes to no active covering constraints.
+						// => Remove that variable from samplers. (This is not done in published alg.)
+						pr->remove(*it);
+						pur->remove(*it);
+					} else {
+						// Recalculate exponent in pur.
+						int row_exponent = pr->get_exponent(*it) + (*max_in_row)->_exponent;
+						pur->decrease_exponent(*it, row_exponent);
+					}
+				}
+			}
 		}
-	} while(1);
+		if (empty_iteration) ++empty_iterations;
+	} while(! pc->empty());
+
+	// normalize variables
+	_M.restore(); // undo removals
+	// row is packing
+	Scalar max_row_sum = 0, min_col_sum = 10*N, row_value = 0, col_value = 0;
+	for (int row = 0;  row < n_rows;  ++row) {
+		Scalar sum = 0;
+		for (Matrix::Entry** c = _M.first_entry_in_row(row);  c;  c = _M.next_entry_in_row(row, c))
+			sum += (*c)->_value * _xc[(*c)->_col];
+		max_row_sum = std::max(sum, max_row_sum);
+	}
+	for (int col = 0;  col < n_cols;  ++col) {
+		Scalar sum = 0;
+		for (Matrix::Entry** r = _M.first_entry_in_col(col);  r;  r = _M.next_entry_in_col(col, r))
+			sum += (*r)->_value * _xr[(*r)->_row];
+		min_col_sum = std::min(sum, min_col_sum);
+	}
+	assert(max_row_sum > 0  &&  min_col_sum > 0);
+	for (int row = 0;  row < n_rows;  ++row)  { _xr[row] /= min_col_sum;  row_value += _xr[row]; }
+	for (int col = 0;  col < n_cols;  ++col)  { _xc[col] /= max_row_sum;  col_value += _xc[col]; }
+
+	std::cout << "Solver:: N = " << N << ", non-empty iterations = " << iteration  - empty_iterations << ", empty iterations = " << empty_iterations << std::endl;
+	std::cout << "Solver:: desired epsilon = " << _epsilon << ", effective epsilon = " << row_value/col_value - 1.0 << std::endl;
+
 	return true;
 }
+
+Solver* Solver::create(Scalar epsilon) {
+	return new _Solver(epsilon);
+}
+

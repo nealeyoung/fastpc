@@ -233,11 +233,11 @@ private:
 			_base_exponent 				= 0;
 			return;
 		}
-
 		-- _cached_interval;											// rightmost interval
 		_base_exponent				=	_cached_interval->_exponent - 1;
 		_cached_weight_to_right		=	_cached_interval->size();
 		_cached_n_to_left			=	_n_remaining - _cached_interval->size();
+		assert(_cached_n_to_left == 0 || _cached_interval != _intervals.begin());
 
 		while (_cached_weight_to_right < Weight(_cached_n_to_left)) {
 			-- _cached_interval;
@@ -331,10 +331,11 @@ public:
 					<< std::endl;
 
 		for (int rank = 0;  rank <= _max_id;  ++rank) {
-			const Element&	elt(*_storage[rank]);
-			const Interval*	i = elt._interval;
+			const Element*	elt(_storage[rank]);
+			if (! elt) continue;
+			const Interval*	i = elt->_interval;
 			std::cout 	<< "rank=" 			<< int(rank)
-						<< ", id=" 			<< element_id(&elt)
+						<< ", id=" 			<< element_id(elt)
 						<< ", interval=" 	<< &(*i);
 			if (i) {
 				std::cout
@@ -350,7 +351,10 @@ public:
 	void remove(unsigned int id)	{		assert(int(id) <= _max_id);
 		Element& elt(_elements[id]);		assert(elt._interval);
 		remove_hi(&elt);
+		--_n_remaining;
 	}
+	int  n_remaining	() const { return _n_remaining; }
+	bool empty			() const { return _n_remaining == 0; }
 
 	void increment_exponent(unsigned int id) {		assert(int(id) <= _max_id);
 		Element &elt(_elements[id]);				assert(elt._interval);
@@ -378,6 +382,12 @@ public:
 			decrement_exponent(id);
 	}
 
+	int get_exponent(unsigned int id) {
+		assert(id <= unsigned(_max_id));
+		assert(_elements[id]._interval);
+		return _elements[id]._interval->_exponent;
+	}
+
 	int sample() {
 		static const Exponent RAND_BITS(8*sizeof(RAND_MAX) - 1);
 		assert(RAND_MAX == ls_bits(RAND_BITS));
@@ -400,6 +410,8 @@ public:
 			assert(false);
 		} else {
 			r						-= _cached_weight_to_right;
+
+			assert(_cached_interval != _intervals.begin());
 
 			Iterator	i			= _cached_interval;  -- i;
 			Element**	leftmost_lo = _intervals.begin()->_lo;
@@ -453,7 +465,7 @@ private:
 	int*			_exponent_gaps;  // distance to next multiple of k:  k*ceil(exponent/k) - exponent
 	int*			_powers;		 // _powers[i] = RAND_MAX * 2^(-i/_k)
 
-	void split_exponent(int exp, int* next_power_of_two, int* gap) {
+	inline void split_exponent(int exp, int* next_power_of_two, int* gap) {
 		if (exp > 0)
 			*next_power_of_two = 1 + (exp - 1) / _k;
 			// e.g. if k = 10
@@ -467,6 +479,10 @@ private:
 		*gap = (*next_power_of_two)*_k - exp;
 		assert(0 <= *gap  &&  *gap < _k);
 	}
+	inline int assemble_exponent(int next_power_of_two, int gap) {
+		return next_power_of_two*_k - gap;
+	}
+
 public:
 	_Sampler(int k, int n, int *initial_exponents = NULL) : _k(k) {
 		assert(n > 0);
@@ -514,6 +530,9 @@ public:
 		split_exponent(new_exponent, &new_exp2, &_exponent_gaps[id]);
 		_s1.decrease_exponent(id, new_exp2);
 	}
+	inline int get_exponent(unsigned int id) {
+		return assemble_exponent(_s1.get_exponent(id), _exponent_gaps[id]);
+	}
 	int sample() {
 		int id = _s1.sample();
 		if (id == -1) return -1;
@@ -526,16 +545,12 @@ public:
 		_s1.total_weight(mantissa, exponent);
 	}
 
-	void remove (unsigned int id) {
-		_s1.remove(id);
-	}
+	void remove			(unsigned int id) 	{ _s1.remove(id); }
+	int	 n_remaining	() const			{ return _s1.n_remaining(); }
+	bool empty			() const			{ return _s1.empty(); }
+	void dump 			() const 			{ _s1.dump(); }
+	~_Sampler			() 					{ delete[] _exponent_gaps; }
 
-	void dump () const {
-		_s1.dump();
-	}
-	~_Sampler() {
-		delete[] _exponent_gaps;
-	}
 };
 
 Sampler* Sampler::create(int k, int n, int* initial_exponents) {

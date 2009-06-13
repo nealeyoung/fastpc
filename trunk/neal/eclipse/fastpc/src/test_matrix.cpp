@@ -9,13 +9,13 @@
 
 #include "matrix.h"
 
-int main() {
+int test_matrix() {
 	Matrix M;
 
-	M.add_entry(0,0,2);
-	M.add_entry(0,1,1);
-	M.add_entry(1,0,1);
-	M.add_entry(1,1,2);
+	M.add_entry(0,0,2,0);
+	M.add_entry(0,1,1,0);
+	M.add_entry(1,0,1,0);
+	M.add_entry(1,1,2,0);
 	M.done_adding_entries();
 
 	M.dump();
