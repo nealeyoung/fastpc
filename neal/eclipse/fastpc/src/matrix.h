@@ -20,7 +20,6 @@ private:
 	struct EntryVector;
 
 	int 			_n_rows, _n_cols;
-	Entry*			_storage;
 	EntryVector**	_rows;
 	EntryVector**	_cols;
 	std::list<Entry*>	_entries;
@@ -41,7 +40,6 @@ public:
 	};
 
 	Matrix() :
-		_storage(NULL),
 		_rows(NULL),
 		_cols(NULL),
 		_done_adding_entries(false) {}
@@ -69,21 +67,25 @@ public:
 	inline int		n_rows				()												{ return _n_rows; }
 	inline int		n_cols				()												{ return _n_cols; }
 	void			dump				();
+	void			restore				(); // undo all removals
 
 private:
 	// for rows and columns
 	struct EntryVector {
 		Entry**		_storage;
+		int			_n;
 		Entry**		_lo;
 		Entry**		_hi;
 		Entry**		_last_scanned_removed;
 
 		EntryVector(int n) :
 			_storage(new Entry*[n]),
+			_n(n),
 			_lo(&_storage[n]),
 			_hi(&_storage[n-1]),
 			_last_scanned_removed(NULL)
 		{}
+		inline void clear()					{ _lo = &_storage[_n];  _hi = &_storage[_n-1]; }
 		~EntryVector() 						{ delete[] _storage; }
 		inline bool empty()					{ return _lo > _hi; }
 		inline void add(Entry* entry)		{ *(--_lo) = entry;  assert(_lo >= _storage); }
@@ -105,8 +107,10 @@ private:
 					continue;
 				}
 				if (entry[0]->_value >= threshold) return entry;
-				break;
+				break; // Have passed last entry with value above threshold.
 			}
+			// About to return NULL..
+			// first compactify the entries between _lo and _last_scanned_removed.
 			if (_last_scanned_removed) {
 				entry = _last_scanned_removed;
 				while(entry >= _lo)

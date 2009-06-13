@@ -9,7 +9,7 @@
 
 #include "sampler.h"
 
-int main() {
+int test_sampler() {
 	const int n = 100000;
 	int exponents[n];
 	int count[n+1];
@@ -20,7 +20,7 @@ int main() {
 	}
 	count[n] = 0;
 
-	Sampler* s = Sampler::create(10, exponents, n);
+	Sampler* s = Sampler::create(10, n, exponents);
 
 	for (int i = 0;  i < 20*n;  ++i) {
 		int j = s->sample();

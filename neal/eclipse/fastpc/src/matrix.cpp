@@ -22,6 +22,9 @@ void Matrix::done_adding_entries() {
 	Iterator it;
 	int row, col;
 
+	assert(! _done_adding_entries);
+	_done_adding_entries = true;
+
 	_n_rows = _n_cols = 0;
 
 	// count n_rows and n_cols
@@ -53,15 +56,25 @@ void Matrix::done_adding_entries() {
 	for (int i = 0;  i < _n_rows;  ++i)  _rows[i] = new EntryVector(n_in_row[i]);
 	for (int i = 0;  i < _n_cols;  ++i)  _cols[i] = new EntryVector(n_in_col[i]);
 
+	restore();
+}
+void Matrix::restore() {
+	Iterator it;
+	int row, col;
+
+	for (row = 0;  row < _n_rows;  ++row)  _rows[row]->clear();
+	for (col = 0;  col < _n_cols;  ++col)  _cols[col]->clear();
+
 	// initialize each row and each col to point to its entries,
 	for (it = _entries.begin();  it != _entries.end();  ++it)  {
 		if ((*it)->_value == 0) continue;
+		(*it)->_removed = false;
 		_rows[(*it)->_row]->add(*it);
 		_cols[(*it)->_col]->add(*it);
 	}
 	// sort rows and cols
-	for (int i = 0;  i < _n_rows;  ++i)  _rows[i]->sort();
-	for (int i = 0;  i < _n_cols;  ++i)  _cols[i]->sort();
+	for (row = 0;  row < _n_rows;  ++row)  _rows[row]->sort();
+	for (col = 0;  col < _n_cols;  ++col)  _cols[col]->sort();
 }
 void Matrix::dump() {
 	for (int i = 0;  i < _n_rows;  ++i) {
