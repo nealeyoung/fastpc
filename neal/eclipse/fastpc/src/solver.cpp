@@ -41,16 +41,15 @@ private:
 		pur	->total_weight(&pur_M,	&pur_E);
 		puc	->total_weight(&puc_M,	&puc_E);
 
-		double p = 1.0/(1.0 + std::ldexp((double(pr_M) * double(puc_M))
-										 / (double(pur_M) * double(pc_M)),
-									    pr_E + puc_E - pur_E - pc_E));
+		int p_RAND_MAX = RAND_MAX/(1.0 + std::ldexp((double(pr_M) * double(puc_M)) / (double(pur_M) * double(pc_M)),
+												pr_E + puc_E - pur_E - pc_E));
 		// with probability |pur||pc| / ( |pur||pc| + |pr||puc| )    = 1/(1 + |pr||puc|/|pur||pc|)
 		// choose row from pur and col from pc
 		// otherwise
 		// choose row from pr and col from puc
 
 		do {
-			if (std::rand() >= p*RAND_MAX) {
+			if (std::rand() >= p_RAND_MAX) {
 				*row = pur->sample();
 				if (*row == -1) continue;
 				*col = pc->sample();
@@ -107,10 +106,10 @@ bool _Solver::solve() {
 	_xr = new Scalar[n_rows];
 	_xc = new Scalar[n_cols];
 
-	int row_exponents[n_rows];
-	int col_exponents[n_cols];
+	int yr[n_rows];
+	int yc[n_cols];
 
-	assert(_xr && _xc && row_exponents && col_exponents);
+	assert(_xr && _xc && yr && yc);
 
 	for (int row = 0;  row < n_rows;  ++row) _xr[row] = 0;
 	for (int col = 0;  col < n_cols;  ++col) _xc[col] = 0;
@@ -121,9 +120,9 @@ bool _Solver::solve() {
 			// all-zero row -- trivial packing constraint
 			// row (covering) variable occurs in no constraints
 			// will delete it later
-			row_exponents[row] = 0;
+			yr[row] = 0;
 		} else {
-			row_exponents[row] = (*entry)->_exponent;
+			yr[row] = (*entry)->_exponent;
 		}
 	}
 	for (int col = 0;  col < n_cols;  ++col) {
@@ -135,14 +134,17 @@ bool _Solver::solve() {
 			_xc[col] = 1;
 			return false;
 		} else {
-			col_exponents[col] = (*entry)->_exponent;
+			yc[col] = (*entry)->_exponent;
 		}
 	}
 
 	Sampler*	pr		= Sampler::create(_k, n_rows);
 	Sampler*	pc		= Sampler::create(_k, n_cols);
-	Sampler*	pur		= Sampler::create(_k, n_rows, row_exponents);
-	Sampler*	puc		= Sampler::create(_k, n_cols, col_exponents);
+	Sampler*	pur		= Sampler::create(_k, n_rows, yr);
+	Sampler*	puc		= Sampler::create(_k, n_cols, yc);
+
+	for (int row = 0;  row < n_rows;  ++row) yr[row] = 0;
+	for (int col = 0;  col < n_cols;  ++col) yc[col] = 0;
 
 	// delete empty rows from row samplers
 	for (int row = 0;  row < n_rows;  ++row)
@@ -185,7 +187,7 @@ bool _Solver::solve() {
 			int row_prime = (*r)->_row;
 			pr->increment_exponent(row_prime);
 			pur->increment_exponent(row_prime);
-			if (pr->get_exponent(row_prime) >= N) break;
+			if (++yr[row_prime] >= N) break;
 		}
 		for (Matrix::Entry** c = _M.first_entry_in_row(row, z_over_delta);
 			  c;
@@ -195,7 +197,7 @@ bool _Solver::solve() {
 			pc->decrement_exponent(col_prime);
 			puc->decrement_exponent(col_prime);
 
-			if (pc->get_exponent(col_prime) <= -N) {
+			if (++yc[col_prime] >= N) {
 				// delete satisfied covering constraint col_prime
 
 				std::list<int> rows_affected;  // collect rows whose max entries will be deleted
