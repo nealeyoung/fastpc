@@ -225,7 +225,7 @@ bool _Solver::solve() {
 						pur->remove(*it);
 					} else {
 						// Recalculate exponent in pur.
-						int row_exponent = pr->get_exponent(*it) + (*max_in_row)->_exponent;
+						int row_exponent = yr[*it] + (*max_in_row)->_exponent;
 						pur->decrease_exponent(*it, row_exponent);
 					}
 				}

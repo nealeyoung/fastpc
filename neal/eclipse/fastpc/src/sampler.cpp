@@ -3,7 +3,7 @@
  *
  *  Created on: May 23, 2009
  *      Author: neal
- */
+ *
 
 #include <cassert>
 #include <cstdlib>
@@ -557,3 +557,4 @@ Sampler* Sampler::create(int k, int n, int* initial_exponents) {
 	return new _Sampler(k, n, initial_exponents);
 }
 
+*/

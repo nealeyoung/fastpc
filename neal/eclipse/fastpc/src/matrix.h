@@ -23,7 +23,7 @@ private:
 	EntryVector**	_rows;
 	EntryVector**	_cols;
 	std::list<Entry*>	_entries;
-	bool			_done_adding_entries;
+	int				_done_adding_entries;
 
 public:
 	typedef double Scalar;
@@ -102,7 +102,7 @@ private:
 		inline Entry** first(Scalar threshold = -1) { return next(_lo-1, threshold); }
 		inline Entry** next(Entry** entry, Scalar threshold = -1) {
 			while (++entry <= _hi)  {
-				if (removed(entry)) {
+				if (entry[0]->_removed) {
 					_last_scanned_removed = entry;
 					continue;
 				}
