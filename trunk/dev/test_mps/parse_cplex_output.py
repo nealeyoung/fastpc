@@ -2,6 +2,7 @@ import sys
 import re
 
 def parse_cplex_output_file(file_name):
+
     try:
         my_file = open(file_name)
         total_string = my_file.read()
