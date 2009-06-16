@@ -9,19 +9,34 @@ def parse_cplex_iterations(file_name, parse_time):
     if parse_time:
         print "Filename,Time (s),Iterations,Method"
     else:
-        print "Filename,Iterations,Objective,Method"
+        print "Filename,Iterations,Primal Objective,Dual Objective,Method"
     method = ""
     method_found = False
     itn_data = []
+    barrier_itn = False
 
     for line in my_file:
         if line.startswith("File type: Problem"): # New run
             input_name = line[line.rfind('/')+1:line.rfind(' ')-1]
+            method_found = False
+            method = ""
+            itn_data = []
+            barrier_itn = False
+        if barrier_itn:
+            if line.startswith("Barrier time ="):
+                barrier_itn = False
+            else:
+#                print line
+                itn_array = line.split()
+                itn_obj = [int(itn_array[0]), float(itn_array[1]), float(itn_array[2])]
+#                print itn_obj
+                itn_data.append(itn_obj)
+            continue
         if (not parse_time or not method_found) and line.startswith("Iteration:"):
             itn_array = line.split()
             #print itn_array
             if not parse_time and not itn_array[2] == 'Scaled':
-                itn_obj = [int(itn_array[1]), float(itn_array[-1])]
+                itn_obj = [int(itn_array[1]), float(itn_array[-1]), -1]
                 #print itn_obj
                 itn_data.append(itn_obj)
             if not method_found:
@@ -34,13 +49,14 @@ def parse_cplex_iterations(file_name, parse_time):
         if not method_found and line.startswith(" Itn"):
             method = "Barrier"
             method_found = True
+            barrier_itn = True
         if parse_time and line.startswith("Elapsed time"):
             itn_time_array = line.split()
             #print itn_time_array
             if itn_time_array[3] > 0:
                 time_itn = [float(itn_time_array[3]), int(itn_time_array[-2].replace('(', ''))]
-            #print time_itn
-            itn_data.append(time_itn)
+                #print time_itn
+                itn_data.append(time_itn)
         if line.startswith("Primal simplex - Optimal:") or line.startswith("Dual simplex - Optimal"):
             final_obj = float(line.split()[-1])
             #print final_obj
@@ -54,16 +70,19 @@ def parse_cplex_iterations(file_name, parse_time):
                 final_iterations = sol_array[-2]
             if final_iterations > 0:
                 if not parse_time:
-                    itn_data.append([final_iterations, final_obj])
+                    itn_data.append([final_iterations, final_obj, -1])
                 else:
                     itn_data.append([final_time, final_iterations])
             #print final_time, final_time_unit, final_iterations
-            if method == 'Primal' or method =='Dual':
-                for item in itn_data:
+            for item in itn_data:
+                if parse_time:
                     print input_name + "," + str(item[0]) + "," + str(item[1]) + "," + method
+                else:
+                    print input_name + "," + str(item[0]) + "," + str(item[1]) + "," + str(item[2])  + "," + method
             method = ""
             method_found = False
             itn_data = []
+            barrier_itn = False
 
 def main():
     args = sys.argv
