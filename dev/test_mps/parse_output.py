@@ -26,7 +26,7 @@ def parse_fastpc_output_file(file_name, v07):
     input_array = input_reg.findall(total_string)
     name_array = name_reg.findall(total_string)
     preprocess_array = preprocess_reg.findall(total_string)
-#    main_loop_array = main_loop_reg.findall(total_string)
+    main_loop_array = main_loop_reg.findall(total_string)
     eps_array = eps_reg.findall(total_string)
     
     if not v07:
@@ -47,9 +47,8 @@ def parse_fastpc_output_file(file_name, v07):
         print str(rows)+',', str(cols)+',', str(non_zeros)+',', str(density)+',',
         time_list = time_array[index].split()
         print str(time_list[time_list.index("=")+1][:-1])+',',
-        print -1, ',', # Delete this line and uncomment the next two lines
-#        main_loop_list = main_loop_array[index].split()
-#        print str(main_loop_list[main_loop_list.index("=")+1][:-1])+',',
+        main_loop_list = main_loop_array[index].split()
+        print str(main_loop_list[main_loop_list.index("=")+1][:-1])+',',
         preprocess_list = preprocess_array[index].split()
         print str(preprocess_list[preprocess_list.index("=")+1][:-1])+',',
         ans_list = ans_array[index].split()
@@ -58,7 +57,7 @@ def parse_fastpc_output_file(file_name, v07):
         print str(ratio)+',',
         eps_list = eps_array[index].split()
         print eps_list[eps_list.index("=")+1]+',',
-        print -1, ',', # Uncomment the next two lines and delete this one
+        print -1, ',', # Uncomment the next two lines and delete this one once the fastpc output is fixed
 #        ops_list = ops_array[index].split()
 #        print str(ops_list[ops_list.index('=')+1])+',',
         if not v07:
