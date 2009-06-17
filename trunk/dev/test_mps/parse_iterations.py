@@ -35,7 +35,7 @@ def parse_cplex_iterations(file_name, parse_time):
         if (not parse_time or not method_found) and line.startswith("Iteration:"):
             itn_array = line.split()
             #print itn_array
-            if not parse_time and not itn_array[2] == 'Scaled':
+            if not parse_time and not method == 'Barrier' and not itn_array[2] == 'Scaled':
                 itn_obj = [int(itn_array[1]), float(itn_array[-1]), -1]
                 #print itn_obj
                 itn_data.append(itn_obj)
