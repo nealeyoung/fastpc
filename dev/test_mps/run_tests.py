@@ -2,12 +2,13 @@ import sys
 import os
 
 def print_help():
-    print "Usage: python run_tests.py [input_file_prefix] [-fastpc=false] [-v07=false] [-glpk=false] [-profile=true]"
+    print "Usage: python run_tests.py [input_file_prefix] [-fastpc=false] [-v07=false] [-glpk=false] [-profile=true] [-cplex_alg=P|D|B]"
     print "     -fastpc: By default fastpc is run. To NOT run fastpc, use -fastpc=false"
     print "     -v07: By default v07 is run. To NOT run v07, use -v07=false"
     print "     -glpk: By default glpk is run. To NOT run glpk, use -glpk=false"
     print "     -profile: By default the profiles are not created. To create profiles use -profile=true"
     print "     To use -profile=true option, make sure the compiler settings are set right to create gmon.out file for fastpc and version_2007"
+    print "     The default for cplex algorithm is Primal. P: Primal, D: Dual, B: Barrier"
 
 def main():
 
@@ -17,6 +18,7 @@ def main():
     cplex_run = True
     profile = False
     input_file_prefix = ''
+    cplex_alg = 'primopt'
 
     try:
         args = sys.argv        
@@ -28,26 +30,39 @@ def main():
         else:
             for i in range(1,l):
                 arg = args[i]
-                if arg == '--help':
+                if arg == '--help' or arg == '-h':
                     sys.exit()
                 elif arg.startswith('-fastpc') and arg[8:] == 'false':
                     fastpc_run = False
                 elif arg.startswith('-v07') and arg[5:] == 'false':
                     v07_run = False
+                    print "Fastpc version 2007 will not be run!"
                 elif arg.startswith('-glpk') and arg[6:] == 'false':
                     glpk_run = False
+                    print "GLPK will not be run"
                 elif arg.startswith('-cplex') and arg[7:] == 'false':
                     cplex_run  = False
                 elif arg.startswith('-profile') and arg[9:] == 'true':
                     profile = True
+                elif arg.startswith('-cplex_alg'):
+                    print arg
+                    alg = arg[11:]
+                    if alg == 'D':
+                        cplex_alg = 'tranopt'
+                        print 'CPLEX: Dual optimizer will be used.'
+                    elif alg == 'B':
+                        cplex_alg = 'baropt'
+                        print 'CPLEX: Barrier optimizer will be used.'
                 else:
                     input_file_prefix = arg
     except:
         print_help()
         sys.exit()
 
+    print ''
+
     # epsilons to be run for each input file generated        
-    epsilons = [0.1, 0.05, 0.01]
+    epsilons = [0.05, 0.01]
     
     # sort_ratio to be used for runs
     sort_ratios = [1]
@@ -112,7 +127,7 @@ def main():
                     file = open(cplex_input, 'w')
                     file.write('read ' + glpk_input_dir + cplex_file + ' \n')
                     file.write('lp \n')
-                    file.write('optimize \n')
+                    file.write(cplex_alg + ' \n')
                     file.write('write ' + output_dir + cplex_file + '_cplex_out.sol \n')
                     cplex_cmd = '../../../cplex111/bin/x86_debian4.0_4.1/cplex >> ' + output_file_cplex_location + ' < ' + cplex_input
                     os.system(cplex_cmd)
@@ -138,14 +153,13 @@ def main():
         if cplex_run:
             for cplex_file in glpk_files:
                 if cplex_file.startswith(input_file_prefix) and not cplex_file.startswith('.'):
-                    print 'CPLEX: ', glpk_file
+                    print 'CPLEX: ', cplex_file
                     cplex_input = 'cplex_input'
                     file = open(cplex_input, 'w')
                     file.write('read ' + glpk_input_dir + cplex_file + ' \n')
                     file.write('lp \n')
-                    file.write('optimize \n')
+                    file.write(cplex_alg + ' \n')
                     file.write('write ' + output_dir + cplex_file + '_cplex_out.sol \n')
                     cplex_cmd = '../../../cplex111/bin/x86_debian4.0_4.1/cplex >> ' + output_file_cplex_location + ' < ' + cplex_input
                     os.system(cplex_cmd)
-
 main()
