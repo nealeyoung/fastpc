@@ -41,5 +41,6 @@ get_time() {
       exit(-1);
   }
   timersub(&start, &itimer.it_value, &diff);
-  return  diff.tv_sec*1000000 + diff.tv_usec;
+  //return  diff.tv_sec*1000000 + diff.tv_usec;
+  return diff.tv_sec;
 }

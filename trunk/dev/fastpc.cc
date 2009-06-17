@@ -255,7 +255,7 @@ solve_instance::solve_instance(double EPSILON, string infile, int SORT_RATIO) :
     }
 
     unsigned long preprocess_time = get_time() - preprocess_start;
-    cout << "preprocessing_time = " << preprocess_time/1000000.0 << " s" << endl;
+    cout << "preprocessing_time = " << preprocess_time << " s" << endl;
 
     //print normalized exponents
     //print M
@@ -511,8 +511,8 @@ solve_instance::solve() {
   cout << endl;
 
   unsigned long elapsed_time = get_time() - start_time;
-  double ops_per_increment = double(basic_ops) / (n_increments_p + n_increments_d);
-  double ops_per_usec = basic_ops/elapsed_time;
+  //double ops_per_increment = double(basic_ops) / (n_increments_p + n_increments_d);
+  //double ops_per_usec = basic_ops/elapsed_time;
 
   cout << " eps = " << eps << endl;
   cout << " epsilon = " << epsilon << endl;
@@ -526,14 +526,14 @@ solve_instance::solve() {
   cout << " n_rebuilds_p = " << p_p->n_rebuilds() << endl;
   cout << " n_rebuilds_d = " << p_d->n_rebuilds() << endl;
   cout << " n_rebuild_ops = " << p_d->n_rebuild_ops() << endl;
-  cout << " basic_ops = " << basic_ops << endl;
-  cout << " ops_per_increment = " << ops_per_increment << endl;
-  cout << " main_loop_time = " << main_loop_time/1000000.0 << "s" << endl;
-  cout << " time = " << elapsed_time/1000000.0 << "s" << endl;
-  cout << " ops_per_usec = " << ops_per_usec << endl;
-  cout << " alloc_time = " << alloc_time/1000000.0 << "s" << endl;
-  cout << " alloc_space = " << alloc_space << endl;
-  cout << " allocs_per_usec = " << alloc_space/alloc_time << endl;
+  //  cout << " basic_ops = " << basic_ops << endl;
+  //  cout << " ops_per_increment = " << ops_per_increment << endl;
+  cout << " main_loop_time = " << main_loop_time << "s" << endl;
+  cout << " time = " << elapsed_time << "s" << endl;
+  //  cout << " ops_per_usec = " << ops_per_usec << endl;
+  //  cout << " alloc_time = " << alloc_time << "s" << endl;
+  //  cout << " alloc_space = " << alloc_space << endl;
+  //  cout << " allocs_per_usec = " << alloc_space/alloc_time << endl;
   cout << endl;
 }
 
