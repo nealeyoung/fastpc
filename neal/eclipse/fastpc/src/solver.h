@@ -19,8 +19,12 @@ public:
 
 	static Solver* create(Scalar epsilon);
 	virtual void add_entry(int row, int col, Scalar value) = 0;
+	virtual void done_adding_entries() = 0;
 
 	virtual bool solve() = 0; // return true if BOUNDED, false if UNBOUNDED
+
+	virtual int n_rows() = 0;
+	virtual int n_cols() = 0;
 
 	virtual Scalar value_of_row_variable(int row) = 0;
 	virtual Scalar value_of_col_variable(int col) = 0;

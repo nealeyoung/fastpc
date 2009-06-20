@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../src/get_time.cpp \
 ../src/main.cpp \
 ../src/matrix.cpp \
 ../src/sampler.cpp \
@@ -12,6 +13,7 @@ CPP_SRCS += \
 ../src/test_sampler.cpp 
 
 OBJS += \
+./src/get_time.o \
 ./src/main.o \
 ./src/matrix.o \
 ./src/sampler.o \
@@ -20,6 +22,7 @@ OBJS += \
 ./src/test_sampler.o 
 
 CPP_DEPS += \
+./src/get_time.d \
 ./src/main.d \
 ./src/matrix.d \
 ./src/sampler.d \
