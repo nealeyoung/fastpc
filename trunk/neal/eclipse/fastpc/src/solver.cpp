@@ -12,8 +12,11 @@
 #include "matrix.h"
 #include "sampler.h"
 
+double get_time();
+
 class _Solver : public Solver {
 private:
+	Scalar			_original_epsilon;
 	Scalar			_epsilon;
 	int				_k;
 
@@ -64,22 +67,48 @@ private:
 	}
 
 public:
-	_Solver(Scalar epsilon) : _xc(NULL), _xr(NULL) {
+	_Solver(Scalar epsilon) : _original_epsilon(epsilon), _xc(NULL), _xr(NULL) {
 		assert(epsilon > 0);
 		// round 1+epsilon down to next integer root of 2
 		// 2^(1/k) <= 1+epsilon
 		// 1/k ln(2) <= ln(1+epsilon)
 		// k >= ln(2)/ln(1+epsilon)
-		_k = int(std::ceil(std::log(2.0)/std::log(1+epsilon)));
+		// _k = int(std::ceil(std::log(2.0)/std::log(1+epsilon)));
+		// also, use smaller epsilon by 30%
+		_k = int(std::ceil(std::log(2.0)/std::log(1+0.7*epsilon)));
 		_epsilon = std::pow(2.0, 1.0/_k) - 1.0;
 	}
-	~_Solver() { delete[] _xr; delete[] _xc;}
+	~_Solver() { if (_xr) delete[] _xr; if (_xc) delete[] _xc; }
 
 	void add_entry(int row, int col, Scalar value) {
+            assert(!_xr);
+            _M.add_entry(row, col, value, exponent_of_value(value));
+    }
+	void done_adding_entries() {
 		assert(!_xr);
-		_M.add_entry(row, col, value, exponent_of_value(value));
+
+		_M.done_adding_entries();
+
+		int n_rows = _M.n_rows();
+		int n_cols = _M.n_cols();
+
+		assert(n_rows);
+		assert(n_cols);
+
+		_xr = new Scalar[n_rows];
+		_xc = new Scalar[n_cols];
+
+		assert(_xr && _xc);
+
+		for (int row = 0;  row < n_rows;  ++row) _xr[row] = 0;
+		for (int col = 0;  col < n_cols;  ++col) _xc[col] = 0;
 	}
-	bool solve();
+
+	int n_rows() { return _M.n_rows(); }
+	int n_cols() { return _M.n_cols(); }
+
+    bool solve();
+
 	Scalar value_of_row_variable(int row) {
 		assert(_xr);
 		assert(0 <= row  &&  row < _M.n_rows());
@@ -93,28 +122,21 @@ public:
 };
 
 bool _Solver::solve() {
-	assert(!_xr);
+	double solve_start_time = get_time();
 
-	_M.done_adding_entries();
+	assert(_xr);
+	int nr = n_rows();
+	int nc = n_cols();
 
-	int n_rows = _M.n_rows();
-	int n_cols = _M.n_cols();
+	assert(nr);
+	assert(nc);
 
-	assert(n_rows);
-	assert(n_cols);
+	int yr[nr];		// y and y-hat from paper
+	int yc[nc];
 
-	_xr = new Scalar[n_rows];
-	_xc = new Scalar[n_cols];
+	assert(yr && yc);
 
-	int yr[n_rows];
-	int yc[n_cols];
-
-	assert(_xr && _xc && yr && yc);
-
-	for (int row = 0;  row < n_rows;  ++row) _xr[row] = 0;
-	for (int col = 0;  col < n_cols;  ++col) _xc[col] = 0;
-
-	for (int row = 0;  row < n_rows;  ++row) {
+	for (int row = 0;  row < nr;  ++row) {
 		Matrix::Entry** entry = _M.max_entry_in_row(row);
 		if (! entry) {
 			// all-zero row -- trivial packing constraint
@@ -125,7 +147,7 @@ bool _Solver::solve() {
 			yr[row] = (*entry)->_exponent;
 		}
 	}
-	for (int col = 0;  col < n_cols;  ++col) {
+	for (int col = 0;  col < nc;  ++col) {
 		Matrix::Entry** entry = _M.max_entry_in_col(col);
 		if (! entry) {
 			// all-zero column -- covering constraint
@@ -138,24 +160,31 @@ bool _Solver::solve() {
 		}
 	}
 
-	Sampler*	pr		= Sampler::create(_k, n_rows);
-	Sampler*	pc		= Sampler::create(_k, n_cols);
-	Sampler*	pur		= Sampler::create(_k, n_rows, yr);
-	Sampler*	puc		= Sampler::create(_k, n_cols, yc);
+	Sampler*	pr		= Sampler::create(_k, nr);		// samplers from paper
+	Sampler*	pc		= Sampler::create(_k, nc);
+	Sampler*	pur		= Sampler::create(_k, nr, yr);
+	Sampler*	puc		= Sampler::create(_k, nc, yc);
 
-	for (int row = 0;  row < n_rows;  ++row) yr[row] = 0;
-	for (int col = 0;  col < n_cols;  ++col) yc[col] = 0;
+	for (int row = 0;  row < nr;  ++row) yr[row] = 0;
+	for (int col = 0;  col < nc;  ++col) yc[col] = 0;
 
 	// delete empty rows from row samplers
-	for (int row = 0;  row < n_rows;  ++row)
+	for (int row = 0;  row < nr;  ++row)
 		if (! _M.max_entry_in_row(row)) {
 			// delete row
 			pr->remove(row);
 			pur->remove(row);
 		}
 
-	int N = int(std::ceil(2*std::log(n_rows*n_cols) / (_epsilon*_epsilon)));
+	int N = int(std::ceil(3*std::log(nr*nc) / (_epsilon*_epsilon))); // increase paper N to account for rejection
 	int iteration = 0, empty_iterations = 0;
+
+	std::cout << "N = " << N << std::endl;
+
+	double preprocessing_time = get_time() - solve_start_time;
+	std::cout << "preprocessing_time = " << preprocessing_time << " s" << std::endl;
+
+	double main_loop_start_time = get_time();
 
 	do {
 		bool empty_iteration = true;
@@ -164,7 +193,7 @@ bool _Solver::solve() {
 		int row, col;  // row is i',  col is j' (w.r.t. published alg)
 
 		random_pair(pr, pc, pur, puc, &row, &col);
-		assert(0 <= row && row < n_rows && 0 <= col && col < n_cols);
+		assert(0 <= row && row < nr && 0 <= col && col < nc);
 
 		Matrix::Entry** row_max = _M.max_entry_in_row(row);
 		Matrix::Entry** col_max = _M.max_entry_in_col(col);
@@ -234,28 +263,40 @@ bool _Solver::solve() {
 		if (empty_iteration) ++empty_iterations;
 	} while(! pc->empty());
 
+	double main_loop_time = get_time() - main_loop_start_time;
+
 	// normalize variables
 	_M.restore(); // undo removals
 	// row is packing
 	Scalar max_row_sum = 0, min_col_sum = 10*N, row_value = 0, col_value = 0;
-	for (int row = 0;  row < n_rows;  ++row) {
+	for (int row = 0;  row < nr;  ++row) {
 		Scalar sum = 0;
 		for (Matrix::Entry** c = _M.first_entry_in_row(row);  c;  c = _M.next_entry_in_row(row, c))
 			sum += (*c)->_value * _xc[(*c)->_col];
 		max_row_sum = std::max(sum, max_row_sum);
 	}
-	for (int col = 0;  col < n_cols;  ++col) {
+	for (int col = 0;  col < nc;  ++col) {
 		Scalar sum = 0;
 		for (Matrix::Entry** r = _M.first_entry_in_col(col);  r;  r = _M.next_entry_in_col(col, r))
 			sum += (*r)->_value * _xr[(*r)->_row];
 		min_col_sum = std::min(sum, min_col_sum);
 	}
 	assert(max_row_sum > 0  &&  min_col_sum > 0);
-	for (int row = 0;  row < n_rows;  ++row)  { _xr[row] /= min_col_sum;  row_value += _xr[row]; }
-	for (int col = 0;  col < n_cols;  ++col)  { _xc[col] /= max_row_sum;  col_value += _xc[col]; }
+	for (int row = 0;  row < nr;  ++row)  { _xr[row] /= min_col_sum;  row_value += _xr[row]; }
+	for (int col = 0;  col < nc;  ++col)  { _xc[col] /= max_row_sum;  col_value += _xc[col]; }
 
-	std::cout << "Solver:: N = " << N << ", non-empty iterations = " << iteration  - empty_iterations << ", empty iterations = " << empty_iterations << std::endl;
-	std::cout << "Solver:: desired epsilon = " << _epsilon << ", effective epsilon = " << row_value/col_value - 1.0 << std::endl;
+	std::cout << " iterations = " << iteration << " primal = " << col_value << " dual = " << row_value
+		<< " ratio = " << col_value/row_value << std::endl;
+	std::cout << " empty iterations = " << empty_iterations << std::endl;
+
+	std::cout << " eps = " << _epsilon << std::endl;
+	std::cout << " epsilon = " << _original_epsilon << std::endl;
+
+	std::cout << " sort ratio = " << 1 << std::endl;
+	std::cout << " basic ops = " << -1 << std::endl;
+
+	std::cout << " main_loop_time = " << main_loop_time << "s" << std::endl;
+	std::cout << " time = " << get_time() - solve_start_time << "s" << std::endl;
 
 	return true;
 }
