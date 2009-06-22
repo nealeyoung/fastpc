@@ -75,7 +75,7 @@ public:
 		// k >= ln(2)/ln(1+epsilon)
 		// _k = int(std::ceil(std::log(2.0)/std::log(1+epsilon)));
 		// also, use smaller epsilon by 30%
-		_k = int(std::ceil(std::log(2.0)/std::log(1+0.7*epsilon)));
+		_k = int(std::ceil(std::log(2.0)/std::log(1+0.9*epsilon)));
 		_epsilon = std::pow(2.0, 1.0/_k) - 1.0;
 	}
 	~_Solver() { if (_xr) delete[] _xr; if (_xc) delete[] _xc; }
@@ -176,7 +176,7 @@ bool _Solver::solve() {
 			pur->remove(row);
 		}
 
-	int N = int(std::ceil(3*std::log(nr*nc) / (_epsilon*_epsilon))); // increase paper N to account for rejection
+	int N = int(std::ceil(2*std::log(nr*nc) / (_epsilon*_epsilon)));
 	int iteration = 0, empty_iterations = 0;
 
 	std::cout << "N = " << N << std::endl;
@@ -218,6 +218,7 @@ bool _Solver::solve() {
 			pur->increment_exponent(row_prime);
 			if (++yr[row_prime] >= N) break;
 		}
+		z_over_delta *= 1-_epsilon;
 		for (Matrix::Entry** c = _M.first_entry_in_row(row, z_over_delta);
 			  c;
 			  c = _M.next_entry_in_row(row, c, z_over_delta)) {
