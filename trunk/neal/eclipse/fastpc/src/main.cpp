@@ -8,6 +8,7 @@
 #include <fstream>
 #include <cmath>
 #include <cstdlib>
+#include <assert.h>
 
 #include "solver.h"
 

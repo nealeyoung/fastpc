@@ -11,6 +11,7 @@
 // sparse matrix class
 
 #include <list>
+#include <assert.h>
 
 class Matrix {
 public:
