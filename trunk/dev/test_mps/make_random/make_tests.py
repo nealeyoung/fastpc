@@ -9,16 +9,16 @@ def main():
     input_sets = 10
     
     # Number of rows, r, starts in the range 10* [row_min, row_max] and increases by factor of 10 for each run
-    row_min = 1000
-    row_max = 1400
+    row_min = 4000
+    row_max = 4400
 
     # Number of columns, c, is in the range [col_min, col_max]    
-    col_min = 3500
-    col_max = 3700
+    col_min = 6500
+    col_max = 6700
 
     # Increment
-    row_increment = 1500
-    col_increment = 1000
+    row_increment = 1400
+    col_increment = 800
 
     # Create by density
     create_by_density = True
@@ -64,10 +64,12 @@ def main():
             for d in densities: #create input file
                 cmd_create = 'python ' + pathname + 'generate_input.py ' + ' ' + str(test_row) + ' ' + str(test_col) + ' ' + str(d) + ' ' + str(lower) + ' ' + str(upper) + ' ' + file_prefix
                 os.system(cmd_create)
+                print 'Created input: Rows = ', str(test_row), ' Cols = ', str(test_col), ' Density = ' + str(d)
         if sparse:
             file_prefix = input_file_prefix + '_s'
             cmd_create = 'python ' + pathname + 'generate_sparse_input.py ' + ' ' + str(test_row) + ' ' + str(test_col) + ' ' + str(max_per_row) + ' ' + str(lower) + ' ' + str(upper) + ' ' + file_prefix
             os.system(cmd_create)
+            print 'Created input: Rows = ', str(test_row), ' Cols = ', str(test_col), ' Max non zeroes per row = ', str(max_per_row)
 
         # Update rows and columns for next set
         test_row += row_increment
