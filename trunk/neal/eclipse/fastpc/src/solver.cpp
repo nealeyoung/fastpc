@@ -44,8 +44,8 @@ private:
 		pur	->total_weight(&pur_M,	&pur_E);
 		puc	->total_weight(&puc_M,	&puc_E);
 
-		int p_RAND_MAX = RAND_MAX/(1.0 + std::ldexp((double(pr_M) * double(puc_M)) / (double(pur_M) * double(pc_M)),
-												pr_E + puc_E - pur_E - pc_E));
+		int p_RAND_MAX = int(RAND_MAX/(1.0 + std::ldexp((double(pr_M) * double(puc_M)) / (double(pur_M) * double(pc_M)),
+								pr_E + puc_E - pur_E - pc_E)));
 		// with probability |pur||pc| / ( |pur||pc| + |pr||puc| )    = 1/(1 + |pr||puc|/|pur||pc|)
 		// choose row from pur and col from pc
 		// otherwise
