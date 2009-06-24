@@ -71,6 +71,9 @@ int main(int argc, char *argv[]) {
 	    std::cout << "preprocessing_time0 = " << get_time() - main_start_time << " s" << std::endl; 
 
 	    s->done_adding_entries();
+
+	    std::cout << "preprocessing_time1 = " << get_time() - main_start_time << " s" << std::endl; 
+
 	    assert(R == s->n_rows()  &&  C == s->n_cols());
 
 	    std::cout << "ROWS: " <<  s->n_rows() << " COLUMNS: " << s->n_cols() << " NON-ZEROS: " << total
