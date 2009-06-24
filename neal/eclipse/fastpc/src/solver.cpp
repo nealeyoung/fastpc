@@ -12,6 +12,8 @@
 #include "matrix.h"
 #include "sampler.h"
 
+#define inline
+
 double get_time();
 
 class _Solver : public Solver {

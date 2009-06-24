@@ -8,6 +8,8 @@
 #ifndef SAMPLER_H_
 #define SAMPLER_H_
 
+#define inline
+
 
 /*** made class non-virtual for performance
  *  Interface described below is correct.
@@ -424,7 +426,7 @@ public:
 	int  n_remaining	() const { return _n_remaining; }
 	bool empty			() const { return _n_remaining == 0; }
 
-	inline void increment_exponent(unsigned int id) {		assert(int(id) <= _max_id);
+	void increment_exponent(unsigned int id) {		assert(int(id) <= _max_id);
 		Element &elt(_elements[id]);				assert(elt._interval);
 		Iterator it = elt._interval->_iterator;
 		Iterator next = get_or_make_successor(it);

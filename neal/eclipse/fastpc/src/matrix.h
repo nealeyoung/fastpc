@@ -8,6 +8,8 @@
 #ifndef MATRIX_H_
 #define MATRIX_H_
 
+#define inline
+
 // sparse matrix class
 
 #include <list>
