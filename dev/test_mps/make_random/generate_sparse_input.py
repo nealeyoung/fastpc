@@ -83,7 +83,7 @@ def main() :
                 for col, is_empty in enumerate(empty_cols):
                     if is_empty:
                         if print_warning:
-                            print "WARNING: Following columns intentionally were made non zero in the last row for the sake of feasibility: "
+                            print "WARNING: Following columns intentionally were made non zero in the last row to avoid infeasibility: "
                             print "File (r, c, non zeroes): " + my_string
                             print_warning = False
                         print col,
