@@ -6,9 +6,9 @@
 #CXXFLAGS = -g -Wall -Wextra
 
 #For speed
-#CXXFLAGS = -O1
+CXXFLAGS = -DNDEBUG -O2
 
-CXXFLAGS = -DNDEBUG -g -pg
+#CXXFLAGS = -DNDEBUG -g -pg
 
 all: fastpc
 
