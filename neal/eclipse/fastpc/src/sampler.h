@@ -261,7 +261,7 @@ private:
 	static Weight random_weight(Weight max) {
 		const static int RAND_BITS = 8*sizeof(RAND_MAX) - 1; // number of random bits returned by rand()
 		assert(RAND_MAX == ls_bits(RAND_BITS));
-		assert(Weight(0) <= max  &&  max <= Weight(RAND_MAX));
+		assert(Weight(0) <= max  &&  max < Weight(RAND_MAX));
 
 		const Weight bucket_size = RAND_MAX / (max+1);  // RAND_MAX / bucket_size >= max+1
 		Weight r;
@@ -346,6 +346,8 @@ public:
 		{
 			std::pair<int, Id> sorted_exponents[n];
 			assert(sorted_exponents);
+
+			for (int i = 0;  i < n;  ++i) _storage[i] = NULL;
 
 			for (int id = 0;  id < n;  ++id) {
 				//_elements[id]._id = id;
