@@ -9,7 +9,7 @@
 #include <fstream>
 #include <cmath>
 #include <cstdlib>
-#include <assert.h>
+#include <cassert>
 
 #include "solver.h"
 
