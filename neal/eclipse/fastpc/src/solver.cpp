@@ -27,11 +27,12 @@ private:
 	Scalar*			_xr;  // row (covering) variables -- x-hat in paper
 
 	int exponent_of_value(Scalar value) {
+	  static const Scalar log2 = std::log(2.0);
 		// round value up to the next power of 1+epsilon = 2^(1/k), return exponent
 		// 2^(i/k) >= value
 		// i/k ln(2) >= ln(value)
 		// i >= k ln(value) / ln(2)
-		return int(std::ceil(_k * std::log(value)/std::log(2.0)));
+	  return int(std::ceil(_k * std::log(value)/log2));
 	}
 
 	void random_pair(Sampler* pr, Sampler* pc, Sampler* pur, Sampler* puc,
@@ -184,7 +185,7 @@ bool _Solver::solve() {
 	std::cout << "N = " << N << std::endl;
 
 	double preprocessing_time = get_time() - solve_start_time;
-	std::cout << "preprocessing_time = " << preprocessing_time << " s" << std::endl;
+	std::cout << "preprocessing_time2 = " << preprocessing_time << " s" << std::endl;
 
 	double main_loop_start_time = get_time();
 
@@ -266,7 +267,7 @@ bool _Solver::solve() {
 		if (empty_iteration) ++empty_iterations;
 	} while(! pc->empty());
 
-	double main_loop_time = get_time() - main_loop_start_time;
+	double main_loop_stop_time = get_time();
 
 	// normalize variables
 	_M.restore(); // undo removals
@@ -298,7 +299,8 @@ bool _Solver::solve() {
 	std::cout << " sort ratio = " << 1 << std::endl;
 	std::cout << " basic ops = " << -1 << std::endl;
 
-	std::cout << " main_loop_time = " << main_loop_time << "s" << std::endl;
+	std::cout << " main_loop_time = " << main_loop_stop_time - main_loop_start_time << "s" << std::endl;
+	std::cout << " post_processing_time = " << get_time() - main_loop_stop_time << "s" << std::endl;
 	std::cout << " time = " << get_time() - solve_start_time << "s" << std::endl;
 
 	return true;

@@ -13,11 +13,15 @@
 
 #include "solver.h"
 
+double get_time();
+
 int main(int argc, char *argv[]) {
 	double 			eps			= 0;
 	std::string		input_file	= "";
 	//int			sort_ratio	= 1;
 	std::string		usage = "Usage: fastpc <epsilon-factor> <filename> [sort-factor]";
+
+	double			main_start_time = get_time();
 
 	if (argc >= 3) {
 		eps			= std::atof(argv[1]);
@@ -64,12 +68,15 @@ int main(int argc, char *argv[]) {
 	      ++non_zero_entry_count;
 	    }
 
+	    std::cout << "preprocessing_time0 = " << get_time() - main_start_time << " s" << std::endl; 
+
 	    s->done_adding_entries();
 	    assert(R == s->n_rows()  &&  C == s->n_cols());
 
 	    std::cout << "ROWS: " <<  s->n_rows() << " COLUMNS: " << s->n_cols() << " NON-ZEROS: " << total
 			<< " DENSITY: " << (double)total/((double)s->n_rows()*(double)s->n_cols())<< std::endl;
 	}
+	std::cout << "preprocessing_time = " << get_time() - main_start_time << " s" << std::endl;
 
 	if(s->solve()) {
 		std::cout << "solved" << std::endl;
