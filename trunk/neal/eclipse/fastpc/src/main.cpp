@@ -5,14 +5,13 @@
  *      Author: neal
  */
 #include <iostream>
+#include <fstream>
 #include <iomanip>
 #include <cmath>
 #include <cstdlib>
 #include <cassert>
 
 #include "solver.h"
-
-#include <stdio.h>  // we use old FILE i/o because it seems to be faster than standard C++ i/o
 
 double get_time();
 
@@ -39,10 +38,9 @@ int main(int argc, char *argv[]) {
 
 	Solver* s = Solver::create(eps);
 	{
-		// we use old FILE i/o because it seems to be much faster than C++ i/o
-		std::FILE* in_file = std::fopen(input_file.c_str(), "r");
+		std::ifstream in_file(input_file.c_str());
 
-		if (! in_file) {
+		if (in_file.fail()) {
 			std::cerr << "Error opening " << input_file << std::endl;
 			return -1;
 		}
@@ -52,23 +50,33 @@ int main(int argc, char *argv[]) {
 		//read and parse 1st line of input (parameters)
 		int R, C, r, c, total;
 		double val;
+		char buffer[1024];
 
-		std::fscanf(in_file, "%d %d %d\n", &R, &C, &total);
+		in_file >> R >> C >> total;
 
 		int non_zero_entry_count = 0;
 	    while(true) {
+	    	char* p = buffer;
 
-	    	if (std::fscanf(in_file, "%d %d %lf\n", &r, &c, &val) != 3) break;
+	    	in_file.getline(p, 1024);
+
+	    	if (in_file.eof()) break;
+
 	    	if(non_zero_entry_count == total) {
 	    		std::cout << "warning: input file claimed " << total << " non-zeros, but there are more (ignoring)" << std::endl;
 	    		break;
 	    	}
+	    	// below is about 6-10 times faster than "in_file >> r >> c >> val;"
+	    	r = int(strtol(p, &p, 10));
+	    	c = int(strtol(p, &p, 10));
+	    	val = strtod(p, &p);
+
 	    	assert(0 <= r && r < R && 0 <= c && c < C);
 	    	if (val == 0)			continue;
 			s->add_entry(r, c, val);
 	    	++non_zero_entry_count;
 	    }
-	    fclose(in_file);
+	    in_file.close();
 
 	    std::cout << "preprocessing_time0 = " << get_time() - main_start_time << " s" << std::endl;
 
