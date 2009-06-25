@@ -6,6 +6,7 @@
  */
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <iomanip>
 #include <cmath>
 #include <cstdlib>
@@ -45,6 +46,9 @@ int main(int argc, char *argv[]) {
 			return -1;
 		}
 
+		//std::stringstream in_file;
+		//in_file << in_file0.rdbuf();
+
 		std::cout << "INPUT FILE: " << input_file << std::endl;
 
 		//read and parse 1st line of input (parameters)
@@ -76,7 +80,6 @@ int main(int argc, char *argv[]) {
 			s->add_entry(r, c, val);
 	    	++non_zero_entry_count;
 	    }
-	    in_file.close();
 
 	    std::cout << "preprocessing_time0 = " << get_time() - main_start_time << " s" << std::endl;
 
