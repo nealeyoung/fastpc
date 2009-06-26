@@ -94,6 +94,8 @@ int main(int argc, char *argv[]) {
 	}
 	std::cout << "preprocessing_time = " << get_time() - main_start_time << " s" << std::endl;
 
+	srand(time(0));
+
 	if(s->solve()) {
 		std::cout << "solved" << std::endl;
 	} else {
@@ -103,10 +105,6 @@ int main(int argc, char *argv[]) {
 
 	for (int row = 0;  row < s->n_rows();  ++row)  row_value += s->value_of_row_variable(row);
 	for (int col = 0;  col < s->n_cols();  ++col)  col_value += s->value_of_col_variable(col);
-
-	std::cout << std::fixed << std::setprecision(3) << "primal: "
-		  << col_value << " dual: " << row_value << " ratio: "
-		  << col_value/row_value << std::endl;
 
 	return 0;
 }

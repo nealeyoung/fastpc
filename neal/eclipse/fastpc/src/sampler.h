@@ -5,11 +5,17 @@
  *      Author: neal
  */
 
+
 #ifndef SAMPLER_H_
 #define SAMPLER_H_
 
-#define inline
+// un-inline functions to profile code
+//#define inline
 
+// signal preprocessor to remove any sampler bookkeeping code unless compiled with "make data"
+#ifndef _SAMPLER_OUTPUT_
+#define _SAMPLER_OUTPUT_ 0
+#endif
 
 /*** made class non-virtual for performance
  *  Interface described below is correct.
@@ -75,6 +81,12 @@ public:
 #include <list>
 #include <cmath>  // for ldexp
 
+//bookkeeping
+#if _SAMPLER_OUTPUT_
+#include<iomanip>
+#include<vector>
+#endif
+
 namespace _neal_sampler_ {
 
 // #include "sampler.h"
@@ -86,6 +98,13 @@ private:
 	typedef int 				Id;
 	class						Element;
 	class						Interval;
+
+	//bookkeeping
+#if _SAMPLER_OUTPUT_
+	std::vector<unsigned long> num_samples; // samples from each (relative) bucket in Large;
+	                                   // current largest bucket will always fall into num_samples[0]
+	int num_samples_small;  // samples from Small bucket, i.e. left side of sampler
+#endif
 
 	inline static int			count_leading_zeros(Weight w)   {  return __builtin_clz(w);  }
 	// see http://gcc.gnu.org/onlinedocs/gcc-4.3.3/gcc/Other-Builtins.html for clz
@@ -370,6 +389,12 @@ public:
 			}
 		}
 
+		//bookkeeping
+#if _SAMPLER_OUTPUT_
+		num_samples.resize((int)ceil(log2(n)),0); // we have log(n) buckets
+		num_samples_small = 0;
+#endif
+
 		// check work
 		for (int i = 0;  i < n-1;  ++i)
 			assert(_storage[i]->_interval->_exponent
@@ -470,14 +495,30 @@ public:
 		Weight r = random_weight(_cached_weight_to_right + _cached_n_to_left - 1);
 
 		if (r < _cached_weight_to_right) {
+		  //bookkeeping
+#if _SAMPLER_OUTPUT_
+		  int bucket_index = 0;
+#endif
+
 			for (Reverse_iterator i = _intervals.rbegin();  i != _intervals.rend();  ++i)  {
 				assert(i->_exponent >= _base_exponent);
 				Weight element_weight	= weight_of_exponent(i->_exponent);
 				Weight interval_weight	= i->size() * element_weight;
-				if (r < interval_weight)
+				if (r < interval_weight) {
+				  //bookkeeping
+#if _SAMPLER_OUTPUT_		  
+				  assert(bucket_index < num_samples.size());
+				  num_samples[bucket_index]++;
+#endif
 					return element_id(i->_lo[r/element_weight]);
+				}
 				else
 					r -= interval_weight;
+
+				//bookkeeping
+#if _SAMPLER_OUTPUT_
+				bucket_index++;
+#endif
 			}
 			assert(false);
 		} else {
@@ -485,6 +526,10 @@ public:
 
 			assert(_cached_interval != _intervals.begin());
 
+			//bookkeeping
+#if _SAMPLER_OUTPUT_
+			num_samples_small++;
+#endif
 			Iterator	i			= _cached_interval;  -- i;
 			Element**	leftmost_lo = _intervals.begin()->_lo;
 			int			n_slots		= (i->_hi - leftmost_lo) + 1;
@@ -528,6 +573,29 @@ public:
 		delete[] _storage;
 	}
 	friend class _Sampler;
+
+	//bookkeeping functions
+#if _SAMPLER_OUTPUT_
+	unsigned long get_total_samples() {
+	  unsigned long total_samples = 0;
+	  int buckets = num_samples.size();
+	  for (int i=0; i < buckets; i++) {
+	    if (num_samples[i] > 0)
+	      total_samples += num_samples[i];
+	  }
+	  total_samples += num_samples_small;
+	  return total_samples;
+	}
+
+	void get_samples(std::vector<unsigned long>** vec) {
+	  *vec = &num_samples;
+	} 
+
+	unsigned long get_samples_small() {
+	  return num_samples_small;
+	}
+#endif
+
 };
 
 // class _Sampler : public Sampler {
@@ -538,6 +606,11 @@ private:
 	int*			_exponent_gaps;  // distance to next multiple of k:  k*ceil(exponent/k) - exponent
 	int*			_powers;		 // _powers[i] = RAND_MAX * 2^(-i/_k)
 
+	//bookkeeping
+#if _SAMPLER_OUTPUT_
+	int num_rejections_gap; // rejections from all buckets based on exponent gap
+	int num_rejections_small;  // num rejections in Small bucket, with items as next-highest pow of 2
+#endif	
 	inline void split_exponent(int exp, int* next_power_of_two, int* gap) {
 		if (exp > 0)
 			*next_power_of_two = 1 + (exp - 1) / _k;
@@ -584,6 +657,12 @@ public:
 		assert(_powers);
 		for (int i = 0;  i < k;  ++i)
 			_powers[i] = int(RAND_MAX * pow(2.0, -double(i)/double(k)));
+
+		//bookkeeping
+#if _SAMPLER_OUTPUT_
+		num_rejections_gap = 0;
+		num_rejections_small = 0;
+#endif
 	}
 	inline void increment_exponent(unsigned int id) {
 		// increasing exponent decreases the gap
@@ -610,9 +689,21 @@ public:
 	*/
 	int sample() {
 		int id = _s1.sample();
-		if (id == -1) return -1;
+		if (id == -1) {
+
+		  //bookkeeping
+#if _SAMPLER_OUTPUT_
+		  num_rejections_small++;
+#endif
+		  return -1;
+		}
 		// accept (don't reject) with probability 1/2^(_exponent_gap[id]/k)
 		if (rand() <= _powers[_exponent_gaps[id]]) return id;
+
+		//bookkeeping
+#if _SAMPLER_OUTPUT_
+		num_rejections_gap++;
+#endif		
 		return -1;
 	}
 
@@ -629,6 +720,45 @@ public:
 	static _Sampler* create(int k, int n, int* initial_exponents = NULL) {
 		return new _Sampler(k, n, initial_exponents);
 	}
+
+	//bookkeeping functions
+#if _SAMPLER_OUTPUT_	
+	void print_stats() {
+	  unsigned long total_samples = _s1.get_total_samples();
+	  unsigned long total_rejections = num_rejections_gap + num_rejections_small;	  
+	  unsigned long total_successes = total_samples - total_rejections;
+	  unsigned long num_samples_small = _s1.get_samples_small();
+	  std::vector<unsigned long>* num_samples_vec = NULL;
+	  _s1.get_samples(&num_samples_vec);
+
+	  int buckets = num_samples_vec->size();
+	  std::cout << std::fixed << std::setprecision(2);
+	  std::cout << std::setw(6) << "Bucket" << std::setw(15) << "SamplesTried" << std::setw(10) 
+		    << "% TOT" << " |" 
+		    << std::setw(15) << "Successes" << std::setw(15) << "Rejections" 
+		    << std::setw(8) << "SucRate" << std::endl;
+
+	  //info for Large buckets
+	  for (int i=0; i < buckets; i++) {
+	    if ((*num_samples_vec)[i] > 0) {
+	      std::cout << std::setw(4) << i << std::setw(17) << (*num_samples_vec)[i] 
+			<< std::setw(10) << (*num_samples_vec)[i]*100.0/total_samples 
+			<< " |" << std::endl;
+	    }
+	  }
+
+	  //info for Small bucket
+	  std::cout << std::setw(4) << "Sml" << std::setw(17) << num_samples_small 
+		    << std::setw(10) << num_samples_small*100.0/total_samples << " |" << std::endl;
+
+	  //total info
+	      
+	  std::cout << std::setw(4) << "TOT" << std::setw(17) << total_samples << std::setw(12) << "100 |"
+		    << std::setw(15) << total_successes << std::setw(15) << total_rejections
+		    << std::setw(8) << total_successes*100.0/total_samples << std::endl;
+
+	}
+#endif
 };
 
 } // end namespace
