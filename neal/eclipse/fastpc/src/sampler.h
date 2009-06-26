@@ -741,19 +741,19 @@ public:
 	  //info for Large buckets
 	  for (int i=0; i < buckets; i++) {
 	    if ((*num_samples_vec)[i] > 0) {
-	      std::cout << std::setw(4) << i << std::setw(17) << (*num_samples_vec)[i] 
+	      std::cout << std::setw(6) << i << std::setw(15) << (*num_samples_vec)[i] 
 			<< std::setw(10) << (*num_samples_vec)[i]*100.0/total_samples 
 			<< " |" << std::endl;
 	    }
 	  }
 
 	  //info for Small bucket
-	  std::cout << std::setw(4) << "Sml" << std::setw(17) << num_samples_small 
+	  std::cout << std::setw(6) << "Small" << std::setw(15) << num_samples_small 
 		    << std::setw(10) << num_samples_small*100.0/total_samples << " |" << std::endl;
 
 	  //total info
 	      
-	  std::cout << std::setw(4) << "TOT" << std::setw(17) << total_samples << std::setw(12) << "100 |"
+	  std::cout << std::setw(6) << "TOTAL" << std::setw(15) << total_samples << std::setw(12) << "100 |"
 		    << std::setw(15) << total_successes << std::setw(15) << total_rejections
 		    << std::setw(8) << total_successes*100.0/total_samples << std::endl;
 
