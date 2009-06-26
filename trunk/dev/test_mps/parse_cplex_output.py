@@ -2,7 +2,6 @@ import sys
 import re
 
 def parse_cplex_output_file(file_name):
-
     try:
         my_file = open(file_name)
         total_string = my_file.read()
@@ -48,7 +47,7 @@ def main():
 
     cplex_file_name = './output_cplex/' + file_prefix + '_output' + '_cplex'
 
-    output_file_name = './output_cplex/' + file_prefix + '_run_stats.csv'
+    output_file_name = './output_cplex/' + file_prefix + '_cplex_run_stats.csv'
     sys.stdout = open(output_file_name, 'w')
     print "Filename,Rows,Columns,Nonzeros,Density,Time (s),Iterations, Method"
 
