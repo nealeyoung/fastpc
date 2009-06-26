@@ -12,7 +12,13 @@
 #include "matrix.h"
 #include "sampler.h"
 
-#define inline
+// un-inlines functions for profiling
+//#define inline
+
+// signal preprocessor to remove any sampler bookkeeping code unless compiled with "make data"
+#ifndef _SAMPLER_OUTPUT_
+#define _SAMPLER_OUTPUT_ 0
+#endif
 
 double get_time();
 
@@ -302,6 +308,20 @@ bool _Solver::solve() {
 	std::cout << " main_loop_time = " << main_loop_stop_time - main_loop_start_time << "s" << std::endl;
 	std::cout << " post_processing_time = " << get_time() - main_loop_stop_time << "s" << std::endl;
 	std::cout << " time = " << get_time() - solve_start_time << "s" << std::endl;
+
+	//bookkeeping
+#if _SAMPLER_OUTPUT_
+	std::cout << "--------------------------------------------------\n";
+	std::cout << "SAMPLING INFO:\n";
+	std::cout << "---pr:\n";
+	pr->print_stats();
+	std::cout << "\n---pc:\n";
+ 	pc->print_stats();
+ 	std::cout << "\n---pur:\n";
+ 	pur->print_stats();
+ 	std::cout << "\n---puc: \n";
+ 	puc->print_stats();
+#endif
 
 	return true;
 }
