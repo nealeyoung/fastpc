@@ -3229,3 +3229,1725 @@ Iteration: 12194    Objective     =             0.199703
 Iteration: 12256    Objective     =             0.199701
 Iteration: 12318    Objective     =             0.199697
 Iteration: 12380    Objective     =             0.199695
+Iteration: 12442    Objective     =             0.199692
+Iteration: 12504    Objective     =             0.199690
+Iteration: 12566    Objective     =             0.199687
+Iteration: 12628    Objective     =             0.199685
+Iteration: 12690    Objective     =             0.199682
+Iteration: 12752    Objective     =             0.199679
+Iteration: 12814    Objective     =             0.199676
+Iteration: 12876    Objective     =             0.199675
+Iteration: 12938    Objective     =             0.199672
+Iteration: 13000    Objective     =             0.199669
+Elapsed time = 72507.32 sec. (13000 iterations).
+Iteration: 13062    Objective     =             0.199666
+Iteration: 13124    Objective     =             0.199663
+Iteration: 13186    Objective     =             0.199661
+Iteration: 13248    Objective     =             0.199659
+Iteration: 13310    Objective     =             0.199655
+Iteration: 13372    Objective     =             0.199653
+Iteration: 13434    Objective     =             0.199650
+Iteration: 13496    Objective     =             0.199648
+Iteration: 13558    Objective     =             0.199645
+Iteration: 13620    Objective     =             0.199643
+Iteration: 13682    Objective     =             0.199640
+Iteration: 13744    Objective     =             0.199638
+Iteration: 13806    Objective     =             0.199636
+Iteration: 13868    Objective     =             0.199634
+Iteration: 13930    Objective     =             0.199632
+Iteration: 13992    Objective     =             0.199629
+Elapsed time = 77322.20 sec. (14000 iterations).
+Iteration: 14054    Objective     =             0.199627
+Iteration: 14116    Objective     =             0.199625
+Iteration: 14178    Objective     =             0.199622
+Iteration: 14240    Objective     =             0.199619
+Iteration: 14302    Objective     =             0.199617
+Iteration: 14364    Objective     =             0.199615
+Iteration: 14426    Objective     =             0.199612
+Iteration: 14488    Objective     =             0.199609
+Iteration: 14550    Objective     =             0.199607
+Iteration: 14612    Objective     =             0.199605
+Iteration: 14674    Objective     =             0.199602
+Iteration: 14736    Objective     =             0.199600
+Iteration: 14798    Objective     =             0.199599
+Iteration: 14860    Objective     =             0.199597
+Iteration: 14922    Objective     =             0.199595
+Iteration: 14984    Objective     =             0.199592
+Elapsed time = 82068.54 sec. (15000 iterations).
+Iteration: 15046    Objective     =             0.199589
+Iteration: 15108    Objective     =             0.199587
+Iteration: 15170    Objective     =             0.199585
+Iteration: 15232    Objective     =             0.199583
+Iteration: 15294    Objective     =             0.199581
+Iteration: 15356    Objective     =             0.199579
+Iteration: 15418    Objective     =             0.199577
+Iteration: 15480    Objective     =             0.199575
+Iteration: 15542    Objective     =             0.199573
+Iteration: 15604    Objective     =             0.199571
+Iteration: 15666    Objective     =             0.199569
+Iteration: 15728    Objective     =             0.199567
+Iteration: 15790    Objective     =             0.199565
+Iteration: 15852    Objective     =             0.199563
+Iteration: 15914    Objective     =             0.199561
+Iteration: 15976    Objective     =             0.199559
+Elapsed time = 86816.88 sec. (16000 iterations).
+Iteration: 16038    Objective     =             0.199557
+Iteration: 16100    Objective     =             0.199556
+Iteration: 16162    Objective     =             0.199554
+Iteration: 16224    Objective     =             0.199552
+Iteration: 16286    Objective     =             0.199550
+Iteration: 16348    Objective     =             0.199549
+Iteration: 16410    Objective     =             0.199547
+Iteration: 16472    Objective     =             0.199545
+Iteration: 16534    Objective     =             0.199544
+Iteration: 16596    Objective     =             0.199542
+Iteration: 16658    Objective     =             0.199541
+Iteration: 16720    Objective     =             0.199539
+Iteration: 16782    Objective     =             0.199538
+Iteration: 16844    Objective     =             0.199536
+Iteration: 16906    Objective     =             0.199534
+Iteration: 16968    Objective     =             0.199533
+Elapsed time = 91574.75 sec. (17000 iterations).
+Iteration: 17030    Objective     =             0.199531
+Iteration: 17092    Objective     =             0.199529
+Iteration: 17154    Objective     =             0.199527
+Iteration: 17216    Objective     =             0.199525
+Iteration: 17278    Objective     =             0.199524
+Iteration: 17340    Objective     =             0.199522
+Iteration: 17402    Objective     =             0.199520
+Iteration: 17464    Objective     =             0.199519
+Iteration: 17526    Objective     =             0.199518
+Iteration: 17588    Objective     =             0.199516
+Iteration: 17650    Objective     =             0.199515
+Iteration: 17712    Objective     =             0.199514
+Iteration: 17774    Objective     =             0.199512
+Iteration: 17836    Objective     =             0.199510
+Iteration: 17898    Objective     =             0.199509
+Iteration: 17960    Objective     =             0.199507
+Elapsed time = 96275.43 sec. (18000 iterations).
+Iteration: 18022    Objective     =             0.199506
+Iteration: 18084    Objective     =             0.199504
+Iteration: 18146    Objective     =             0.199503
+Iteration: 18208    Objective     =             0.199502
+Iteration: 18270    Objective     =             0.199500
+Iteration: 18332    Objective     =             0.199499
+Iteration: 18394    Objective     =             0.199498
+Iteration: 18456    Objective     =             0.199497
+Iteration: 18518    Objective     =             0.199495
+Iteration: 18580    Objective     =             0.199494
+Iteration: 18642    Objective     =             0.199492
+Iteration: 18704    Objective     =             0.199491
+Iteration: 18766    Objective     =             0.199489
+Iteration: 18828    Objective     =             0.199488
+Iteration: 18890    Objective     =             0.199486
+Iteration: 18952    Objective     =             0.199485
+Elapsed time = 100931.27 sec. (19000 iterations).
+Iteration: 19014    Objective     =             0.199484
+Iteration: 19076    Objective     =             0.199483
+Iteration: 19138    Objective     =             0.199482
+Iteration: 19200    Objective     =             0.199480
+Iteration: 19262    Objective     =             0.199479
+Iteration: 19324    Objective     =             0.199478
+Iteration: 19386    Objective     =             0.199476
+Iteration: 19448    Objective     =             0.199475
+Iteration: 19510    Objective     =             0.199474
+Iteration: 19572    Objective     =             0.199473
+Iteration: 19634    Objective     =             0.199471
+Iteration: 19696    Objective     =             0.199470
+Iteration: 19758    Objective     =             0.199469
+Iteration: 19820    Objective     =             0.199468
+Iteration: 19882    Objective     =             0.199467
+Iteration: 19944    Objective     =             0.199465
+Elapsed time = 105532.03 sec. (20000 iterations).
+Iteration: 20006    Objective     =             0.199464
+Iteration: 20068    Objective     =             0.199463
+Iteration: 20130    Objective     =             0.199462
+Iteration: 20192    Objective     =             0.199461
+Iteration: 20254    Objective     =             0.199460
+Iteration: 20316    Objective     =             0.199459
+Iteration: 20378    Objective     =             0.199458
+Iteration: 20440    Objective     =             0.199457
+Iteration: 20502    Objective     =             0.199456
+Iteration: 20564    Objective     =             0.199455
+Iteration: 20626    Objective     =             0.199454
+Iteration: 20688    Objective     =             0.199453
+Iteration: 20750    Objective     =             0.199452
+Iteration: 20812    Objective     =             0.199451
+Iteration: 20874    Objective     =             0.199450
+Iteration: 20936    Objective     =             0.199449
+Iteration: 20998    Objective     =             0.199448
+Elapsed time = 110391.52 sec. (21000 iterations).
+Iteration: 21060    Objective     =             0.199448
+Iteration: 21122    Objective     =             0.199447
+Iteration: 21184    Objective     =             0.199445
+Iteration: 21246    Objective     =             0.199444
+Iteration: 21308    Objective     =             0.199443
+Iteration: 21370    Objective     =             0.199442
+Iteration: 21432    Objective     =             0.199442
+Iteration: 21494    Objective     =             0.199441
+Iteration: 21556    Objective     =             0.199440
+Iteration: 21618    Objective     =             0.199439
+Iteration: 21680    Objective     =             0.199438
+Iteration: 21742    Objective     =             0.199437
+Iteration: 21804    Objective     =             0.199436
+Iteration: 21866    Objective     =             0.199436
+Iteration: 21928    Objective     =             0.199435
+Iteration: 21990    Objective     =             0.199434
+Elapsed time = 114941.46 sec. (22000 iterations).
+Iteration: 22052    Objective     =             0.199433
+Iteration: 22114    Objective     =             0.199433
+Iteration: 22176    Objective     =             0.199432
+Iteration: 22238    Objective     =             0.199431
+Iteration: 22300    Objective     =             0.199430
+Iteration: 22362    Objective     =             0.199430
+Iteration: 22424    Objective     =             0.199429
+Iteration: 22486    Objective     =             0.199428
+Iteration: 22548    Objective     =             0.199427
+Iteration: 22610    Objective     =             0.199426
+Iteration: 22672    Objective     =             0.199425
+Iteration: 22734    Objective     =             0.199425
+Iteration: 22796    Objective     =             0.199424
+Iteration: 22858    Objective     =             0.199423
+Iteration: 22920    Objective     =             0.199422
+Iteration: 22982    Objective     =             0.199422
+Elapsed time = 119459.43 sec. (23000 iterations).
+Iteration: 23044    Objective     =             0.199421
+Iteration: 23106    Objective     =             0.199420
+Iteration: 23168    Objective     =             0.199419
+Iteration: 23230    Objective     =             0.199419
+Iteration: 23292    Objective     =             0.199418
+Iteration: 23354    Objective     =             0.199417
+Iteration: 23416    Objective     =             0.199417
+Iteration: 23478    Objective     =             0.199416
+Iteration: 23540    Objective     =             0.199415
+Iteration: 23602    Objective     =             0.199414
+Iteration: 23664    Objective     =             0.199413
+Iteration: 23726    Objective     =             0.199413
+Iteration: 23788    Objective     =             0.199412
+Iteration: 23850    Objective     =             0.199411
+Iteration: 23912    Objective     =             0.199411
+Iteration: 23974    Objective     =             0.199410
+Elapsed time = 124004.03 sec. (24000 iterations).
+Iteration: 24036    Objective     =             0.199409
+Iteration: 24098    Objective     =             0.199409
+Iteration: 24160    Objective     =             0.199408
+Iteration: 24222    Objective     =             0.199407
+Iteration: 24284    Objective     =             0.199406
+Iteration: 24346    Objective     =             0.199406
+Iteration: 24408    Objective     =             0.199405
+Iteration: 24470    Objective     =             0.199405
+Iteration: 24532    Objective     =             0.199404
+Iteration: 24594    Objective     =             0.199403
+Iteration: 24656    Objective     =             0.199403
+Iteration: 24718    Objective     =             0.199402
+Iteration: 24780    Objective     =             0.199401
+Iteration: 24842    Objective     =             0.199401
+Iteration: 24904    Objective     =             0.199400
+Iteration: 24966    Objective     =             0.199399
+Elapsed time = 128558.10 sec. (25000 iterations).
+Iteration: 25028    Objective     =             0.199399
+Iteration: 25090    Objective     =             0.199398
+Iteration: 25152    Objective     =             0.199397
+Iteration: 25214    Objective     =             0.199396
+Iteration: 25276    Objective     =             0.199396
+Iteration: 25338    Objective     =             0.199395
+Iteration: 25400    Objective     =             0.199395
+Iteration: 25462    Objective     =             0.199394
+Iteration: 25524    Objective     =             0.199393
+Iteration: 25586    Objective     =             0.199393
+Iteration: 25648    Objective     =             0.199392
+Iteration: 25710    Objective     =             0.199391
+Iteration: 25772    Objective     =             0.199391
+Iteration: 25834    Objective     =             0.199390
+Iteration: 25896    Objective     =             0.199390
+Iteration: 25958    Objective     =             0.199389
+Elapsed time = 133061.16 sec. (26000 iterations).
+Iteration: 26020    Objective     =             0.199388
+Iteration: 26082    Objective     =             0.199387
+Iteration: 26144    Objective     =             0.199387
+Iteration: 26206    Objective     =             0.199386
+Iteration: 26268    Objective     =             0.199386
+Iteration: 26330    Objective     =             0.199385
+Iteration: 26392    Objective     =             0.199385
+Iteration: 26454    Objective     =             0.199384
+Iteration: 26516    Objective     =             0.199384
+Iteration: 26578    Objective     =             0.199383
+Iteration: 26640    Objective     =             0.199383
+Iteration: 26702    Objective     =             0.199382
+Iteration: 26764    Objective     =             0.199382
+Iteration: 26826    Objective     =             0.199381
+Iteration: 26888    Objective     =             0.199381
+Iteration: 26950    Objective     =             0.199380
+Elapsed time = 137578.03 sec. (27000 iterations).
+Iteration: 27012    Objective     =             0.199379
+Iteration: 27074    Objective     =             0.199379
+Iteration: 27136    Objective     =             0.199378
+Iteration: 27198    Objective     =             0.199378
+Iteration: 27260    Objective     =             0.199377
+Iteration: 27322    Objective     =             0.199377
+Iteration: 27384    Objective     =             0.199376
+Iteration: 27446    Objective     =             0.199376
+Iteration: 27508    Objective     =             0.199375
+Iteration: 27570    Objective     =             0.199375
+Iteration: 27632    Objective     =             0.199375
+Iteration: 27694    Objective     =             0.199374
+Iteration: 27756    Objective     =             0.199374
+Iteration: 27818    Objective     =             0.199373
+Iteration: 27880    Objective     =             0.199373
+Iteration: 27942    Objective     =             0.199372
+Elapsed time = 142035.00 sec. (28000 iterations).
+Iteration: 28004    Objective     =             0.199372
+Iteration: 28066    Objective     =             0.199371
+Iteration: 28128    Objective     =             0.199371
+Iteration: 28190    Objective     =             0.199370
+Iteration: 28252    Objective     =             0.199370
+Iteration: 28314    Objective     =             0.199369
+Iteration: 28376    Objective     =             0.199369
+Iteration: 28438    Objective     =             0.199368
+Iteration: 28500    Objective     =             0.199368
+Iteration: 28562    Objective     =             0.199368
+Iteration: 28624    Objective     =             0.199367
+Iteration: 28686    Objective     =             0.199367
+Iteration: 28748    Objective     =             0.199367
+Iteration: 28810    Objective     =             0.199366
+Iteration: 28872    Objective     =             0.199366
+Iteration: 28934    Objective     =             0.199365
+Iteration: 28996    Objective     =             0.199365
+Elapsed time = 146729.15 sec. (29000 iterations).
+Iteration: 29058    Objective     =             0.199365
+Iteration: 29120    Objective     =             0.199364
+Iteration: 29182    Objective     =             0.199364
+Iteration: 29244    Objective     =             0.199363
+Iteration: 29306    Objective     =             0.199363
+Iteration: 29368    Objective     =             0.199363
+Iteration: 29430    Objective     =             0.199362
+Iteration: 29492    Objective     =             0.199362
+Iteration: 29554    Objective     =             0.199362
+Iteration: 29616    Objective     =             0.199361
+Iteration: 29678    Objective     =             0.199361
+Iteration: 29740    Objective     =             0.199361
+Iteration: 29802    Objective     =             0.199360
+Iteration: 29864    Objective     =             0.199360
+Iteration: 29926    Objective     =             0.199360
+Iteration: 29988    Objective     =             0.199359
+Elapsed time = 151153.82 sec. (30000 iterations).
+Iteration: 30050    Objective     =             0.199359
+Iteration: 30112    Objective     =             0.199359
+Iteration: 30174    Objective     =             0.199358
+Iteration: 30236    Objective     =             0.199358
+Iteration: 30298    Objective     =             0.199358
+Iteration: 30360    Objective     =             0.199357
+Iteration: 30422    Objective     =             0.199357
+Iteration: 30484    Objective     =             0.199357
+Iteration: 30546    Objective     =             0.199356
+Iteration: 30608    Objective     =             0.199356
+Iteration: 30670    Objective     =             0.199356
+Iteration: 30732    Objective     =             0.199356
+Iteration: 30794    Objective     =             0.199355
+Iteration: 30856    Objective     =             0.199355
+Iteration: 30918    Objective     =             0.199355
+Iteration: 30980    Objective     =             0.199355
+Elapsed time = 155562.35 sec. (31000 iterations).
+Iteration: 31042    Objective     =             0.199354
+Iteration: 31104    Objective     =             0.199354
+Iteration: 31166    Objective     =             0.199354
+Iteration: 31228    Objective     =             0.199354
+Iteration: 31290    Objective     =             0.199353
+Iteration: 31352    Objective     =             0.199353
+Iteration: 31414    Objective     =             0.199353
+Iteration: 31476    Objective     =             0.199353
+Iteration: 31538    Objective     =             0.199353
+Iteration: 31600    Objective     =             0.199352
+Iteration: 31662    Objective     =             0.199352
+Iteration: 31724    Objective     =             0.199352
+Iteration: 31786    Objective     =             0.199352
+Iteration: 31848    Objective     =             0.199352
+Iteration: 31910    Objective     =             0.199351
+Iteration: 31972    Objective     =             0.199351
+Elapsed time = 159941.61 sec. (32000 iterations).
+Iteration: 32034    Objective     =             0.199351
+Iteration: 32096    Objective     =             0.199351
+Iteration: 32158    Objective     =             0.199351
+Iteration: 32220    Objective     =             0.199351
+Iteration: 32282    Objective     =             0.199350
+Iteration: 32344    Objective     =             0.199350
+Iteration: 32406    Objective     =             0.199350
+Iteration: 32468    Objective     =             0.199350
+Iteration: 32530    Objective     =             0.199350
+Iteration: 32592    Objective     =             0.199350
+Iteration: 32654    Objective     =             0.199350
+Iteration: 32716    Objective     =             0.199349
+Iteration: 32778    Objective     =             0.199349
+Iteration: 32840    Objective     =             0.199349
+Iteration: 32902    Objective     =             0.199349
+Iteration: 32964    Objective     =             0.199349
+Elapsed time = 164343.39 sec. (33000 iterations).
+Iteration: 33026    Objective     =             0.199349
+Iteration: 33088    Objective     =             0.199349
+Iteration: 33150    Objective     =             0.199349
+Iteration: 33212    Objective     =             0.199348
+Iteration: 33274    Objective     =             0.199348
+Iteration: 33336    Objective     =             0.199348
+Iteration: 33398    Objective     =             0.199348
+Iteration: 33460    Objective     =             0.199348
+Iteration: 33522    Objective     =             0.199348
+Iteration: 33584    Objective     =             0.199348
+Iteration: 33646    Objective     =             0.199348
+Iteration: 33708    Objective     =             0.199348
+Iteration: 33770    Objective     =             0.199348
+Iteration: 33832    Objective     =             0.199348
+Iteration: 33894    Objective     =             0.199348
+Iteration: 33956    Objective     =             0.199347
+Elapsed time = 168748.85 sec. (34000 iterations).
+Iteration: 34018    Objective     =             0.199347
+Iteration: 34080    Objective     =             0.199347
+Iteration: 34142    Objective     =             0.199347
+Iteration: 34204    Objective     =             0.199347
+Iteration: 34266    Objective     =             0.199347
+Iteration: 34328    Objective     =             0.199347
+Iteration: 34390    Objective     =             0.199347
+Iteration: 34452    Objective     =             0.199347
+Iteration: 34514    Objective     =             0.199347
+Iteration: 34576    Objective     =             0.199347
+Iteration: 34638    Objective     =             0.199347
+Removing perturbation.
+Iteration: 34667    Scaled infeas =             0.480519
+Iteration: 34728    Scaled infeas =             0.050618
+Iteration: 34790    Scaled infeas =             0.040107
+Iteration: 34852    Scaled infeas =             0.029534
+Iteration: 34914    Scaled infeas =             0.024267
+Iteration: 34976    Scaled infeas =             0.021741
+Elapsed time = 173516.78 sec. (35000 iterations).
+Iteration: 35038    Scaled infeas =             0.019655
+Iteration: 35100    Scaled infeas =             0.017740
+Iteration: 35162    Scaled infeas =             0.015535
+Iteration: 35224    Scaled infeas =             0.014201
+Iteration: 35286    Scaled infeas =             0.013379
+Iteration: 35348    Scaled infeas =             0.012149
+Iteration: 35410    Scaled infeas =             0.011067
+Iteration: 35472    Scaled infeas =             0.010028
+Iteration: 35534    Scaled infeas =             0.008878
+Iteration: 35596    Scaled infeas =             0.008249
+Iteration: 35658    Scaled infeas =             0.007629
+Iteration: 35720    Scaled infeas =             0.006892
+Iteration: 35782    Scaled infeas =             0.006303
+Iteration: 35844    Scaled infeas =             0.005682
+Iteration: 35906    Scaled infeas =             0.005193
+Iteration: 35968    Scaled infeas =             0.004662
+Elapsed time = 178810.49 sec. (36000 iterations).
+Iteration: 36030    Scaled infeas =             0.004258
+Iteration: 36092    Scaled infeas =             0.003954
+Iteration: 36154    Scaled infeas =             0.003720
+Iteration: 36216    Scaled infeas =             0.003470
+Iteration: 36278    Scaled infeas =             0.003263
+Iteration: 36340    Scaled infeas =             0.003094
+Iteration: 36402    Scaled infeas =             0.002982
+Iteration: 36464    Scaled infeas =             0.002838
+Iteration: 36526    Scaled infeas =             0.002708
+Iteration: 36588    Scaled infeas =             0.002619
+Iteration: 36650    Scaled infeas =             0.002536
+Iteration: 36712    Scaled infeas =             0.002416
+Iteration: 36774    Scaled infeas =             0.002291
+Iteration: 36836    Scaled infeas =             0.002190
+Iteration: 36898    Scaled infeas =             0.002357
+Iteration: 36960    Scaled infeas =             0.002238
+Elapsed time = 184554.03 sec. (37000 iterations).
+Iteration: 37022    Scaled infeas =             0.002140
+Iteration: 37084    Scaled infeas =             0.002027
+Iteration: 37146    Scaled infeas =             0.001932
+Iteration: 37208    Scaled infeas =             0.001869
+Iteration: 37270    Scaled infeas =             0.001802
+Iteration: 37332    Scaled infeas =             0.001720
+Iteration: 37394    Scaled infeas =             0.001647
+Iteration: 37456    Scaled infeas =             0.001584
+Iteration: 37518    Scaled infeas =             0.001520
+Iteration: 37580    Scaled infeas =             0.001454
+Iteration: 37642    Scaled infeas =             0.001380
+Iteration: 37704    Scaled infeas =             0.001317
+Iteration: 37766    Scaled infeas =             0.001248
+Iteration: 37828    Scaled infeas =             0.001250
+Iteration: 37890    Scaled infeas =             0.001208
+Iteration: 37952    Scaled infeas =             0.001154
+Elapsed time = 190151.00 sec. (38000 iterations).
+Iteration: 38014    Scaled infeas =             0.001107
+Iteration: 38076    Scaled infeas =             0.001052
+Iteration: 38138    Scaled infeas =             0.000993
+Iteration: 38200    Scaled infeas =             0.000961
+Iteration: 38262    Scaled infeas =             0.000910
+Iteration: 38324    Scaled infeas =             0.000862
+Iteration: 38386    Scaled infeas =             0.000819
+Iteration: 38448    Scaled infeas =             0.000780
+Iteration: 38510    Scaled infeas =             0.000730
+Iteration: 38572    Scaled infeas =             0.000694
+Iteration: 38634    Scaled infeas =             0.000656
+Iteration: 38696    Scaled infeas =             0.000681
+Iteration: 38758    Scaled infeas =             0.000652
+Iteration: 38820    Scaled infeas =             0.000624
+Iteration: 38882    Scaled infeas =             0.000591
+Iteration: 38944    Scaled infeas =             0.000562
+Elapsed time = 195533.21 sec. (39000 iterations).
+Iteration: 39006    Scaled infeas =             0.000512
+Iteration: 39068    Scaled infeas =             0.000478
+Iteration: 39130    Scaled infeas =             0.000450
+Iteration: 39192    Scaled infeas =             0.000421
+Iteration: 39254    Scaled infeas =             0.000390
+Iteration: 39316    Scaled infeas =             0.000359
+Iteration: 39378    Scaled infeas =             0.000325
+Iteration: 39440    Scaled infeas =             0.000301
+Iteration: 39502    Scaled infeas =             0.000275
+Iteration: 39564    Scaled infeas =             0.000237
+Iteration: 39626    Scaled infeas =             0.000252
+Iteration: 39688    Scaled infeas =             0.000228
+Iteration: 39750    Scaled infeas =             0.000212
+Iteration: 39812    Scaled infeas =             0.000190
+Iteration: 39874    Scaled infeas =             0.000169
+Iteration: 39936    Scaled infeas =             0.000150
+Iteration: 39998    Scaled infeas =             0.000127
+Elapsed time = 201082.31 sec. (40000 iterations).
+Iteration: 40060    Scaled infeas =             0.000108
+Iteration: 40122    Scaled infeas =             0.000092
+Iteration: 40184    Scaled infeas =             0.000079
+Iteration: 40246    Scaled infeas =             0.000061
+Iteration: 40308    Scaled infeas =             0.000047
+Iteration: 40370    Scaled infeas =             0.000035
+Iteration: 40432    Scaled infeas =             0.000027
+Iteration: 40494    Scaled infeas =             0.000053
+Iteration: 40556    Scaled infeas =             0.000044
+Iteration: 40618    Scaled infeas =             0.000037
+Iteration: 40680    Scaled infeas =             0.000028
+Iteration: 40742    Scaled infeas =             0.000019
+Iteration: 40804    Scaled infeas =             0.000012
+Iteration: 40866    Scaled infeas =             0.000007
+Iteration: 40928    Scaled infeas =             0.000001
+Iteration: 40990    Scaled infeas =             0.000004
+Elapsed time = 206153.15 sec. (41000 iterations).
+Iteration: 41052    Scaled infeas =             0.000001
+Iteration: 41096    Objective     =             0.200049
+Iteration: 41157    Objective     =             0.200038
+Iteration: 41219    Objective     =             0.200027
+Iteration: 41281    Objective     =             0.200015
+Iteration: 41343    Objective     =             0.200004
+Iteration: 41405    Objective     =             0.199995
+Iteration: 41467    Objective     =             0.199986
+Iteration: 41529    Objective     =             0.199978
+Iteration: 41591    Objective     =             0.199970
+Iteration: 41653    Objective     =             0.199963
+Iteration: 41715    Objective     =             0.199956
+Iteration: 41777    Objective     =             0.199948
+Iteration: 41839    Objective     =             0.199940
+Iteration: 41901    Objective     =             0.199932
+Iteration: 41963    Objective     =             0.199927
+Elapsed time = 211007.01 sec. (42000 iterations).
+Iteration: 42025    Objective     =             0.199922
+Iteration: 42087    Objective     =             0.199917
+Iteration: 42149    Objective     =             0.199912
+Iteration: 42211    Objective     =             0.199907
+Iteration: 42273    Objective     =             0.199903
+Iteration: 42335    Objective     =             0.199897
+Iteration: 42397    Objective     =             0.199892
+Iteration: 42459    Objective     =             0.199887
+Iteration: 42521    Objective     =             0.199881
+Iteration: 42583    Objective     =             0.199876
+Iteration: 42645    Objective     =             0.199872
+Iteration: 42707    Objective     =             0.199869
+Iteration: 42769    Objective     =             0.199865
+Iteration: 42831    Objective     =             0.199861
+Iteration: 42893    Objective     =             0.199858
+Iteration: 42955    Objective     =             0.199853
+Elapsed time = 215745.06 sec. (43000 iterations).
+Iteration: 43017    Objective     =             0.199850
+Iteration: 43079    Objective     =             0.199847
+Iteration: 43141    Objective     =             0.199844
+Iteration: 43203    Objective     =             0.199840
+Iteration: 43265    Objective     =             0.199836
+Iteration: 43327    Objective     =             0.199833
+Iteration: 43389    Objective     =             0.199829
+Iteration: 43451    Objective     =             0.199826
+Iteration: 43513    Objective     =             0.199823
+Iteration: 43575    Objective     =             0.199820
+Iteration: 43637    Objective     =             0.199816
+Iteration: 43699    Objective     =             0.199813
+Iteration: 43761    Objective     =             0.199810
+Iteration: 43823    Objective     =             0.199806
+Iteration: 43885    Objective     =             0.199802
+Iteration: 43947    Objective     =             0.199799
+Elapsed time = 220449.45 sec. (44000 iterations).
+Iteration: 44009    Objective     =             0.199796
+Iteration: 44071    Objective     =             0.199793
+Iteration: 44133    Objective     =             0.199790
+Iteration: 44195    Objective     =             0.199786
+Iteration: 44257    Objective     =             0.199782
+Iteration: 44319    Objective     =             0.199779
+Iteration: 44381    Objective     =             0.199777
+Iteration: 44443    Objective     =             0.199774
+Iteration: 44505    Objective     =             0.199772
+Iteration: 44567    Objective     =             0.199771
+Iteration: 44629    Objective     =             0.199769
+Iteration: 44691    Objective     =             0.199768
+Iteration: 44753    Objective     =             0.199766
+Iteration: 44815    Objective     =             0.199764
+Iteration: 44877    Objective     =             0.199761
+Iteration: 44939    Objective     =             0.199759
+Elapsed time = 225367.23 sec. (45000 iterations).
+Iteration: 45001    Objective     =             0.199756
+Iteration: 45063    Objective     =             0.199754
+Iteration: 45125    Objective     =             0.199752
+Iteration: 45187    Objective     =             0.199749
+Iteration: 45249    Objective     =             0.199747
+Iteration: 45311    Objective     =             0.199746
+Iteration: 45373    Objective     =             0.199743
+Iteration: 45435    Objective     =             0.199741
+Iteration: 45497    Objective     =             0.199739
+Iteration: 45559    Objective     =             0.199736
+Iteration: 45621    Objective     =             0.199733
+Iteration: 45683    Objective     =             0.199730
+Iteration: 45745    Objective     =             0.199728
+Iteration: 45807    Objective     =             0.199726
+Iteration: 45869    Objective     =             0.199724
+Iteration: 45931    Objective     =             0.199722
+Iteration: 45993    Objective     =             0.199720
+Elapsed time = 230016.20 sec. (46000 iterations).
+Iteration: 46055    Objective     =             0.199718
+Iteration: 46117    Objective     =             0.199716
+Iteration: 46179    Objective     =             0.199715
+Iteration: 46241    Objective     =             0.199713
+Iteration: 46303    Objective     =             0.199711
+Iteration: 46365    Objective     =             0.199709
+Iteration: 46427    Objective     =             0.199708
+Iteration: 46489    Objective     =             0.199706
+Iteration: 46551    Objective     =             0.199704
+Iteration: 46613    Objective     =             0.199702
+Iteration: 46675    Objective     =             0.199700
+Iteration: 46737    Objective     =             0.199699
+Iteration: 46799    Objective     =             0.199697
+Iteration: 46861    Objective     =             0.199695
+Iteration: 46923    Objective     =             0.199693
+Iteration: 46985    Objective     =             0.199691
+Elapsed time = 234643.86 sec. (47000 iterations).
+Iteration: 47047    Objective     =             0.199690
+Iteration: 47109    Objective     =             0.199688
+Iteration: 47171    Objective     =             0.199687
+Iteration: 47233    Objective     =             0.199685
+Iteration: 47295    Objective     =             0.199683
+Iteration: 47357    Objective     =             0.199681
+Iteration: 47419    Objective     =             0.199679
+Iteration: 47481    Objective     =             0.199678
+Iteration: 47543    Objective     =             0.199676
+Iteration: 47605    Objective     =             0.199674
+Iteration: 47667    Objective     =             0.199673
+Iteration: 47729    Objective     =             0.199671
+Iteration: 47791    Objective     =             0.199669
+Iteration: 47853    Objective     =             0.199667
+Iteration: 47915    Objective     =             0.199665
+Iteration: 47977    Objective     =             0.199664
+Elapsed time = 239226.44 sec. (48000 iterations).
+Iteration: 48039    Objective     =             0.199663
+Iteration: 48101    Objective     =             0.199661
+Iteration: 48163    Objective     =             0.199660
+Iteration: 48225    Objective     =             0.199658
+Iteration: 48287    Objective     =             0.199657
+Iteration: 48349    Objective     =             0.199656
+Iteration: 48411    Objective     =             0.199655
+Iteration: 48473    Objective     =             0.199653
+Iteration: 48535    Objective     =             0.199651
+Iteration: 48597    Objective     =             0.199650
+Iteration: 48659    Objective     =             0.199649
+Iteration: 48721    Objective     =             0.199648
+Iteration: 48783    Objective     =             0.199646
+Iteration: 48845    Objective     =             0.199646
+Iteration: 48907    Objective     =             0.199644
+Iteration: 48969    Objective     =             0.199643
+Elapsed time = 243792.66 sec. (49000 iterations).
+Iteration: 49031    Objective     =             0.199642
+Iteration: 49093    Objective     =             0.199640
+Iteration: 49155    Objective     =             0.199640
+Iteration: 49217    Objective     =             0.199639
+Iteration: 49279    Objective     =             0.199637
+Iteration: 49341    Objective     =             0.199636
+Iteration: 49403    Objective     =             0.199635
+Iteration: 49465    Objective     =             0.199634
+Iteration: 49527    Objective     =             0.199633
+Iteration: 49589    Objective     =             0.199631
+Iteration: 49651    Objective     =             0.199630
+Iteration: 49713    Objective     =             0.199629
+Iteration: 49775    Objective     =             0.199628
+Iteration: 49837    Objective     =             0.199627
+Iteration: 49899    Objective     =             0.199626
+Iteration: 49961    Objective     =             0.199625
+Elapsed time = 248329.80 sec. (50000 iterations).
+Iteration: 50023    Objective     =             0.199624
+Iteration: 50085    Objective     =             0.199623
+Iteration: 50147    Objective     =             0.199622
+Iteration: 50209    Objective     =             0.199620
+Iteration: 50271    Objective     =             0.199619
+Iteration: 50333    Objective     =             0.199619
+Iteration: 50395    Objective     =             0.199618
+Iteration: 50457    Objective     =             0.199617
+Iteration: 50519    Objective     =             0.199615
+Iteration: 50581    Objective     =             0.199614
+Iteration: 50643    Objective     =             0.199613
+Iteration: 50705    Objective     =             0.199612
+Iteration: 50767    Objective     =             0.199611
+Iteration: 50829    Objective     =             0.199610
+Iteration: 50891    Objective     =             0.199609
+Iteration: 50953    Objective     =             0.199608
+Elapsed time = 252829.64 sec. (51000 iterations).
+Iteration: 51015    Objective     =             0.199607
+Iteration: 51077    Objective     =             0.199607
+Iteration: 51139    Objective     =             0.199606
+Iteration: 51201    Objective     =             0.199605
+Iteration: 51263    Objective     =             0.199605
+Iteration: 51325    Objective     =             0.199604
+Iteration: 51387    Objective     =             0.199603
+Iteration: 51449    Objective     =             0.199602
+Iteration: 51511    Objective     =             0.199601
+Iteration: 51573    Objective     =             0.199600
+Iteration: 51635    Objective     =             0.199599
+Iteration: 51697    Objective     =             0.199598
+Iteration: 51759    Objective     =             0.199597
+Iteration: 51821    Objective     =             0.199596
+Iteration: 51883    Objective     =             0.199595
+Iteration: 51945    Objective     =             0.199594
+Elapsed time = 257307.76 sec. (52000 iterations).
+Iteration: 52007    Objective     =             0.199593
+Iteration: 52069    Objective     =             0.199593
+Iteration: 52131    Objective     =             0.199592
+Iteration: 52193    Objective     =             0.199591
+Iteration: 52255    Objective     =             0.199590
+Iteration: 52317    Objective     =             0.199589
+Iteration: 52379    Objective     =             0.199589
+Iteration: 52441    Objective     =             0.199588
+Iteration: 52503    Objective     =             0.199587
+Iteration: 52565    Objective     =             0.199586
+Iteration: 52627    Objective     =             0.199586
+Iteration: 52689    Objective     =             0.199585
+Iteration: 52751    Objective     =             0.199584
+Iteration: 52813    Objective     =             0.199583
+Iteration: 52875    Objective     =             0.199583
+Iteration: 52937    Objective     =             0.199582
+Iteration: 52999    Objective     =             0.199581
+Elapsed time = 262020.65 sec. (53000 iterations).
+Iteration: 53061    Objective     =             0.199581
+Iteration: 53123    Objective     =             0.199580
+Iteration: 53185    Objective     =             0.199579
+Iteration: 53247    Objective     =             0.199578
+Iteration: 53309    Objective     =             0.199577
+Iteration: 53371    Objective     =             0.199577
+Iteration: 53433    Objective     =             0.199576
+Iteration: 53495    Objective     =             0.199576
+Iteration: 53557    Objective     =             0.199575
+Iteration: 53619    Objective     =             0.199574
+Iteration: 53681    Objective     =             0.199573
+Iteration: 53743    Objective     =             0.199573
+Iteration: 53805    Objective     =             0.199572
+Iteration: 53867    Objective     =             0.199571
+Iteration: 53929    Objective     =             0.199571
+Iteration: 53991    Objective     =             0.199570
+Elapsed time = 266424.21 sec. (54000 iterations).
+Iteration: 54053    Objective     =             0.199569
+Iteration: 54115    Objective     =             0.199568
+Iteration: 54177    Objective     =             0.199568
+Iteration: 54239    Objective     =             0.199567
+Iteration: 54301    Objective     =             0.199567
+Iteration: 54363    Objective     =             0.199566
+Iteration: 54425    Objective     =             0.199566
+Iteration: 54487    Objective     =             0.199565
+Iteration: 54549    Objective     =             0.199564
+Iteration: 54611    Objective     =             0.199564
+Iteration: 54673    Objective     =             0.199564
+Iteration: 54735    Objective     =             0.199563
+Iteration: 54797    Objective     =             0.199563
+Iteration: 54859    Objective     =             0.199562
+Iteration: 54921    Objective     =             0.199562
+Iteration: 54983    Objective     =             0.199561
+Elapsed time = 270799.30 sec. (55000 iterations).
+Iteration: 55045    Objective     =             0.199560
+Iteration: 55107    Objective     =             0.199560
+Iteration: 55169    Objective     =             0.199559
+Iteration: 55231    Objective     =             0.199559
+Iteration: 55293    Objective     =             0.199558
+Iteration: 55355    Objective     =             0.199557
+Iteration: 55417    Objective     =             0.199557
+Iteration: 55479    Objective     =             0.199556
+Iteration: 55541    Objective     =             0.199556
+Iteration: 55603    Objective     =             0.199555
+Iteration: 55665    Objective     =             0.199555
+Iteration: 55727    Objective     =             0.199554
+Iteration: 55789    Objective     =             0.199554
+Iteration: 55851    Objective     =             0.199553
+Iteration: 55913    Objective     =             0.199553
+Iteration: 55975    Objective     =             0.199552
+Elapsed time = 275135.15 sec. (56000 iterations).
+Iteration: 56037    Objective     =             0.199552
+Iteration: 56099    Objective     =             0.199551
+Iteration: 56161    Objective     =             0.199551
+Iteration: 56223    Objective     =             0.199550
+Iteration: 56285    Objective     =             0.199550
+Iteration: 56347    Objective     =             0.199550
+Iteration: 56409    Objective     =             0.199549
+Iteration: 56471    Objective     =             0.199549
+Iteration: 56533    Objective     =             0.199548
+Iteration: 56595    Objective     =             0.199548
+Iteration: 56657    Objective     =             0.199547
+Iteration: 56719    Objective     =             0.199547
+Iteration: 56781    Objective     =             0.199546
+Iteration: 56843    Objective     =             0.199546
+Iteration: 56905    Objective     =             0.199546
+Iteration: 56967    Objective     =             0.199545
+Elapsed time = 279484.50 sec. (57000 iterations).
+Iteration: 57029    Objective     =             0.199545
+Iteration: 57091    Objective     =             0.199544
+Iteration: 57153    Objective     =             0.199544
+Iteration: 57215    Objective     =             0.199543
+Iteration: 57277    Objective     =             0.199543
+Iteration: 57339    Objective     =             0.199543
+Iteration: 57401    Objective     =             0.199542
+Iteration: 57463    Objective     =             0.199542
+Iteration: 57525    Objective     =             0.199541
+Iteration: 57587    Objective     =             0.199541
+Iteration: 57649    Objective     =             0.199540
+Iteration: 57711    Objective     =             0.199540
+Iteration: 57773    Objective     =             0.199539
+Iteration: 57835    Objective     =             0.199539
+Iteration: 57897    Objective     =             0.199539
+Iteration: 57959    Objective     =             0.199538
+Elapsed time = 283841.47 sec. (58000 iterations).
+Iteration: 58021    Objective     =             0.199538
+Iteration: 58083    Objective     =             0.199538
+Iteration: 58145    Objective     =             0.199537
+Iteration: 58207    Objective     =             0.199537
+Iteration: 58269    Objective     =             0.199537
+Iteration: 58331    Objective     =             0.199536
+Iteration: 58393    Objective     =             0.199536
+Iteration: 58455    Objective     =             0.199536
+Iteration: 58517    Objective     =             0.199535
+Iteration: 58579    Objective     =             0.199535
+Iteration: 58641    Objective     =             0.199535
+Iteration: 58703    Objective     =             0.199534
+Iteration: 58765    Objective     =             0.199534
+Iteration: 58827    Objective     =             0.199534
+Iteration: 58889    Objective     =             0.199533
+Iteration: 58951    Objective     =             0.199533
+Elapsed time = 288191.98 sec. (59000 iterations).
+Iteration: 59013    Objective     =             0.199533
+Iteration: 59075    Objective     =             0.199533
+Iteration: 59137    Objective     =             0.199532
+Iteration: 59199    Objective     =             0.199532
+Iteration: 59261    Objective     =             0.199532
+Iteration: 59323    Objective     =             0.199531
+Iteration: 59385    Objective     =             0.199531
+Iteration: 59447    Objective     =             0.199531
+Iteration: 59509    Objective     =             0.199530
+Iteration: 59571    Objective     =             0.199530
+Iteration: 59633    Objective     =             0.199530
+Iteration: 59695    Objective     =             0.199530
+Iteration: 59757    Objective     =             0.199529
+Iteration: 59819    Objective     =             0.199529
+Iteration: 59881    Objective     =             0.199529
+Iteration: 59943    Objective     =             0.199528
+Elapsed time = 292522.91 sec. (60000 iterations).
+Iteration: 60005    Objective     =             0.199528
+Iteration: 60067    Objective     =             0.199528
+Iteration: 60129    Objective     =             0.199528
+Iteration: 60191    Objective     =             0.199527
+Iteration: 60253    Objective     =             0.199527
+Iteration: 60315    Objective     =             0.199527
+Iteration: 60377    Objective     =             0.199526
+Iteration: 60439    Objective     =             0.199526
+Iteration: 60501    Objective     =             0.199526
+Iteration: 60563    Objective     =             0.199526
+Iteration: 60625    Objective     =             0.199526
+Iteration: 60687    Objective     =             0.199525
+Iteration: 60749    Objective     =             0.199525
+Iteration: 60811    Objective     =             0.199525
+Iteration: 60873    Objective     =             0.199525
+Iteration: 60935    Objective     =             0.199525
+Iteration: 60997    Objective     =             0.199524
+Elapsed time = 297103.28 sec. (61000 iterations).
+Iteration: 61059    Objective     =             0.199524
+Iteration: 61121    Objective     =             0.199524
+Iteration: 61183    Objective     =             0.199524
+Iteration: 61245    Objective     =             0.199524
+Iteration: 61307    Objective     =             0.199523
+Iteration: 61369    Objective     =             0.199523
+Iteration: 61431    Objective     =             0.199523
+Iteration: 61493    Objective     =             0.199523
+Iteration: 61555    Objective     =             0.199523
+Iteration: 61617    Objective     =             0.199523
+Iteration: 61679    Objective     =             0.199522
+Iteration: 61741    Objective     =             0.199522
+Iteration: 61803    Objective     =             0.199522
+Iteration: 61865    Objective     =             0.199522
+Iteration: 61927    Objective     =             0.199522
+Iteration: 61989    Objective     =             0.199521
+Elapsed time = 301425.24 sec. (62000 iterations).
+Iteration: 62051    Objective     =             0.199521
+Iteration: 62113    Objective     =             0.199521
+Iteration: 62175    Objective     =             0.199521
+Iteration: 62237    Objective     =             0.199521
+Iteration: 62299    Objective     =             0.199521
+Iteration: 62361    Objective     =             0.199521
+Iteration: 62423    Objective     =             0.199520
+Iteration: 62485    Objective     =             0.199520
+Iteration: 62547    Objective     =             0.199520
+Iteration: 62609    Objective     =             0.199520
+Iteration: 62671    Objective     =             0.199520
+Iteration: 62733    Objective     =             0.199520
+Iteration: 62795    Objective     =             0.199520
+Iteration: 62857    Objective     =             0.199520
+Iteration: 62919    Objective     =             0.199519
+Iteration: 62981    Objective     =             0.199519
+Elapsed time = 305742.28 sec. (63000 iterations).
+Iteration: 63043    Objective     =             0.199519
+Iteration: 63105    Objective     =             0.199519
+Iteration: 63167    Objective     =             0.199519
+Iteration: 63229    Objective     =             0.199519
+Iteration: 63291    Objective     =             0.199519
+Iteration: 63353    Objective     =             0.199519
+Iteration: 63415    Objective     =             0.199519
+Iteration: 63477    Objective     =             0.199519
+Iteration: 63539    Objective     =             0.199519
+Iteration: 63601    Objective     =             0.199519
+Iteration: 63663    Objective     =             0.199519
+Iteration: 63725    Objective     =             0.199519
+Iteration: 63787    Objective     =             0.199519
+Iteration: 63849    Objective     =             0.199518
+Iteration: 63911    Objective     =             0.199518
+Iteration: 63973    Objective     =             0.199518
+Elapsed time = 310030.21 sec. (64000 iterations).
+Iteration: 64035    Objective     =             0.199518
+Iteration: 64097    Objective     =             0.199518
+Iteration: 64159    Objective     =             0.199518
+Iteration: 64221    Objective     =             0.199518
+Iteration: 64283    Objective     =             0.199518
+Iteration: 64345    Objective     =             0.199518
+Iteration: 64407    Objective     =             0.199518
+Removing shift (1219).
+Iteration: 64450    Scaled infeas =             0.000259
+Iteration: 64511    Scaled infeas =             0.000003
+Iteration: 64573    Scaled infeas =             0.000000
+Iteration: 64580    Objective     =             0.199523
+Iteration: 64641    Objective     =             0.199522
+Iteration: 64703    Objective     =             0.199522
+Iteration: 64765    Objective     =             0.199521
+Iteration: 64827    Objective     =             0.199521
+Iteration: 64889    Objective     =             0.199521
+Iteration: 64951    Objective     =             0.199521
+Elapsed time = 314593.00 sec. (65000 iterations).
+Iteration: 65013    Objective     =             0.199521
+Iteration: 65075    Objective     =             0.199521
+Iteration: 65137    Objective     =             0.199521
+Iteration: 65199    Objective     =             0.199521
+Iteration: 65261    Objective     =             0.199521
+Iteration: 65323    Objective     =             0.199521
+Removing shift (11).
+Iteration: 65382    Infeasibility =             0.000000
+Iteration: 65383    Objective     =             0.199521
+Total crossover time = 315587.71 sec.
+
+Primal simplex - Optimal:  Objective =  1.9952107726e-01
+Solution time = 317434.42 sec.  Iterations = 65386 (13017)
+
+CPLEX> Solution written to file 'output/jun18_2009_d_12697_11383_0.09_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun18_2009_s_7097_8183_0.001_glpk' read.
+Read time =    0.04 sec.
+CPLEX> Tried aggregator 1 time.
+LP Presolve eliminated 1 rows and 31 columns.
+Reduced LP has 7096 rows, 8152 columns, and 84811 nonzeros.
+Presolve time =    0.05 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 437969
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.67 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 7096
+  Integer space required    = 151445
+  Total non-zeros in factor = 22070906
+  Total FP ops to factor    = 96829726676
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   8.4551334e+04   1.3339710e+00  6.04e+05  0.00e+00  2.40e+04
+   1   2.3928361e+04   3.2457533e+01  1.78e+05  0.00e+00  2.49e+03
+   2   2.7707439e+02   3.8565209e+01  2.75e+03  0.00e+00  2.68e-12
+   3   1.2525718e+01   3.6827043e+01  2.03e-13  0.00e+00  2.77e-12
+   4   1.6724178e+01   1.9572489e+01  4.05e-14  0.00e+00  2.43e-12
+   5   1.8093353e+01   1.8559562e+01  1.18e-13  0.00e+00  1.47e-12
+   6   1.8311383e+01   1.8354826e+01  8.77e-09  0.00e+00  1.42e-12
+   7   1.8326706e+01   1.8333685e+01  9.73e-08  0.00e+00  1.38e-12
+   8   1.8329573e+01   1.8330830e+01  1.01e-07  0.00e+00  1.30e-12
+   9   1.8330124e+01   1.8330233e+01  1.83e-08  0.00e+00  1.40e-12
+  10   1.8330164e+01   1.8330171e+01  6.79e-09  0.00e+00  1.39e-12
+  11   1.8330167e+01   1.8330167e+01  1.60e-08  0.00e+00  4.86e-09
+  12   1.8330167e+01   1.8330167e+01  9.12e-10  0.00e+00  2.06e-12
+Barrier time =  258.85 sec.
+
+Primal crossover.
+  Primal:  Fixed no variables.
+  Dual:  Fixing 3 variables.
+        2 DMoves:  Infeasibility  1.66537345e+00  Objective  1.83301668e+01
+        0 DMoves:  Infeasibility  1.66531083e+00  Objective  1.83301668e+01
+  Dual:  Pushed 0, exchanged 3.
+Using devex.
+
+Iteration log . . .
+Iteration:     1    Objective     =            18.330148
+Removing shift (2).
+Total crossover time =   13.70 sec.
+
+Primal simplex - Optimal:  Objective =  1.8330166836e+01
+Solution time =  272.55 sec.  Iterations = 4 (0)
+
+CPLEX> Solution written to file 'output/jun18_2009_s_7097_8183_0.001_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun18_2009_d_15497_12983_0.10_glpk' read.
+Read time =    8.12 sec.
+CPLEX> Tried aggregator 1 time.
+DUAL formed by presolve
+Presolve has eliminated 0 rows and 0 columns...
+Reduced LP has 12983 rows, 15497 columns, and 20123042 nonzeros.
+Presolve time =   19.04 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 84272653
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 23.36 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 12983
+  Integer space required    = 12983
+  Total non-zeros in factor = 84285636
+  Total FP ops to factor    = 729548370004
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   1.5497000e+05   0.0000000e+00  7.85e+07  0.00e+00  1.30e+04
+   1   9.4917718e+02   3.5893286e-03  3.51e+05  0.00e+00  9.24e+01
+   2   2.1176144e+02   8.2646509e-02  1.11e-10  0.00e+00  5.10e-12
+   3   2.2802338e-01   8.2813356e-02  5.55e-12  0.00e+00  7.10e-12
+   4   2.2512417e-01   1.8241418e-01  5.66e-14  0.00e+00  1.14e-11
+   5   2.0518909e-01   1.9485183e-01  2.58e-14  0.00e+00  1.43e-11
+   6   2.0004234e-01   1.9832675e-01  3.81e-09  0.00e+00  1.48e-11
+   7   1.9925946e-01   1.9895671e-01  1.18e-08  0.00e+00  1.46e-11
+   8   1.9910415e-01   1.9906467e-01  7.93e-09  0.00e+00  1.46e-11
+   9   1.9908947e-01   1.9908010e-01  2.52e-08  0.00e+00  1.40e-11
+  10   1.9908435e-01   1.9908358e-01  2.47e-06  0.00e+00  1.45e-11
+  11   1.9908406e-01   1.9908396e-01  4.51e-07  0.00e+00  8.04e-09
+  12   1.9908401e-01   1.9908399e-01  5.92e-08  0.00e+00  5.55e-09
+Barrier time = 2580.58 sec.
+
+Primal crossover.
+  Primal:  Fixing 18 variables.
+       17 PMoves:  Infeasibility  1.40971153e-02  Objective  1.99083985e-01
+        0 PMoves:  Infeasibility  1.28046882e-02  Objective  1.99083986e-01
+  Primal:  Pushed 0, exchanged 18.
+  Dual:  Fixing 173 variables.
+      172 DMoves:  Infeasibility  5.56988582e-03  Objective  1.99083777e-01
+Not enough memory for dense factorization.
+Removing shift (583).
+CPLEX Error  1001: Out of memory.
+CPLEX> CPLEX Error  1217: No solution exists.
+No file written.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun18_2009_d_9897_9783_0.40_glpk' read.
+Read time =   15.05 sec.
+CPLEX> Presolve has eliminated 0 rows and 0 columns...
+Tried aggregator 1 time.
+Presolve has eliminated 0 rows and 0 columns...
+No LP presolve or aggregator reductions.
+Presolve time =   12.48 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 48970356
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 10.50 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 9897
+  Integer space required    = 9897
+  Total non-zeros in factor = 48980253
+  Total FP ops to factor    = 323188036045
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   9.7830000e+04   0.0000000e+00  1.51e+08  0.00e+00  2.95e+04
+   1   8.0667964e+02   1.0046626e-01  1.34e+06  0.00e+00  1.93e+02
+   2   2.1431074e+00   1.2424133e-01  6.95e+04  0.00e+00  4.34e-11
+   3   4.2364343e-03   1.2397471e-01  4.73e-12  0.00e+00  4.96e-11
+   4   2.6219649e-02   5.3012001e-02  1.10e-13  0.00e+00  3.86e-11
+   5   4.6587872e-02   5.2185982e-02  2.50e-14  0.00e+00  1.92e-11
+   6   4.9233629e-02   5.0668526e-02  7.09e-09  0.00e+00  1.78e-11
+   7   4.9848756e-02   5.0156948e-02  6.10e-09  0.00e+00  1.69e-11
+   8   4.9971037e-02   5.0019171e-02  7.43e-09  0.00e+00  1.67e-11
+   9   4.9988145e-02   4.9997841e-02  1.90e-08  0.00e+00  1.62e-11
+  10   4.9992515e-02   4.9994185e-02  1.30e-08  0.00e+00  1.58e-11
+  11   4.9993126e-02   4.9993382e-02  3.28e-05  0.00e+00  1.47e-08
+  12   4.9993223e-02   4.9993245e-02  1.59e-05  0.00e+00  1.48e-08
+  13   4.9993229e-02   4.9993225e-02  4.94e-06  0.00e+00  9.98e-09
+Barrier time = 4140.44 sec.
+
+Primal crossover.
+  Primal:  Fixed no variables.
+  Dual:  Fixing 239 variables.
+      238 DMoves:  Infeasibility  1.00087847e-02  Objective  4.99937903e-02
+      171 DMoves:  Infeasibility  7.77898943e-03  Objective  4.99937903e-02
+Not enough memory for dense factorization.
+Removing shift (1939).
+Total crossover time =  927.19 sec.
+CPLEX Error  1001: Out of memory.
+CPLEX> CPLEX Error  1217: No solution exists.
+No file written.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun18_2009_d_5697_7383_0.10_glpk' read.
+Read time =    1.65 sec.
+CPLEX> Tried aggregator 1 time.
+No LP presolve or aggregator reductions.
+Presolve time =    3.37 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 16225056
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 3.62 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 5697
+  Integer space required    = 5697
+  Total non-zeros in factor = 16230753
+  Total FP ops to factor    = 61649810145
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   7.3830000e+04   0.0000000e+00  1.65e+07  0.00e+00  2.05e+04
+   1   1.6504092e+03   4.0178088e-01  4.20e+05  0.00e+00  5.72e+02
+   2   1.6258860e+01   5.6763063e-01  3.16e+04  0.00e+00  1.34e-11
+   3   3.3483609e-02   5.6612069e-01  2.08e-12  0.00e+00  1.62e-11
+   4   1.1126468e-01   2.3433817e-01  3.54e-14  0.00e+00  1.22e-11
+   5   1.4328000e-01   2.2438573e-01  2.58e-14  0.00e+00  6.37e-12
+   6   1.8457989e-01   2.1692109e-01  3.42e-08  0.00e+00  5.35e-12
+   7   1.9792224e-01   2.0724172e-01  1.20e-08  0.00e+00  5.49e-12
+   8   2.0170247e-01   2.0392622e-01  1.33e-08  0.00e+00  5.10e-12
+   9   2.0262912e-01   2.0308362e-01  1.09e-08  0.00e+00  4.94e-12
+  10   2.0277449e-01   2.0285838e-01  1.62e-08  0.00e+00  5.01e-12
+  11   2.0280644e-01   2.0281285e-01  8.01e-09  0.00e+00  5.30e-12
+  12   2.0280968e-01   2.0281063e-01  1.58e-08  0.00e+00  4.97e-12
+  13   2.0281015e-01   2.0281024e-01  2.32e-06  0.00e+00  9.07e-09
+  14   2.0281019e-01   2.0281019e-01  2.43e-07  0.00e+00  1.22e-09
+Barrier time =  272.90 sec.
+
+Primal crossover.
+  Primal:  Fixing 1 variable.
+        0 PMoves:  Infeasibility  6.82028518e-03  Objective  2.02810210e-01
+  Primal:  Pushed 0, exchanged 1.
+  Dual:  Fixing 23 variables.
+       22 DMoves:  Infeasibility  5.91164313e-04  Objective  2.02810231e-01
+        0 DMoves:  Infeasibility  4.34502258e-04  Objective  2.02810226e-01
+  Dual:  Pushed 1, exchanged 22.
+Using devex.
+
+Iteration log . . .
+Iteration:     1    Objective     =             0.202810
+Iteration:   202    Objective     =             0.202810
+Iteration:   401    Objective     =             0.202807
+Iteration:   576    Objective     =             0.202805
+Perturbation started.
+Iteration:   602    Scaled infeas =             0.000653
+Iteration:   791    Scaled infeas =             0.000048
+Iteration:   966    Objective     =             0.202768
+Elapsed time =  715.68 sec. (1000 iterations).
+Iteration:  1156    Objective     =             0.202792
+Switched to steepest-edge.
+Iteration:  1348    Objective     =             0.202803
+Iteration:  1539    Objective     =             0.202816
+Iteration:  1726    Objective     =             0.202826
+Iteration:  1911    Objective     =             0.202831
+Elapsed time = 1000.80 sec. (2000 iterations).
+Iteration:  2096    Objective     =             0.202837
+Iteration:  2284    Objective     =             0.202840
+Iteration:  2475    Objective     =             0.202844
+Iteration:  2668    Objective     =             0.202847
+Iteration:  2862    Objective     =             0.202849
+Elapsed time = 1288.41 sec. (3000 iterations).
+Iteration:  3058    Objective     =             0.202851
+Iteration:  3256    Objective     =             0.202853
+Iteration:  3455    Objective     =             0.202854
+Iteration:  3653    Objective     =             0.202855
+Iteration:  3852    Objective     =             0.202855
+Elapsed time = 1560.64 sec. (4000 iterations).
+Iteration:  4053    Objective     =             0.202856
+Removing perturbation.
+Iteration:  4074    Scaled infeas =             0.047411
+Iteration:  4268    Scaled infeas =             0.001562
+Iteration:  4457    Scaled infeas =             0.000403
+Iteration:  4645    Scaled infeas =             0.000216
+Iteration:  4834    Scaled infeas =             0.000053
+Elapsed time = 1915.65 sec. (5000 iterations).
+Iteration:  5024    Scaled infeas =             0.000002
+Iteration:  5058    Objective     =             0.202651
+Iteration:  5249    Objective     =             0.202696
+Iteration:  5442    Objective     =             0.202716
+Iteration:  5635    Objective     =             0.202734
+Iteration:  5829    Objective     =             0.202748
+Elapsed time = 2242.11 sec. (6000 iterations).
+Iteration:  6023    Objective     =             0.202760
+Iteration:  6218    Objective     =             0.202768
+Iteration:  6414    Objective     =             0.202776
+Iteration:  6611    Objective     =             0.202782
+Iteration:  6808    Objective     =             0.202787
+Elapsed time = 2520.98 sec. (7000 iterations).
+Iteration:  7006    Objective     =             0.202793
+Iteration:  7204    Objective     =             0.202797
+Iteration:  7403    Objective     =             0.202800
+Iteration:  7602    Objective     =             0.202802
+Iteration:  7801    Objective     =             0.202805
+Iteration:  8000    Objective     =             0.202806
+Elapsed time = 2831.99 sec. (8000 iterations).
+Iteration:  8199    Objective     =             0.202808
+Iteration:  8399    Objective     =             0.202809
+Iteration:  8599    Objective     =             0.202810
+Iteration:  8799    Objective     =             0.202810
+Removing shift (45).
+Iteration:  8948    Scaled infeas =             0.000001
+Iteration:  8952    Objective     =             0.202810
+Removing shift (1).
+Total crossover time = 2901.11 sec.
+
+Primal simplex - Optimal:  Objective =  2.0281019177e-01
+Solution time = 3174.01 sec.  Iterations = 8973 (1352)
+
+CPLEX> Solution written to file 'output/jun18_2009_d_5697_7383_0.10_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun18_2009_d_14097_12183_0.39_glpk' read.
+Read time =   27.73 sec.
+CPLEX> Presolve has eliminated 0 rows and 0 columns...
+Tried aggregator 1 time.
+DUAL formed by presolve
+Presolve has eliminated 0 rows and 0 columns...
+Reduced LP has 12183 rows, 14097 columns, and 68694316 nonzeros.
+Presolve time =   27.51 sec.
+Parallel mode: none, using 1 thread for barrier
+Total time for automatic ordering = 2.52 sec.
+CPLEX Error  1001: Out of memory.
+Barrier time =   39.37 sec.
+CPLEX> CPLEX Error  1217: No solution exists.
+No file written.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun18_2009_s_9897_9783_0.001_glpk' read.
+Read time =    0.06 sec.
+CPLEX> Tried aggregator 1 time.
+No LP presolve or aggregator reductions.
+Presolve time =    0.05 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 716922
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 1.47 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 9897
+  Integer space required    = 228592
+  Total non-zeros in factor = 43757778
+  Total FP ops to factor    = 270927591184
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   1.0003000e+05   0.0000000e+00  8.43e+05  0.00e+00  2.99e+04
+   1   1.6992937e+04   4.8289025e+01  1.78e+05  0.00e+00  1.64e+03
+   2   2.1467075e+01   5.1827761e+01  2.52e+02  0.00e+00  4.25e-12
+   3   1.0369984e+01   2.8402815e+01  1.75e-13  0.00e+00  3.64e-12
+   4   1.7225052e+01   2.2200584e+01  9.86e-14  0.00e+00  2.27e-12
+   5   1.8833698e+01   1.9451779e+01  1.23e-13  0.00e+00  1.83e-12
+   6   1.9006465e+01   1.9091465e+01  4.09e-13  0.00e+00  1.61e-12
+   7   1.9030671e+01   1.9048927e+01  9.68e-09  0.00e+00  1.53e-12
+   8   1.9034042e+01   1.9038659e+01  1.81e-07  0.00e+00  1.49e-12
+   9   1.9034873e+01   1.9035816e+01  8.71e-08  0.00e+00  1.53e-12
+  10   1.9035228e+01   1.9035390e+01  5.61e-08  0.00e+00  1.52e-12
+  11   1.9035263e+01   1.9035273e+01  6.29e-09  0.00e+00  3.63e-09
+  12   1.9035268e+01   1.9035268e+01  4.35e-09  0.00e+00  6.52e-09
+  13   1.9035268e+01   1.9035268e+01  1.05e-09  0.00e+00  8.26e-11
+Barrier time =  763.03 sec.
+
+Primal crossover.
+  Primal:  Fixed no variables.
+  Dual:  Fixing 2 variables.
+        1 DMoves:  Infeasibility  4.86525590e-06  Objective  1.90352680e+01
+        0 DMoves:  Infeasibility  0.00000000e+00  Objective  1.90352680e+01
+  Dual:  Pushed 1, exchanged 1.
+Using devex.
+Removing shift (7).
+
+Iteration log . . .
+Iteration:     1    Scaled infeas =             0.000002
+Iteration:     4    Objective     =            19.035263
+Total crossover time =   38.58 sec.
+
+Primal simplex - Optimal:  Objective =  1.9035268005e+01
+Solution time =  801.61 sec.  Iterations = 18 (3)
+
+CPLEX> Solution written to file 'output/jun18_2009_s_9897_9783_0.001_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun18_2009_d_11297_10583_0.40_glpk' read.
+Read time =   18.86 sec.
+CPLEX> Presolve has eliminated 0 rows and 0 columns...
+Tried aggregator 1 time.
+Presolve has eliminated 0 rows and 0 columns...
+No LP presolve or aggregator reductions.
+Presolve time =   15.62 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 63805456
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 13.86 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 11297
+  Integer space required    = 11297
+  Total non-zeros in factor = 63816753
+  Total FP ops to factor    = 480646511345
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   1.0583000e+05   0.0000000e+00  1.87e+08  0.00e+00  3.25e+04
+   1   8.1772292e+02   1.0045498e-01  1.55e+06  0.00e+00  2.07e+02
+   2   1.9302157e+00   1.2470229e-01  8.18e+04  0.00e+00  4.91e-11
+   3   4.0673331e-03   1.2444275e-01  7.28e-12  0.00e+00  5.69e-11
+   4   2.5946220e-02   5.2944461e-02  1.34e-13  0.00e+00  4.46e-11
+   5   4.6972886e-02   5.2016277e-02  2.69e-14  0.00e+00  2.20e-11
+   6   4.9188611e-02   5.0551963e-02  9.62e-09  0.00e+00  2.02e-11
+   7   4.9752196e-02   5.0099967e-02  1.34e-08  0.00e+00  1.93e-11
+   8   4.9897855e-02   5.0003058e-02  1.92e-08  0.00e+00  1.74e-11
+   9   4.9930339e-02   4.9952537e-02  2.36e-08  0.00e+00  1.86e-11
+  10   4.9940038e-02   4.9942036e-02  6.14e-09  0.00e+00  1.94e-11
+  11   4.9940704e-02   4.9941017e-02  6.97e-05  0.00e+00  1.83e-11
+  12   4.9940824e-02   4.9940790e-02  4.17e-05  0.00e+00  2.03e-08
+  13   4.9940737e-02   4.9940737e-02  1.67e-05  0.00e+00  1.27e-08
+Barrier time = 5857.69 sec.
+
+Primal crossover.
+  Primal:  Fixing 35 variables.
+       34 PMoves:  Infeasibility  1.15038357e+00  Objective  4.99344774e-02
+        0 PMoves:  Infeasibility  1.09584016e+00  Objective  4.99346859e-02
+  Primal:  Pushed 0, exchanged 35.
+Removing shift (4460).
+Total crossover time =  642.48 sec.
+CPLEX Error  1001: Out of memory.
+CPLEX> CPLEX Error  1217: No solution exists.
+No file written.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun18_2009_d_8497_8983_0.09_glpk' read.
+Read time =    3.02 sec.
+CPLEX> Tried aggregator 1 time.
+Presolve has eliminated 0 rows and 0 columns...
+No LP presolve or aggregator reductions.
+Presolve time =    6.41 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 36095256
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 8.95 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 8497
+  Integer space required    = 8497
+  Total non-zeros in factor = 36103753
+  Total FP ops to factor    = 204527760745
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   8.9830000e+04   0.0000000e+00  2.99e+07  0.00e+00  2.65e+04
+   1   2.0397530e+03   4.0475559e-01  7.57e+05  0.00e+00  5.27e+02
+   2   1.6717092e+01   5.3900443e-01  5.04e+04  0.00e+00  1.89e-11
+   3   3.3078697e-02   5.3766691e-01  3.07e-12  0.00e+00  2.24e-11
+   4   1.1427923e-01   2.2700745e-01  5.86e-14  0.00e+00  1.72e-11
+   5   1.3461627e-01   2.2340647e-01  4.86e-14  0.00e+00  9.84e-12
+   6   1.8177346e-01   2.1315559e-01  3.41e-08  0.00e+00  7.70e-12
+   7   1.9448135e-01   2.0616209e-01  3.47e-08  0.00e+00  7.30e-12
+   8   1.9933585e-01   2.0191421e-01  1.23e-08  0.00e+00  7.59e-12
+   9   2.0035518e-01   2.0107352e-01  1.53e-08  0.00e+00  6.87e-12
+  10   2.0060202e-01   2.0068009e-01  6.00e-09  0.00e+00  7.60e-12
+  11   2.0063017e-01   2.0063797e-01  8.02e-09  0.00e+00  7.67e-12
+  12   2.0063347e-01   2.0063448e-01  3.38e-06  0.00e+00  7.23e-12
+  13   2.0063379e-01   2.0063394e-01  4.14e-06  0.00e+00  1.46e-08
+  14   2.0063384e-01   2.0063385e-01  2.56e-07  0.00e+00  5.19e-09
+Barrier time =  825.02 sec.
+
+Primal crossover.
+  Primal:  Fixing 14 variables.
+       13 PMoves:  Infeasibility  4.65343760e-02  Objective  2.00633829e-01
+        0 PMoves:  Infeasibility  4.48621872e-02  Objective  2.00633828e-01
+  Primal:  Pushed 0, exchanged 14.
+  Dual:  Fixing 111 variables.
+      110 DMoves:  Infeasibility  3.17078459e-03  Objective  2.00634183e-01
+        0 DMoves:  Infeasibility  2.45291529e-03  Objective  2.00634143e-01
+  Dual:  Pushed 26, exchanged 85.
+Using devex.
+
+Iteration log . . .
+Iteration:     1    Objective     =             0.200634
+Iteration:   105    Objective     =             0.200634
+Iteration:   209    Objective     =             0.200634
+Iteration:   312    Objective     =             0.200634
+Iteration:   414    Objective     =             0.200631
+Iteration:   515    Objective     =             0.200631
+Iteration:   615    Objective     =             0.200630
+Perturbation started.
+Iteration:   702    Scaled infeas =             0.000933
+Iteration:   800    Scaled infeas =             0.000273
+Iteration:   896    Scaled infeas =             0.000086
+Iteration:   992    Scaled infeas =             0.000019
+Elapsed time = 2390.66 sec. (1000 iterations).
+Iteration:  1088    Scaled infeas =             0.000012
+Iteration:  1167    Objective     =             0.200607
+Switched to steepest-edge.
+Iteration:  1263    Objective     =             0.200615
+Iteration:  1359    Objective     =             0.200623
+Iteration:  1454    Objective     =             0.200630
+Iteration:  1548    Objective     =             0.200635
+Iteration:  1642    Objective     =             0.200639
+Iteration:  1735    Objective     =             0.200642
+Iteration:  1828    Objective     =             0.200644
+Iteration:  1921    Objective     =             0.200647
+Elapsed time = 3738.33 sec. (2000 iterations).
+Iteration:  2013    Objective     =             0.200650
+Iteration:  2105    Objective     =             0.200652
+Iteration:  2198    Objective     =             0.200654
+Iteration:  2291    Objective     =             0.200657
+Iteration:  2385    Objective     =             0.200659
+Iteration:  2480    Objective     =             0.200661
+Iteration:  2575    Objective     =             0.200663
+Iteration:  2670    Objective     =             0.200665
+Iteration:  2766    Objective     =             0.200666
+Iteration:  2863    Objective     =             0.200668
+Iteration:  2960    Objective     =             0.200669
+Elapsed time = 5187.83 sec. (3000 iterations).
+Iteration:  3058    Objective     =             0.200671
+Iteration:  3156    Objective     =             0.200672
+Iteration:  3254    Objective     =             0.200674
+Iteration:  3353    Objective     =             0.200675
+Iteration:  3452    Objective     =             0.200676
+Iteration:  3551    Objective     =             0.200676
+Iteration:  3650    Objective     =             0.200677
+Iteration:  3750    Objective     =             0.200678
+Iteration:  3850    Objective     =             0.200679
+Iteration:  3950    Objective     =             0.200680
+Elapsed time = 6433.53 sec. (4000 iterations).
+Iteration:  4050    Objective     =             0.200681
+Iteration:  4151    Objective     =             0.200682
+Iteration:  4252    Objective     =             0.200682
+Iteration:  4353    Objective     =             0.200683
+Iteration:  4455    Objective     =             0.200683
+Iteration:  4557    Objective     =             0.200684
+Iteration:  4659    Objective     =             0.200685
+Iteration:  4761    Objective     =             0.200685
+Iteration:  4863    Objective     =             0.200685
+Iteration:  4965    Objective     =             0.200686
+Elapsed time = 7625.66 sec. (5000 iterations).
+Iteration:  5067    Objective     =             0.200686
+Iteration:  5169    Objective     =             0.200686
+Iteration:  5271    Objective     =             0.200687
+Iteration:  5374    Objective     =             0.200687
+Iteration:  5477    Objective     =             0.200687
+Iteration:  5580    Objective     =             0.200688
+Iteration:  5683    Objective     =             0.200688
+Iteration:  5787    Objective     =             0.200688
+Iteration:  5891    Objective     =             0.200689
+Iteration:  5995    Objective     =             0.200689
+Elapsed time = 8793.22 sec. (6000 iterations).
+Iteration:  6100    Objective     =             0.200689
+Iteration:  6205    Objective     =             0.200689
+Iteration:  6310    Objective     =             0.200689
+Iteration:  6415    Objective     =             0.200690
+Iteration:  6520    Objective     =             0.200690
+Iteration:  6625    Objective     =             0.200690
+Iteration:  6730    Objective     =             0.200690
+Iteration:  6835    Objective     =             0.200690
+Removing perturbation.
+Iteration:  6880    Scaled infeas =             0.103821
+Iteration:  6984    Scaled infeas =             0.009147
+Elapsed time = 9943.80 sec. (7000 iterations).
+Iteration:  7087    Scaled infeas =             0.005481
+Iteration:  7189    Scaled infeas =             0.003384
+Iteration:  7289    Scaled infeas =             0.002243
+Iteration:  7388    Scaled infeas =             0.001543
+Iteration:  7486    Scaled infeas =             0.001101
+Iteration:  7583    Scaled infeas =             0.000820
+Iteration:  7680    Scaled infeas =             0.000656
+Iteration:  7777    Scaled infeas =             0.000654
+Iteration:  7874    Scaled infeas =             0.000548
+Iteration:  7971    Scaled infeas =             0.000462
+Elapsed time = 11267.34 sec. (8000 iterations).
+Iteration:  8069    Scaled infeas =             0.000392
+Iteration:  8167    Scaled infeas =             0.000317
+Iteration:  8265    Scaled infeas =             0.000243
+Iteration:  8363    Scaled infeas =             0.000178
+Iteration:  8462    Scaled infeas =             0.000174
+Iteration:  8561    Scaled infeas =             0.000118
+Iteration:  8661    Scaled infeas =             0.000077
+Iteration:  8761    Scaled infeas =             0.000044
+Iteration:  8861    Scaled infeas =             0.000013
+Iteration:  8961    Scaled infeas =             0.000008
+Elapsed time = 12568.80 sec. (9000 iterations).
+Iteration:  9046    Objective     =             0.200392
+Iteration:  9146    Objective     =             0.200411
+Iteration:  9247    Objective     =             0.200427
+Iteration:  9348    Objective     =             0.200441
+Iteration:  9450    Objective     =             0.200454
+Iteration:  9552    Objective     =             0.200466
+Iteration:  9654    Objective     =             0.200475
+Iteration:  9756    Objective     =             0.200484
+Iteration:  9858    Objective     =             0.200491
+Iteration:  9960    Objective     =             0.200498
+Elapsed time = 13769.06 sec. (10000 iterations).
+Iteration: 10063    Objective     =             0.200507
+Iteration: 10166    Objective     =             0.200514
+Iteration: 10269    Objective     =             0.200522
+Iteration: 10373    Objective     =             0.200528
+Iteration: 10477    Objective     =             0.200534
+Iteration: 10581    Objective     =             0.200539
+Iteration: 10684    Objective     =             0.200543
+Iteration: 10787    Objective     =             0.200547
+Iteration: 10891    Objective     =             0.200552
+Iteration: 10995    Objective     =             0.200557
+Elapsed time = 14939.06 sec. (11000 iterations).
+Iteration: 11099    Objective     =             0.200561
+Iteration: 11203    Objective     =             0.200565
+Iteration: 11307    Objective     =             0.200568
+Iteration: 11410    Objective     =             0.200572
+Iteration: 11513    Objective     =             0.200576
+Iteration: 11616    Objective     =             0.200579
+Iteration: 11719    Objective     =             0.200581
+Iteration: 11821    Objective     =             0.200583
+Iteration: 11924    Objective     =             0.200586
+Elapsed time = 16022.47 sec. (12000 iterations).
+Iteration: 12027    Objective     =             0.200589
+Iteration: 12130    Objective     =             0.200592
+Iteration: 12233    Objective     =             0.200593
+Iteration: 12336    Objective     =             0.200595
+Iteration: 12439    Objective     =             0.200597
+Iteration: 12542    Objective     =             0.200599
+Iteration: 12645    Objective     =             0.200601
+Iteration: 12748    Objective     =             0.200602
+Iteration: 12852    Objective     =             0.200604
+Iteration: 12956    Objective     =             0.200605
+Elapsed time = 17193.79 sec. (13000 iterations).
+Iteration: 13060    Objective     =             0.200606
+Iteration: 13164    Objective     =             0.200607
+Iteration: 13268    Objective     =             0.200609
+Iteration: 13373    Objective     =             0.200611
+Iteration: 13477    Objective     =             0.200612
+Iteration: 13581    Objective     =             0.200613
+Iteration: 13686    Objective     =             0.200614
+Iteration: 13791    Objective     =             0.200616
+Iteration: 13895    Objective     =             0.200617
+Iteration: 13999    Objective     =             0.200618
+Elapsed time = 18350.13 sec. (14000 iterations).
+Iteration: 14103    Objective     =             0.200619
+Iteration: 14207    Objective     =             0.200620
+Iteration: 14311    Objective     =             0.200621
+Iteration: 14415    Objective     =             0.200622
+Iteration: 14519    Objective     =             0.200623
+Iteration: 14623    Objective     =             0.200624
+Iteration: 14727    Objective     =             0.200625
+Iteration: 14831    Objective     =             0.200626
+Iteration: 14935    Objective     =             0.200626
+Elapsed time = 19417.43 sec. (15000 iterations).
+Iteration: 15039    Objective     =             0.200627
+Iteration: 15144    Objective     =             0.200628
+Iteration: 15249    Objective     =             0.200629
+Iteration: 15354    Objective     =             0.200629
+Iteration: 15459    Objective     =             0.200630
+Iteration: 15564    Objective     =             0.200630
+Iteration: 15669    Objective     =             0.200631
+Iteration: 15774    Objective     =             0.200631
+Iteration: 15878    Objective     =             0.200632
+Iteration: 15983    Objective     =             0.200632
+Elapsed time = 20560.46 sec. (16000 iterations).
+Iteration: 16088    Objective     =             0.200633
+Iteration: 16192    Objective     =             0.200633
+Iteration: 16297    Objective     =             0.200633
+Iteration: 16402    Objective     =             0.200633
+Iteration: 16507    Objective     =             0.200634
+Iteration: 16612    Objective     =             0.200634
+Iteration: 16718    Objective     =             0.200634
+Iteration: 16823    Objective     =             0.200634
+Iteration: 16928    Objective     =             0.200634
+Elapsed time = 21600.38 sec. (17000 iterations).
+Iteration: 17034    Objective     =             0.200634
+Iteration: 17140    Objective     =             0.200634
+Removing shift (228).
+Iteration: 17230    Scaled infeas =             0.000031
+Iteration: 17242    Objective     =             0.200634
+Iteration: 17347    Objective     =             0.200634
+Total crossover time = 21410.58 sec.
+
+Primal simplex - Optimal:  Objective =  2.0063384303e-01
+Solution time = 22235.60 sec.  Iterations = 17354 (2643)
+
+CPLEX> Solution written to file 'output/jun18_2009_d_8497_8983_0.09_glpk_cplex_out.sol'.
+CPLEX> 
