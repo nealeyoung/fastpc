@@ -364,3 +364,210 @@ iterations = 1283401080 primal = 18.1208 dual = 18.9238 ratio = 0.95757
  main_loop_time = 3033s
  time = 3033s
 
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_15497_12983_0.10
+ROWS: 15497 COLUMNS: 12983 NON-ZEROS: 20123042 DENSITY: 0.100016
+N = 18884
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_15497_12983_0.10
+ROWS: 15497 COLUMNS: 12983 NON-ZEROS: 20123042 DENSITY: 0.100016
+N = 472094
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_9897_9783_0.40
+ROWS: 9897 COLUMNS: 9783 NON-ZEROS: 38733949 DENSITY: 0.400052
+N = 18162
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_9897_9783_0.40
+ROWS: 9897 COLUMNS: 9783 NON-ZEROS: 38733949 DENSITY: 0.400052
+N = 454035
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_5697_7383_0.10
+ROWS: 5697 COLUMNS: 7383 NON-ZEROS: 4208545 DENSITY: 0.100058
+N = 17338
+preprocessing_time = 16 s
+predict at most 2.26781e+08 increments
+predict at most 390.105 rebuilds of each sampler
+predict 149.834 seconds assuming 120ops per usec
+Solution written in file 'fastpc_solution'.
+iterations = 681923 primal = 0.194589 dual = 0.211386 ratio = 0.920535
+ eps = 0.045
+ epsilon = 0.05
+ sort ratio = 1
+ n_samples = 681923
+ n_increments_d = 126150980
+ n_increments_p = 93627998
+ n_increments = 219778978
+ entries_deleted = 0
+ constraints_deleted = 3463
+ n_rebuilds_p = 723
+ n_rebuilds_d = 712
+ n_rebuild_ops = 136338
+ main_loop_time = 31s
+ time = 31s
+
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_5697_7383_0.10
+ROWS: 5697 COLUMNS: 7383 NON-ZEROS: 4208545 DENSITY: 0.100058
+N = 433448
+preprocessing_time = 14 s
+predict at most 5.6695e+09 increments
+predict at most 1950.52 rebuilds of each sampler
+predict 3745.86 seconds assuming 120ops per usec
+Solution written in file 'fastpc_solution'.
+iterations = 17432370 primal = 0.201176 dual = 0.204587 ratio = 0.983327
+ eps = 0.009
+ epsilon = 0.01
+ sort ratio = 1
+ n_samples = 17432370
+ n_increments_d = 3192765055
+ n_increments_p = 2393363908
+ n_increments = 1291161667
+ entries_deleted = 0
+ constraints_deleted = 4727
+ n_rebuilds_p = 3836
+ n_rebuilds_d = 3827
+ n_rebuild_ops = 815934
+ main_loop_time = 993s
+ time = 993s
+
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_14097_12183_0.39
+ROWS: 14097 COLUMNS: 12183 NON-ZEROS: 68694316 DENSITY: 0.399981
+N = 18728
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_14097_12183_0.39
+ROWS: 14097 COLUMNS: 12183 NON-ZEROS: 68694316 DENSITY: 0.399981
+N = 468186
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_s_9897_9783_0.001
+ROWS: 9897 COLUMNS: 9783 NON-ZEROS: 118764 DENSITY: 0.00122662
+N = 18162
+preprocessing_time = 0 s
+predict at most 3.57428e+08 increments
+predict at most 408.645 rebuilds of each sampler
+predict 172.706 seconds assuming 120ops per usec
+Solution written in file 'fastpc_solution'.
+iterations = 59517041 primal = 18.2702 dual = 19.903 ratio = 0.917962
+ eps = 0.045
+ epsilon = 0.05
+ sort ratio = 1
+ n_samples = 59517041
+ n_increments_d = 174963418
+ n_increments_p = 149398010
+ n_increments = 324361428
+ entries_deleted = 0
+ constraints_deleted = 5328
+ n_rebuilds_p = 758
+ n_rebuilds_d = 745
+ n_rebuild_ops = 151374
+ main_loop_time = 140s
+ time = 140s
+
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_s_9897_9783_0.001
+ROWS: 9897 COLUMNS: 9783 NON-ZEROS: 118764 DENSITY: 0.00122662
+N = 454035
+preprocessing_time = 0 s
+predict at most 8.93541e+09 increments
+predict at most 2043.16 rebuilds of each sampler
+predict 4317.66 seconds assuming 120ops per usec
+Solution written in file 'fastpc_solution'.
+iterations = 1522154823 primal = 18.8537 dual = 19.207 ratio = 0.981605
+ eps = 0.009
+ epsilon = 0.01
+ sort ratio = 1
+ n_samples = 1522154823
+ n_increments_d = 133493553
+ n_increments_p = 3827992691
+ n_increments = 3961486244
+ entries_deleted = 0
+ constraints_deleted = 5654
+ n_rebuilds_p = 4019
+ n_rebuilds_d = 4008
+ n_rebuild_ops = 864906
+ main_loop_time = 3979s
+ time = 3979s
+
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_11297_10583_0.40
+ROWS: 11297 COLUMNS: 10583 NON-ZEROS: 47830143 DENSITY: 0.400064
+N = 18370
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_11297_10583_0.40
+ROWS: 11297 COLUMNS: 10583 NON-ZEROS: 47830143 DENSITY: 0.400064
+N = 459242
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_8497_8983_0.09
+ROWS: 8497 COLUMNS: 8983 NON-ZEROS: 7631361 DENSITY: 0.0999804
+N = 17927
+preprocessing_time = 92 s
+predict at most 3.13364e+08 increments
+predict at most 403.358 rebuilds of each sampler
+predict 208.05 seconds assuming 120ops per usec
+Solution written in file 'fastpc_solution'.
+iterations = 696710 primal = 0.191815 dual = 0.210074 ratio = 0.91308
+ eps = 0.045
+ epsilon = 0.05
+ sort ratio = 1
+ n_samples = 696710
+ n_increments_d = 158441626
+ n_increments_p = 144620975
+ n_increments = 303062601
+ entries_deleted = 0
+ constraints_deleted = 3557
+ n_rebuilds_p = 748
+ n_rebuilds_d = 737
+ n_rebuild_ops = 141030
+ main_loop_time = 72s
+ time = 73s
+
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_8497_8983_0.09
+ROWS: 8497 COLUMNS: 8983 NON-ZEROS: 7631361 DENSITY: 0.0999804
+N = 448162
+preprocessing_time = 97 s
+predict at most 7.83387e+09 increments
+predict at most 2016.73 rebuilds of each sampler
+predict 5201.26 seconds assuming 120ops per usec
+Solution written in file 'fastpc_solution'.
+iterations = 17844524 primal = 0.198952 dual = 0.202212 ratio = 0.98388
+ eps = 0.009
+ epsilon = 0.01
+ sort ratio = 1
+ n_samples = 17844524
+ n_increments_d = 4015461143
+ n_increments_p = 3693109812
+ n_increments = 3413603659
+ entries_deleted = 0
+ constraints_deleted = 5157
+ n_rebuilds_p = 3967
+ n_rebuilds_d = 3959
+ n_rebuild_ops = 841572
+ main_loop_time = 1544s
+ time = 1545s
+
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_7097_8183_0.39
+ROWS: 7097 COLUMNS: 8183 NON-ZEROS: 23229276 DENSITY: 0.399989
+N = 17657
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_7097_8183_0.39
+ROWS: 7097 COLUMNS: 8183 NON-ZEROS: 23229276 DENSITY: 0.399989
+N = 441414
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_s_5697_7383_0.001
+ROWS: 5697 COLUMNS: 7383 NON-ZEROS: 68365 DENSITY: 0.00162538
+N = 17338
+preprocessing_time = 0 s
+predict at most 2.26781e+08 increments
+predict at most 390.105 rebuilds of each sampler
+predict 109.361 seconds assuming 120ops per usec
+Solution written in file 'fastpc_solution'.
+iterations = 46593647 primal = 23.1798 dual = 25.8265 ratio = 0.897519
+ eps = 0.045
+ epsilon = 0.05
+ sort ratio = 1
+ n_samples = 46593647
+ n_increments_d = 126632052
+ n_increments_p = 81359496
+ n_increments = 207991548
+ entries_deleted = 0
+ constraints_deleted = 4907
+ n_rebuilds_p = 723
+ n_rebuilds_d = 713
+ n_rebuild_ops = 145248
+ main_loop_time = 97s
+ time = 97s
+
+Error opening /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_s_5697_7383_0.001
+Error opening /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_s_11297_10583_0.001
+Error opening /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_s_11297_10583_0.001
+Error opening /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_s_4297_6583_0.001
+Error opening /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_s_4297_6583_0.001
+Error opening /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_5697_7383_0.40
+Error opening /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_5697_7383_0.40
+Error opening /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_12697_11383_0.40
+Error opening /usr/local/fastpc/dev/test_mps/test_cases/jun18_2009_d_12697_11383_0.40
