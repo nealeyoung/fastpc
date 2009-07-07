@@ -9,7 +9,7 @@ def parse_cplex_iterations(file_name, parse_time):
     if parse_time:
         print "Filename,Time (s),Iterations,Method"
     else:
-        print "Filename,Iterations,Primal Objective,Dual Objective,Method"
+        print "Filename,Iterations,Primal Objective,Dual Objective,Primal Eps, Dual Eps, Method"
     method = ""
     method_found = False
     itn_data = []
@@ -70,7 +70,7 @@ def parse_cplex_iterations(file_name, parse_time):
                 final_iterations = sol_array[-2]
             if final_iterations > 0:
                 if not parse_time:
-                    itn_data.append([final_iterations, final_obj, -1])
+                    itn_data.append([final_iterations, final_obj, final_obj])
                 else:
                     itn_data.append([final_time, final_iterations])
             #print final_time, final_time_unit, final_iterations
@@ -78,7 +78,11 @@ def parse_cplex_iterations(file_name, parse_time):
                 if parse_time:
                     print input_name + "," + str(item[0]) + "," + str(item[1]) + "," + method
                 else:
-                    print input_name + "," + str(item[0]) + "," + str(item[1]) + "," + str(item[2])  + "," + method
+                    pr = item[1]
+                    du = item[2]
+                    p_eps = abs(final_obj - pr)/final_obj
+                    d_eps = abs(du - final_obj)/final_obj
+                    print input_name + "," + str(item[0]) + "," + str(pr) + "," + str(du) + "," + str(p_eps) + "," + str(d_eps)  + "," + method
             method = ""
             method_found = False
             itn_data = []
