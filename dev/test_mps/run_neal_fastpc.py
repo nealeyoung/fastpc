@@ -35,7 +35,7 @@ def main():
             for eps in epsilons:
                 print 'fastpc: ', eps, ' ', fp_file
                 cmd_exact = exec_cmd + ' ' + str(eps) + ' ' + fp_input_dir + fp_file + ' >> ' + output_file_location
-                print cmd_exact
+                #print cmd_exact
                 os.system(cmd_exact)
 
 main()
