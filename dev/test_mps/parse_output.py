@@ -1,7 +1,13 @@
 import sys
 import re
 
-def parse_fastpc_output_file(file_name, v07):
+def parse_fastpc_output_file(file_name, version):
+    v07 = False
+    if len(version) > 0:
+        if version == "v07":
+            v07 = True
+        version = '_' + version
+
     try:
         my_file = open(file_name)
         total_string = my_file.read()
@@ -33,11 +39,7 @@ def parse_fastpc_output_file(file_name, v07):
         s_array = sort_reg.findall(total_string)
 
     for index, item in enumerate(time_array):
-        if v07:
-            print str(name_array[index][name_array[index].rfind('/')+1:])+'_v07,',
-        else:
-            print str(name_array[index][name_array[index].rfind('/')+1:])+',',
-
+        print str(name_array[index][name_array[index].rfind('/')+1:]) + version + ',',
         
         input_list = input_array[index].split()
         rows = input_list[input_list.index("ROWS:")+1]
@@ -133,14 +135,16 @@ def main():
     glpk_file_name = fp_file_name + '_glpk'
     v07_file_name = fp_file_name + '_v07'
     cplex_file_name = fp_file_name + '_cplex'
+    neal_file_name = fp_file_name + '_neal'
 
     output_file_name = './output/' + file_prefix + '_run_stats.csv'
     sys.stdout = open(output_file_name, 'w')
     print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Main Loop Time (s), Preprocessing Time (s), Ratio,Epsilon,basic_ops,SortRatio"
 
-    parse_fastpc_output_file(fp_file_name, False)
+    parse_fastpc_output_file(fp_file_name, "")
+    parse_fastpc_output_file(neal_file_name, "neal")
     parse_glpk_output_file(glpk_file_name)
-    parse_fastpc_output_file(v07_file_name, True)
+    parse_fastpc_output_file(v07_file_name, "v07")
     parse_cplex_output_file(cplex_file_name)
     
 main()
