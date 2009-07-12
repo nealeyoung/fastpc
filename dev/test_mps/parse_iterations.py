@@ -1,9 +1,11 @@
 import sys
 
 run_stats = []
+epsilon = 0.01
 
 def parse_cplex_iterations(file_name, parse_time):
     global run_stats
+    global epsilon
     try:
         my_file = open(file_name)
     except:
@@ -93,7 +95,7 @@ def parse_cplex_iterations(file_name, parse_time):
                     if p_eps > d_eps:
                         min_eps = d_eps
                         min_obj = du
-                    if min_eps > 0.01:
+                    if min_eps > epsilon:
                         found_itn_for_eps = False
                     elif not found_itn_for_eps:
                         found_itn_for_eps = True
@@ -111,10 +113,13 @@ def parse_cplex_iterations(file_name, parse_time):
 
 def main():
     args = sys.argv
+    global epsilon
     try:
         file_prefix = args[1]
+        if len(args) > 2:
+            epsilon = float(args[2])
     except:
-        print 'Usage: python parse_output.py <file_prefix>'
+        print 'Usage: python parse_output.py <file_prefix> [eps]'
         sys.exit(1)
 
     cplex_file_name = './output_cplex/' + file_prefix + '_output_cplex'
