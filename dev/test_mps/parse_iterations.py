@@ -1,6 +1,9 @@
 import sys
 
+run_stats = []
+
 def parse_cplex_iterations(file_name, parse_time):
+    global run_stats
     try:
         my_file = open(file_name)
     except:
@@ -14,6 +17,7 @@ def parse_cplex_iterations(file_name, parse_time):
     method_found = False
     itn_data = []
     barrier_itn = False
+    barrier_iterations = 0
 
     for line in my_file:
         if line.startswith("File type: Problem"): # New run
@@ -24,6 +28,7 @@ def parse_cplex_iterations(file_name, parse_time):
             barrier_itn = False
         if barrier_itn:
             if line.startswith("Barrier time ="):
+                barrier_iterations = int(itn_array[0])
                 barrier_itn = False
             else:
 #                print line
@@ -74,6 +79,7 @@ def parse_cplex_iterations(file_name, parse_time):
                 else:
                     itn_data.append([final_time, final_iterations])
             #print final_time, final_time_unit, final_iterations
+            found_itn_for_eps = False
             for item in itn_data:
                 if parse_time:
                     print input_name + "," + str(item[0]) + "," + str(item[1]) + "," + method
@@ -82,11 +88,26 @@ def parse_cplex_iterations(file_name, parse_time):
                     du = item[2]
                     p_eps = abs(final_obj - pr)/final_obj
                     d_eps = abs(du - final_obj)/final_obj
+                    min_eps = p_eps
+                    min_obj = pr
+                    if p_eps > d_eps:
+                        min_eps = d_eps
+                        min_obj = du
+                    if min_eps > 0.01:
+                        found_itn_for_eps = False
+                    elif not found_itn_for_eps:
+                        found_itn_for_eps = True
+                        total_iterations = final_iterations
+                        if method == 'Barrier':
+                            total_iterations = barrier_iterations
+                        run_stats_data = input_name + "," + str(item[0]) + "," + str(min_obj) + "," + str(final_obj) + "," + str(min_eps) + "," + str(total_iterations) + "," + method
+                        run_stats.append(run_stats_data)
                     print input_name + "," + str(item[0]) + "," + str(pr) + "," + str(du) + "," + str(p_eps) + "," + str(d_eps)  + "," + method
             method = ""
             method_found = False
             itn_data = []
             barrier_itn = False
+            barrier_iterations = 0
 
 def main():
     args = sys.argv
@@ -105,6 +126,13 @@ def main():
     output_file_name = './output_cplex/' + file_prefix + '_itn_time_stats.csv'
     sys.stdout = open(output_file_name, 'w')
     parse_cplex_iterations(cplex_file_name, True)
+    sys.stdout.close()
+    output_file_name = './output_cplex/' + file_prefix + '_itn_eps_stats.csv'
+    sys.stdout = open(output_file_name, 'w')
+    global run_stats
+    print "Filename, Iterations, Objective, Final Objective, Epsilon, Total Barrier Iterations, Method"
+    for row in run_stats:
+        print row
     sys.stdout.close()
     
 main()
