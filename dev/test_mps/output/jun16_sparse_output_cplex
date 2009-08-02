@@ -1,0 +1,824 @@
+
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun16_sparse_10143_5705_0.002_glpk' read.
+Read time =    0.05 sec.
+CPLEX> Tried aggregator 1 time.
+DUAL formed by presolve
+Reduced LP has 5705 rows, 10143 columns, and 121716 nonzeros.
+Presolve time =    0.06 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 655757
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.42 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 5705
+  Integer space required    = 127179
+  Total non-zeros in factor = 14570267
+  Total FP ops to factor    = 51838106669
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   1.0330000e+05   0.0000000e+00  6.08e+05  0.00e+00  5.99e+03
+   1   1.0750907e+04   1.6088889e+00  8.56e+03  0.00e+00  4.66e+02
+   2   1.2702009e+03   4.2036724e+00  6.19e-11  0.00e+00  8.89e-13
+   3   1.6067506e+01   4.2727140e+00  5.55e-13  0.00e+00  8.24e-13
+   4   1.1119334e+01   7.7580440e+00  8.19e-14  0.00e+00  8.55e-13
+   5   9.7121261e+00   9.0077491e+00  3.17e-14  0.00e+00  9.39e-13
+   6   9.3410076e+00   9.2800988e+00  5.45e-14  0.00e+00  1.02e-12
+   7   9.3133827e+00   9.3024937e+00  1.24e-08  0.00e+00  9.56e-13
+   8   9.3079069e+00   9.3068097e+00  6.72e-09  0.00e+00  1.02e-12
+   9   9.3075165e+00   9.3072963e+00  1.93e-07  0.00e+00  9.64e-13
+  10   9.3073844e+00   9.3073591e+00  3.08e-08  0.00e+00  9.69e-13
+  11   9.3073784e+00   9.3073773e+00  1.52e-08  0.00e+00  2.70e-09
+  12   9.3073779e+00   9.3073779e+00  4.19e-10  0.00e+00  3.60e-10
+Barrier time =  141.75 sec.
+
+Primal crossover.
+  Primal:  Fixed no variables.
+  Dual:  Fixing 4 variables.
+        3 DMoves:  Infeasibility  1.67352219e-01  Objective  9.30737791e+00
+        0 DMoves:  Infeasibility  1.67308795e-01  Objective  9.30737791e+00
+  Dual:  Pushed 0, exchanged 4.
+Using devex.
+
+Iteration log . . .
+Iteration:     1    Objective     =             9.307379
+Total crossover time =   71.37 sec.
+
+Primal simplex - Optimal:  Objective =  9.3073779106e+00
+Solution time =  213.13 sec.  Iterations = 3 (0)
+
+CPLEX> Solution written to file 'output/jun16_sparse_10143_5705_0.002_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun16_sparse_8543_4905_0.002_glpk' read.
+Read time =    0.04 sec.
+CPLEX> Tried aggregator 1 time.
+DUAL formed by presolve
+Reduced LP has 4905 rows, 8543 columns, and 102516 nonzeros.
+Presolve time =    0.05 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 550689
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.31 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 4905
+  Integer space required    = 99327
+  Total non-zeros in factor = 10790762
+  Total FP ops to factor    = 33007518456
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   8.6780000e+04   0.0000000e+00  5.16e+05  0.00e+00  5.12e+03
+   1   8.7196243e+03   1.4346088e+00  5.02e+03  0.00e+00  3.62e+02
+   2   9.4017589e+02   3.5642845e+00  4.42e-11  0.00e+00  7.42e-13
+   3   1.3439284e+01   3.6337555e+00  4.22e-13  0.00e+00  6.79e-13
+   4   9.6506852e+00   6.6892146e+00  7.45e-14  0.00e+00  7.11e-13
+   5   8.3288789e+00   7.8538119e+00  2.93e-14  0.00e+00  8.28e-13
+   6   8.0674444e+00   8.0125304e+00  7.68e-14  0.00e+00  8.49e-13
+   7   8.0412631e+00   8.0360281e+00  5.67e-09  0.00e+00  8.59e-13
+   8   8.0382927e+00   8.0379197e+00  3.82e-09  0.00e+00  8.84e-13
+   9   8.0381884e+00   8.0380621e+00  2.79e-07  0.00e+00  8.22e-13
+  10   8.0380928e+00   8.0380819e+00  2.25e-08  0.00e+00  8.08e-09
+  11   8.0380859e+00   8.0380857e+00  1.85e-09  0.00e+00  1.63e-10
+  12   8.0380858e+00   8.0380858e+00  8.58e-10  0.00e+00  2.71e-12
+Barrier time =   93.87 sec.
+
+Primal crossover.
+  Primal:  Fixed no variables.
+  Dual:  Fixing 7 variables.
+        6 DMoves:  Infeasibility  1.18183861e-03  Objective  8.03808577e+00
+        0 DMoves:  Infeasibility  1.04772911e-03  Objective  8.03808577e+00
+  Dual:  Pushed 2, exchanged 5.
+Using devex.
+
+Iteration log . . .
+Iteration:     1    Objective     =             8.038086
+Removing shift (7).
+Iteration:    11    Objective     =             8.038086
+Total crossover time =   42.33 sec.
+
+Primal simplex - Optimal:  Objective =  8.0380857724e+00
+Solution time =  136.20 sec.  Iterations = 11 (0)
+
+CPLEX> Solution written to file 'output/jun16_sparse_8543_4905_0.002_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun16_sparse_4543_2905_0.004_glpk' read.
+Read time =    0.02 sec.
+CPLEX> Tried aggregator 1 time.
+DUAL formed by presolve
+Reduced LP has 2905 rows, 4543 columns, and 54516 nonzeros.
+Presolve time =    0.02 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 289346
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.12 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 2905
+  Integer space required    = 52689
+  Total non-zeros in factor = 3763969
+  Total FP ops to factor    = 6767261715
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   4.6110000e+04   0.0000000e+00  2.82e+05  0.00e+00  3.02e+03
+   1   5.1870658e+03   9.2123560e-01  4.25e+03  0.00e+00  2.57e+02
+   2   7.2491607e+02   2.3202369e+00  2.02e-11  0.00e+00  3.95e-13
+   3   8.0902112e+00   2.3529213e+00  2.46e-13  0.00e+00  3.60e-13
+   4   5.8232595e+00   4.3100082e+00  3.28e-14  0.00e+00  4.25e-13
+   5   5.0007916e+00   4.7886708e+00  1.81e-14  0.00e+00  4.60e-13
+   6   4.8774882e+00   4.8566051e+00  8.61e-14  0.00e+00  4.61e-13
+   7   4.8665122e+00   4.8639655e+00  2.25e-08  0.00e+00  4.41e-13
+   8   4.8653163e+00   4.8650707e+00  6.23e-09  0.00e+00  4.57e-13
+   9   4.8652176e+00   4.8651999e+00  1.19e-08  0.00e+00  4.45e-13
+  10   4.8652119e+00   4.8652113e+00  2.25e-09  0.00e+00  4.61e-13
+  11   4.8652116e+00   4.8652116e+00  6.12e-10  0.00e+00  4.93e-13
+Barrier time =   19.36 sec.
+
+Primal crossover.
+  Primal:  Fixed no variables.
+  Dual:  Fixing 3 variables.
+        2 DMoves:  Infeasibility  6.06468995e-05  Objective  4.86521006e+00
+        0 DMoves:  Infeasibility  0.00000000e+00  Objective  4.86521006e+00
+  Dual:  Pushed 2, exchanged 1.
+Using devex.
+Removing shift (2).
+
+Iteration log . . .
+Iteration:     1    Scaled infeas =             0.000000
+Iteration:     2    Objective     =             4.865212
+Total crossover time =    5.63 sec.
+
+Primal simplex - Optimal:  Objective =  4.8652115929e+00
+Solution time =   24.99 sec.  Iterations = 2 (1)
+
+CPLEX> Solution written to file 'output/jun16_sparse_4543_2905_0.004_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun16_sparse_5343_3305_0.003_glpk' read.
+Read time =    0.03 sec.
+CPLEX> Tried aggregator 1 time.
+DUAL formed by presolve
+Reduced LP has 3305 rows, 5343 columns, and 64116 nonzeros.
+Presolve time =    0.03 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 341598
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.13 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 3305
+  Integer space required    = 61024
+  Total non-zeros in factor = 4879064
+  Total FP ops to factor    = 10000840490
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   5.4320000e+04   0.0000000e+00  3.28e+05  0.00e+00  3.45e+03
+   1   5.8448029e+03   1.0219963e+00  3.90e+03  0.00e+00  2.57e+02
+   2   6.8989067e+02   2.4927200e+00  2.50e-11  0.00e+00  4.67e-13
+   3   8.8618809e+00   2.5369955e+00  2.66e-13  0.00e+00  4.32e-13
+   4   6.5515752e+00   4.4135702e+00  6.26e-14  0.00e+00  4.25e-13
+   5   5.7098475e+00   5.3243729e+00  4.56e-14  0.00e+00  5.37e-13
+   6   5.5214901e+00   5.4546835e+00  3.95e-14  0.00e+00  5.28e-13
+   7   5.4840184e+00   5.4766494e+00  7.99e-09  0.00e+00  5.52e-13
+   8   5.4793939e+00   5.4789935e+00  2.81e-09  0.00e+00  5.71e-13
+   9   5.4791953e+00   5.4790944e+00  1.39e-07  0.00e+00  4.88e-13
+  10   5.4791367e+00   5.4791323e+00  5.50e-09  0.00e+00  5.50e-13
+  11   5.4791349e+00   5.4791347e+00  1.28e-09  0.00e+00  5.27e-13
+  12   5.4791349e+00   5.4791349e+00  8.83e-10  0.00e+00  2.44e-09
+Barrier time =   29.92 sec.
+
+Primal crossover.
+  Primal:  Fixed no variables.
+  Dual:  Fixing 4 variables.
+        3 DMoves:  Infeasibility  1.72768423e-01  Objective  5.47913038e+00
+        0 DMoves:  Infeasibility  1.72655396e-01  Objective  5.47913038e+00
+  Dual:  Pushed 0, exchanged 4.
+Using devex.
+
+Iteration log . . .
+Iteration:     1    Objective     =             5.479131
+Removing shift (2).
+Iteration:     6    Scaled infeas =             0.000001
+Iteration:     8    Objective     =             5.479135
+Iteration:    13    Objective     =             5.479135
+Total crossover time =   14.74 sec.
+
+Primal simplex - Optimal:  Objective =  5.4791348767e+00
+Solution time =   44.66 sec.  Iterations = 13 (2)
+
+CPLEX> Solution written to file 'output/jun16_sparse_5343_3305_0.003_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun16_sparse_6943_4105_0.002_glpk' read.
+Read time =    0.03 sec.
+CPLEX> Tried aggregator 1 time.
+DUAL formed by presolve
+Reduced LP has 4105 rows, 6943 columns, and 83316 nonzeros.
+Presolve time =    0.04 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 445939
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.22 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 4105
+  Integer space required    = 85467
+  Total non-zeros in factor = 7527211
+  Total FP ops to factor    = 19195488381
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   7.0520000e+04   0.0000000e+00  4.24e+05  0.00e+00  4.28e+03
+   1   7.4149357e+03   1.2181890e+00  5.09e+03  0.00e+00  3.04e+02
+   2   8.1256804e+02   2.9978010e+00  3.82e-11  0.00e+00  6.05e-13
+   3   1.4839317e+01   3.0556172e+00  4.84e-13  0.00e+00  5.62e-13
+   4   8.0027559e+00   5.6426769e+00  5.89e-14  0.00e+00  5.94e-13
+   5   7.0959643e+00   6.5738061e+00  4.79e-14  0.00e+00  6.57e-13
+   6   6.8073543e+00   6.7495564e+00  4.87e-14  0.00e+00  6.81e-13
+   7   6.7752804e+00   6.7686392e+00  3.07e-08  0.00e+00  6.71e-13
+   8   6.7718413e+00   6.7714016e+00  1.49e-08  0.00e+00  7.08e-13
+   9   6.7716663e+00   6.7715884e+00  2.17e-08  0.00e+00  6.77e-13
+  10   6.7716238e+00   6.7716197e+00  5.49e-09  0.00e+00  4.19e-09
+  11   6.7716216e+00   6.7716214e+00  3.96e-10  0.00e+00  3.45e-09
+  12   6.7716215e+00   6.7716215e+00  4.23e-10  0.00e+00  3.46e-11
+Barrier time =   55.78 sec.
+
+Primal crossover.
+  Primal:  Fixed no variables.
+  Dual:  Fixing 3 variables.
+        2 DMoves:  Infeasibility  0.00000000e+00  Objective  6.77162146e+00
+        0 DMoves:  Infeasibility  0.00000000e+00  Objective  6.77162146e+00
+  Dual:  Pushed 0, exchanged 3.
+Using devex.
+Removing shift (3).
+
+Iteration log . . .
+Iteration:     1    Scaled infeas =             0.000000
+Iteration:     2    Objective     =             6.771621
+Total crossover time =   21.41 sec.
+
+Primal simplex - Optimal:  Objective =  6.7716214616e+00
+Solution time =   77.19 sec.  Iterations = 2 (1)
+
+CPLEX> Solution written to file 'output/jun16_sparse_6943_4105_0.002_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun16_sparse_2143_1705_0.007_glpk' read.
+Read time =    0.01 sec.
+CPLEX> Tried aggregator 1 time.
+DUAL formed by presolve
+Reduced LP has 1705 rows, 2143 columns, and 25716 nonzeros.
+Presolve time =    0.01 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 134827
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.06 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 1705
+  Integer space required    = 25835
+  Total non-zeros in factor = 1266493
+  Total FP ops to factor    = 1308913325
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   2.1710000e+04   0.0000000e+00  1.36e+05  0.00e+00  1.75e+03
+   1   2.8162237e+03   6.8042079e-01  1.89e+03  0.00e+00  1.24e+02
+   2   3.3206594e+02   1.3939152e+00  1.19e-11  0.00e+00  1.88e-13
+   3   5.9619594e+00   1.4195977e+00  1.73e-13  0.00e+00  1.73e-13
+   4   3.6576680e+00   2.4620906e+00  2.18e-14  0.00e+00  1.80e-13
+   5   3.2055595e+00   2.9523372e+00  3.10e-14  0.00e+00  2.12e-13
+   6   3.0751667e+00   3.0369377e+00  1.83e-14  0.00e+00  2.08e-13
+   7   3.0596651e+00   3.0514681e+00  1.44e-08  0.00e+00  2.03e-13
+   8   3.0561957e+00   3.0555286e+00  7.82e-09  0.00e+00  2.21e-13
+   9   3.0560486e+00   3.0559910e+00  3.20e-09  0.00e+00  2.21e-13
+  10   3.0560259e+00   3.0560179e+00  1.26e-07  0.00e+00  2.29e-13
+  11   3.0560196e+00   3.0560192e+00  2.04e-08  0.00e+00  6.74e-09
+  12   3.0560193e+00   3.0560193e+00  1.59e-10  0.00e+00  1.11e-09
+Barrier time =    4.57 sec.
+
+Primal crossover.
+  Primal:  Fixed no variables.
+  Dual:  Fixing 2 variables.
+        1 DMoves:  Infeasibility  0.00000000e+00  Objective  3.05601924e+00
+        0 DMoves:  Infeasibility  0.00000000e+00  Objective  3.05601924e+00
+  Dual:  Pushed 0, exchanged 2.
+Using devex.
+Removing shift (4).
+
+Iteration log . . .
+Iteration:     1    Scaled infeas =             0.000025
+Iteration:     3    Objective     =             3.056019
+Total crossover time =    0.54 sec.
+
+Primal simplex - Optimal:  Objective =  3.0560192615e+00
+Solution time =    5.11 sec.  Iterations = 6 (2)
+
+CPLEX> Solution written to file 'output/jun16_sparse_2143_1705_0.007_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun16_sparse_9343_5305_0.002_glpk' read.
+Read time =    0.05 sec.
+CPLEX> Tried aggregator 1 time.
+DUAL formed by presolve
+Reduced LP has 5305 rows, 9343 columns, and 112116 nonzeros.
+Presolve time =    0.06 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 603360
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.41 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 5305
+  Integer space required    = 114536
+  Total non-zeros in factor = 12614252
+  Total FP ops to factor    = 41739439258
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   9.5090000e+04   0.0000000e+00  5.68e+05  0.00e+00  5.56e+03
+   1   9.7868626e+03   1.4873690e+00  7.17e+03  0.00e+00  4.30e+02
+   2   1.1785531e+03   3.9247661e+00  5.27e-11  0.00e+00  8.15e-13
+   3   1.4951779e+01   3.9890901e+00  5.03e-13  0.00e+00  7.53e-13
+   4   1.1014792e+01   6.3047705e+00  2.01e-13  0.00e+00  6.87e-13
+   5   9.2327013e+00   8.3816160e+00  3.53e-14  0.00e+00  9.43e-13
+   6   8.8085023e+00   8.5924687e+00  7.16e-14  0.00e+00  8.57e-13
+   7   8.6710411e+00   8.6496194e+00  1.89e-08  0.00e+00  9.23e-13
+   8   8.6583359e+00   8.6550404e+00  7.25e-09  0.00e+00  8.34e-13
+   9   8.6569959e+00   8.6566821e+00  2.07e-08  0.00e+00  8.97e-13
+  10   8.6569018e+00   8.6568796e+00  6.50e-09  0.00e+00  9.19e-13
+  11   8.6568938e+00   8.6568932e+00  9.22e-09  0.00e+00  9.46e-13
+  12   8.6568936e+00   8.6568935e+00  7.28e-10  0.00e+00  9.00e-13
+Barrier time =  115.54 sec.
+
+Primal crossover.
+  Primal:  Fixing 6 variables.
+        5 PMoves:  Infeasibility  4.55280647e-05  Objective  8.65689258e+00
+        0 PMoves:  Infeasibility  2.88570976e-05  Objective  8.65689451e+00
+  Primal:  Pushed 1, exchanged 5.
+  Dual:  Fixing 12 variables.
+       11 DMoves:  Infeasibility  4.90799765e-01  Objective  8.65689110e+00
+        0 DMoves:  Infeasibility  4.90616752e-01  Objective  8.65689110e+00
+  Dual:  Pushed 7, exchanged 5.
+Using devex.
+
+Iteration log . . .
+Iteration:     1    Objective     =             8.656895
+Removing shift (2).
+Iteration:     8    Scaled infeas =             0.000000
+Iteration:     9    Objective     =             8.656894
+Total crossover time =   82.68 sec.
+
+Primal simplex - Optimal:  Objective =  8.6568935534e+00
+Solution time =  198.22 sec.  Iterations = 13 (1)
+
+CPLEX> Solution written to file 'output/jun16_sparse_9343_5305_0.002_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun16_sparse_2943_2105_0.005_glpk' read.
+Read time =    0.01 sec.
+CPLEX> Tried aggregator 1 time.
+DUAL formed by presolve
+Reduced LP has 2105 rows, 2943 columns, and 35316 nonzeros.
+Presolve time =    0.02 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 186027
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.08 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 2105
+  Integer space required    = 35060
+  Total non-zeros in factor = 1945547
+  Total FP ops to factor    = 2501276099
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   2.9870000e+04   0.0000000e+00  1.85e+05  0.00e+00  2.18e+03
+   1   3.6176681e+03   7.4376205e-01  2.68e+03  0.00e+00  1.88e+02
+   2   5.2557295e+02   1.7680046e+00  1.38e-11  0.00e+00  2.59e-13
+   3   6.4691218e+00   1.7926775e+00  1.90e-13  0.00e+00  2.30e-13
+   4   4.4171597e+00   3.1592083e+00  2.39e-14  0.00e+00  2.51e-13
+   5   3.8204246e+00   3.5914679e+00  2.06e-14  0.00e+00  2.83e-13
+   6   3.7204301e+00   3.6695775e+00  2.56e-14  0.00e+00  2.71e-13
+   7   3.6985313e+00   3.6948567e+00  4.09e-09  0.00e+00  3.01e-13
+   8   3.6965787e+00   3.6962855e+00  1.21e-08  0.00e+00  2.96e-13
+   9   3.6964751e+00   3.6964232e+00  1.35e-08  0.00e+00  2.67e-13
+  10   3.6964592e+00   3.6964535e+00  6.83e-09  0.00e+00  2.88e-13
+  11   3.6964586e+00   3.6964583e+00  8.57e-09  0.00e+00  2.87e-13
+  12   3.6964585e+00   3.6964585e+00  2.74e-10  0.00e+00  1.07e-10
+Barrier time =    8.27 sec.
+
+Primal crossover.
+  Primal:  Fixed no variables.
+  Dual:  Fixing 2 variables.
+        1 DMoves:  Infeasibility  4.44557074e-01  Objective  3.69645845e+00
+        0 DMoves:  Infeasibility  4.44363231e-01  Objective  3.69645845e+00
+  Dual:  Pushed 0, exchanged 2.
+Using devex.
+
+Iteration log . . .
+Iteration:     1    Objective     =             3.696458
+Removing shift (1).
+Total crossover time =    0.90 sec.
+
+Primal simplex - Optimal:  Objective =  3.6964585046e+00
+Solution time =    9.17 sec.  Iterations = 1 (0)
+
+CPLEX> Solution written to file 'output/jun16_sparse_2943_2105_0.005_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun16_sparse_1343_1305_0.009_glpk' read.
+Read time =    0.00 sec.
+CPLEX> Tried aggregator 1 time.
+No LP presolve or aggregator reductions.
+Presolve time =    0.01 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 94272
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.03 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 1343
+  Integer space required    = 17327
+  Total non-zeros in factor = 824412
+  Total FP ops to factor    = 690600026
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   1.3270000e+04   0.0000000e+00  1.15e+05  0.00e+00  4.00e+03
+   1   1.5551074e+03   6.1093349e+00  1.86e+04  0.00e+00  2.82e+02
+   2   9.7991154e+00   6.8222773e+00  1.25e+02  0.00e+00  5.58e-13
+   3   1.8566856e+00   5.5740928e+00  5.30e+00  0.00e+00  5.30e-13
+   4   2.1739817e+00   2.8325033e+00  3.67e-01  0.00e+00  3.86e-13
+   5   2.4171976e+00   2.5249927e+00  2.31e-02  0.00e+00  2.35e-13
+   6   2.4587643e+00   2.4740910e+00  2.79e-03  0.00e+00  2.21e-13
+   7   2.4672944e+00   2.4684018e+00  4.30e-05  0.00e+00  2.21e-13
+   8   2.4677967e+00   2.4679162e+00  9.88e-07  0.00e+00  2.04e-13
+   9   2.4678259e+00   2.4678329e+00  1.11e-07  0.00e+00  2.11e-13
+  10   2.4678284e+00   2.4678286e+00  1.47e-08  0.00e+00  2.16e-13
+  11   2.4678285e+00   2.4678285e+00  1.41e-10  0.00e+00  2.35e-13
+Barrier time =    2.34 sec.
+
+Primal crossover.
+  Primal:  Fixed no variables.
+  Dual:  Fixing 1 variable.
+        0 DMoves:  Infeasibility  0.00000000e+00  Objective  2.46782852e+00
+  Dual:  Pushed 1, exchanged 0.
+Using devex.
+Total crossover time =    0.04 sec.
+
+Primal simplex - Optimal:  Objective =  2.4678285219e+00
+Solution time =    2.38 sec.  Iterations = 0 (0)
+
+CPLEX> Solution written to file 'output/jun16_sparse_1343_1305_0.009_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun16_sparse_7743_4505_0.002_glpk' read.
+Read time =    0.04 sec.
+CPLEX> Tried aggregator 1 time.
+DUAL formed by presolve
+Reduced LP has 4505 rows, 7743 columns, and 92916 nonzeros.
+Presolve time =    0.04 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 498518
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.25 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 4505
+  Integer space required    = 89743
+  Total non-zeros in factor = 9121753
+  Total FP ops to factor    = 25630776361
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   7.8860000e+04   0.0000000e+00  4.71e+05  0.00e+00  4.73e+03
+   1   8.4032204e+03   1.3084593e+00  7.24e+03  0.00e+00  3.49e+02
+   2   9.5109507e+02   3.2951173e+00  4.65e-11  0.00e+00  6.84e-13
+   3   1.2643360e+01   3.3533095e+00  4.34e-13  0.00e+00  6.29e-13
+   4   9.2379135e+00   5.4079126e+00  1.62e-13  0.00e+00  5.73e-13
+   5   7.8715744e+00   6.9947630e+00  2.85e-14  0.00e+00  7.15e-13
+   6   7.4424235e+00   7.3143970e+00  4.02e-14  0.00e+00  7.56e-13
+   7   7.3885055e+00   7.3499399e+00  1.10e-13  0.00e+00  6.77e-13
+   8   7.3677435e+00   7.3656694e+00  7.46e-09  0.00e+00  7.97e-13
+   9   7.3667258e+00   7.3665590e+00  5.37e-09  0.00e+00  7.77e-13
+  10   7.3666425e+00   7.3666288e+00  6.37e-09  0.00e+00  7.68e-13
+  11   7.3666364e+00   7.3666350e+00  7.78e-09  0.00e+00  1.12e-08
+  12   7.3666359e+00   7.3666359e+00  9.37e-10  0.00e+00  2.25e-10
+Barrier time =   72.42 sec.
+
+Primal crossover.
+  Primal:  Fixed no variables.
+  Dual:  Fixing 6 variables.
+        5 DMoves:  Infeasibility  0.00000000e+00  Objective  7.36661723e+00
+        0 DMoves:  Infeasibility  0.00000000e+00  Objective  7.36661723e+00
+  Dual:  Pushed 3, exchanged 3.
+Using devex.
+Removing shift (9).
+
+Iteration log . . .
+Iteration:     1    Objective     =             7.366636
+Iteration:     2    Infeasibility =             0.000000
+Iteration:     3    Objective     =             7.366636
+Iteration:    12    Infeasibility =             0.000081
+Iteration:    18    Objective     =             7.366635
+Removing shift (1).
+Iteration:    34    Infeasibility =             0.000002
+Iteration:    36    Objective     =             7.366635
+Total crossover time =   70.55 sec.
+
+Primal simplex - Optimal:  Objective =  7.3666359382e+00
+Solution time =  142.97 sec.  Iterations = 43 (9)
+
+CPLEX> Solution written to file 'output/jun16_sparse_7743_4505_0.002_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/jun16_sparse_3743_2505_0.004_glpk' read.
+Read time =    0.02 sec.
+CPLEX> Tried aggregator 1 time.
+DUAL formed by presolve
+Reduced LP has 2505 rows, 3743 columns, and 44916 nonzeros.
+Presolve time =    0.02 sec.
+Parallel mode: none, using 1 thread for barrier
+Number of nonzeros in lower triangle of A*A' = 237588
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.11 sec.
+Summary statistics for Cholesky factor:
+  Rows in Factor            = 2505
+  Integer space required    = 42148
+  Total non-zeros in factor = 2790084
+  Total FP ops to factor    = 4313855378
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf          
+   0   3.7960000e+04   0.0000000e+00  2.33e+05  0.00e+00  2.59e+03
+   1   4.3766586e+03   8.2925989e-01  3.45e+03  0.00e+00  2.07e+02
+   2   5.7080695e+02   1.9832831e+00  2.06e-11  0.00e+00  3.32e-13
+   3   6.9837326e+00   2.0134178e+00  2.22e-13  0.00e+00  2.96e-13
+   4   5.2468801e+00   3.2458589e+00  7.95e-14  0.00e+00  2.83e-13
+   5   4.4978672e+00   4.0691663e+00  2.87e-14  0.00e+00  3.61e-13
+   6   4.2688180e+00   4.2182288e+00  2.81e-14  0.00e+00  3.78e-13
+   7   4.2447429e+00   4.2359687e+00  1.21e-08  0.00e+00  3.64e-13
+   8   4.2403796e+00   4.2394256e+00  7.53e-08  0.00e+00  3.89e-13
+   9   4.2398486e+00   4.2396380e+00  1.19e-07  0.00e+00  3.60e-13
+  10   4.2397206e+00   4.2396745e+00  4.99e-08  0.00e+00  3.84e-13
+  11   4.2396830e+00   4.2396806e+00  6.59e-09  0.00e+00  6.65e-09
+  12   4.2396812e+00   4.2396810e+00  1.74e-09  0.00e+00  1.48e-08
+  13   4.2396811e+00   4.2396811e+00  3.95e-10  0.00e+00  5.59e-11
+Barrier time =   14.49 sec.
+
+Primal crossover.
+  Primal:  Fixed no variables.
+  Dual:  Fixing 1 variable.
+        0 DMoves:  Infeasibility  0.00000000e+00  Objective  4.23968109e+00
+  Dual:  Pushed 0, exchanged 1.
+Using devex.
+Removing shift (47).
+
+Iteration log . . .
+Iteration:     1    Objective     =             4.239681
+Total crossover time =    2.37 sec.
+
+Primal simplex - Optimal:  Objective =  4.2396811120e+00
+Solution time =   16.86 sec.  Iterations = 1 (0)
+
+CPLEX> Solution written to file 'output/jun16_sparse_3743_2505_0.004_glpk_cplex_out.sol'.
+CPLEX> 

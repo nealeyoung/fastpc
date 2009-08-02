@@ -1,0 +1,306 @@
+
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/May1_2009_1031_1045_0.39_glpk' read.
+Read time =    0.16 sec.
+CPLEX> Tried aggregator 1 time.
+No LP presolve or aggregator reductions.
+Presolve time =    0.07 sec.
+
+Iteration log . . .
+Iteration:     1    Objective     =             0.010025
+Iteration:    78    Objective     =             0.033024
+Iteration:   172    Objective     =             0.039571
+Iteration:   290    Objective     =             0.042513
+Switched to devex.
+Iteration:   426    Objective     =             0.044443
+Iteration:   585    Objective     =             0.045654
+Iteration:   782    Objective     =             0.046671
+Iteration:   987    Objective     =             0.047175
+Iteration:  1191    Objective     =             0.047782
+Iteration:  1408    Objective     =             0.048256
+Switched to steepest-edge.
+Iteration:  1638    Objective     =             0.048619
+Removing shift (104).
+
+Primal simplex - User aborted:  Objective =  4.9412058143e-02
+Solution time =    2.70 sec.  Iterations = 1741 (0)
+
+CPLEX> Solution written to file 'output/May1_2009_1031_1045_0.39_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/apr20_2009_510_550_0.09_glpk' read.
+Read time =    0.01 sec.
+CPLEX> Tried aggregator 1 time.
+No LP presolve or aggregator reductions.
+Presolve time =   -0.00 sec.
+
+Iteration log . . .
+Iteration:     1    Objective     =             0.010038
+Iteration:    62    Objective     =             0.099625
+Iteration:   124    Objective     =             0.127378
+Switched to devex.
+Iteration:   193    Objective     =             0.140830
+Iteration:   263    Objective     =             0.151383
+Iteration:   346    Objective     =             0.161304
+Iteration:   426    Objective     =             0.169297
+Iteration:   520    Objective     =             0.176941
+Iteration:   620    Objective     =             0.182045
+Iteration:   726    Objective     =             0.187224
+Iteration:   837    Objective     =             0.191208
+Iteration:   952    Objective     =             0.194616
+Switched to steepest-edge.
+Iteration:  1081    Objective     =             0.198280
+Iteration:  1148    Objective     =             0.200474
+Iteration:  1236    Objective     =             0.203640
+Iteration:  1314    Objective     =             0.205325
+Iteration:  1405    Objective     =             0.206699
+Iteration:  1510    Objective     =             0.207524
+Iteration:  1609    Objective     =             0.207988
+Removing shift (34).
+Iteration:  1684    Scaled infeas =             0.000042
+Iteration:  1689    Objective     =             0.208014
+
+Primal simplex - Optimal:  Objective =  2.0802611732e-01
+Solution time =    0.62 sec.  Iterations = 1710 (5)
+
+CPLEX> Solution written to file 'output/apr20_2009_510_550_0.09_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/oct21_stg_3525_3529_0.00_glpk' read.
+Read time =    0.01 sec.
+CPLEX> Dual infeasible due to empty column 'var0'.
+Presolve time =   -0.00 sec.
+Presolve - Unbounded or infeasible.
+Solution time =   -0.00 sec.
+CPLEX> CPLEX Error  1217: No solution exists.
+No file written.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/apr17_2009_2000_2072_0.10_glpk' read.
+Read time =    0.16 sec.
+CPLEX> Tried aggregator 1 time.
+No LP presolve or aggregator reductions.
+Presolve time =    0.07 sec.
+
+Iteration log . . .
+Iteration:     1    Objective     =             0.010020
+Iteration:    94    Objective     =             0.091003
+Iteration:   207    Objective     =             0.115621
+Iteration:   322    Objective     =             0.128687
+Iteration:   457    Objective     =             0.138475
+Removing shift (21).
+
+Primal simplex - User aborted:  Objective =  1.4698305936e-01
+Solution time =    0.29 sec.  Iterations = 576 (0)
+
+CPLEX> Solution written to file 'output/apr17_2009_2000_2072_0.10_glpk_cplex_out.sol'.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/apr20_2009_2710_2750_0.00_glpk' read.
+Read time =    0.00 sec.
+CPLEX> Dual infeasible due to empty column 'var20'.
+Presolve time =    0.00 sec.
+Presolve - Unbounded or infeasible.
+Solution time =    0.00 sec.
+CPLEX> CPLEX Error  1217: No solution exists.
+No file written.
+CPLEX> 
+Welcome to CPLEX Interactive Optimizer 11.1.1
+  with Simplex, Mixed Integer & Barrier Optimizers
+Copyright (c) ILOG 1997-2008
+CPLEX is a registered trademark of ILOG
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> 
+File type options:
+
+bas          INSERT format basis file
+flt          Solution pool filters
+lp           LP format problem file
+min          DIMACS min-cost network-flow format file
+mps          MPS format problem file
+mst          MIP start file
+net          CPLEX network-flow format file
+ord          Integer priority order file
+prm          Non-default parameter file
+sav          Binary matrix and basis file
+sol          Solution file
+
+File type: Problem '/usr/local/fastpc/dev/test_mps/test_cases_glpk/oct21_stg_10525_10529_0.09_glpk' read.
+Read time =    4.40 sec.
+CPLEX> Tried aggregator 1 time.
+No LP presolve or aggregator reductions.
+Presolve time =    2.26 sec.
+
+Iteration log . . .
+Iteration:     1    Objective     =             0.010003
+Iteration:   235    Objective     =             0.103474
+Iteration:   515    Objective     =             0.123840
