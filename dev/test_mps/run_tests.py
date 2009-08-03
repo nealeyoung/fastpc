@@ -162,4 +162,5 @@ def main():
                     file.write('write ' + output_dir + cplex_file + '_cplex_out.sol \n')
                     cplex_cmd = '../../../cplex111/bin/x86_debian4.0_4.1/cplex >> ' + output_file_cplex_location + ' < ' + cplex_input
                     os.system(cplex_cmd)
+
 main()

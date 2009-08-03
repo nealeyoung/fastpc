@@ -1,5 +1,6 @@
 import sys
 import re
+import os
 
 def parse_fastpc_output_file(file_name, version):
     v07 = False
@@ -18,7 +19,7 @@ def parse_fastpc_output_file(file_name, version):
     if not v07:
         sort_reg = re.compile(r'sort ratio = [0-9]*.[0-9]*')
     time_reg = re.compile(r' time = [0-9]*.*[0-9]*')
-    ans_reg =  re.compile(r'primal = [0-9]*.[0-9]* dual = [0-9]*.[0-9]* ratio = [0-9]*.[0-9]*')
+    ans_reg =  re.compile(r'.*iterations = [0-9]* primal = [0-9]*.[0-9]* dual = [0-9]*.[0-9]* ratio = [0-9]*.[0-9]*')
     eps_reg = re.compile(r'epsilon = 0.[0-9]*')
     input_reg = re.compile(r"ROWS: [0-9]* COLUMNS: [0-9]* NON-ZEROS: [0-9]* DENSITY: [0-9]*.*[0-9]*")
     name_reg = re.compile(r"INPUT FILE: .[/a-zA-Z0-9._]*")
@@ -34,11 +35,12 @@ def parse_fastpc_output_file(file_name, version):
     preprocess_array = preprocess_reg.findall(total_string)
     main_loop_array = main_loop_reg.findall(total_string)
     eps_array = eps_reg.findall(total_string)
-    
+
     if not v07:
         s_array = sort_reg.findall(total_string)
 
     for index, item in enumerate(time_array):
+#        print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,basic_ops,SortRatio,Main Loop Time (s), Preprocessing Time (s)"
         print str(name_array[index][name_array[index].rfind('/')+1:]) + version + ',',
         
         input_list = input_array[index].split()
@@ -49,24 +51,31 @@ def parse_fastpc_output_file(file_name, version):
         print str(rows)+',', str(cols)+',', str(non_zeros)+',', str(density)+',',
         time_list = time_array[index].split()
         print str(time_list[time_list.index("=")+1][:-1])+',',
-        main_loop_list = main_loop_array[index].split()
-        print str(main_loop_list[main_loop_list.index("=")+1][:-1])+',',
-        preprocess_list = preprocess_array[index].split()
-        print str(preprocess_list[preprocess_list.index("=")+1][:-1])+',',
+
         ans_list = ans_array[index].split()
-        ans_list.reverse()
-        ratio = ans_list[ans_list.index("=")-1]
+        iterations = ans_list[ans_list.index("iterations")+2]
+        print iterations + ',',
+        ratio = ans_list[ans_list.index("ratio")+2]
         print str(ratio)+',',
+
         eps_list = eps_array[index].split()
         print eps_list[eps_list.index("=")+1]+',',
+
         print -1, ',', # Uncomment the next two lines and delete this one once the fastpc output is fixed
 #        ops_list = ops_array[index].split()
 #        print str(ops_list[ops_list.index('=')+1])+',',
+
         if not v07:
             s_list = s_array[index].split()
-            print str(s_list[s_list.index("=")+1])
+            print str(s_list[s_list.index("=")+1]) + ",",
         else:
-            print ','
+            print ',',
+
+        main_loop_list = main_loop_array[index].split()
+        print str(main_loop_list[main_loop_list.index("=")+1][:-1])+',',
+
+        preprocess_list = preprocess_array[index].split()
+        print str(preprocess_list[preprocess_list.index("=")+1][:-1])+','
 
 def parse_glpk_output_file(file_name):
     try:
@@ -87,6 +96,7 @@ def parse_glpk_output_file(file_name):
     name_array = name_reg.findall(total_string)
 
     for index, item in enumerate(time_array):
+#        print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,basic_ops,SortRatio,Main Loop Time (s), Preprocessing Time (s)"
         print str(name_array[index][name_array[index].rfind('/')+1:-1])+',',
         input_list = input_array[index].split()
         rows = input_list[input_list.index("rows,")-1]
@@ -97,32 +107,23 @@ def parse_glpk_output_file(file_name):
         time_list = time_array[index].split()
         print time_list[time_list.index("secs")-1]
 
-def parse_cplex_output_file(file_name):
+def parse_cplex_output_file(file_prefix, output_file_name):
+    os.system('python parse_iterations.py ' + file_prefix)
+
+#    Look for the cplex run stats file and append it to the general run_stats file
     try:
-        my_file = open(file_name)
-        total_string = my_file.read()
+        cplex_file_name = './output_cplex/' + file_prefix + '_cplex_run_stats.csv'
+        try:
+            output_file = open(output_file_name, 'a')
+            cplex_stats_file = open(cplex_file_name)
+            cplex_stats_file.readline()
+            for line in cplex_stats_file:
+                output_file.write(line)
+        except:
+            output_file.write(output_file_name + ', NOT FOUND')
     except:
-        print file_name + ', NOT FOUND'
-        return
-
-    time_reg = re.compile(r'Solution time =[ ]*[0-9]*.[0-9]*')
-    name_reg = re.compile(r"File type: Problem '.*'")
-
-    time_array = time_reg.findall(total_string)
-    name_array = name_reg.findall(total_string)
+        print 'Error finding run stats file to append cplex data'
     
-    for index, item in enumerate(time_array):
-        filename = str(name_array[index][name_array[index].rfind('/')+1:-1])
-        input_list = filename.split('_')
-        input_list[-1] = 'cplex'
-        filename = '_'.join(input_list)
-        density = input_list[-2]
-        cols = input_list[-3]
-        rows = input_list[-4]
-        time_list = time_array[index].split()
-        time = time_list[-1]
-        print filename+','+rows+','+cols+','+'NULL'+','+density+','+time
-
 def main():
     args = sys.argv
     try:
@@ -134,17 +135,20 @@ def main():
     fp_file_name = './output/' + file_prefix + '_output'
     glpk_file_name = fp_file_name + '_glpk'
     v07_file_name = fp_file_name + '_v07'
-    cplex_file_name = fp_file_name + '_cplex'
     neal_file_name = fp_file_name + '_neal'
 
     output_file_name = './output/' + file_prefix + '_run_stats.csv'
     sys.stdout = open(output_file_name, 'w')
-    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Main Loop Time (s), Preprocessing Time (s), Ratio,Epsilon,basic_ops,SortRatio"
+    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,basic_ops,SortRatio,Main Loop Time (s), Preprocessing Time (s)"
 
     parse_fastpc_output_file(fp_file_name, "")
     parse_fastpc_output_file(neal_file_name, "neal")
     parse_glpk_output_file(glpk_file_name)
     parse_fastpc_output_file(v07_file_name, "v07")
-    parse_cplex_output_file(cplex_file_name)
+    
+    sys.stdout.close()
+    sys.stdout = sys.__stdout__
+    
+    parse_cplex_output_file(file_prefix, output_file_name)
     
 main()
