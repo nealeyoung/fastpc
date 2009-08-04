@@ -36,6 +36,10 @@ def parse_fastpc_output_file(file_name, version):
     main_loop_array = main_loop_reg.findall(total_string)
     eps_array = eps_reg.findall(total_string)
 
+    parse_main_loop_time = False
+    if len(main_loop_array) == len(time_array):
+        parse_main_loop_time = True
+
     if not v07:
         s_array = sort_reg.findall(total_string)
 
@@ -70,9 +74,12 @@ def parse_fastpc_output_file(file_name, version):
             print str(s_list[s_list.index("=")+1]) + ",",
         else:
             print ',',
-
-        main_loop_list = main_loop_array[index].split()
-        print str(main_loop_list[main_loop_list.index("=")+1][:-1])+',',
+        
+        if parse_main_loop_time:
+            main_loop_list = main_loop_array[index].split()
+            print str(main_loop_list[main_loop_list.index("=")+1][:-1])+',',
+        else:
+            print ',',
 
         preprocess_list = preprocess_array[index].split()
         print str(preprocess_list[preprocess_list.index("=")+1][:-1])+','
@@ -139,7 +146,7 @@ def main():
 
     output_file_name = './output/' + file_prefix + '_run_stats.csv'
     sys.stdout = open(output_file_name, 'w')
-    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,basic_ops,SortRatio,Main Loop Time (s), Preprocessing Time (s)"
+    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,basic_ops,SortRatio,Main Loop Time (s), Preprocessing Time (s),"
 
     parse_fastpc_output_file(fp_file_name, "")
     parse_fastpc_output_file(neal_file_name, "neal")

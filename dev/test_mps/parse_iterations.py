@@ -14,9 +14,9 @@ def parse_cplex_iterations(file_name, parse_time):
         print file_name + ', NOT FOUND'
         return
     if parse_time:
-        print "Filename,Time (s),Iterations,Method"
+        print "Filename,Time (s),Iterations,Method,"
     else:
-        print "Filename,Iterations,Primal Objective,Dual Objective,Primal Eps, Dual Eps, Method"
+        print "Filename,Iterations,Primal Objective,Dual Objective,Primal Eps, Dual Eps, Method,"
     method = ""
     method_found = False
     itn_data = []
@@ -173,7 +173,7 @@ def main():
     output_file_name = './output_cplex/' + file_prefix + '_itn_eps_stats.csv'
     sys.stdout = open(output_file_name, 'w')
     global itn_eps_stats
-    print "Filename, Iterations, Objective, Final Objective, Epsilon, Total Barrier Iterations, Method"
+    print "Filename, Iterations, Objective, Final Objective, Epsilon, Total Barrier Iterations, Method,"
     for row in itn_eps_stats:
         print row
     sys.stdout.close()
@@ -181,7 +181,7 @@ def main():
     output_file_name = './output_cplex/' + file_prefix + '_cplex_run_stats.csv'
     sys.stdout = open(output_file_name, 'w')
     global cplex_run_stats
-    print "Filename, Rows, Columns, Nonzeros, Density, Time (s), Iterations"
+    print "Filename, Rows, Columns, Nonzeros, Density, Time (s), Iterations,"
     for row in cplex_run_stats:
         print row
 

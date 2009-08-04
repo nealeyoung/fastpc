@@ -1,4 +1,4 @@
-Filename, Rows, Columns, Nonzeros, Density, Time (s), Iterations
+Filename, Rows, Columns, Nonzeros, Density, Time (s), Iterations,
 jun18_2009_d_8497_8983_0.39__Barrier,8497,8983,---,0.39,102997.50,47608,
 jun18_2009_d_4297_6583_0.09__Barrier,4297,6583,---,0.09,287.13,96,
 jun18_2009_s_12697_11383_0.001__Barrier,12697,11383,---,0.001,1158.98,2,

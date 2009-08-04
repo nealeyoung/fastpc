@@ -1,4 +1,4 @@
-Filename,Time (s),Iterations,Method
+Filename,Time (s),Iterations,Method,
 May1_2009_7531_7545_0.01_glpk,10.71,4000,Primal
 May1_2009_7531_7545_0.01_glpk,30.77,6000,Primal
 May1_2009_7531_7545_0.01_glpk,57.72,7000,Primal

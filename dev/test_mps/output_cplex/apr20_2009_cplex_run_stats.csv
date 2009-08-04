@@ -1,4 +1,4 @@
-Filename, Rows, Columns, Nonzeros, Density, Time (s), Iterations
+Filename, Rows, Columns, Nonzeros, Density, Time (s), Iterations,
 apr20_2009_1110_1150_0.39__Primal,1110,1150,---,0.39,18.52,4443,
 apr20_2009_1110_1150_0.39__Dual,1110,1150,---,0.39,11.29,3576,
 apr20_2009_1110_1150_0.39__Barrier,1110,1150,---,0.39,9.47,256,
