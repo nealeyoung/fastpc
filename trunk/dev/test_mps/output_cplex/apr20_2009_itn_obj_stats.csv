@@ -1,4 +1,4 @@
-Filename,Iterations,Primal Objective,Dual Objective,Primal Eps, Dual Eps, Method
+Filename,Iterations,Primal Objective,Dual Objective,Primal Eps, Dual Eps, Method,
 apr20_2009_1110_1150_0.39_glpk,1,0.010016,-1,0.80039380237,20.928733789,Primal
 apr20_2009_1110_1150_0.39_glpk,75,0.034192,-1,0.318596734288,20.928733789,Primal
 apr20_2009_1110_1150_0.39_glpk,176,0.039213,-1,0.218534561934,20.928733789,Primal

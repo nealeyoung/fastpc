@@ -1,4 +1,4 @@
-Filename, Iterations, Objective, Final Objective, Epsilon, Total Barrier Iterations, Method
+Filename, Iterations, Objective, Final Objective, Epsilon, Total Barrier Iterations, Method,
 jun18_2009_d_8497_8983_0.39_glpk,7,0.049898181,0.05007878769,0.00360645092126,13,Barrier
 jun18_2009_d_4297_6583_0.09_glpk,7,0.2067289,0.20511472554,0.00786961762862,14,Barrier
 jun18_2009_s_12697_11383_0.001_glpk,6,21.325231,21.415951151,0.00423610188314,13,Barrier

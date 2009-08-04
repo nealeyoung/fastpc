@@ -1,4 +1,4 @@
-Filename,Time (s),Iterations,Method
+Filename,Time (s),Iterations,Method,
 apr20_2009_1110_1150_0.39_glpk,10.14,3000,Primal
 apr20_2009_1110_1150_0.39_glpk,18.52,4443,Primal
 apr20_2009_1110_1150_0.39_glpk,11.29,3576,Dual

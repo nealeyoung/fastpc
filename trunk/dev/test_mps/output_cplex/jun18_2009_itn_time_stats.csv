@@ -1,4 +1,4 @@
-Filename,Time (s),Iterations,Method
+Filename,Time (s),Iterations,Method,
 jun18_2009_d_8497_8983_0.39_glpk,0,89830.0,Barrier
 jun18_2009_d_8497_8983_0.39_glpk,1,743.45721,Barrier
 jun18_2009_d_8497_8983_0.39_glpk,2,2.6569203,Barrier

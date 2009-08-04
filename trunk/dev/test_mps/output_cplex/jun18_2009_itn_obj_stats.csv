@@ -1,4 +1,4 @@
-Filename,Iterations,Primal Objective,Dual Objective,Primal Eps, Dual Eps, Method
+Filename,Iterations,Primal Objective,Dual Objective,Primal Eps, Dual Eps, Method,
 jun18_2009_d_8497_8983_0.39_glpk,0,89830.0,0.0,1793772.45466,1.0,Barrier
 jun18_2009_d_8497_8983_0.39_glpk,1,743.45721,0.1004303,14844.7509515,1.00544591099,Barrier
 jun18_2009_d_8497_8983_0.39_glpk,2,2.6569203,0.12743938,52.0548046899,1.54477765694,Barrier

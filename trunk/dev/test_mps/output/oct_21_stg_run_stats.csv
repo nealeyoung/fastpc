@@ -1,4 +1,4 @@
-Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,basic_ops,SortRatio,Main Loop Time (s), Preprocessing Time (s)
+Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,basic_ops,SortRatio,Main Loop Time (s), Preprocessing Time (s),
 ./output/oct_21_stg_output, NOT FOUND
 ./output/oct_21_stg_output_neal, NOT FOUND
 ./output/oct_21_stg_output_glpk, NOT FOUND
