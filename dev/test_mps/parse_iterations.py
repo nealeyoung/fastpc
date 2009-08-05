@@ -1,6 +1,6 @@
 import sys
 
-cplex_run_stats = []
+cplex_run_stats = set()
 itn_eps_stats = []
 epsilon = 0.01
 
@@ -130,11 +130,11 @@ def parse_cplex_iterations(file_name, parse_time):
 
 #            print infeasible
             if not infeasible:
-                cplex_run_stats_data = filename + "_" + method + "," + str(rows) + "," + str(cols) + ","  + '---' + "," + str(density) + "," + str(final_time) + "," + str(final_iterations) + ","
+                cplex_run_stats_data = filename + method + "," + str(rows) + "," + str(cols) + ","  + '---' + "," + str(density) + "," + str(final_time) + "," + str(final_iterations) + ","
             else:
-                cplex_run_stats_data = filename + "_" + method + "," + str(rows) + "," + str(cols) + ","  + '---' + "," + str(density) + "," + 'INFEASIBLE OR UNBOUNDED' + "," + 'NOT KNOWN' + ","
+                cplex_run_stats_data = filename + method + "," + str(rows) + "," + str(cols) + ","  + '---' + "," + str(density) + "," + 'INFEASIBLE OR UNBOUNDED' + "," + 'NOT KNOWN' + ","
 #            print cplex_run_stats_data
-            cplex_run_stats.append(cplex_run_stats_data)
+            cplex_run_stats.add(cplex_run_stats_data)
 
             method = ""
             method_found = False
