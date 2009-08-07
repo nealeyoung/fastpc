@@ -22,6 +22,7 @@ def parse_cplex_iterations(file_name, parse_time):
     itn_data = []
     barrier_itn = False
     barrier_iterations = 0
+    barrier_time = 0
     infeasible = False
 
     for line in my_file:
@@ -47,12 +48,21 @@ def parse_cplex_iterations(file_name, parse_time):
 
         if barrier_itn:
             if line.startswith("Barrier time ="):
-                barrier_iterations = int(itn_array[0])
+                barrier_time = float((line.split())[-2])
                 barrier_itn = False
+                itn_data_len = len(itn_data)
+                itn_obj_last = itn_data[itn_data_len -1]
+                barrier_iterations = int(itn_obj_last[1])
+                if parse_time:
+                    itn_obj_last[0] = barrier_time
+                    itn_data[itn_data_len -1] = itn_obj_last
             else:
 #                print line
                 itn_array = line.split()
-                itn_obj = [int(itn_array[0]), float(itn_array[1]), float(itn_array[2])]
+                if parse_time:
+                    itn_obj = [-1, int(itn_array[0])]
+                else:
+                    itn_obj = [int(itn_array[0]), float(itn_array[1]), float(itn_array[2])]
 #                print itn_obj
                 itn_data.append(itn_obj)
             continue
@@ -106,7 +116,7 @@ def parse_cplex_iterations(file_name, parse_time):
             found_itn_for_eps = False
             for item in itn_data:
                 if parse_time:
-                    print input_name + "," + str(item[0]) + "," + str(item[1]) + "," + method
+                    print filename + "," + str(item[0]) + "," + str(item[1]) + "," + method
                 else:
                     pr = item[1]
                     du = item[2]
@@ -124,13 +134,13 @@ def parse_cplex_iterations(file_name, parse_time):
                         total_iterations = final_iterations
                         if method == 'Barrier':
                             total_iterations = barrier_iterations
-                        itn_eps_stats_data = input_name + "," + str(item[0]) + "," + str(min_obj) + "," + str(final_obj) + "," + str(min_eps) + "," + str(total_iterations) + "," + method
+                        itn_eps_stats_data = filename + "," + str(item[0]) + "," + str(min_obj) + "," + str(final_obj) + "," + str(min_eps) + "," + str(total_iterations) + "," + method
                         itn_eps_stats.append(itn_eps_stats_data)
-                    print input_name + "," + str(item[0]) + "," + str(pr) + "," + str(du) + "," + str(p_eps) + "," + str(d_eps)  + "," + method
+                    print filename + "," + str(item[0]) + "," + str(pr) + "," + str(du) + "," + str(p_eps) + "," + str(d_eps)  + "," + method
 
 #            print infeasible
             if not infeasible:
-                cplex_run_stats_data = filename + method + "," + str(rows) + "," + str(cols) + ","  + '---' + "," + str(density) + "," + str(final_time) + "," + str(final_iterations) + ","
+                cplex_run_stats_data = filename + method + "," + str(rows) + "," + str(cols) + ","  + '---' + "," + str(density) + "," + str(barrier_time) + "," + str(barrier_iterations) + ","
             else:
                 cplex_run_stats_data = filename + method + "," + str(rows) + "," + str(cols) + ","  + '---' + "," + str(density) + "," + 'INFEASIBLE OR UNBOUNDED' + "," + 'NOT KNOWN' + ","
 #            print cplex_run_stats_data
@@ -141,6 +151,7 @@ def parse_cplex_iterations(file_name, parse_time):
             itn_data = []
             barrier_itn = False
             barrier_iterations = 0
+            barrier_time = 0
 
 def main():
     args = sys.argv
