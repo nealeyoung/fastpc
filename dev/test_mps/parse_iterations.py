@@ -52,7 +52,7 @@ def parse_cplex_iterations(file_name, parse_time):
                 barrier_itn = False
                 itn_data_len = len(itn_data)
                 itn_obj_last = itn_data[itn_data_len -1]
-                barrier_iterations = int(itn_obj_last[1])
+                barrier_iterations = int(itn_array[0])
                 if parse_time:
                     itn_obj_last[0] = barrier_time
                     itn_data[itn_data_len -1] = itn_obj_last
