@@ -141,7 +141,12 @@ def parse_cplex_iterations(file_name, parse_time):
 #            print infeasible
             nonzeros = int(rows)*int(cols)*float(density)
             if not infeasible:
-                cplex_run_stats_data = filename + method + "," + str(rows) + "," + str(cols) + ","  + str(nonzeros) + "," + str(density) + "," + str(barrier_time) + "," + str(barrier_iterations) + ","
+                temp_time = final_time
+                temp_iter = final_iterations
+                if method == 'Barrier':
+                    temp_time = barrier_time
+                    temp_iter = barrier_iterations
+                cplex_run_stats_data = filename + method + "," + str(rows) + "," + str(cols) + ","  + str(nonzeros) + "," + str(density) + "," + str(temp_time) + "," + str(temp_iter) + ","
             else:
                 cplex_run_stats_data = filename + method + "," + str(rows) + "," + str(cols) + ","  + str(nonzeros) + "," + str(density) + "," + 'INFEASIBLE OR UNBOUNDED' + "," + 'NOT KNOWN' + ","
 #            print cplex_run_stats_data
