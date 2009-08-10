@@ -27,6 +27,6 @@ cat all_run_stats | grep Primal | grep -v 'NOT FOUND' > primal
 cat all_run_stats | grep Dual | grep -v 'NOT FOUND' > dual
 cat all_run_stats | grep Barrier | grep -v 'NOT FOUND' > barrier
 cat all_run_stats | grep neal | grep -v 'NOT FOUND' > neal
-cat all_run_stats | grep --regexp=".*\-[1].*" | grep -v neal  | grep -v 'NOT FOUND' > fastpc
+cat all_run_stats | grep fastpc | grep -v 'NOT FOUND' > fastpc
 
 exit 0
