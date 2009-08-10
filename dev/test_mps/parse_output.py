@@ -44,7 +44,7 @@ def parse_fastpc_output_file(file_name, version):
         s_array = sort_reg.findall(total_string)
 
     for index, item in enumerate(time_array):
-#        print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,basic_ops,SortRatio,Main Loop Time (s), Preprocessing Time (s)"
+#    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,TotalTime,TotalIter,HybridIter,SortRatio,"
         print str(name_array[index][name_array[index].rfind('/')+1:]) + version + ',',
         
         input_list = input_array[index].split()
@@ -54,7 +54,8 @@ def parse_fastpc_output_file(file_name, version):
         density = float(non_zeros)/(float(rows)*float(cols))
         print str(rows)+',', str(cols)+',', str(non_zeros)+',', str(density)+',',
         time_list = time_array[index].split()
-        print str(time_list[time_list.index("=")+1][:-1])+',',
+        time = str(time_list[time_list.index("=")+1][:-1])
+        print time + ',',
 
         ans_list = ans_array[index].split()
         iterations = ans_list[ans_list.index("iterations")+2]
@@ -65,24 +66,22 @@ def parse_fastpc_output_file(file_name, version):
         eps_list = eps_array[index].split()
         print eps_list[eps_list.index("=")+1]+',',
 
-        print -1, ',', # Uncomment the next two lines and delete this one once the fastpc output is fixed
-#        ops_list = ops_array[index].split()
-#        print str(ops_list[ops_list.index('=')+1])+',',
+        print '-1,-1,-1,',
 
         if not v07:
             s_list = s_array[index].split()
-            print str(s_list[s_list.index("=")+1]) + ",",
+            print str(s_list[s_list.index("=")+1]) + ',',
         else:
             print ',',
         
-        if parse_main_loop_time:
-            main_loop_list = main_loop_array[index].split()
-            print str(main_loop_list[main_loop_list.index("=")+1][:-1])+',',
-        else:
-            print ',',
+#        if parse_main_loop_time:
+#            main_loop_list = main_loop_array[index].split()
+#            print str(main_loop_list[main_loop_list.index("=")+1][:-1])+',',
+#        else:
+#            print ',',
 
-        preprocess_list = preprocess_array[index].split()
-        print str(preprocess_list[preprocess_list.index("=")+1][:-1])+','
+#       preprocess_list = preprocess_array[index].split()
+#       print str(preprocess_list[preprocess_list.index("=")+1][:-1])+','
 
 def parse_glpk_output_file(file_name):
     try:
@@ -103,7 +102,7 @@ def parse_glpk_output_file(file_name):
     name_array = name_reg.findall(total_string)
 
     for index, item in enumerate(time_array):
-#        print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,basic_ops,SortRatio,Main Loop Time (s), Preprocessing Time (s)"
+#    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,TotalTime,TotalIter,HybridIter,SortRatio,"
         print str(name_array[index][name_array[index].rfind('/')+1:-1])+',',
         input_list = input_array[index].split()
         rows = input_list[input_list.index("rows,")-1]
@@ -146,7 +145,7 @@ def main():
 
     output_file_name = './output/' + file_prefix + '_run_stats.csv'
     sys.stdout = open(output_file_name, 'w')
-    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,basic_ops,SortRatio,Main Loop Time (s), Preprocessing Time (s),"
+    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,TotalTime,TotalIter,HybridIter,SortRatio,"
 
     parse_fastpc_output_file(fp_file_name, "")
     parse_fastpc_output_file(neal_file_name, "neal")
