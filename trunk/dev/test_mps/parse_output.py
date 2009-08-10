@@ -8,6 +8,8 @@ def parse_fastpc_output_file(file_name, version):
         if version == "v07":
             v07 = True
         version = '_' + version
+    else:
+        version = '_fastpc'
 
     try:
         my_file = open(file_name)
@@ -70,9 +72,9 @@ def parse_fastpc_output_file(file_name, version):
 
         if not v07:
             s_list = s_array[index].split()
-            print str(s_list[s_list.index("=")+1]) + ',',
+            print str(s_list[s_list.index("=")+1]) + ','#,
         else:
-            print ',',
+            print ','#,
         
 #        if parse_main_loop_time:
 #            main_loop_list = main_loop_array[index].split()
