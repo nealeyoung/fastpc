@@ -54,7 +54,9 @@ plot_itn_time_stats = function(file_prefix)
 {
 	file_name = paste("output_cplex/", file_prefix, "_itn_time_stats.csv", sep="")
 	data = read.csv(file_name, head=TRUE)
-	methods = c('Primal', 'Dual')
+	data = data[data$Time >= 0,]
+#	print(data)
+	methods = c('Barrier')
 	for (method in methods)
 	{
 		method_data = data[data$Method == method,]

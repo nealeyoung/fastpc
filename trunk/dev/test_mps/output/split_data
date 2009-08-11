@@ -28,5 +28,7 @@ cat all_run_stats | grep Dual | grep -v 'NOT FOUND' > dual
 cat all_run_stats | grep Barrier | grep -v 'NOT FOUND' > barrier
 cat all_run_stats | grep neal | grep -v 'NOT FOUND' > neal
 cat all_run_stats | grep fastpc | grep -v 'NOT FOUND' > fastpc
+cat fastpc > fandn
+cat neal >> fandn
 
 exit 0

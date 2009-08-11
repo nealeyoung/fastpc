@@ -46,7 +46,7 @@ def parse_fastpc_output_file(file_name, version):
         s_array = sort_reg.findall(total_string)
 
     for index, item in enumerate(time_array):
-#    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,TotalTime,TotalIter,HybridIter,SortRatio,"
+#    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,TotalTime,TotalIter,HybridIter,HybridTime,"
         print str(name_array[index][name_array[index].rfind('/')+1:]) + version + ',',
         
         input_list = input_array[index].split()
@@ -70,11 +70,12 @@ def parse_fastpc_output_file(file_name, version):
 
         print '-1,-1,-1,',
 
-        if not v07:
-            s_list = s_array[index].split()
-            print str(s_list[s_list.index("=")+1]) + ','#,
-        else:
-            print ','#,
+#        if not v07:
+#            s_list = s_array[index].split()
+#            print str(s_list[s_list.index("=")+1]) + ','#,
+#        else:
+#            print ','#,
+        print '-1,'
         
 #        if parse_main_loop_time:
 #            main_loop_list = main_loop_array[index].split()
@@ -104,7 +105,7 @@ def parse_glpk_output_file(file_name):
     name_array = name_reg.findall(total_string)
 
     for index, item in enumerate(time_array):
-#    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,TotalTime,TotalIter,HybridIter,SortRatio,"
+#    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,TotalTime,TotalIter,HybridIter,HybridTime,"
         print str(name_array[index][name_array[index].rfind('/')+1:-1])+',',
         input_list = input_array[index].split()
         rows = input_list[input_list.index("rows,")-1]
@@ -147,7 +148,7 @@ def main():
 
     output_file_name = './output/' + file_prefix + '_run_stats.csv'
     sys.stdout = open(output_file_name, 'w')
-    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,TotalTime,TotalIter,HybridIter,SortRatio,"
+    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,TotalTime,TotalIter,HybridIter,HybridTime,"
 
     parse_fastpc_output_file(fp_file_name, "")
     parse_fastpc_output_file(neal_file_name, "neal")
