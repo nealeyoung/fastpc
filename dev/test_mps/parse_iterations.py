@@ -27,10 +27,6 @@ def parse_cplex_iterations(file_name, parse_time):
     barrier_iterations = -1
     barrier_time = -1
     infeasible = False
-    hybrid_itr = -1
-    eps_itr = -1
-    temp_iter = -1
-    temp_time = -1
 
     for line in my_file:
         if line.startswith("File type: Problem"): # New run
@@ -180,15 +176,17 @@ def parse_cplex_iterations(file_name, parse_time):
                 temp_iter = eps_itr
                 if int(final_iterations) == 0:
                     temp_time = 0
+                    hybrid_time = 0
                 else:
                     temp_time = float(final_time)*temp_iter/float(final_iterations)
+                    hybrid_time = float(final_time)*(temp_iter/float(final_iterations))
                 if method == 'Barrier':
                     if barrier_iterations == 0:
                         temp_time = 0
                     else:
                         temp_time = barrier_time*(float(temp_iter)/barrier_iterations)
 #                    temp_iter = barrier_iterations
-                cplex_run_stats_data = filename + method + "," + str(rows) + "," + str(cols) + ","  + str(nonzeros) + "," + str(density) + "," + str(temp_time) + "," + str(temp_iter) + ",-1,-1," + str(final_time) +  "," + str(final_iterations) + "," + str(hybrid_itr) + ","
+                cplex_run_stats_data = filename + method + "," + str(rows) + "," + str(cols) + ","  + str(nonzeros) + "," + str(density) + "," + str(temp_time) + "," + str(temp_iter) + ",-1,-1," + str(final_time) +  "," + str(final_iterations) + "," + str(hybrid_itr) + "," + str(hybrid_time) + ","
 #                print cplex_run_stats_data
                 cplex_run_stats.add(cplex_run_stats_data)
 
@@ -251,7 +249,7 @@ def main():
     output_file_name = './output_cplex/' + file_prefix + '_cplex_run_stats.csv'
     sys.stdout = open(output_file_name, 'w')
     global cplex_run_stats
-    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,TotalTime,TotalIter,HybridIter,SortRatio,"
+    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,TotalTime,TotalIter,HybridIter,HybridTime,"
     for row in cplex_run_stats:
         print row
 
