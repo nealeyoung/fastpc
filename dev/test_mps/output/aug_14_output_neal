@@ -1,0 +1,1542 @@
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_2000_2072_0.10
+preprocessing_time0 = 0.399708 s
+preprocessing_time1 = 0.485138 s
+ROWS: 2000 COLUMNS: 2072 NON-ZEROS: 414532 DENSITY: 0.100032
+preprocessing_time = 0.485218 s
+N = 382482
+preprocessing_time2 = 0.000853 s
+ iterations = 15185653 primal = 0.199228 dual = 0.201566 ratio = 0.988403
+ empty iterations = 7524719
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 112.568s
+ post_processing_time = 0.088036s
+ time = 112.657s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1900_1972_0.00
+preprocessing_time0 = 0.052553 s
+preprocessing_time1 = 0.058133 s
+ROWS: 1900 COLUMNS: 1972 NON-ZEROS: 37137 DENSITY: 0.00991166
+preprocessing_time = 0.058189 s
+N = 379953
+preprocessing_time2 = 0.000714 s
+ iterations = 150558157 primal = 2.13862 dual = 2.15894 ratio = 0.990587
+ empty iterations = 71944307
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 211.6s
+ post_processing_time = 0.004855s
+ time = 211.606s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3010_3050_0.09
+preprocessing_time0 = 0.864617 s
+preprocessing_time1 = 1.06489 s
+ROWS: 3010 COLUMNS: 3050 NON-ZEROS: 917434 DENSITY: 0.0999329
+preprocessing_time = 1.06497 s
+N = 402449
+preprocessing_time2 = 0.001364 s
+ iterations = 16042213 primal = 0.199599 dual = 0.20218 ratio = 0.987238
+ empty iterations = 7950522
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 198.909s
+ post_processing_time = 0.207738s
+ time = 199.119s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_400_472_0.09
+preprocessing_time0 = 0.040836 s
+preprocessing_time1 = 0.043538 s
+ROWS: 400 COLUMNS: 472 NON-ZEROS: 18865 DENSITY: 0.0999206
+preprocessing_time = 0.043581 s
+N = 304949
+preprocessing_time2 = 0.000155 s
+ iterations = 12611041 primal = 0.213405 dual = 0.215348 ratio = 0.990978
+ empty iterations = 6177206
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 20.551s
+ post_processing_time = 0.002508s
+ time = 20.5537s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1200_1272_0.01
+preprocessing_time0 = 0.042332 s
+preprocessing_time1 = 0.044552 s
+ROWS: 1200 COLUMNS: 1272 NON-ZEROS: 15304 DENSITY: 0.0100262
+preprocessing_time = 0.044592 s
+N = 357412
+preprocessing_time2 = 0.000493 s
+ iterations = 139449057 primal = 2.23354 dual = 2.25191 ratio = 0.991843
+ empty iterations = 64041943
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 175.676s
+ post_processing_time = 0.001911s
+ time = 175.679s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_2000_2072_0.40
+preprocessing_time0 = 1.49168 s
+preprocessing_time1 = 1.90794 s
+ROWS: 2000 COLUMNS: 2072 NON-ZEROS: 1658731 DENSITY: 0.400273
+preprocessing_time = 1.90803 s
+N = 382482
+preprocessing_time2 = 0.00096 s
+ iterations = 3804876 primal = 0.0497078 dual = 0.0503246 ratio = 0.987744
+ empty iterations = 1885997
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 126.771s
+ post_processing_time = 0.426725s
+ time = 127.199s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_2100_2172_0.39
+preprocessing_time0 = 1.63905 s
+preprocessing_time1 = 2.10066 s
+ROWS: 2100 COLUMNS: 2172 NON-ZEROS: 1824190 DENSITY: 0.399936
+preprocessing_time = 2.10075 s
+N = 384890
+preprocessing_time2 = 0.001018 s
+ iterations = 3839457 primal = 0.0496911 dual = 0.0503899 ratio = 0.986132
+ empty iterations = 1904454
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 135.96s
+ post_processing_time = 0.473001s
+ time = 136.434s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1100_1172_0.00
+preprocessing_time0 = 0.033254 s
+preprocessing_time1 = 0.035138 s
+ROWS: 1100 COLUMNS: 1172 NON-ZEROS: 12843 DENSITY: 0.00996199
+preprocessing_time = 0.03518 s
+N = 353172
+preprocessing_time2 = 0.000464 s
+ iterations = 141387568 primal = 2.32175 dual = 2.34141 ratio = 0.991604
+ empty iterations = 64433340
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 171.556s
+ post_processing_time = 0.001629s
+ time = 171.558s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1300_1372_0.09
+preprocessing_time0 = 0.191515 s
+preprocessing_time1 = 0.226266 s
+ROWS: 1300 COLUMNS: 1372 NON-ZEROS: 177925 DENSITY: 0.0997561
+preprocessing_time = 0.226352 s
+N = 361320
+preprocessing_time2 = 0.000548 s
+ iterations = 14349976 primal = 0.200499 dual = 0.202413 ratio = 0.990547
+ empty iterations = 7099590
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 58.2257s
+ post_processing_time = 0.034415s
+ time = 58.2607s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3410_3450_0.40
+preprocessing_time0 = 4.15898 s
+preprocessing_time1 = 5.44338 s
+ROWS: 3410 COLUMNS: 3450 NON-ZEROS: 4707653 DENSITY: 0.400158
+preprocessing_time = 5.44347 s
+N = 408674
+preprocessing_time2 = 0.001805 s
+ iterations = 4070432 primal = 0.0496587 dual = 0.0503159 ratio = 0.986937
+ empty iterations = 2019572
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 263.935s
+ post_processing_time = 1.33912s
+ time = 265.276s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1900_1972_0.39
+preprocessing_time0 = 1.34454 s
+preprocessing_time1 = 1.71738 s
+ROWS: 1900 COLUMNS: 1972 NON-ZEROS: 1498229 DENSITY: 0.399869
+preprocessing_time = 1.71747 s
+N = 379953
+preprocessing_time2 = 0.0009 s
+ iterations = 3793884 primal = 0.0499029 dual = 0.0505219 ratio = 0.987747
+ empty iterations = 1880983
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 117.468s
+ post_processing_time = 0.382189s
+ time = 117.851s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_400_472_0.00
+preprocessing_time0 = 0.019775 s
+preprocessing_time1 = 0.02015 s
+ROWS: 400 COLUMNS: 472 NON-ZEROS: 1838 DENSITY: 0.00973517
+preprocessing_time = 0.020184 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3610_3650_0.00
+preprocessing_time0 = 0.170033 s
+preprocessing_time1 = 0.194015 s
+ROWS: 3610 COLUMNS: 3650 NON-ZEROS: 131560 DENSITY: 0.00998444
+preprocessing_time = 0.1941 s
+N = 411519
+preprocessing_time2 = 0.001397 s
+ iterations = 164201444 primal = 2.06599 dual = 2.0878 ratio = 0.989552
+ empty iterations = 80270945
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 350.502s
+ post_processing_time = 0.023429s
+ time = 350.527s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1000_1072_0.00
+preprocessing_time0 = 0.010082 s
+preprocessing_time1 = 0.010559 s
+ROWS: 998 COLUMNS: 1072 NON-ZEROS: 1064 DENSITY: 0.000994526
+preprocessing_time = 0.010594 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1100_1172_0.10
+preprocessing_time0 = 0.118783 s
+preprocessing_time1 = 0.143321 s
+ROWS: 1100 COLUMNS: 1172 NON-ZEROS: 129418 DENSITY: 0.100386
+preprocessing_time = 0.143409 s
+N = 353172
+preprocessing_time2 = 0.000458 s
+ iterations = 13973225 primal = 0.199957 dual = 0.202018 ratio = 0.989797
+ empty iterations = 6908504
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 45.5699s
+ post_processing_time = 0.023936s
+ time = 45.5943s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_500_572_0.40
+preprocessing_time0 = 0.11049 s
+preprocessing_time1 = 0.132965 s
+ROWS: 500 COLUMNS: 572 NON-ZEROS: 114782 DENSITY: 0.401336
+preprocessing_time = 0.133052 s
+N = 315374
+preprocessing_time2 = 0.000246 s
+ iterations = 3182581 primal = 0.0507188 dual = 0.0511828 ratio = 0.990934
+ empty iterations = 1576938
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 13.6742s
+ post_processing_time = 0.02186s
+ time = 13.6963s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3510_3550_0.01
+preprocessing_time0 = 0.131976 s
+preprocessing_time1 = 0.154597 s
+ROWS: 3510 COLUMNS: 3550 NON-ZEROS: 124673 DENSITY: 0.0100055
+preprocessing_time = 0.154706 s
+N = 410117
+preprocessing_time2 = 0.001332 s
+ iterations = 162180469 primal = 2.04945 dual = 2.06826 ratio = 0.990904
+ empty iterations = 79266011
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 337.556s
+ post_processing_time = 0.022035s
+ time = 337.579s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_300_372_0.01
+preprocessing_time0 = 0.030305 s
+preprocessing_time1 = 0.030584 s
+ROWS: 299 COLUMNS: 372 NON-ZEROS: 1163 DENSITY: 0.010456
+preprocessing_time = 0.03062 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3010_3050_0.40
+preprocessing_time0 = 3.28424 s
+preprocessing_time1 = 4.26585 s
+ROWS: 3010 COLUMNS: 3050 NON-ZEROS: 3673284 DENSITY: 0.400118
+preprocessing_time = 4.26594 s
+N = 402449
+preprocessing_time2 = 0.001538 s
+ iterations = 4007154 primal = 0.0496816 dual = 0.0503076 ratio = 0.987556
+ empty iterations = 1987344
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 223.466s
+ post_processing_time = 1.05322s
+ time = 224.521s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_400_472_0.39
+preprocessing_time0 = 0.077754 s
+preprocessing_time1 = 0.091874 s
+ROWS: 400 COLUMNS: 472 NON-ZEROS: 75336 DENSITY: 0.399025
+preprocessing_time = 0.091941 s
+N = 304949
+preprocessing_time2 = 0.000189 s
+ iterations = 3070286 primal = 0.0506078 dual = 0.0510664 ratio = 0.99102
+ empty iterations = 1522305
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 10.471s
+ post_processing_time = 0.01273s
+ time = 10.484s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_900_972_0.40
+preprocessing_time0 = 0.335228 s
+preprocessing_time1 = 0.411937 s
+ROWS: 900 COLUMNS: 972 NON-ZEROS: 350697 DENSITY: 0.400888
+preprocessing_time = 0.412023 s
+N = 343438
+preprocessing_time2 = 0.000406 s
+ iterations = 3410809 primal = 0.0497524 dual = 0.0503612 ratio = 0.987911
+ empty iterations = 1691684
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 37.2783s
+ post_processing_time = 0.078257s
+ time = 37.357s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3710_3750_0.01
+preprocessing_time0 = 0.12175 s
+preprocessing_time1 = 0.14743 s
+ROWS: 3710 COLUMNS: 3750 NON-ZEROS: 139567 DENSITY: 0.0100318
+preprocessing_time = 0.147516 s
+N = 412884
+preprocessing_time2 = 0.001449 s
+ iterations = 163295265 primal = 2.04653 dual = 2.06715 ratio = 0.990027
+ empty iterations = 79834238
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 366.656s
+ post_processing_time = 0.025141s
+ time = 366.683s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1400_1472_0.00
+preprocessing_time0 = 0.032782 s
+preprocessing_time1 = 0.035774 s
+ROWS: 1400 COLUMNS: 1472 NON-ZEROS: 20328 DENSITY: 0.00986413
+preprocessing_time = 0.035821 s
+N = 364947
+preprocessing_time2 = 0.00061 s
+ iterations = 145906930 primal = 2.23984 dual = 2.25705 ratio = 0.992375
+ empty iterations = 68154409
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 189.668s
+ post_processing_time = 0.002554s
+ time = 189.671s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3110_3150_0.00
+preprocessing_time0 = 0.104401 s
+preprocessing_time1 = 0.121675 s
+ROWS: 3110 COLUMNS: 3150 NON-ZEROS: 97761 DENSITY: 0.00997918
+preprocessing_time = 0.121765 s
+N = 404079
+preprocessing_time2 = 0.001103 s
+ iterations = 160763410 primal = 2.07264 dual = 2.09155 ratio = 0.990957
+ empty iterations = 78386467
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 296.155s
+ post_processing_time = 0.016425s
+ time = 296.172s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_500_572_0.00
+preprocessing_time0 = 0.01822 s
+preprocessing_time1 = 0.018459 s
+ROWS: 498 COLUMNS: 571 NON-ZEROS: 284 DENSITY: 0.000998741
+preprocessing_time = 0.018493 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_900_972_0.00
+preprocessing_time0 = 0.017253 s
+preprocessing_time1 = 0.018536 s
+ROWS: 900 COLUMNS: 972 NON-ZEROS: 8481 DENSITY: 0.00969479
+preprocessing_time = 0.018571 s
+N = 343438
+preprocessing_time2 = 0.000305 s
+ iterations = 136688617 primal = 2.46618 dual = 2.48661 ratio = 0.991784
+ empty iterations = 59865349
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 161.937s
+ post_processing_time = 0.001071s
+ time = 161.939s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_900_972_0.09
+preprocessing_time0 = 0.090583 s
+preprocessing_time1 = 0.105964 s
+ROWS: 900 COLUMNS: 972 NON-ZEROS: 87143 DENSITY: 0.0996148
+preprocessing_time = 0.106052 s
+N = 343438
+preprocessing_time2 = 0.000334 s
+ iterations = 13869378 primal = 0.204764 dual = 0.206739 ratio = 0.990446
+ empty iterations = 6851131
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 36.228s
+ post_processing_time = 0.014582s
+ time = 36.2429s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_300_372_0.00
+preprocessing_time0 = 0.028335 s
+preprocessing_time1 = 0.028501 s
+ROWS: 298 COLUMNS: 369 NON-ZEROS: 115 DENSITY: 0.00104582
+preprocessing_time = 0.028536 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1700_1772_0.01
+preprocessing_time0 = 0.031352 s
+preprocessing_time1 = 0.035879 s
+ROWS: 1700 COLUMNS: 1772 NON-ZEROS: 30192 DENSITY: 0.0100226
+preprocessing_time = 0.03593 s
+N = 374476
+preprocessing_time2 = 0.000664 s
+ iterations = 145805684 primal = 2.1124 dual = 2.13034 ratio = 0.991577
+ empty iterations = 69559958
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 199.999s
+ post_processing_time = 0.003907s
+ time = 200.004s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_700_772_0.01
+preprocessing_time0 = 0.033594 s
+preprocessing_time1 = 0.034475 s
+ROWS: 700 COLUMNS: 772 NON-ZEROS: 5535 DENSITY: 0.0102424
+preprocessing_time = 0.034511 s
+N = 331347
+preprocessing_time2 = 0.000244 s
+ iterations = 123785440 primal = 2.45886 dual = 2.47907 ratio = 0.991848
+ empty iterations = 51993049
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 140.19s
+ post_processing_time = 0.000741s
+ time = 140.191s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1700_1772_0.39
+preprocessing_time0 = 1.24928 s
+preprocessing_time1 = 1.54076 s
+ROWS: 1700 COLUMNS: 1772 NON-ZEROS: 1203311 DENSITY: 0.399453
+preprocessing_time = 1.54085 s
+N = 374476
+preprocessing_time2 = 0.000784 s
+ iterations = 3732740 primal = 0.0498055 dual = 0.0504241 ratio = 0.987732
+ empty iterations = 1851189
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 100.381s
+ post_processing_time = 0.299494s
+ time = 100.681s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3310_3350_0.00
+preprocessing_time0 = 0.139576 s
+preprocessing_time1 = 0.159522 s
+ROWS: 3310 COLUMNS: 3350 NON-ZEROS: 110857 DENSITY: 0.00999747
+preprocessing_time = 0.159612 s
+N = 407188
+preprocessing_time2 = 0.001211 s
+ iterations = 161719468 primal = 2.06447 dual = 2.0822 ratio = 0.991481
+ empty iterations = 78939336
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 316.397s
+ post_processing_time = 0.019163s
+ time = 316.418s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3710_3750_0.39
+preprocessing_time0 = 4.95782 s
+preprocessing_time1 = 6.49904 s
+ROWS: 3710 COLUMNS: 3750 NON-ZEROS: 5564295 DENSITY: 0.399949
+preprocessing_time = 6.49914 s
+N = 412884
+preprocessing_time2 = 0.002016 s
+ iterations = 4113932 primal = 0.0496556 dual = 0.0503383 ratio = 0.986438
+ empty iterations = 2041379
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 297.404s
+ post_processing_time = 1.61394s
+ time = 299.02s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1100_1172_0.39
+preprocessing_time0 = 0.491534 s
+preprocessing_time1 = 0.608912 s
+ROWS: 1100 COLUMNS: 1172 NON-ZEROS: 515115 DENSITY: 0.399562
+preprocessing_time = 0.608997 s
+N = 353172
+preprocessing_time2 = 0.000522 s
+ iterations = 3525324 primal = 0.0499602 dual = 0.0505477 ratio = 0.988378
+ empty iterations = 1746942
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 52.5916s
+ post_processing_time = 0.119627s
+ time = 52.7117s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1200_1272_0.10
+preprocessing_time0 = 0.150198 s
+preprocessing_time1 = 0.179605 s
+ROWS: 1200 COLUMNS: 1272 NON-ZEROS: 153095 DENSITY: 0.100298
+preprocessing_time = 0.179696 s
+N = 357412
+preprocessing_time2 = 0.000496 s
+ iterations = 14195004 primal = 0.20061 dual = 0.202889 ratio = 0.988769
+ empty iterations = 7016719
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 52.026s
+ post_processing_time = 0.028982s
+ time = 52.0555s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3410_3450_0.09
+preprocessing_time0 = 1.07318 s
+preprocessing_time1 = 1.33824 s
+ROWS: 3410 COLUMNS: 3450 NON-ZEROS: 1175937 DENSITY: 0.0999564
+preprocessing_time = 1.33833 s
+N = 408674
+preprocessing_time2 = 0.001601 s
+ iterations = 16310982 primal = 0.199399 dual = 0.202425 ratio = 0.985049
+ empty iterations = 8086870
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 236.988s
+ post_processing_time = 0.273408s
+ time = 237.263s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3810_3850_0.00
+preprocessing_time0 = 0.141643 s
+preprocessing_time1 = 0.168508 s
+ROWS: 3810 COLUMNS: 3850 NON-ZEROS: 146070 DENSITY: 0.00995807
+preprocessing_time = 0.168593 s
+N = 414212
+preprocessing_time2 = 0.001508 s
+ iterations = 164663812 primal = 2.05276 dual = 2.0725 ratio = 0.990478
+ empty iterations = 80621985
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 373.486s
+ post_processing_time = 0.026549s
+ time = 373.514s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1500_1572_0.00
+preprocessing_time0 = 0.014663 s
+preprocessing_time1 = 0.015436 s
+ROWS: 1500 COLUMNS: 1571 NON-ZEROS: 2326 DENSITY: 0.000987057
+preprocessing_time = 0.015473 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3210_3250_0.40
+preprocessing_time0 = 3.68053 s
+preprocessing_time1 = 4.81006 s
+ROWS: 3210 COLUMNS: 3250 NON-ZEROS: 4176396 DENSITY: 0.400326
+preprocessing_time = 4.81015 s
+N = 405658
+preprocessing_time2 = 0.001703 s
+ iterations = 4041790 primal = 0.0497224 dual = 0.0503706 ratio = 0.987132
+ empty iterations = 2004227
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 243.464s
+ post_processing_time = 1.17124s
+ time = 244.637s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1500_1572_0.01
+preprocessing_time0 = 0.035504 s
+preprocessing_time1 = 0.039053 s
+ROWS: 1500 COLUMNS: 1572 NON-ZEROS: 23887 DENSITY: 0.0101302
+preprocessing_time = 0.039103 s
+N = 368328
+preprocessing_time2 = 0.000672 s
+ iterations = 144626732 primal = 2.15766 dual = 2.17489 ratio = 0.992082
+ empty iterations = 68267291
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 190.584s
+ post_processing_time = 0.003059s
+ time = 190.587s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_500_572_0.01
+preprocessing_time0 = 0.016227 s
+preprocessing_time1 = 0.016763 s
+ROWS: 500 COLUMNS: 572 NON-ZEROS: 2895 DENSITY: 0.0101224
+preprocessing_time = 0.0168 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1600_1672_0.39
+preprocessing_time0 = 0.967191 s
+preprocessing_time1 = 1.22504 s
+ROWS: 1600 COLUMNS: 1672 NON-ZEROS: 1069446 DENSITY: 0.399763
+preprocessing_time = 1.22513 s
+N = 371496
+preprocessing_time2 = 0.000733 s
+ iterations = 3701520 primal = 0.0497861 dual = 0.0504695 ratio = 0.986459
+ empty iterations = 1835948
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 93.4869s
+ post_processing_time = 0.265149s
+ time = 93.7528s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1400_1472_0.40
+preprocessing_time0 = 0.740068 s
+preprocessing_time1 = 0.933752 s
+ROWS: 1400 COLUMNS: 1472 NON-ZEROS: 826257 DENSITY: 0.40094
+preprocessing_time = 0.933838 s
+N = 364947
+preprocessing_time2 = 0.000632 s
+ iterations = 3628664 primal = 0.0497439 dual = 0.0503396 ratio = 0.988167
+ empty iterations = 1798824
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 75.432s
+ post_processing_time = 0.199533s
+ time = 75.6321s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3010_3050_0.00
+preprocessing_time0 = 0.046692 s
+preprocessing_time1 = 0.048701 s
+ROWS: 3010 COLUMNS: 3050 NON-ZEROS: 9003 DENSITY: 0.000980666
+preprocessing_time = 0.04874 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3310_3350_0.09
+preprocessing_time0 = 0.987203 s
+preprocessing_time1 = 1.2327 s
+ROWS: 3310 COLUMNS: 3350 NON-ZEROS: 1108679 DENSITY: 0.0999846
+preprocessing_time = 1.23279 s
+N = 407188
+preprocessing_time2 = 0.001498 s
+ iterations = 16212602 primal = 0.199164 dual = 0.201796 ratio = 0.986957
+ empty iterations = 8035977
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 227.187s
+ post_processing_time = 0.256126s
+ time = 227.445s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1700_1772_0.09
+preprocessing_time0 = 0.287576 s
+preprocessing_time1 = 0.348434 s
+ROWS: 1700 COLUMNS: 1772 NON-ZEROS: 300936 DENSITY: 0.0998991
+preprocessing_time = 0.348519 s
+N = 374476
+preprocessing_time2 = 0.000718 s
+ iterations = 14923263 primal = 0.200433 dual = 0.202631 ratio = 0.989156
+ empty iterations = 7394361
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 86.6117s
+ post_processing_time = 0.061344s
+ time = 86.6738s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3110_3150_0.10
+preprocessing_time0 = 0.878146 s
+preprocessing_time1 = 1.09235 s
+ROWS: 3110 COLUMNS: 3150 NON-ZEROS: 980764 DENSITY: 0.100114
+preprocessing_time = 1.09244 s
+N = 404079
+preprocessing_time2 = 0.001389 s
+ iterations = 16061883 primal = 0.19887 dual = 0.201469 ratio = 0.987097
+ empty iterations = 7961029
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 210.13s
+ post_processing_time = 0.223045s
+ time = 210.354s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3910_3950_0.00
+preprocessing_time0 = 0.134797 s
+preprocessing_time1 = 0.163314 s
+ROWS: 3910 COLUMNS: 3950 NON-ZEROS: 154383 DENSITY: 0.00999599
+preprocessing_time = 0.163398 s
+N = 415506
+preprocessing_time2 = 0.001541 s
+ iterations = 164282823 primal = 2.04367 dual = 2.06322 ratio = 0.990526
+ empty iterations = 80431730
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 381.739s
+ post_processing_time = 0.028067s
+ time = 381.768s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3810_3850_0.40
+preprocessing_time0 = 5.18851 s
+preprocessing_time1 = 6.82279 s
+ROWS: 3810 COLUMNS: 3850 NON-ZEROS: 5868935 DENSITY: 0.400105
+preprocessing_time = 6.82288 s
+N = 414212
+preprocessing_time2 = 0.00204 s
+ iterations = 4130197 primal = 0.0497469 dual = 0.050426 ratio = 0.986532
+ empty iterations = 2047756
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 309.716s
+ post_processing_time = 1.7055s
+ time = 311.423s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_800_872_0.39
+preprocessing_time0 = 0.261283 s
+preprocessing_time1 = 0.320706 s
+ROWS: 800 COLUMNS: 872 NON-ZEROS: 278758 DENSITY: 0.399596
+preprocessing_time = 0.320788 s
+N = 337756
+preprocessing_time2 = 0.000368 s
+ iterations = 3394440 primal = 0.0503622 dual = 0.0509052 ratio = 0.989332
+ empty iterations = 1682662
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 29.8515s
+ post_processing_time = 0.061346s
+ time = 29.9133s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_600_672_0.39
+preprocessing_time0 = 0.165681 s
+preprocessing_time1 = 0.198429 s
+ROWS: 600 COLUMNS: 672 NON-ZEROS: 161215 DENSITY: 0.399839
+preprocessing_time = 0.198516 s
+N = 323995
+preprocessing_time2 = 0.000275 s
+ iterations = 3252649 primal = 0.0504228 dual = 0.050938 ratio = 0.989887
+ empty iterations = 1611855
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 18.5862s
+ post_processing_time = 0.032473s
+ time = 18.6189s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3910_3950_0.40
+preprocessing_time0 = 5.46814 s
+preprocessing_time1 = 7.19056 s
+ROWS: 3910 COLUMNS: 3950 NON-ZEROS: 6178504 DENSITY: 0.400046
+preprocessing_time = 7.19065 s
+N = 415506
+preprocessing_time2 = 0.002121 s
+ iterations = 4137858 primal = 0.0496467 dual = 0.0503522 ratio = 0.985987
+ empty iterations = 2053316
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 321.823s
+ post_processing_time = 1.81245s
+ time = 323.638s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3010_3050_0.01
+preprocessing_time0 = 0.106948 s
+preprocessing_time1 = 0.12291 s
+ROWS: 3010 COLUMNS: 3050 NON-ZEROS: 91871 DENSITY: 0.0100072
+preprocessing_time = 0.122999 s
+N = 402449
+preprocessing_time2 = 0.001043 s
+ iterations = 159725004 primal = 2.07312 dual = 2.09202 ratio = 0.990964
+ empty iterations = 77744459
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 287.408s
+ post_processing_time = 0.015154s
+ time = 287.424s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1600_1672_0.01
+preprocessing_time0 = 0.054091 s
+preprocessing_time1 = 0.058093 s
+ROWS: 1600 COLUMNS: 1672 NON-ZEROS: 26995 DENSITY: 0.0100908
+preprocessing_time = 0.058142 s
+N = 371496
+preprocessing_time2 = 0.000707 s
+ iterations = 144196490 primal = 2.11908 dual = 2.13783 ratio = 0.991227
+ empty iterations = 68348448
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 195.3s
+ post_processing_time = 0.003491s
+ time = 195.304s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3510_3550_0.10
+preprocessing_time0 = 1.13335 s
+preprocessing_time1 = 1.4144 s
+ROWS: 3510 COLUMNS: 3550 NON-ZEROS: 1246645 DENSITY: 0.100048
+preprocessing_time = 1.41449 s
+N = 410117
+preprocessing_time2 = 0.001646 s
+ iterations = 16369431 primal = 0.199679 dual = 0.202277 ratio = 0.987157
+ empty iterations = 8118777
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 247.372s
+ post_processing_time = 0.290075s
+ time = 247.663s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_300_372_0.09
+preprocessing_time0 = 0.026724 s
+preprocessing_time1 = 0.028273 s
+ROWS: 300 COLUMNS: 372 NON-ZEROS: 11071 DENSITY: 0.0992025
+preprocessing_time = 0.028312 s
+N = 291751
+preprocessing_time2 = 0.000129 s
+ iterations = 12143492 primal = 0.21679 dual = 0.218536 ratio = 0.992011
+ empty iterations = 5913465
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 17.4656s
+ post_processing_time = 0.001429s
+ time = 17.4672s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1900_1972_0.09
+preprocessing_time0 = 0.350391 s
+preprocessing_time1 = 0.427213 s
+ROWS: 1900 COLUMNS: 1972 NON-ZEROS: 373854 DENSITY: 0.0997795
+preprocessing_time = 0.427298 s
+N = 379953
+preprocessing_time2 = 0.000822 s
+ iterations = 15158690 primal = 0.200503 dual = 0.202824 ratio = 0.988557
+ empty iterations = 7509841
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 103.228s
+ post_processing_time = 0.077623s
+ time = 103.306s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_200_272_0.39
+preprocessing_time0 = 0.032483 s
+preprocessing_time1 = 0.035769 s
+ROWS: 200 COLUMNS: 272 NON-ZEROS: 21701 DENSITY: 0.398915
+preprocessing_time = 0.035813 s
+N = 273714
+preprocessing_time2 = 0.000111 s
+ iterations = 2795586 primal = 0.0518442 dual = 0.052439 ratio = 0.988658
+ empty iterations = 1380240
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 5.89658s
+ post_processing_time = 0.003076s
+ time = 5.89978s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1500_1572_0.10
+preprocessing_time0 = 0.222132 s
+preprocessing_time1 = 0.268954 s
+ROWS: 1500 COLUMNS: 1572 NON-ZEROS: 236663 DENSITY: 0.100366
+preprocessing_time = 0.26904 s
+N = 368328
+preprocessing_time2 = 0.000639 s
+ iterations = 14640871 primal = 0.200112 dual = 0.20224 ratio = 0.989477
+ empty iterations = 7248063
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 73.2595s
+ post_processing_time = 0.046891s
+ time = 73.3071s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1300_1372_0.40
+preprocessing_time0 = 0.647985 s
+preprocessing_time1 = 0.81485 s
+ROWS: 1300 COLUMNS: 1372 NON-ZEROS: 714427 DENSITY: 0.400553
+preprocessing_time = 0.814934 s
+N = 361320
+preprocessing_time2 = 0.000613 s
+ iterations = 3586038 primal = 0.0496638 dual = 0.0502893 ratio = 0.987562
+ empty iterations = 1776814
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 68.4062s
+ post_processing_time = 0.170215s
+ time = 68.5771s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3510_3550_0.40
+preprocessing_time0 = 5.89598 s
+preprocessing_time1 = 7.26433 s
+ROWS: 3510 COLUMNS: 3550 NON-ZEROS: 4985839 DENSITY: 0.400132
+preprocessing_time = 7.26442 s
+N = 410117
+preprocessing_time2 = 0.001874 s
+ iterations = 4087945 primal = 0.0497529 dual = 0.0503748 ratio = 0.987653
+ empty iterations = 2026428
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 273.643s
+ post_processing_time = 1.42824s
+ time = 275.074s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1300_1372_0.00
+preprocessing_time0 = 0.031986 s
+preprocessing_time1 = 0.034558 s
+ROWS: 1300 COLUMNS: 1372 NON-ZEROS: 17820 DENSITY: 0.00999103
+preprocessing_time = 0.034603 s
+N = 361320
+preprocessing_time2 = 0.000581 s
+ iterations = 142184202 primal = 2.21604 dual = 2.23486 ratio = 0.991582
+ empty iterations = 66186133
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 180.444s
+ post_processing_time = 0.002238s
+ time = 180.447s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1600_1672_0.10
+preprocessing_time0 = 0.258449 s
+preprocessing_time1 = 0.312255 s
+ROWS: 1600 COLUMNS: 1672 NON-ZEROS: 268605 DENSITY: 0.100406
+preprocessing_time = 0.312341 s
+N = 371496
+preprocessing_time2 = 0.000676 s
+ iterations = 14776815 primal = 0.19999 dual = 0.202236 ratio = 0.988896
+ empty iterations = 7321639
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 80.546s
+ post_processing_time = 0.053998s
+ time = 80.6007s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1600_1672_0.00
+preprocessing_time0 = 0.024991 s
+preprocessing_time1 = 0.025847 s
+ROWS: 1600 COLUMNS: 1672 NON-ZEROS: 2584 DENSITY: 0.000965909
+preprocessing_time = 0.025884 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3310_3350_0.39
+preprocessing_time0 = 4.07198 s
+preprocessing_time1 = 5.28109 s
+ROWS: 3310 COLUMNS: 3350 NON-ZEROS: 4434086 DENSITY: 0.399881
+preprocessing_time = 5.28117 s
+N = 407188
+preprocessing_time2 = 0.001696 s
+ iterations = 4058154 primal = 0.0497259 dual = 0.0503799 ratio = 0.987018
+ empty iterations = 2012730
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 250.966s
+ post_processing_time = 1.25209s
+ time = 252.22s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_800_872_0.10
+preprocessing_time0 = 0.081569 s
+preprocessing_time1 = 0.093283 s
+ROWS: 800 COLUMNS: 872 NON-ZEROS: 69868 DENSITY: 0.100155
+preprocessing_time = 0.093365 s
+N = 337756
+preprocessing_time2 = 0.000289 s
+ iterations = 13500069 primal = 0.202979 dual = 0.204763 ratio = 0.991289
+ empty iterations = 6666362
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 32.0737s
+ post_processing_time = 0.010951s
+ time = 32.0849s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_800_872_0.00
+preprocessing_time0 = 0.019135 s
+preprocessing_time1 = 0.020244 s
+ROWS: 800 COLUMNS: 872 NON-ZEROS: 6941 DENSITY: 0.00994983
+preprocessing_time = 0.020281 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3810_3850_0.10
+preprocessing_time0 = 1.36053 s
+preprocessing_time1 = 1.6948 s
+ROWS: 3810 COLUMNS: 3850 NON-ZEROS: 1468400 DENSITY: 0.100106
+preprocessing_time = 1.69489 s
+N = 414212
+preprocessing_time2 = 0.001782 s
+ iterations = 16489806 primal = 0.198847 dual = 0.201737 ratio = 0.985673
+ empty iterations = 8177027
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 276.445s
+ post_processing_time = 0.347493s
+ time = 276.794s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_2100_2172_0.00
+preprocessing_time0 = 0.052482 s
+preprocessing_time1 = 0.059487 s
+ROWS: 2100 COLUMNS: 2172 NON-ZEROS: 45534 DENSITY: 0.0099829
+preprocessing_time = 0.059554 s
+N = 384890
+preprocessing_time2 = 0.00083 s
+ iterations = 153115416 primal = 2.13038 dual = 2.14893 ratio = 0.991369
+ empty iterations = 73557779
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 222.714s
+ post_processing_time = 0.006197s
+ time = 222.721s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3510_3550_0.00
+preprocessing_time0 = 0.04071 s
+preprocessing_time1 = 0.04332 s
+ROWS: 3510 COLUMNS: 3550 NON-ZEROS: 12627 DENSITY: 0.00101336
+preprocessing_time = 0.043363 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_200_272_0.09
+preprocessing_time0 = 0.019601 s
+preprocessing_time1 = 0.020355 s
+ROWS: 200 COLUMNS: 272 NON-ZEROS: 5369 DENSITY: 0.0986949
+preprocessing_time = 0.020389 s
+N = 273714
+preprocessing_time2 = 0.000106 s
+ iterations = 11474471 primal = 0.221223 dual = 0.222857 ratio = 0.992668
+ empty iterations = 5554003
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 15.1953s
+ post_processing_time = 0.000696s
+ time = 15.1961s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1000_1072_0.09
+preprocessing_time0 = 0.123687 s
+preprocessing_time1 = 0.143295 s
+ROWS: 1000 COLUMNS: 1072 NON-ZEROS: 106829 DENSITY: 0.0996539
+preprocessing_time = 0.143383 s
+N = 348541
+preprocessing_time2 = 0.000391 s
+ iterations = 13918283 primal = 0.2017 dual = 0.203836 ratio = 0.989518
+ empty iterations = 6883179
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 40.8979s
+ post_processing_time = 0.019121s
+ time = 40.9174s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_700_772_0.10
+preprocessing_time0 = 0.06228 s
+preprocessing_time1 = 0.070984 s
+ROWS: 700 COLUMNS: 772 NON-ZEROS: 54527 DENSITY: 0.100901
+preprocessing_time = 0.071054 s
+N = 331347
+preprocessing_time2 = 0.000249 s
+ iterations = 13152177 primal = 0.201945 dual = 0.203816 ratio = 0.99082
+ empty iterations = 6485148
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 28.4032s
+ post_processing_time = 0.008096s
+ time = 28.4115s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3710_3750_0.10
+preprocessing_time0 = 1.26282 s
+preprocessing_time1 = 1.57564 s
+ROWS: 3710 COLUMNS: 3750 NON-ZEROS: 1391424 DENSITY: 0.100013
+preprocessing_time = 1.57573 s
+N = 412884
+preprocessing_time2 = 0.001685 s
+ iterations = 16470193 primal = 0.199356 dual = 0.202135 ratio = 0.986251
+ empty iterations = 8168348
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 264.36s
+ post_processing_time = 0.327797s
+ time = 264.689s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3710_3750_0.00
+preprocessing_time0 = 0.047604 s
+preprocessing_time1 = 0.050499 s
+ROWS: 3710 COLUMNS: 3750 NON-ZEROS: 13859 DENSITY: 0.000996155
+preprocessing_time = 0.050561 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_2000_2072_0.00
+preprocessing_time0 = 0.057654 s
+preprocessing_time1 = 0.063893 s
+ROWS: 2000 COLUMNS: 2072 NON-ZEROS: 41207 DENSITY: 0.00994377
+preprocessing_time = 0.063955 s
+N = 382482
+preprocessing_time2 = 0.000703 s
+ iterations = 155261751 primal = 2.17255 dual = 2.19347 ratio = 0.990462
+ empty iterations = 74470295
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 222.208s
+ post_processing_time = 0.005558s
+ time = 222.215s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1000_1072_0.01
+preprocessing_time0 = 0.030572 s
+preprocessing_time1 = 0.032156 s
+ROWS: 1000 COLUMNS: 1072 NON-ZEROS: 10790 DENSITY: 0.0100653
+preprocessing_time = 0.032195 s
+N = 348541
+preprocessing_time2 = 0.00039 s
+ iterations = 135409372 primal = 2.28614 dual = 2.30552 ratio = 0.991591
+ empty iterations = 60941210
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 163.088s
+ post_processing_time = 0.001347s
+ time = 163.09s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1700_1772_0.00
+preprocessing_time0 = 0.019588 s
+preprocessing_time1 = 0.020508 s
+ROWS: 1700 COLUMNS: 1771 NON-ZEROS: 2993 DENSITY: 0.000994121
+preprocessing_time = 0.020543 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_600_672_0.01
+preprocessing_time0 = 0.011399 s
+preprocessing_time1 = 0.012088 s
+ROWS: 600 COLUMNS: 672 NON-ZEROS: 4166 DENSITY: 0.0103323
+preprocessing_time = 0.012121 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_700_772_0.00
+preprocessing_time0 = 0.002618 s
+preprocessing_time1 = 0.002939 s
+ROWS: 700 COLUMNS: 771 NON-ZEROS: 550 DENSITY: 0.00101908
+preprocessing_time = 0.002972 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1800_1872_0.09
+preprocessing_time0 = 0.308291 s
+preprocessing_time1 = 0.376791 s
+ROWS: 1800 COLUMNS: 1872 NON-ZEROS: 336179 DENSITY: 0.0997682
+preprocessing_time = 0.376877 s
+N = 377289
+preprocessing_time2 = 0.000774 s
+ iterations = 15100463 primal = 0.201155 dual = 0.203386 ratio = 0.989031
+ empty iterations = 7482513
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 95.3919s
+ post_processing_time = 0.069408s
+ time = 95.4621s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_600_672_0.09
+preprocessing_time0 = 0.057038 s
+preprocessing_time1 = 0.063145 s
+ROWS: 600 COLUMNS: 672 NON-ZEROS: 40135 DENSITY: 0.0995412
+preprocessing_time = 0.063209 s
+N = 323995
+preprocessing_time2 = 0.000214 s
+ iterations = 13073690 primal = 0.205529 dual = 0.207514 ratio = 0.990434
+ empty iterations = 6448025
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 25.622s
+ post_processing_time = 0.005666s
+ time = 25.6279s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1500_1572_0.39
+preprocessing_time0 = 0.841891 s
+preprocessing_time1 = 1.06736 s
+ROWS: 1500 COLUMNS: 1572 NON-ZEROS: 943141 DENSITY: 0.399975
+preprocessing_time = 1.06746 s
+N = 368328
+preprocessing_time2 = 0.000679 s
+ iterations = 3686251 primal = 0.049991 dual = 0.0505864 ratio = 0.98823
+ empty iterations = 1828565
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 85.6082s
+ post_processing_time = 0.230565s
+ time = 85.8395s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3210_3250_0.00
+preprocessing_time0 = 0.112214 s
+preprocessing_time1 = 0.130708 s
+ROWS: 3210 COLUMNS: 3250 NON-ZEROS: 104208 DENSITY: 0.00998879
+preprocessing_time = 0.130794 s
+N = 405658
+preprocessing_time2 = 0.00116 s
+ iterations = 162425447 primal = 2.08632 dual = 2.10452 ratio = 0.991349
+ empty iterations = 79171239
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 308.854s
+ post_processing_time = 0.01783s
+ time = 308.873s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_200_272_0.00
+preprocessing_time0 = 0.011402 s
+preprocessing_time1 = 0.011527 s
+ROWS: 198 COLUMNS: 266 NON-ZEROS: 63 DENSITY: 0.00119617
+preprocessing_time = 0.011562 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_300_372_0.40
+preprocessing_time0 = 0.046783 s
+preprocessing_time1 = 0.054029 s
+ROWS: 300 COLUMNS: 372 NON-ZEROS: 44814 DENSITY: 0.401559
+preprocessing_time = 0.054092 s
+N = 291751
+preprocessing_time2 = 0.000146 s
+ iterations = 2950843 primal = 0.0510769 dual = 0.0515191 ratio = 0.991419
+ empty iterations = 1459358
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 7.95101s
+ post_processing_time = 0.006748s
+ time = 7.95792s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1800_1872_0.40
+preprocessing_time0 = 1.19368 s
+preprocessing_time1 = 1.5235 s
+ROWS: 1800 COLUMNS: 1872 NON-ZEROS: 1348674 DENSITY: 0.400248
+preprocessing_time = 1.52358 s
+N = 377289
+preprocessing_time2 = 0.00082 s
+ iterations = 3752681 primal = 0.0497174 dual = 0.0503241 ratio = 0.987945
+ empty iterations = 1860029
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 109.166s
+ post_processing_time = 0.354262s
+ time = 109.521s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3410_3450_0.00
+preprocessing_time0 = 0.12629 s
+preprocessing_time1 = 0.147411 s
+ROWS: 3410 COLUMNS: 3450 NON-ZEROS: 117377 DENSITY: 0.00997722
+preprocessing_time = 0.147493 s
+N = 408674
+preprocessing_time2 = 0.001285 s
+ iterations = 162248398 primal = 2.06223 dual = 2.08088 ratio = 0.991034
+ empty iterations = 79214029
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 326.95s
+ post_processing_time = 0.020567s
+ time = 326.972s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1800_1872_0.00
+preprocessing_time0 = 0.044822 s
+preprocessing_time1 = 0.049846 s
+ROWS: 1800 COLUMNS: 1872 NON-ZEROS: 33568 DENSITY: 0.00996201
+preprocessing_time = 0.0499 s
+N = 377289
+preprocessing_time2 = 0.000853 s
+ iterations = 150569458 primal = 2.16617 dual = 2.18569 ratio = 0.991071
+ empty iterations = 71542623
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 209.774s
+ post_processing_time = 0.004448s
+ time = 209.779s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_2100_2172_0.10
+preprocessing_time0 = 0.414756 s
+preprocessing_time1 = 0.508709 s
+ROWS: 2100 COLUMNS: 2172 NON-ZEROS: 456921 DENSITY: 0.100176
+preprocessing_time = 0.508795 s
+N = 384890
+preprocessing_time2 = 0.0009 s
+ iterations = 15355925 primal = 0.200097 dual = 0.202422 ratio = 0.988514
+ empty iterations = 7614171
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 120.291s
+ post_processing_time = 0.096804s
+ time = 120.388s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3110_3150_0.40
+preprocessing_time0 = 3.54526 s
+preprocessing_time1 = 4.60027 s
+ROWS: 3110 COLUMNS: 3150 NON-ZEROS: 3920448 DENSITY: 0.400189
+preprocessing_time = 4.60036 s
+N = 404079
+preprocessing_time2 = 0.00162 s
+ iterations = 4031375 primal = 0.0497222 dual = 0.0503566 ratio = 0.987402
+ empty iterations = 2000964
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 231.515s
+ post_processing_time = 1.09546s
+ time = 232.612s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_700_772_0.40
+preprocessing_time0 = 0.201976 s
+preprocessing_time1 = 0.247219 s
+ROWS: 700 COLUMNS: 772 NON-ZEROS: 216588 DENSITY: 0.400792
+preprocessing_time = 0.247305 s
+N = 331347
+preprocessing_time2 = 0.000331 s
+ iterations = 3301456 primal = 0.0500027 dual = 0.0505546 ratio = 0.989083
+ empty iterations = 1635565
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 25.2552s
+ post_processing_time = 0.045538s
+ time = 25.3011s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_500_572_0.09
+preprocessing_time0 = 0.035798 s
+preprocessing_time1 = 0.039985 s
+ROWS: 500 COLUMNS: 572 NON-ZEROS: 28433 DENSITY: 0.0994161
+preprocessing_time = 0.040053 s
+N = 315374
+preprocessing_time2 = 0.000177 s
+ iterations = 12851311 primal = 0.208895 dual = 0.210802 ratio = 0.990958
+ empty iterations = 6315360
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 23.5723s
+ post_processing_time = 0.003878s
+ time = 23.5764s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3910_3950_0.10
+preprocessing_time0 = 1.41174 s
+preprocessing_time1 = 1.76387 s
+ROWS: 3910 COLUMNS: 3950 NON-ZEROS: 1545093 DENSITY: 0.100042
+preprocessing_time = 1.76395 s
+N = 415506
+preprocessing_time2 = 0.001816 s
+ iterations = 16550955 primal = 0.199038 dual = 0.201853 ratio = 0.986057
+ empty iterations = 8210508
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 285.481s
+ post_processing_time = 0.366222s
+ time = 285.849s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_600_672_0.00
+preprocessing_time0 = 0.014753 s
+preprocessing_time1 = 0.015028 s
+ROWS: 598 COLUMNS: 672 NON-ZEROS: 420 DENSITY: 0.00104515
+preprocessing_time = 0.015061 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1200_1272_0.40
+preprocessing_time0 = 0.54943 s
+preprocessing_time1 = 0.692116 s
+ROWS: 1200 COLUMNS: 1272 NON-ZEROS: 611319 DENSITY: 0.400497
+preprocessing_time = 0.692203 s
+N = 357412
+preprocessing_time2 = 0.000559 s
+ iterations = 3550437 primal = 0.0497097 dual = 0.050315 ratio = 0.987971
+ empty iterations = 1759332
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 60.6496s
+ post_processing_time = 0.143333s
+ time = 60.7935s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1200_1272_0.00
+preprocessing_time0 = 0.016079 s
+preprocessing_time1 = 0.016664 s
+ROWS: 1199 COLUMNS: 1270 NON-ZEROS: 1531 DENSITY: 0.00100543
+preprocessing_time = 0.016698 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1400_1472_0.10
+preprocessing_time0 = 0.191687 s
+preprocessing_time1 = 0.232116 s
+ROWS: 1400 COLUMNS: 1472 NON-ZEROS: 206494 DENSITY: 0.100201
+preprocessing_time = 0.232201 s
+N = 364947
+preprocessing_time2 = 0.000591 s
+ iterations = 14435948 primal = 0.199127 dual = 0.201488 ratio = 0.98828
+ empty iterations = 7145019
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 65.792s
+ post_processing_time = 0.040326s
+ time = 65.8329s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_200_272_0.01
+preprocessing_time0 = 0.018576 s
+preprocessing_time1 = 0.018753 s
+ROWS: 200 COLUMNS: 272 NON-ZEROS: 575 DENSITY: 0.0105699
+preprocessing_time = 0.018788 s
+not solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3610_3650_0.09
+preprocessing_time0 = 1.19712 s
+preprocessing_time1 = 1.49298 s
+ROWS: 3610 COLUMNS: 3650 NON-ZEROS: 1315246 DENSITY: 0.0998176
+preprocessing_time = 1.49307 s
+N = 411519
+preprocessing_time2 = 0.001635 s
+ iterations = 16427266 primal = 0.199523 dual = 0.202342 ratio = 0.986068
+ empty iterations = 8146057
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 257.173s
+ post_processing_time = 0.308645s
+ time = 257.484s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr17_2009_1000_1072_0.40
+preprocessing_time0 = 0.497746 s
+preprocessing_time1 = 0.592873 s
+ROWS: 1000 COLUMNS: 1072 NON-ZEROS: 428971 DENSITY: 0.40016
+preprocessing_time = 0.59296 s
+N = 348541
+preprocessing_time2 = 0.000437 s
+ iterations = 3482804 primal = 0.0499661 dual = 0.050568 ratio = 0.988098
+ empty iterations = 1727822
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 44.3447s
+ post_processing_time = 0.097421s
+ time = 44.4425s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3210_3250_0.09
+preprocessing_time0 = 0.936144 s
+preprocessing_time1 = 1.16539 s
+ROWS: 3210 COLUMNS: 3250 NON-ZEROS: 1042911 DENSITY: 0.0999675
+preprocessing_time = 1.16547 s
+N = 405658
+preprocessing_time2 = 0.001717 s
+ iterations = 16185423 primal = 0.199684 dual = 0.202214 ratio = 0.987487
+ empty iterations = 8024773
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 217.932s
+ post_processing_time = 0.238186s
+ time = 218.172s
+solved
+INPUT FILE: /usr/local/fastpc/dev/test_mps/test_cases_neal/apr20_2009_3610_3650_0.39
+preprocessing_time0 = 4.69518 s
+preprocessing_time1 = 6.14899 s
+ROWS: 3610 COLUMNS: 3650 NON-ZEROS: 5267210 DENSITY: 0.399743
+preprocessing_time = 6.14908 s
+N = 411519
+preprocessing_time2 = 0.001919 s
+ iterations = 4107237 primal = 0.0497712 dual = 0.0505023 ratio = 0.985523
+ empty iterations = 2037021
+ eps = 0.0089261
+ epsilon = 0.01
+ sort ratio = 1
+ basic ops = -1
+ main_loop_time = 285.56s
+ post_processing_time = 1.51661s
+ time = 287.079s
+solved
