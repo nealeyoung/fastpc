@@ -6,7 +6,7 @@
 #CXXFLAGS = -g -Wall -Wextra
 
 #For speed
-CXXFLAGS = -DNDEBUG -O2
+CXXFLAGS = -DNDEBUG -O3
 
 #CXXFLAGS = -DNDEBUG -g -pg
 
