@@ -1,6 +1,6 @@
 import sys
 
-usage = 'python convert_msc.py msc_file_path'
+usage = 'python convert_msc.py <msc_file_path>'
 
 try:
     msc_path = sys.argv[1]
