@@ -16,4 +16,6 @@ for f in msc_files:
     print convert_cmd
     os.system(convert_cmd)
 
+# delete the generated folder
+os.system('rm -rf ' + set_name)
 
