@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys
 
 cplex_run_stats = set()
