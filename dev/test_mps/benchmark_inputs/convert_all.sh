@@ -2,6 +2,7 @@
 
 for f in *.tar.gz
 	do
-		print f
+		echo Generating fastpc inputs for $f;
+		./convert_set.py $f
 	done;
 
