@@ -2,6 +2,7 @@
 
 import sys
 
+
 usage = 'python convert_msc.py <msc_file_path>'
 
 try:
