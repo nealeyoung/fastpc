@@ -9,12 +9,12 @@ def main():
     input_sets = 10
     
     # Number of rows, r, starts in the range 10* [row_min, row_max] and increases by factor of 10 for each run
-    row_min = 5000
-    row_max = 6400
+    row_min = 4000
+    row_max = 4400
 
     # Number of columns, c, is in the range [col_min, col_max]    
-    col_min = 7500
-    col_max = 8700
+    col_min = 5500
+    col_max = 5700
 
     # Increment
     row_increment = 1400
@@ -25,7 +25,7 @@ def main():
 
     # Densities for each matrix size
     # These will be considered only when the create_by_density is set to 'True'
-    densities = [0.05, 0.3, 0.6]
+    densities = [0.1, 0.5]
     
     # The range for coefficients in an input are in range [min_lower,max_upper]
     lower = 0
