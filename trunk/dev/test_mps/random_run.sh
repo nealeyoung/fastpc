@@ -10,4 +10,4 @@ echo "Running fastpc"
 python run_neal_fastpc.py $key;
 
 echo "Running cplex algorithms"
-python run_cplex_algs.py $key;
+python run_cplex_algs.py $key -a;
