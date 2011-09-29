@@ -19,12 +19,12 @@ def parse_cplex_iterations(file_name, parse_time, out_file):
     try:
         my_file = open(file_name)
     except:
-        out_file.write(file_name + ', NOT FOUND')
+        out_file.write(file_name + ', NOT FOUND\n')
         return
     if parse_time:
-        out_file.write("Filename,Time (s),Iterations,Method,")
+        out_file.write("Filename,Time (s),Iterations,Method,\n")
     else:
-        out_file.write("Filename,Iterations,Primal Objective,Dual Objective,Primal Eps, Dual Eps, Method,")
+        out_file.write("Filename,Iterations,Primal Objective,Dual Objective,Primal Eps, Dual Eps, Method,\n")
     method = ""
     method_found = False
     itn_data = []
@@ -139,7 +139,7 @@ def parse_cplex_iterations(file_name, parse_time, out_file):
             found_itn_for_hybrid = False
             for item in itn_data:
                 if parse_time:
-                    out_file.write(filename + method + "," + str(item[0]) + "," + str(item[1]) + "," + method)
+                    out_file.write(filename + method + "," + str(item[0]) + "," + str(item[1]) + "," + method + '\n')
                 else:
                     pr = item[1]
                     du = item[2]
@@ -177,7 +177,7 @@ def parse_cplex_iterations(file_name, parse_time, out_file):
                         itn_eps_stats_data = filename + method + "," + str(eps_itr) + "," + str(min_obj) + "," + str(final_obj) + "," + str(min_eps) + "," + str(total_iterations) + "," + str(epsilon) + "," + method
                         itn_eps_stats.append(itn_eps_stats_data)
 
-                    out_file.write(filename + method + "," + str(item[0]) + "," + str(pr) + "," + str(du) + "," + str(p_eps) + "," + str(d_eps)  + "," + method)
+                    out_file.write(filename + method + "," + str(item[0]) + "," + str(pr) + "," + str(du) + "," + str(p_eps) + "," + str(d_eps)  + "," + method + '\n')
 
 #            print infeasible
             if not parse_time and not infeasible:
@@ -241,25 +241,25 @@ def main():
     output_file_name = './output_cplex/' + file_prefix + '_itn_eps_stats.csv'
     itn_eps_file = open(output_file_name, 'w')
     global itn_eps_stats
-    itn_eps_file.write("Filename, Iterations, Objective, Final Objective, Epsilon, Total Barrier Iterations, Target Epsilon, Method,")
+    itn_eps_file.write("Filename, Iterations, Objective, Final Objective, Epsilon, Total Barrier Iterations, Target Epsilon, Method,\n")
     for row in itn_eps_stats:
-        itn_eps_file.write(row)
+        itn_eps_file.write(row + '\n')
     itn_eps_file.close()
 
     output_file_name = './output_cplex/' + file_prefix + '_hybrid_stats.csv'
     hybrid_stats_file = open(output_file_name, 'w')
     global hybrid_data
-    hybrid_stats_file.write("Filename, Iterations, Objective, Final Objective, Epsilon, Total Iterations, Hybird Epsilon, Method,")
+    hybrid_stats_file.write("Filename, Iterations, Objective, Final Objective, Epsilon, Total Iterations, Hybird Epsilon, Method,\n")
     for row in hybrid_data:
-        hybrid_stats_file.write(row)
+        hybrid_stats_file.write(row + '\n')
     hybrid_stats_file.close()
 
     output_file_name = './output_cplex/' + file_prefix + '_cplex_run_stats.csv'
     run_stats_file = open(output_file_name, 'w')
     global cplex_run_stats
-    run_stats_file.write("Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,TotalTime,TotalIter,HybridIter,HybridTime,")
+    run_stats_file.write("Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,TotalTime,TotalIter,HybridIter,HybridTime,\n")
     for row in cplex_run_stats:
-        run_stats_file.write(row)
+        run_stats_file.write(row + '\n')
 
     run_stats_file.close()
 
