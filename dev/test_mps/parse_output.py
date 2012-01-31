@@ -119,7 +119,7 @@ def parse_glpk_output_file(file_name):
         print time_list[time_list.index("secs")-1]
 
 def parse_cplex_output_file(file_prefix, output_file_name):
-    os.system('python parse_iterations_new.py ' + file_prefix)
+    os.system('python parse_iterations.py ' + file_prefix)
 
 #    Look for the cplex run stats file and append it to the general run_stats file
     try:
