@@ -23,8 +23,8 @@ def parse_fastpc_output_file(file_name, version):
     if not v07:
         sort_reg = re.compile(r'sort ratio = [0-9]*.[0-9]*')
     time_reg = re.compile(r' time = [0-9]*.*[0-9]*')
-    ans_reg =  re.compile(r'.*iterations = [0-9]* primal = [0-9]*.[0-9]* dual = [0-9]*.[0-9]* ratio = [0-9]*.[0-9]*')
-    eps_reg = re.compile(r'epsilon = 0.[0-9]*')
+    ans_reg =  re.compile(r' iterations = [0-9]* primal = [0-9]*.[0-9]* dual = [0-9]*.[0-9]* ratio = [0-9]*.[0-9]*')
+    eps_reg = re.compile(r' epsilon = 0.[0-9]*')
     input_reg = re.compile(r"ROWS: [0-9]* COLUMNS: [0-9]* NON-ZEROS: [0-9]* DENSITY: [0-9]*.*[0-9]*")
     name_reg = re.compile(r"INPUT FILE: .[/a-zA-Z0-9._]*.*")
     preprocess_reg = re.compile(r'preprocessing_time = [0-9]*.[0-9]*')
