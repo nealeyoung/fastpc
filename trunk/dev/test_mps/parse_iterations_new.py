@@ -43,14 +43,14 @@ def parse_cplex_iterations(file_name, parse_time, out_file):
     new_instance = False
 
     for line in my_file:
-        if line.startswith("Problem"): # New run
-
+        if line.startswith("File type: Problem") or line.startswith("Problem"): # New run
+            new_instance = True
             input_name = line[line.rfind('/')+1:line.rfind(' ')-1]
             input_list = input_name.split('_')
             input_list[-1] = ''
             filename = '_'.join(input_list)
-#            print filename[:-1]
             param_data = input_params[filename[:-1]].split('#')
+#	    print param_data
             rows = int(param_data[0])
             cols = int(param_data[1])
             nonzeros = int(param_data[2])
@@ -59,7 +59,6 @@ def parse_cplex_iterations(file_name, parse_time, out_file):
                 nonzeros = 12*int(rows)
             hybrid_eps = 1.0/nonzeros
             
-            new_instance = True
             
             method_found = False
             infeasible = False
@@ -250,6 +249,8 @@ def main():
     out_file = open(output_file_name, 'w')
     parse_cplex_iterations(cplex_file_name, False, out_file)
     out_file.close()
+
+    exit()
 
     output_file_name = './output_cplex/' + file_prefix + '_itn_time_stats.csv'
     out_file = open(output_file_name, 'w')
