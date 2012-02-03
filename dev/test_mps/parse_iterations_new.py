@@ -250,8 +250,6 @@ def main():
     parse_cplex_iterations(cplex_file_name, False, out_file)
     out_file.close()
 
-    exit()
-
     output_file_name = './output_cplex/' + file_prefix + '_itn_time_stats.csv'
     out_file = open(output_file_name, 'w')
     parse_cplex_iterations(cplex_file_name, True, out_file)
