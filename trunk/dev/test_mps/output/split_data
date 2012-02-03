@@ -2,7 +2,7 @@
 #deletes all test cases-- fastpc, glpk, v2007
 #deletes everything from output folder
 
-prefixes=( May1_2009 apr17_2009 apr20_2009 jun18_2009 jun16_sparse )
+prefixes=( May1_2009 apr17_2009 apr20_2009 jun18_2009 jun16_sparse TOMOG DIMACS 2011_Nov25 2011_sep20 )
 suffix=_run_stats.csv
 length=${#prefixes[*]}
 

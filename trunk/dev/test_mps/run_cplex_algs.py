@@ -57,6 +57,9 @@ def main():
     cplex_input_dir = curr_dir + '/test_cases_glpk/'
     cplex_files = os.listdir(cplex_input_dir)
 
+    cplex_path = '/opt/ibm/ILOG/CPLEX_Studio_Preview123/cplex/bin/x86-64_sles10_4.1/cplex '
+    #cplex_path = '../../../cplex111/bin/x86_debian4.0_4.1/cplex '
+
     for cplex_file in cplex_files:
         if cplex_file.startswith(input_file_prefix) and not cplex_file.startswith('.'):
             print 'CPLEX: ', cplex_file
@@ -85,8 +88,8 @@ def main():
                 file.write('write ' + output_dir + cplex_file + '_cplex_bar_out.sol \n')
             
             file.close()
-            
-            cplex_cmd = '../../../cplex111/bin/x86_debian4.0_4.1/cplex >> ' + output_file_cplex_location + ' < ' + cplex_command_input
+
+            cplex_cmd = cplex_path + ' >> ' + output_file_cplex_location + ' < ' + cplex_command_input
             os.system(cplex_cmd)
 
 main()

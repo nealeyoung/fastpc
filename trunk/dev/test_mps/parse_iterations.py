@@ -7,6 +7,16 @@ itn_eps_stats = []
 epsilon = 0.01
 hybrid_data = []
 
+input_params = {}
+
+def load_input_params(file_prefix):
+    param_file = open('parsed_input_params.txt')
+    for line in param_file:
+        arr = line.split('$')
+        if arr[0].startswith(file_prefix+'#'):
+            input_params[arr[0].split('#')[1]] = arr[1]
+    print input_params
+
 def parse_cplex_iterations(file_name, parse_time):
     global itn_eps_stats
     global epsilon
@@ -216,6 +226,9 @@ def main():
         sys.exit(1)
 
     cplex_file_name = './output_cplex/' + file_prefix + '_output_cplex'
+
+    load_input_params(file_prefix)
+
     try:
         my_file = open(cplex_file_name)
     except:
