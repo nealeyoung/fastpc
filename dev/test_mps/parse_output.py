@@ -26,7 +26,7 @@ def parse_fastpc_output_file(file_name, version):
     ans_reg =  re.compile(r'.*iterations = [0-9]* primal = [0-9]*.[0-9]* dual = [0-9]*.[0-9]* ratio = [0-9]*.[0-9]*')
     eps_reg = re.compile(r'epsilon = 0.[0-9]*')
     input_reg = re.compile(r"ROWS: [0-9]* COLUMNS: [0-9]* NON-ZEROS: [0-9]* DENSITY: [0-9]*.*[0-9]*")
-    name_reg = re.compile(r"INPUT FILE: .[/a-zA-Z0-9._]*")
+    name_reg = re.compile(r"INPUT FILE: .[/a-zA-Z0-9._]*.*")
     preprocess_reg = re.compile(r'preprocessing_time = [0-9]*.[0-9]*')
     main_loop_reg = re.compile(r' main_loop_time = [0-9]*.[0-9]*')
     ops_reg = re.compile(r'basic_ops = [0-9]*')
@@ -105,6 +105,7 @@ def parse_glpk_output_file(file_name):
     ans_array = ans_reg.findall(total_string)
     input_array = input_reg.findall(total_string)
     name_array = name_reg.findall(total_string)
+    print name_array
 
     for index, item in enumerate(time_array):
 #    print "Filename,Rows,Columns,Nonzeros,Density,Time(s),Iterations,Ratio,Epsilon,TotalTime,TotalIter,HybridIter,HybridTime,"
@@ -156,10 +157,10 @@ def main():
     parse_fastpc_output_file(neal_file_name, "neal")
     parse_glpk_output_file(glpk_file_name)
     parse_fastpc_output_file(v07_file_name, "v07")
-    
+
     sys.stdout.close()
     sys.stdout = sys.__stdout__
-    
+
     parse_cplex_output_file(file_prefix, output_file_name)
     
 main()

@@ -8,7 +8,14 @@ itn_eps_stats = []
 epsilon = 0.01
 hybrid_data = []
 
-rcn_re = re.compile('.*[0-9]*\srows.\s[0-9]*.\scolumns.*[0-9]*\snonzeros.*')
+input_params = {}
+
+def load_input_params(file_prefix):
+    param_file = open('parsed_input_params.txt')
+    for line in param_file:
+        arr = line.split('$')
+        if arr[0].startswith(file_prefix+'#'):
+            input_params[arr[0].split('#')[1]] = arr[1]
 
 def parse_cplex_iterations(file_name, parse_time, out_file):
     global itn_eps_stats
@@ -32,6 +39,8 @@ def parse_cplex_iterations(file_name, parse_time, out_file):
     barrier_iterations = -1
     barrier_time = -1
     infeasible = False
+    
+    new_instance = False
 
     for line in my_file:
         if line.startswith("Problem"): # New run
@@ -40,26 +49,30 @@ def parse_cplex_iterations(file_name, parse_time, out_file):
             input_list = input_name.split('_')
             input_list[-1] = ''
             filename = '_'.join(input_list)
-
+#            print filename[:-1]
+            param_data = input_params[filename[:-1]].split('#')
+            rows = int(param_data[0])
+            cols = int(param_data[1])
+            nonzeros = int(param_data[2])
+            density = float(param_data[3])
+            if nonzeros == 0:
+                nonzeros = 12*int(rows)
+            hybrid_eps = 1.0/nonzeros
+            
+            new_instance = True
+            
             method_found = False
             infeasible = False
             method = ""
             itn_data = []
             barrier_itn = False
+            
+        if not new_instance:
+            continue
 
         elif line.startswith("Presolve - Unbounded or infeasible"):
             infeasible = True
 #            print infeasible
-
-        elif rcn_re.match(line):
-            rcn_arr = line.replace(',', '').replace('.', '').split()
-            rows = int(rcn_arr[rcn_arr.index('rows') - 1])
-            cols = int(rcn_arr[rcn_arr.index('columns')- 1])
-            nonzeros = int(rcn_arr[rcn_arr.index('nonzeros') - 1])
-            density = 1.0 * nonzeros / (rows * cols)
-            if nonzeros == 0:
-                nonzeros = 12*int(rows)
-            hybrid_eps = 1.0/nonzeros
 
         if barrier_itn:
             if line.startswith("Barrier time ="):
@@ -210,6 +223,8 @@ def parse_cplex_iterations(file_name, parse_time, out_file):
             temp_iter = -1
             temp_time = -1
 
+            new_instance = False
+
 def main():
     args = sys.argv
     global epsilon
@@ -221,7 +236,10 @@ def main():
         print 'Usage: python parse_output.py <file_prefix> [eps]'
         sys.exit(1)
 
+    load_input_params(file_prefix)
+
     cplex_file_name = './output_cplex/' + file_prefix + '_output_cplex'
+
     try:
         my_file = open(cplex_file_name)
     except:
