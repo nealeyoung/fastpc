@@ -1,1298 +1,1298 @@
 Filename,Iterations,Primal Objective,Dual Objective,Primal Eps, Dual Eps, Method,
-DIMACS_DSJC500.5.col_input_Dual,1,-1,1.0,-1,0.998,Dual
-DIMACS_DSJC500.5.col_input_Dual,225,-1,81.0,-1,0.838,Dual
-DIMACS_DSJC500.5.col_input_Dual,680,-1,405.0,-1,0.19,Dual
-DIMACS_DSJC500.5.col_input_Dual,948,-1,482.0,-1,0.036,Dual
-DIMACS_DSJC500.5.col_input_Dual,1006,-1,482.0,-1,0.036,Dual
-DIMACS_DSJC500.5.col_input_Dual,1268,-1,500.000001,-1,1.99999999495e-09,Dual
-DIMACS_DSJC500.5.col_input_Dual,1467,-1,500.000001,-1,1.99999999495e-09,Dual
-DIMACS_DSJC500.5.col_input_Dual,1620,-1,500.000001,-1,1.99999999495e-09,Dual
-DIMACS_DSJC500.5.col_input_Dual,1775,-1,500.000001,-1,1.99999999495e-09,Dual
-DIMACS_DSJC500.5.col_input_Dual,1806,500.0,500.0,0.0,0.0,Dual
-DIMACS_DSJC500.5.col_input_Dual,1,-1,998.0,-1,0.996,Dual
-DIMACS_DSJC500.5.col_input_Dual,124,-1,4.0,-1,0.992,Dual
-DIMACS_DSJC500.5.col_input_Dual,159,-1,501.0,-1,0.002,Dual
-DIMACS_DSJC500.5.col_input_Dual,200,500.0,500.0,0.0,0.0,Dual
-DIMACS_DSJC500.5.col_input_Barrier,0,1252480.0,0.0,2503.96,1.0,Barrier
-DIMACS_DSJC500.5.col_input_Barrier,1,109434.39,326.05187,217.86878,0.34789626,Barrier
-DIMACS_DSJC500.5.col_input_Barrier,2,20976.059,415.86322,40.952118,0.16827356,Barrier
-DIMACS_DSJC500.5.col_input_Barrier,3,806.05829,499.82512,0.61211658,0.00034976,Barrier
-DIMACS_DSJC500.5.col_input_Barrier,4,505.27063,499.97806,0.01054126,4.38799999999e-05,Barrier
-DIMACS_DSJC500.5.col_input_Barrier,5,500.00121,499.99999,2.42000000003e-06,1.99999999495e-08,Barrier
-DIMACS_DSJC500.5.col_input_Barrier,6,500.0,500.0,0.0,0.0,Barrier
-DIMACS_DSJC500.5.col_input_Barrier,0,500.0,500.0,0.0,0.0,Barrier
-DIMACS_le450_25d.col_input_Dual,1,-1,1.0,-1,0.997777777778,Dual
-DIMACS_le450_25d.col_input_Dual,170,-1,54.0,-1,0.88,Dual
-DIMACS_le450_25d.col_input_Dual,284,-1,74.0,-1,0.835555555556,Dual
-DIMACS_le450_25d.col_input_Dual,391,-1,92.0,-1,0.795555555556,Dual
-DIMACS_le450_25d.col_input_Dual,490,-1,109.0,-1,0.757777777778,Dual
-DIMACS_le450_25d.col_input_Dual,593,-1,126.0,-1,0.72,Dual
-DIMACS_le450_25d.col_input_Dual,695,-1,137.0,-1,0.695555555556,Dual
-DIMACS_le450_25d.col_input_Dual,826,-1,229.0,-1,0.491111111111,Dual
-DIMACS_le450_25d.col_input_Dual,1077,-1,389.0,-1,0.135555555556,Dual
-DIMACS_le450_25d.col_input_Dual,1319,-1,450.0,-1,0.0,Dual
-DIMACS_le450_25d.col_input_Dual,1405,-1,450.0,-1,0.0,Dual
-DIMACS_le450_25d.col_input_Dual,1537,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_25d.col_input_Dual,1670,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_25d.col_input_Dual,1765,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_25d.col_input_Dual,1867,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_25d.col_input_Dual,1966,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_25d.col_input_Dual,2059,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_25d.col_input_Dual,2099,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_25d.col_input_Dual,1,-1,898.0,-1,0.995555555556,Dual
-DIMACS_le450_25d.col_input_Dual,363,-1,174.0,-1,0.613333333333,Dual
-DIMACS_le450_25d.col_input_Dual,723,-1,12.0,-1,0.973333333333,Dual
-DIMACS_le450_25d.col_input_Dual,817,-1,460.0,-1,0.0222222222222,Dual
-DIMACS_le450_25d.col_input_Dual,1061,-1,452.0,-1,0.00444444444444,Dual
-DIMACS_le450_25d.col_input_Dual,1105,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_25d.col_input_Barrier,0,348500.0,0.0,773.444444444,1.0,Barrier
-DIMACS_le450_25d.col_input_Barrier,1,30730.415,293.94494,67.2898111111,0.346789022222,Barrier
-DIMACS_le450_25d.col_input_Barrier,2,6071.2698,376.33141,12.4917106667,0.163707977778,Barrier
-DIMACS_le450_25d.col_input_Barrier,3,1234.721,443.32567,1.74382444444,0.0148318444444,Barrier
-DIMACS_le450_25d.col_input_Barrier,4,521.35968,448.93058,0.158577066667,0.00237648888889,Barrier
-DIMACS_le450_25d.col_input_Barrier,5,452.9366,449.94916,0.00652577777778,0.000112977777778,Barrier
-DIMACS_le450_25d.col_input_Barrier,6,450.00029,449.99999,6.4444444446e-07,2.22222221661e-08,Barrier
-DIMACS_le450_25d.col_input_Barrier,7,450.0,450.0,0.0,0.0,Barrier
-DIMACS_le450_25d.col_input_Barrier,0,450.0,450.0,0.0,0.0,Barrier
-DIMACS_queen6_6.col_input_Primal,1,1.0,-1,0.972222222222,-1,Primal
-DIMACS_queen6_6.col_input_Primal,69,36.0,-1,0.0,-1,Primal
-DIMACS_queen6_6.col_input_Primal,75,36.0,36.0,0.0,0.0,Primal
-DIMACS_queen6_6.col_input_Dual,1,-1,70.0,-1,0.944444444444,Dual
-DIMACS_queen6_6.col_input_Dual,36,36.0,36.0,0.0,0.0,Dual
-DIMACS_queen6_6.col_input_Barrier,0,5800.0,0.0,160.111111111,1.0,Barrier
-DIMACS_queen6_6.col_input_Barrier,1,527.80569,23.734332,13.6612691667,0.340713,Barrier
-DIMACS_queen6_6.col_input_Barrier,2,118.56545,30.610463,2.29348472222,0.149709361111,Barrier
-DIMACS_queen6_6.col_input_Barrier,3,43.11201,35.758982,0.197555833333,0.00669494444444,Barrier
-DIMACS_queen6_6.col_input_Barrier,4,36.004374,35.999124,0.0001215,2.43333333333e-05,Barrier
-DIMACS_queen6_6.col_input_Barrier,5,36.000001,36.0,2.77777777076e-08,0.0,Barrier
-DIMACS_queen6_6.col_input_Barrier,0,36.0,36.0,0.0,0.0,Barrier
-DIMACS_le450_5d.col_input_Dual,1,-1,1.0,-1,0.997777777778,Dual
-DIMACS_le450_5d.col_input_Dual,190,-1,151.0,-1,0.664444444444,Dual
-DIMACS_le450_5d.col_input_Dual,414,-1,349.0,-1,0.224444444444,Dual
-DIMACS_le450_5d.col_input_Dual,638,-1,434.0,-1,0.0355555555556,Dual
-DIMACS_le450_5d.col_input_Dual,814,-1,450.0,-1,0.0,Dual
-DIMACS_le450_5d.col_input_Dual,887,-1,450.0,-1,0.0,Dual
-DIMACS_le450_5d.col_input_Dual,905,-1,450.0,-1,0.0,Dual
-DIMACS_le450_5d.col_input_Dual,975,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_5d.col_input_Dual,1045,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_5d.col_input_Dual,1129,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_5d.col_input_Dual,1208,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_5d.col_input_Dual,1278,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_5d.col_input_Dual,1352,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_5d.col_input_Dual,1434,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_5d.col_input_Dual,1451,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_5d.col_input_Dual,1,-1,898.0,-1,0.995555555556,Dual
-DIMACS_le450_5d.col_input_Dual,301,-1,298.0,-1,0.337777777778,Dual
-DIMACS_le450_5d.col_input_Dual,611,-1,12.0,-1,0.973333333333,Dual
-DIMACS_le450_5d.col_input_Dual,795,-1,456.0,-1,0.0133333333333,Dual
-DIMACS_le450_5d.col_input_Dual,992,-1,451.0,-1,0.00222222222222,Dual
-DIMACS_le450_5d.col_input_Dual,1052,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_5d.col_input_Barrier,0,195140.0,0.0,432.644444444,1.0,Barrier
-DIMACS_le450_5d.col_input_Barrier,1,17354.766,294.14671,37.5661466667,0.346340644444,Barrier
-DIMACS_le450_5d.col_input_Barrier,2,3489.8101,377.19821,6.75513355556,0.161781755556,Barrier
-DIMACS_le450_5d.col_input_Barrier,3,608.41189,449.25507,0.352026422222,0.0016554,Barrier
-DIMACS_le450_5d.col_input_Barrier,4,452.01547,449.94085,0.00447882222222,0.000131444444444,Barrier
-DIMACS_le450_5d.col_input_Barrier,5,450.00023,449.99999,5.11111111084e-07,2.22222221661e-08,Barrier
-DIMACS_le450_5d.col_input_Barrier,6,450.0,450.0,0.0,0.0,Barrier
-DIMACS_le450_5d.col_input_Barrier,0,450.0,450.0,0.0,0.0,Barrier
-DIMACS_david.col_input_Primal,1,29.0,-1,0.697916666667,-1,Primal
-DIMACS_david.col_input_Primal,106,59.0,-1,0.385416666667,-1,Primal
-DIMACS_david.col_input_Primal,190,94.0,-1,0.0208333333333,-1,Primal
-DIMACS_david.col_input_Primal,246,96.0,96.0,0.0,0.0,Primal
-DIMACS_david.col_input_Dual,1,-1,6.0,-1,0.9375,Dual
-DIMACS_david.col_input_Dual,5,-1,159.0,-1,0.65625,Dual
-DIMACS_david.col_input_Dual,89,-1,111.0,-1,0.15625,Dual
-DIMACS_david.col_input_Dual,182,-1,96.0,-1,0.0,Dual
-DIMACS_david.col_input_Dual,204,96.0,96.0,0.0,0.0,Dual
-DIMACS_david.col_input_Barrier,0,1388.0,284.0,13.4583333333,1.95833333333,Barrier
-DIMACS_david.col_input_Barrier,1,248.75924,182.78273,1.59124208333,0.903986770833,Barrier
-DIMACS_david.col_input_Barrier,2,124.48052,116.4406,0.296672083333,0.212922916667,Barrier
-DIMACS_david.col_input_Barrier,3,104.53229,105.5355,0.0888780208333,0.099328125,Barrier
-DIMACS_david.col_input_Barrier,4,96.910476,100.58894,0.009484125,0.0478014583333,Barrier
-DIMACS_david.col_input_Barrier,5,95.919533,96.744381,0.000838197916667,0.00775396875,Barrier
-DIMACS_david.col_input_Barrier,6,95.999779,96.0008,2.30208333329e-06,8.33333333331e-06,Barrier
-DIMACS_david.col_input_Barrier,7,96.0,96.0,0.0,0.0,Barrier
-DIMACS_david.col_input_Barrier,0,96.0,96.0,0.0,0.0,Barrier
-DIMACS_queen16_16.col_input_Dual,1,-1,1.0,-1,0.99609375,Dual
-DIMACS_queen16_16.col_input_Dual,123,-1,80.0,-1,0.6875,Dual
-DIMACS_queen16_16.col_input_Dual,301,-1,205.0,-1,0.19921875,Dual
-DIMACS_queen16_16.col_input_Dual,468,-1,256.0,-1,0.0,Dual
-DIMACS_queen16_16.col_input_Dual,545,-1,256.0,-1,0.0,Dual
-DIMACS_queen16_16.col_input_Dual,602,-1,256.0,-1,0.0,Dual
-DIMACS_queen16_16.col_input_Dual,667,-1,256.0,-1,0.0,Dual
-DIMACS_queen16_16.col_input_Dual,732,-1,256.0,-1,0.0,Dual
-DIMACS_queen16_16.col_input_Dual,786,256.0,256.0,0.0,0.0,Dual
-DIMACS_queen16_16.col_input_Dual,1,-1,510.0,-1,0.9921875,Dual
-DIMACS_queen16_16.col_input_Dual,236,-1,55.0,-1,0.78515625,Dual
-DIMACS_queen16_16.col_input_Dual,427,-1,259.0,-1,0.01171875,Dual
-DIMACS_queen16_16.col_input_Dual,596,256.0,256.0,0.0,0.0,Dual
-DIMACS_queen16_16.col_input_Barrier,0,126400.0,0.0,492.75,1.0,Barrier
-DIMACS_queen16_16.col_input_Barrier,1,11203.327,167.31275,42.7629960937,0.346434570313,Barrier
-DIMACS_queen16_16.col_input_Barrier,2,2236.3545,214.28108,7.73575976562,0.16296453125,Barrier
-DIMACS_queen16_16.col_input_Barrier,3,318.34173,255.54134,0.243522382812,0.001791640625,Barrier
-DIMACS_queen16_16.col_input_Barrier,4,256.32965,255.99325,0.0012876953125,2.63671875e-05,Barrier
-DIMACS_queen16_16.col_input_Barrier,5,256.00003,256.0,1.17187499926e-07,0.0,Barrier
-DIMACS_queen16_16.col_input_Barrier,0,256.0,256.0,0.0,0.0,Barrier
-DIMACS_le450_25c.col_input_Dual,1,-1,1.0,-1,0.997777777778,Dual
-DIMACS_le450_25c.col_input_Dual,171,-1,59.0,-1,0.868888888889,Dual
-DIMACS_le450_25c.col_input_Dual,290,-1,76.0,-1,0.831111111111,Dual
-DIMACS_le450_25c.col_input_Dual,478,-1,231.0,-1,0.486666666667,Dual
-DIMACS_le450_25c.col_input_Dual,743,-1,397.0,-1,0.117777777778,Dual
-DIMACS_le450_25c.col_input_Dual,984,-1,450.0,-1,0.0,Dual
-DIMACS_le450_25c.col_input_Dual,1094,-1,450.0,-1,0.0,Dual
-DIMACS_le450_25c.col_input_Dual,1102,-1,450.0,-1,0.0,Dual
-DIMACS_le450_25c.col_input_Dual,1227,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_25c.col_input_Dual,1326,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_25c.col_input_Dual,1437,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_25c.col_input_Dual,1544,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_25c.col_input_Dual,1644,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_25c.col_input_Dual,1663,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_25c.col_input_Dual,1,-1,898.0,-1,0.995555555556,Dual
-DIMACS_le450_25c.col_input_Dual,362,-1,176.0,-1,0.608888888889,Dual
-DIMACS_le450_25c.col_input_Dual,708,-1,10.999998,-1,0.97555556,Dual
-DIMACS_le450_25c.col_input_Dual,765,-1,463.0,-1,0.0288888888889,Dual
-DIMACS_le450_25c.col_input_Dual,1018,-1,455.0,-1,0.0111111111111,Dual
-DIMACS_le450_25c.col_input_Dual,1219,-1,450.0,-1,0.0,Dual
-DIMACS_le450_25c.col_input_Dual,1226,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_25c.col_input_Barrier,0,346860.0,0.0,769.8,1.0,Barrier
-DIMACS_le450_25c.col_input_Barrier,1,30594.185,293.98746,66.9870777778,0.346694533333,Barrier
-DIMACS_le450_25c.col_input_Barrier,2,6013.8686,376.5269,12.3641524444,0.163273555556,Barrier
-DIMACS_le450_25c.col_input_Barrier,3,1255.6964,442.78933,1.79043644444,0.0160237111111,Barrier
-DIMACS_le450_25c.col_input_Barrier,4,542.03637,448.93038,0.204525266667,0.00237693333333,Barrier
-DIMACS_le450_25c.col_input_Barrier,5,450.80748,449.9888,0.0017944,2.48888888888e-05,Barrier
-DIMACS_le450_25c.col_input_Barrier,6,450.00011,450.0,2.44444444459e-07,0.0,Barrier
-DIMACS_le450_25c.col_input_Barrier,0,450.0,450.0,0.0,0.0,Barrier
-DIMACS_DSJC250.5.col_input_Dual,1,-1,1.0,-1,0.996,Dual
-DIMACS_DSJC250.5.col_input_Dual,209,-1,164.0,-1,0.344,Dual
-DIMACS_DSJC250.5.col_input_Dual,399,-1,239.0,-1,0.044,Dual
-DIMACS_DSJC250.5.col_input_Dual,512,-1,246.0,-1,0.016,Dual
-DIMACS_DSJC250.5.col_input_Dual,626,-1,249.0,-1,0.004,Dual
-DIMACS_DSJC250.5.col_input_Dual,734,-1,250.0,-1,0.0,Dual
-DIMACS_DSJC250.5.col_input_Dual,804,-1,250.0,-1,0.0,Dual
-DIMACS_DSJC250.5.col_input_Dual,889,-1,250.0,-1,0.0,Dual
-DIMACS_DSJC250.5.col_input_Dual,961,-1,250.0,-1,0.0,Dual
-DIMACS_DSJC250.5.col_input_Dual,966,250.0,250.0,0.0,0.0,Dual
-DIMACS_DSJC250.5.col_input_Dual,1,-1,498.0,-1,0.992,Dual
-DIMACS_DSJC250.5.col_input_Dual,325,-1,13.0,-1,0.948,Dual
-DIMACS_DSJC250.5.col_input_Dual,457,-1,252.0,-1,0.008,Dual
-DIMACS_DSJC250.5.col_input_Dual,578,250.0,250.0,0.0,0.0,Dual
-DIMACS_DSJC250.5.col_input_Barrier,0,313360.0,0.0,1252.44,1.0,Barrier
-DIMACS_DSJC250.5.col_input_Barrier,1,27461.872,163.15968,108.847488,0.34736128,Barrier
-DIMACS_DSJC250.5.col_input_Barrier,2,5328.9043,208.26064,20.3156172,0.16695744,Barrier
-DIMACS_DSJC250.5.col_input_Barrier,3,372.70771,249.87445,0.49083084,0.0005022,Barrier
-DIMACS_DSJC250.5.col_input_Barrier,4,251.49197,249.98794,0.00596788,4.824e-05,Barrier
-DIMACS_DSJC250.5.col_input_Barrier,5,250.00015,250.0,5.99999999963e-07,0.0,Barrier
-DIMACS_DSJC250.5.col_input_Barrier,6,250.0,250.0,0.0,0.0,Barrier
-DIMACS_DSJC250.5.col_input_Barrier,0,250.0,250.0,0.0,0.0,Barrier
-DIMACS_flat300_26_0.col_input_Dual,1,-1,1.0,-1,0.996666666667,Dual
-DIMACS_flat300_26_0.col_input_Dual,232,-1,175.0,-1,0.416666666667,Dual
-DIMACS_flat300_26_0.col_input_Dual,477,-1,293.0,-1,0.0233333333333,Dual
-DIMACS_flat300_26_0.col_input_Dual,576,-1,295.0,-1,0.0166666666667,Dual
-DIMACS_flat300_26_0.col_input_Dual,714,-1,298.0,-1,0.00666666666667,Dual
-DIMACS_flat300_26_0.col_input_Dual,816,-1,300.0,-1,0.0,Dual
-DIMACS_flat300_26_0.col_input_Dual,905,-1,300.0,-1,0.0,Dual
-DIMACS_flat300_26_0.col_input_Dual,991,-1,300.0,-1,0.0,Dual
-DIMACS_flat300_26_0.col_input_Dual,1092,-1,300.0,-1,0.0,Dual
-DIMACS_flat300_26_0.col_input_Dual,1164,300.0,300.0,0.0,0.0,Dual
-DIMACS_flat300_26_0.col_input_Dual,1,-1,598.0,-1,0.993333333333,Dual
-DIMACS_flat300_26_0.col_input_Dual,379,-1,12.0,-1,0.96,Dual
-DIMACS_flat300_26_0.col_input_Dual,509,-1,303.0,-1,0.01,Dual
-DIMACS_flat300_26_0.col_input_Dual,678,300.0,300.0,0.0,0.0,Dual
-DIMACS_flat300_26_0.col_input_Barrier,0,432660.0,0.0,1441.2,1.0,Barrier
-DIMACS_flat300_26_0.col_input_Barrier,1,37889.039,195.7442,125.296796667,0.347519333333,Barrier
-DIMACS_flat300_26_0.col_input_Barrier,2,7326.5789,249.80716,23.4219296667,0.167309466667,Barrier
-DIMACS_flat300_26_0.col_input_Barrier,3,437.93954,299.90299,0.459798466667,0.000323366666667,Barrier
-DIMACS_flat300_26_0.col_input_Barrier,4,301.22443,299.98885,0.00408143333333,3.71666666666e-05,Barrier
-DIMACS_flat300_26_0.col_input_Barrier,5,300.00016,300.0,5.33333333313e-07,0.0,Barrier
-DIMACS_flat300_26_0.col_input_Barrier,6,300.0,300.0,0.0,0.0,Barrier
-DIMACS_flat300_26_0.col_input_Barrier,0,300.0,300.0,0.0,0.0,Barrier
-DIMACS_DSJC125.5.col_input_Dual,1,-1,1.0,-1,0.992,Dual
-DIMACS_DSJC125.5.col_input_Dual,90,-1,36.0,-1,0.712,Dual
-DIMACS_DSJC125.5.col_input_Dual,193,-1,107.0,-1,0.144,Dual
-DIMACS_DSJC125.5.col_input_Dual,263,-1,121.0,-1,0.032,Dual
-DIMACS_DSJC125.5.col_input_Dual,325,-1,124.0,-1,0.008,Dual
-DIMACS_DSJC125.5.col_input_Dual,399,-1,125.0,-1,0.0,Dual
-DIMACS_DSJC125.5.col_input_Dual,461,-1,125.0,-1,0.0,Dual
-DIMACS_DSJC125.5.col_input_Dual,506,-1,125.0,-1,0.0,Dual
-DIMACS_DSJC125.5.col_input_Dual,562,125.0,125.0,0.0,0.0,Dual
-DIMACS_DSJC125.5.col_input_Dual,1,-1,248.0,-1,0.984,Dual
-DIMACS_DSJC125.5.col_input_Dual,179,-1,8.0,-1,0.936,Dual
-DIMACS_DSJC125.5.col_input_Dual,230,-1,127.0,-1,0.016,Dual
-DIMACS_DSJC125.5.col_input_Dual,291,125.0,125.0,0.0,0.0,Dual
-DIMACS_DSJC125.5.col_input_Barrier,0,77820.0,0.0,621.56,1.0,Barrier
-DIMACS_DSJC125.5.col_input_Barrier,1,6860.7544,81.714339,53.8860352,0.346285288,Barrier
-DIMACS_DSJC125.5.col_input_Barrier,2,1363.3184,104.4646,9.9065472,0.1642832,Barrier
-DIMACS_DSJC125.5.col_input_Barrier,3,160.2074,124.96642,0.2816592,0.00026864,Barrier
-DIMACS_DSJC125.5.col_input_Barrier,4,125.10813,124.99833,0.00086504,1.336e-05,Barrier
-DIMACS_DSJC125.5.col_input_Barrier,5,125.00001,125.0,8.00000000254e-08,0.0,Barrier
-DIMACS_DSJC125.5.col_input_Barrier,0,125.0,125.0,0.0,0.0,Barrier
-DIMACS_queen8_8.col_input_Primal,1,1.0,-1,0.984375,-1,Primal
-DIMACS_queen8_8.col_input_Primal,91,46.0,-1,0.28125,-1,Primal
-DIMACS_queen8_8.col_input_Primal,204,64.0,64.0,0.0,0.0,Primal
-DIMACS_queen8_8.col_input_Dual,1,-1,126.0,-1,0.96875,Dual
-DIMACS_queen8_8.col_input_Dual,67,-1,65.0,-1,0.015625,Dual
-DIMACS_queen8_8.col_input_Dual,101,64.0,64.0,0.0,0.0,Dual
-DIMACS_queen8_8.col_input_Barrier,0,14560.0,0.0,226.5,1.0,Barrier
-DIMACS_queen8_8.col_input_Barrier,1,1311.8423,42.025907,19.4975359375,0.343345203125,Barrier
-DIMACS_queen8_8.col_input_Barrier,2,279.81909,54.054601,3.37217328125,0.155396859375,Barrier
-DIMACS_queen8_8.col_input_Barrier,3,77.989041,63.678223,0.218578765625,0.005027765625,Barrier
-DIMACS_queen8_8.col_input_Barrier,4,64.020108,63.998576,0.0003141875,2.225e-05,Barrier
-DIMACS_queen8_8.col_input_Barrier,5,64.000003,64.0,4.68750001037e-08,0.0,Barrier
-DIMACS_queen8_8.col_input_Barrier,0,64.0,64.0,0.0,0.0,Barrier
-DIMACS_flat1000_76_0.col_input_Dual,1,-1,1.0,-1,0.999,Dual
-DIMACS_flat1000_76_0.col_input_Dual,360,-1,87.0,-1,0.913,Dual
-DIMACS_flat1000_76_0.col_input_Dual,1006,-1,654.0,-1,0.346,Dual
-DIMACS_flat1000_76_0.col_input_Dual,1804,-1,968.0,-1,0.032,Dual
-DIMACS_flat1000_76_0.col_input_Dual,2113,-1,993.0,-1,0.007,Dual
-DIMACS_flat1000_76_0.col_input_Dual,2304,-1,995.0,-1,0.005,Dual
-DIMACS_flat1000_76_0.col_input_Dual,2621,-1,1000.0,-1,0.0,Dual
-DIMACS_flat1000_76_0.col_input_Dual,2962,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_76_0.col_input_Dual,3293,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_76_0.col_input_Dual,3581,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_76_0.col_input_Dual,3839,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_76_0.col_input_Dual,4072,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_76_0.col_input_Dual,4151,1000.0,1000.0,0.0,0.0,Dual
-DIMACS_flat1000_76_0.col_input_Primal,1,1316.0,-1,0.316,-1,Primal
-DIMACS_flat1000_76_0.col_input_Primal,152,1001.0,-1,0.001,-1,Primal
-DIMACS_flat1000_76_0.col_input_Primal,334,1000.0,1000.0,0.0,0.0,Primal
-DIMACS_flat1000_76_0.col_input_Barrier,0,4934160.0,0.0,4933.16,1.0,Barrier
-DIMACS_flat1000_76_0.col_input_Barrier,1,430475.54,651.8381,429.47554,0.3481619,Barrier
-DIMACS_flat1000_76_0.col_input_Barrier,2,82019.345,831.0785,81.019345,0.1689215,Barrier
-DIMACS_flat1000_76_0.col_input_Barrier,3,1755.5278,999.82393,0.7555278,0.00017607,Barrier
-DIMACS_flat1000_76_0.col_input_Barrier,4,1013.5631,999.97185,0.0135631,2.815e-05,Barrier
-DIMACS_flat1000_76_0.col_input_Barrier,5,1000.0013,1000.0,1.30000000001e-06,0.0,Barrier
-DIMACS_flat1000_76_0.col_input_Barrier,6,1000.0,1000.0,0.0,0.0,Barrier
-DIMACS_flat1000_76_0.col_input_Barrier,0,1000.0,1000.0,0.0,0.0,Barrier
-DIMACS_le450_25b.col_input_Dual,1,-1,1.0,-1,0.997777777778,Dual
-DIMACS_le450_25b.col_input_Dual,166,-1,122.0,-1,0.728888888889,Dual
-DIMACS_le450_25b.col_input_Dual,382,-1,323.0,-1,0.282222222222,Dual
-DIMACS_le450_25b.col_input_Dual,604,-1,426.0,-1,0.0533333333333,Dual
-DIMACS_le450_25b.col_input_Dual,746,-1,442.0,-1,0.0177777777778,Dual
-DIMACS_le450_25b.col_input_Dual,841,-1,447.0,-1,0.00666666666667,Dual
-DIMACS_le450_25b.col_input_Dual,963,-1,449.0,-1,0.00222222222222,Dual
-DIMACS_le450_25b.col_input_Dual,1053,-1,450.0,-1,0.0,Dual
-DIMACS_le450_25b.col_input_Dual,1102,-1,450.0,-1,0.0,Dual
-DIMACS_le450_25b.col_input_Dual,1197,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_25b.col_input_Dual,1266,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_25b.col_input_Dual,1333,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_25b.col_input_Dual,1403,-1,450.000003,-1,6.66666664983e-09,Dual
-DIMACS_le450_25b.col_input_Dual,1481,-1,450.000003,-1,6.66666664983e-09,Dual
-DIMACS_le450_25b.col_input_Dual,1485,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_25b.col_input_Dual,1,-1,898.0,-1,0.995555555556,Dual
-DIMACS_le450_25b.col_input_Dual,287,-1,326.0,-1,0.275555555556,Dual
-DIMACS_le450_25b.col_input_Dual,582,-1,27.0,-1,0.94,Dual
-DIMACS_le450_25b.col_input_Dual,807,-1,463.0,-1,0.0288888888889,Dual
-DIMACS_le450_25b.col_input_Dual,1024,-1,456.0,-1,0.0133333333333,Dual
-DIMACS_le450_25b.col_input_Dual,1183,-1,450.0,-1,0.0,Dual
-DIMACS_le450_25b.col_input_Dual,1187,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_25b.col_input_Barrier,0,165260.0,0.0,366.244444444,1.0,Barrier
-DIMACS_le450_25b.col_input_Barrier,1,14845.276,295.45454,31.9895022222,0.343434355556,Barrier
-DIMACS_le450_25b.col_input_Barrier,2,2877.9184,382.13258,5.39537422222,0.150816488889,Barrier
-DIMACS_le450_25b.col_input_Barrier,3,916.18899,439.74828,1.03597553333,0.0227816,Barrier
-DIMACS_le450_25b.col_input_Barrier,4,508.1381,448.84628,0.129195777778,0.00256382222222,Barrier
-DIMACS_le450_25b.col_input_Barrier,5,450.19344,449.98566,0.000429866666667,3.18666666667e-05,Barrier
-DIMACS_le450_25b.col_input_Barrier,6,450.00003,450.0,6.66666666247e-08,0.0,Barrier
-DIMACS_le450_25b.col_input_Barrier,0,450.0,450.0,0.0,0.0,Barrier
-DIMACS_myciel7.col_input_Primal,1,1.0,-1,0.994764397906,-1,Primal
-DIMACS_myciel7.col_input_Primal,160,113.0,-1,0.408376963351,-1,Primal
-DIMACS_myciel7.col_input_Primal,332,189.0,-1,0.0104712041885,-1,Primal
-DIMACS_myciel7.col_input_Primal,468,191.0,-1,0.0,-1,Primal
-DIMACS_myciel7.col_input_Primal,609,191.0,-1,0.0,-1,Primal
-DIMACS_myciel7.col_input_Primal,776,191.0,-1,0.0,-1,Primal
-DIMACS_myciel7.col_input_Primal,949,191.0,-1,0.0,-1,Primal
-DIMACS_myciel7.col_input_Primal,1002,191.0,-1,0.0,-1,Primal
-DIMACS_myciel7.col_input_Primal,1104,191.0,191.0,0.0,0.0,Primal
-DIMACS_myciel7.col_input_Dual,1,-1,380.0,-1,0.989528795812,Dual
-DIMACS_myciel7.col_input_Dual,113,-1,156.0,-1,0.183246073298,Dual
-DIMACS_myciel7.col_input_Dual,241,-1,237.0,-1,0.240837696335,Dual
-DIMACS_myciel7.col_input_Dual,408,-1,211.0,-1,0.104712041885,Dual
-DIMACS_myciel7.col_input_Dual,565,-1,193.0,-1,0.0104712041885,Dual
-DIMACS_myciel7.col_input_Dual,603,191.0,191.0,0.0,0.0,Dual
-DIMACS_myciel7.col_input_Barrier,0,47200.0,0.0,246.120418848,1.0,Barrier
-DIMACS_myciel7.col_input_Barrier,1,4313.8012,126.18618,21.5853465969,0.339339371728,Barrier
-DIMACS_myciel7.col_input_Barrier,2,843.70204,165.91546,3.41728816754,0.131332670157,Barrier
-DIMACS_myciel7.col_input_Barrier,3,248.20386,186.42662,0.299496649215,0.0239443979058,Barrier
-DIMACS_myciel7.col_input_Barrier,4,195.79065,190.3305,0.0250819371728,0.00350523560209,Barrier
-DIMACS_myciel7.col_input_Barrier,5,191.19552,190.96447,0.00102366492147,0.000186020942408,Barrier
-DIMACS_myciel7.col_input_Barrier,6,191.00003,190.99999,1.57068062877e-07,5.2356020959e-08,Barrier
-DIMACS_myciel7.col_input_Barrier,7,191.0,191.0,0.0,0.0,Barrier
-DIMACS_myciel7.col_input_Barrier,0,191.0,191.0,0.0,0.0,Barrier
-DIMACS_DSJR500.1.col_input_Dual,1,-1,1.0,-1,0.998,Dual
-DIMACS_DSJR500.1.col_input_Dual,183,-1,139.0,-1,0.722,Dual
-DIMACS_DSJR500.1.col_input_Dual,375,-1,317.0,-1,0.366,Dual
-DIMACS_DSJR500.1.col_input_Dual,574,-1,455.0,-1,0.09,Dual
-DIMACS_DSJR500.1.col_input_Dual,769,-1,496.0,-1,0.008,Dual
-DIMACS_DSJR500.1.col_input_Dual,928,-1,500.0,-1,0.0,Dual
-DIMACS_DSJR500.1.col_input_Dual,1006,-1,500.0,-1,0.0,Dual
-DIMACS_DSJR500.1.col_input_Dual,1070,-1,500.000001,-1,1.99999999495e-09,Dual
-DIMACS_DSJR500.1.col_input_Dual,1192,-1,500.000005,-1,9.99999997475e-09,Dual
-DIMACS_DSJR500.1.col_input_Dual,1281,-1,500.000007,-1,1.39999999647e-08,Dual
-DIMACS_DSJR500.1.col_input_Dual,1344,-1,500.000008,-1,1.59999999596e-08,Dual
-DIMACS_DSJR500.1.col_input_Dual,1414,-1,500.000008,-1,1.59999999596e-08,Dual
-DIMACS_DSJR500.1.col_input_Dual,1476,-1,500.000008,-1,1.59999999596e-08,Dual
-DIMACS_DSJR500.1.col_input_Dual,1486,500.0,500.0,0.0,0.0,Dual
-DIMACS_DSJR500.1.col_input_Dual,1,-1,998.0,-1,0.996,Dual
-DIMACS_DSJR500.1.col_input_Dual,110,-1,52.0,-1,0.896,Dual
-DIMACS_DSJR500.1.col_input_Dual,193,-1,507.0,-1,0.014,Dual
-DIMACS_DSJR500.1.col_input_Dual,381,-1,501.0,-1,0.002,Dual
-DIMACS_DSJR500.1.col_input_Dual,386,-1,500.0,-1,0.0,Dual
-DIMACS_DSJR500.1.col_input_Dual,400,500.0,500.0,0.0,0.0,Dual
-DIMACS_DSJR500.1.col_input_Barrier,0,71100.0,0.0,141.2,1.0,Barrier
-DIMACS_DSJR500.1.col_input_Barrier,1,6610.9428,328.99666,12.2218856,0.34200668,Barrier
-DIMACS_DSJR500.1.col_input_Barrier,2,1465.1801,427.62477,1.9303602,0.14475046,Barrier
-DIMACS_DSJR500.1.col_input_Barrier,3,638.52893,493.76919,0.27705786,0.01246162,Barrier
-DIMACS_DSJR500.1.col_input_Barrier,4,500.34375,499.83435,0.0006875,0.0003313,Barrier
-DIMACS_DSJR500.1.col_input_Barrier,5,500.00004,499.99998,8.00000000254e-08,4.00000000127e-08,Barrier
-DIMACS_DSJR500.1.col_input_Barrier,6,500.0,500.0,0.0,0.0,Barrier
-DIMACS_DSJR500.1.col_input_Barrier,0,500.0,500.0,0.0,0.0,Barrier
-DIMACS_le450_5c.col_input_Dual,1,-1,1.0,-1,0.997777777778,Dual
-DIMACS_le450_5c.col_input_Dual,157,-1,117.0,-1,0.74,Dual
-DIMACS_le450_5c.col_input_Dual,385,-1,331.0,-1,0.264444444444,Dual
-DIMACS_le450_5c.col_input_Dual,618,-1,429.0,-1,0.0466666666667,Dual
-DIMACS_le450_5c.col_input_Dual,792,-1,448.0,-1,0.00444444444444,Dual
-DIMACS_le450_5c.col_input_Dual,878,-1,448.0,-1,0.00444444444444,Dual
-DIMACS_le450_5c.col_input_Dual,905,-1,448.0,-1,0.00444444444444,Dual
-DIMACS_le450_5c.col_input_Dual,991,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_5c.col_input_Dual,1086,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_5c.col_input_Dual,1156,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_5c.col_input_Dual,1243,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_5c.col_input_Dual,1313,-1,450.000003,-1,6.66666664983e-09,Dual
-DIMACS_le450_5c.col_input_Dual,1385,-1,450.000003,-1,6.66666664983e-09,Dual
-DIMACS_le450_5c.col_input_Dual,1401,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_5c.col_input_Dual,1,-1,898.0,-1,0.995555555556,Dual
-DIMACS_le450_5c.col_input_Dual,301,-1,298.0,-1,0.337777777778,Dual
-DIMACS_le450_5c.col_input_Dual,601,-1,17.0,-1,0.962222222222,Dual
-DIMACS_le450_5c.col_input_Dual,793,-1,458.0,-1,0.0177777777778,Dual
-DIMACS_le450_5c.col_input_Dual,1011,-1,452.0,-1,0.00444444444444,Dual
-DIMACS_le450_5c.col_input_Dual,1112,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_5c.col_input_Barrier,0,196060.0,0.0,434.688888889,1.0,Barrier
-DIMACS_le450_5c.col_input_Barrier,1,17434.455,294.13875,37.7432333333,0.346358333333,Barrier
-DIMACS_le450_5c.col_input_Barrier,2,3509.7619,377.16512,6.79947088889,0.161855288889,Barrier
-DIMACS_le450_5c.col_input_Barrier,3,625.38799,449.18388,0.389751088889,0.0018136,Barrier
-DIMACS_le450_5c.col_input_Barrier,4,452.53241,449.93789,0.00562757777778,0.000138022222222,Barrier
-DIMACS_le450_5c.col_input_Barrier,5,450.00025,449.99999,5.55555555542e-07,2.22222221661e-08,Barrier
-DIMACS_le450_5c.col_input_Barrier,6,450.0,450.0,0.0,0.0,Barrier
-DIMACS_le450_5c.col_input_Barrier,0,450.0,450.0,0.0,0.0,Barrier
-DIMACS_le450_15b.col_input_Dual,1,-1,5.0,-1,0.988888888889,Dual
-DIMACS_le450_15b.col_input_Dual,164,-1,104.0,-1,0.768888888889,Dual
-DIMACS_le450_15b.col_input_Dual,387,-1,310.0,-1,0.311111111111,Dual
-DIMACS_le450_15b.col_input_Dual,609,-1,420.0,-1,0.0666666666667,Dual
-DIMACS_le450_15b.col_input_Dual,743,-1,441.0,-1,0.02,Dual
-DIMACS_le450_15b.col_input_Dual,842,-1,444.0,-1,0.0133333333333,Dual
-DIMACS_le450_15b.col_input_Dual,957,-1,447.0,-1,0.00666666666667,Dual
-DIMACS_le450_15b.col_input_Dual,1006,-1,447.0,-1,0.00666666666667,Dual
-DIMACS_le450_15b.col_input_Dual,1089,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_15b.col_input_Dual,1160,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_15b.col_input_Dual,1234,-1,450.000003,-1,6.66666664983e-09,Dual
-DIMACS_le450_15b.col_input_Dual,1300,-1,450.000003,-1,6.66666664983e-09,Dual
-DIMACS_le450_15b.col_input_Dual,1362,-1,450.000004,-1,8.88888886645e-09,Dual
-DIMACS_le450_15b.col_input_Dual,1442,-1,450.000005,-1,1.11111110831e-08,Dual
-DIMACS_le450_15b.col_input_Dual,1512,-1,450.000005,-1,1.11111110831e-08,Dual
-DIMACS_le450_15b.col_input_Dual,1578,-1,450.000006,-1,1.33333332997e-08,Dual
-DIMACS_le450_15b.col_input_Dual,1650,-1,450.000006,-1,1.33333332997e-08,Dual
-DIMACS_le450_15b.col_input_Dual,1726,-1,450.000006,-1,1.33333332997e-08,Dual
-DIMACS_le450_15b.col_input_Dual,1767,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_15b.col_input_Dual,1,-1,890.0,-1,0.977777777778,Dual
-DIMACS_le450_15b.col_input_Dual,285,-1,322.0,-1,0.284444444444,Dual
-DIMACS_le450_15b.col_input_Dual,578,-1,19.0,-1,0.957777777778,Dual
-DIMACS_le450_15b.col_input_Dual,817,-1,455.0,-1,0.0111111111111,Dual
-DIMACS_le450_15b.col_input_Dual,1008,-1,451.0,-1,0.00222222222222,Dual
-DIMACS_le450_15b.col_input_Dual,1112,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_15b.col_input_Barrier,0,163284.0,4.0,361.853333333,0.991111111111,Barrier
-DIMACS_le450_15b.col_input_Barrier,1,14896.915,293.23173,32.1042555556,0.348373933333,Barrier
-DIMACS_le450_15b.col_input_Barrier,2,2697.3549,380.41362,4.994122,0.1546364,Barrier
-DIMACS_le450_15b.col_input_Barrier,3,1074.8059,435.17539,1.38845755556,0.0329435777778,Barrier
-DIMACS_le450_15b.col_input_Barrier,4,496.86793,447.21151,0.104150955556,0.00619664444444,Barrier
-DIMACS_le450_15b.col_input_Barrier,5,450.53064,449.9688,0.0011792,6.93333333334e-05,Barrier
-DIMACS_le450_15b.col_input_Barrier,6,450.00007,450.0,1.55555555542e-07,0.0,Barrier
-DIMACS_le450_15b.col_input_Barrier,7,450.0,450.0,0.0,0.0,Barrier
-DIMACS_le450_15b.col_input_Barrier,0,450.0,450.0,0.0,0.0,Barrier
-DIMACS_flat1000_50_0.col_input_Dual,1,-1,1.0,-1,0.999,Dual
-DIMACS_flat1000_50_0.col_input_Dual,600,-1,412.0,-1,0.588,Dual
-DIMACS_flat1000_50_0.col_input_Dual,1438,-1,918.0,-1,0.082,Dual
-DIMACS_flat1000_50_0.col_input_Dual,1804,-1,994.0,-1,0.006,Dual
-DIMACS_flat1000_50_0.col_input_Dual,2221,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_50_0.col_input_Dual,2643,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_50_0.col_input_Dual,2965,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_50_0.col_input_Dual,3228,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_50_0.col_input_Dual,3500,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_50_0.col_input_Dual,3733,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_50_0.col_input_Dual,3874,1000.0,1000.0,0.0,0.0,Dual
-DIMACS_flat1000_50_0.col_input_Primal,1,1322.0,-1,0.322,-1,Primal
-DIMACS_flat1000_50_0.col_input_Primal,154,1001.0,-1,0.001,-1,Primal
-DIMACS_flat1000_50_0.col_input_Primal,192,1000.0,1000.0,0.0,0.0,Primal
-DIMACS_flat1000_50_0.col_input_Barrier,0,4900000.0,0.0,4899.0,1.0,Barrier
-DIMACS_flat1000_50_0.col_input_Barrier,1,427500.84,651.83911,426.50084,0.34816089,Barrier
-DIMACS_flat1000_50_0.col_input_Barrier,2,81454.196,831.08284,80.454196,0.16891716,Barrier
-DIMACS_flat1000_50_0.col_input_Barrier,3,1717.3781,999.86441,0.7173781,0.00013559,Barrier
-DIMACS_flat1000_50_0.col_input_Barrier,4,1010.043,999.97902,0.010043,2.098e-05,Barrier
-DIMACS_flat1000_50_0.col_input_Barrier,5,1000.001,1000.0,9.99999999976e-07,0.0,Barrier
-DIMACS_flat1000_50_0.col_input_Barrier,6,1000.0,1000.0,0.0,0.0,Barrier
-DIMACS_flat1000_50_0.col_input_Barrier,0,1000.0,1000.0,0.0,0.0,Barrier
-DIMACS_games120.col_input_Primal,1,1.0,-1,0.991666666667,-1,Primal
-DIMACS_games120.col_input_Primal,120,44.0,-1,0.633333333333,-1,Primal
-DIMACS_games120.col_input_Primal,252,120.0,-1,0.0,-1,Primal
-DIMACS_games120.col_input_Primal,351,120.0,-1,0.0,-1,Primal
-DIMACS_games120.col_input_Primal,383,120.0,120.0,0.0,0.0,Primal
-DIMACS_games120.col_input_Dual,1,-1,238.0,-1,0.983333333333,Dual
-DIMACS_games120.col_input_Dual,95,-1,50.0,-1,0.583333333333,Dual
-DIMACS_games120.col_input_Dual,131,-1,125.0,-1,0.0416666666667,Dual
-DIMACS_games120.col_input_Dual,205,120.0,120.0,0.0,0.0,Dual
-DIMACS_games120.col_input_Barrier,0,12760.0,0.0,105.333333333,1.0,Barrier
-DIMACS_games120.col_input_Barrier,1,1205.1739,79.170544,9.04311583333,0.340245466667,Barrier
-DIMACS_games120.col_input_Barrier,2,284.7737,103.17072,1.37311416667,0.140244,Barrier
-DIMACS_games120.col_input_Barrier,3,134.46705,119.38255,0.12055875,0.00514541666667,Barrier
-DIMACS_games120.col_input_Barrier,4,120.01822,119.99736,0.000151833333333,2.2e-05,Barrier
-DIMACS_games120.col_input_Barrier,5,120.0,120.0,0.0,0.0,Barrier
-DIMACS_games120.col_input_Barrier,0,120.0,120.0,0.0,0.0,Barrier
-DIMACS_DSJC250.9.col_input_Dual,1,-1,1.0,-1,0.996,Dual
-DIMACS_DSJC250.9.col_input_Dual,237,-1,180.0,-1,0.28,Dual
-DIMACS_DSJC250.9.col_input_Dual,458,-1,245.0,-1,0.02,Dual
-DIMACS_DSJC250.9.col_input_Dual,587,-1,247.0,-1,0.012,Dual
-DIMACS_DSJC250.9.col_input_Dual,602,-1,247.0,-1,0.012,Dual
-DIMACS_DSJC250.9.col_input_Dual,706,-1,250.0,-1,0.0,Dual
-DIMACS_DSJC250.9.col_input_Dual,815,-1,250.0,-1,0.0,Dual
-DIMACS_DSJC250.9.col_input_Dual,862,250.0,250.0,0.0,0.0,Dual
-DIMACS_DSJC250.9.col_input_Dual,1,-1,498.0,-1,0.992,Dual
-DIMACS_DSJC250.9.col_input_Dual,397,-1,255.0,-1,0.02,Dual
-DIMACS_DSJC250.9.col_input_Dual,566,250.0,250.0,0.0,0.0,Dual
-DIMACS_DSJC250.9.col_input_Barrier,0,557940.0,0.0,2230.76,1.0,Barrier
-DIMACS_DSJC250.9.col_input_Barrier,1,48738.1,163.09245,193.9524,0.3476302,Barrier
-DIMACS_DSJC250.9.col_input_Barrier,2,9372.268,207.97055,36.489072,0.1681178,Barrier
-DIMACS_DSJC250.9.col_input_Barrier,3,360.08774,249.97199,0.44035096,0.00011204,Barrier
-DIMACS_DSJC250.9.col_input_Barrier,4,250.53855,249.99755,0.0021542,9.80000000004e-06,Barrier
-DIMACS_DSJC250.9.col_input_Barrier,5,250.00005,250.0,1.9999999995e-07,0.0,Barrier
-DIMACS_DSJC250.9.col_input_Barrier,0,250.0,250.0,0.0,0.0,Barrier
-DIMACS_le450_15a.col_input_Dual,1,-1,1.0,-1,0.997777777778,Dual
-DIMACS_le450_15a.col_input_Dual,183,-1,138.0,-1,0.693333333333,Dual
-DIMACS_le450_15a.col_input_Dual,408,-1,340.0,-1,0.244444444444,Dual
-DIMACS_le450_15a.col_input_Dual,633,-1,440.0,-1,0.0222222222222,Dual
-DIMACS_le450_15a.col_input_Dual,760,-1,445.0,-1,0.0111111111111,Dual
-DIMACS_le450_15a.col_input_Dual,804,-1,445.0,-1,0.0111111111111,Dual
-DIMACS_le450_15a.col_input_Dual,900,-1,450.000003,-1,6.66666664983e-09,Dual
-DIMACS_le450_15a.col_input_Dual,973,-1,450.000003,-1,6.66666664983e-09,Dual
-DIMACS_le450_15a.col_input_Dual,1040,-1,450.000004,-1,8.88888886645e-09,Dual
-DIMACS_le450_15a.col_input_Dual,1128,-1,450.000005,-1,1.11111110831e-08,Dual
-DIMACS_le450_15a.col_input_Dual,1202,-1,450.000006,-1,1.33333332997e-08,Dual
-DIMACS_le450_15a.col_input_Dual,1287,-1,450.000006,-1,1.33333332997e-08,Dual
-DIMACS_le450_15a.col_input_Dual,1365,-1,450.000007,-1,1.55555555163e-08,Dual
-DIMACS_le450_15a.col_input_Dual,1415,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_15a.col_input_Dual,1,-1,898.0,-1,0.995555555556,Dual
-DIMACS_le450_15a.col_input_Dual,286,-1,328.0,-1,0.271111111111,Dual
-DIMACS_le450_15a.col_input_Dual,577,-1,22.0,-1,0.951111111111,Dual
-DIMACS_le450_15a.col_input_Dual,773,-1,456.0,-1,0.0133333333333,Dual
-DIMACS_le450_15a.col_input_Dual,991,-1,453.0,-1,0.00666666666667,Dual
-DIMACS_le450_15a.col_input_Dual,1125,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_15a.col_input_Barrier,0,163360.0,0.0,362.022222222,1.0,Barrier
-DIMACS_le450_15a.col_input_Barrier,1,14640.956,294.9784,31.5354577778,0.344492444444,Barrier
-DIMACS_le450_15a.col_input_Barrier,2,2882.5106,377.25391,5.40557911111,0.161657977778,Barrier
-DIMACS_le450_15a.col_input_Barrier,3,801.57946,442.81703,0.781287688889,0.0159621555556,Barrier
-DIMACS_le450_15a.col_input_Barrier,4,486.81484,449.0094,0.0818107555556,0.00220133333333,Barrier
-DIMACS_le450_15a.col_input_Barrier,5,450.07069,449.99737,0.000157088888889,5.84444444447e-06,Barrier
-DIMACS_le450_15a.col_input_Barrier,6,450.00001,450.0,2.22222221661e-08,0.0,Barrier
-DIMACS_le450_15a.col_input_Barrier,0,450.0,450.0,0.0,0.0,Barrier
-DIMACS_le450_5a.col_input_Dual,1,-1,1.0,-1,0.997777777778,Dual
-DIMACS_le450_5a.col_input_Dual,168,-1,122.0,-1,0.728888888889,Dual
-DIMACS_le450_5a.col_input_Dual,374,-1,313.0,-1,0.304444444444,Dual
-DIMACS_le450_5a.col_input_Dual,584,-1,415.0,-1,0.0777777777778,Dual
-DIMACS_le450_5a.col_input_Dual,755,-1,445.0,-1,0.0111111111111,Dual
-DIMACS_le450_5a.col_input_Dual,852,-1,445.0,-1,0.0111111111111,Dual
-DIMACS_le450_5a.col_input_Dual,905,-1,445.0,-1,0.0111111111111,Dual
-DIMACS_le450_5a.col_input_Dual,992,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_5a.col_input_Dual,1059,-1,450.000003,-1,6.66666664983e-09,Dual
-DIMACS_le450_5a.col_input_Dual,1142,-1,450.000004,-1,8.88888886645e-09,Dual
-DIMACS_le450_5a.col_input_Dual,1230,-1,450.000005,-1,1.11111110831e-08,Dual
-DIMACS_le450_5a.col_input_Dual,1298,-1,450.000005,-1,1.11111110831e-08,Dual
-DIMACS_le450_5a.col_input_Dual,1363,-1,450.000006,-1,1.33333332997e-08,Dual
-DIMACS_le450_5a.col_input_Dual,1427,-1,450.000006,-1,1.33333332997e-08,Dual
-DIMACS_le450_5a.col_input_Dual,1488,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_5a.col_input_Dual,1,-1,898.0,-1,0.995555555556,Dual
-DIMACS_le450_5a.col_input_Dual,262,-1,376.0,-1,0.164444444444,Dual
-DIMACS_le450_5a.col_input_Dual,531,-1,13.0,-1,0.971111111111,Dual
-DIMACS_le450_5a.col_input_Dual,730,-1,456.0,-1,0.0133333333333,Dual
-DIMACS_le450_5a.col_input_Dual,926,-1,451.0,-1,0.00222222222222,Dual
-DIMACS_le450_5a.col_input_Dual,951,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_5a.col_input_Barrier,0,114280.0,0.0,252.955555556,1.0,Barrier
-DIMACS_le450_5a.col_input_Barrier,1,10320.114,294.78655,21.9335866667,0.344918777778,Barrier
-DIMACS_le450_5a.col_input_Barrier,2,2158.8816,379.81666,3.79751466667,0.155962977778,Barrier
-DIMACS_le450_5a.col_input_Barrier,3,581.53668,448.6102,0.292303733333,0.00308844444444,Barrier
-DIMACS_le450_5a.col_input_Barrier,4,451.53191,449.92248,0.00340424444444,0.000172266666667,Barrier
-DIMACS_le450_5a.col_input_Barrier,5,450.00017,449.99999,3.77777777835e-07,2.22222221661e-08,Barrier
-DIMACS_le450_5a.col_input_Barrier,6,450.0,450.0,0.0,0.0,Barrier
-DIMACS_le450_5a.col_input_Barrier,0,450.0,450.0,0.0,0.0,Barrier
-DIMACS_flat300_20_0.col_input_Dual,1,-1,1.0,-1,0.996666666667,Dual
-DIMACS_flat300_20_0.col_input_Dual,250,-1,200.0,-1,0.333333333333,Dual
-DIMACS_flat300_20_0.col_input_Dual,449,-1,285.0,-1,0.05,Dual
-DIMACS_flat300_20_0.col_input_Dual,582,-1,296.0,-1,0.0133333333333,Dual
-DIMACS_flat300_20_0.col_input_Dual,602,-1,296.0,-1,0.0133333333333,Dual
-DIMACS_flat300_20_0.col_input_Dual,714,-1,300.0,-1,0.0,Dual
-DIMACS_flat300_20_0.col_input_Dual,813,-1,300.000001,-1,3.33333332492e-09,Dual
-DIMACS_flat300_20_0.col_input_Dual,907,-1,300.000001,-1,3.33333332492e-09,Dual
-DIMACS_flat300_20_0.col_input_Dual,963,300.0,300.0,0.0,0.0,Dual
-DIMACS_flat300_20_0.col_input_Dual,1,-1,598.0,-1,0.993333333333,Dual
-DIMACS_flat300_20_0.col_input_Dual,373,-1,13.0,-1,0.956666666667,Dual
-DIMACS_flat300_20_0.col_input_Dual,459,-1,306.0,-1,0.02,Dual
-DIMACS_flat300_20_0.col_input_Dual,619,300.0,300.0,0.0,0.0,Dual
-DIMACS_flat300_20_0.col_input_Barrier,0,427500.0,0.0,1424.0,1.0,Barrier
-DIMACS_flat300_20_0.col_input_Barrier,1,37440.068,195.74613,123.800226667,0.3475129,Barrier
-DIMACS_flat300_20_0.col_input_Barrier,2,7239.7772,249.81547,23.1325906667,0.167281766667,Barrier
-DIMACS_flat300_20_0.col_input_Barrier,3,413.39708,299.95469,0.377990266667,0.000151033333333,Barrier
-DIMACS_flat300_20_0.col_input_Barrier,4,300.46874,299.9967,0.00156246666667,1.10000000001e-05,Barrier
-DIMACS_flat300_20_0.col_input_Barrier,5,300.00005,300.0,1.66666666625e-07,0.0,Barrier
-DIMACS_flat300_20_0.col_input_Barrier,0,300.0,300.0,0.0,0.0,Barrier
-DIMACS_miles1000.col_input_Dual,1,-1,1.0,-1,0.9921875,Dual
-DIMACS_miles1000.col_input_Dual,87,-1,43.0,-1,0.6640625,Dual
-DIMACS_miles1000.col_input_Dual,200,-1,113.0,-1,0.1171875,Dual
-DIMACS_miles1000.col_input_Dual,278,-1,127.0,-1,0.0078125,Dual
-DIMACS_miles1000.col_input_Dual,340,-1,128.0,-1,0.0,Dual
-DIMACS_miles1000.col_input_Dual,402,-1,128.0,-1,0.0,Dual
-DIMACS_miles1000.col_input_Dual,405,-1,128.0,-1,0.0,Dual
-DIMACS_miles1000.col_input_Dual,458,128.0,128.0,0.0,0.0,Dual
-DIMACS_miles1000.col_input_Dual,1,-1,254.0,-1,0.984375,Dual
-DIMACS_miles1000.col_input_Dual,170,-1,11.0,-1,0.9140625,Dual
-DIMACS_miles1000.col_input_Dual,241,-1,131.0,-1,0.0234375,Dual
-DIMACS_miles1000.col_input_Dual,307,128.0,128.0,0.0,0.0,Dual
-DIMACS_miles1000.col_input_Barrier,0,64320.0,0.0,501.5,1.0,Barrier
-DIMACS_miles1000.col_input_Barrier,1,5696.9692,83.767199,43.507571875,0.345568757812,Barrier
-DIMACS_miles1000.col_input_Barrier,2,1142.2662,107.36302,7.9239546875,0.16122640625,Barrier
-DIMACS_miles1000.col_input_Barrier,3,226.32552,127.0007,0.768168125,0.00780703125,Barrier
-DIMACS_miles1000.col_input_Barrier,4,132.5917,127.86515,0.03587265625,0.001053515625,Barrier
-DIMACS_miles1000.col_input_Barrier,5,128.00284,127.99992,2.21874999999e-05,6.24999999976e-07,Barrier
-DIMACS_miles1000.col_input_Barrier,6,128.0,128.0,0.0,0.0,Barrier
-DIMACS_miles1000.col_input_Barrier,0,128.0,128.0,0.0,0.0,Barrier
-DIMACS_le450_25a.col_input_Dual,1,-1,1.0,-1,0.997777777778,Dual
-DIMACS_le450_25a.col_input_Dual,183,-1,143.0,-1,0.682222222222,Dual
-DIMACS_le450_25a.col_input_Dual,409,-1,343.0,-1,0.237777777778,Dual
-DIMACS_le450_25a.col_input_Dual,606,-1,426.0,-1,0.0533333333333,Dual
-DIMACS_le450_25a.col_input_Dual,733,-1,440.0,-1,0.0222222222222,Dual
-DIMACS_le450_25a.col_input_Dual,804,-1,440.0,-1,0.0222222222222,Dual
-DIMACS_le450_25a.col_input_Dual,902,-1,445.000003,-1,0.0111111044444,Dual
-DIMACS_le450_25a.col_input_Dual,975,-1,448.000004,-1,0.00444443555556,Dual
-DIMACS_le450_25a.col_input_Dual,1049,-1,448.000004,-1,0.00444443555556,Dual
-DIMACS_le450_25a.col_input_Dual,1141,-1,450.000005,-1,1.11111110831e-08,Dual
-DIMACS_le450_25a.col_input_Dual,1226,-1,450.000006,-1,1.33333332997e-08,Dual
-DIMACS_le450_25a.col_input_Dual,1294,-1,450.000006,-1,1.33333332997e-08,Dual
-DIMACS_le450_25a.col_input_Dual,1361,-1,450.000007,-1,1.55555555163e-08,Dual
-DIMACS_le450_25a.col_input_Dual,1438,-1,450.000007,-1,1.55555555163e-08,Dual
-DIMACS_le450_25a.col_input_Dual,1475,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_25a.col_input_Dual,1,-1,898.0,-1,0.995555555556,Dual
-DIMACS_le450_25a.col_input_Dual,287,-1,326.0,-1,0.275555555556,Dual
-DIMACS_le450_25a.col_input_Dual,580,-1,34.0,-1,0.924444444444,Dual
-DIMACS_le450_25a.col_input_Dual,836,-1,10.0,-1,0.977777777778,Dual
-DIMACS_le450_25a.col_input_Dual,955,-1,460.0,-1,0.0222222222222,Dual
-DIMACS_le450_25a.col_input_Dual,1142,-1,454.0,-1,0.00888888888889,Dual
-DIMACS_le450_25a.col_input_Dual,1301,-1,451.0,-1,0.00222222222222,Dual
-DIMACS_le450_25a.col_input_Dual,1355,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_25a.col_input_Barrier,0,165200.0,0.0,366.111111111,1.0,Barrier
-DIMACS_le450_25a.col_input_Barrier,1,14872.238,295.86881,32.0494177778,0.342513755556,Barrier
-DIMACS_le450_25a.col_input_Barrier,2,2842.0855,381.7858,5.31574555556,0.151587111111,Barrier
-DIMACS_le450_25a.col_input_Barrier,3,959.77981,438.17131,1.13284402222,0.0262859777778,Barrier
-DIMACS_le450_25a.col_input_Barrier,4,510.26278,448.58282,0.133917288889,0.00314928888889,Barrier
-DIMACS_le450_25a.col_input_Barrier,5,450.28367,449.98407,0.000630377777778,3.54000000001e-05,Barrier
-DIMACS_le450_25a.col_input_Barrier,6,450.00004,450.0,8.88888889171e-08,0.0,Barrier
-DIMACS_le450_25a.col_input_Barrier,0,450.0,450.0,0.0,0.0,Barrier
-DIMACS_queen13_13.col_input_Dual,1,-1,1.0,-1,0.994082840237,Dual
-DIMACS_queen13_13.col_input_Dual,90,-1,48.0,-1,0.715976331361,Dual
-DIMACS_queen13_13.col_input_Dual,225,-1,136.0,-1,0.195266272189,Dual
-DIMACS_queen13_13.col_input_Dual,331,-1,169.0,-1,0.0,Dual
-DIMACS_queen13_13.col_input_Dual,393,-1,169.0,-1,0.0,Dual
-DIMACS_queen13_13.col_input_Dual,405,-1,169.0,-1,0.0,Dual
-DIMACS_queen13_13.col_input_Dual,467,-1,169.0,-1,0.0,Dual
-DIMACS_queen13_13.col_input_Dual,529,-1,169.000001,-1,5.91715974837e-09,Dual
-DIMACS_queen13_13.col_input_Dual,546,169.0,169.0,0.0,0.0,Dual
-DIMACS_queen13_13.col_input_Dual,1,-1,336.0,-1,0.988165680473,Dual
-DIMACS_queen13_13.col_input_Dual,180,-1,4.0,-1,0.976331360947,Dual
-DIMACS_queen13_13.col_input_Dual,262,-1,170.0,-1,0.00591715976331,Dual
-DIMACS_queen13_13.col_input_Dual,308,169.0,169.0,0.0,0.0,Dual
-DIMACS_queen13_13.col_input_Barrier,0,66560.0,0.0,392.846153846,1.0,Barrier
-DIMACS_queen13_13.col_input_Barrier,1,5922.5251,110.557,34.0445272189,0.345816568047,Barrier
-DIMACS_queen13_13.col_input_Barrier,2,1199.0028,141.73868,6.09469112426,0.161309585799,Barrier
-DIMACS_queen13_13.col_input_Barrier,3,209.48814,168.55907,0.239574792899,0.00260905325444,Barrier
-DIMACS_queen13_13.col_input_Barrier,4,169.17122,168.99566,0.00101313609467,2.56804733729e-05,Barrier
-DIMACS_queen13_13.col_input_Barrier,5,169.00002,169.0,1.18343195304e-07,0.0,Barrier
-DIMACS_queen13_13.col_input_Barrier,0,169.0,169.0,0.0,0.0,Barrier
-DIMACS_miles750.col_input_Primal,1,1.0,-1,0.9921875,-1,Primal
-DIMACS_miles750.col_input_Primal,130,44.0,-1,0.65625,-1,Primal
-DIMACS_miles750.col_input_Primal,287,128.0,-1,0.0,-1,Primal
-DIMACS_miles750.col_input_Primal,389,128.0,128.0,0.0,0.0,Primal
-DIMACS_miles750.col_input_Dual,1,-1,254.0,-1,0.984375,Dual
-DIMACS_miles750.col_input_Dual,99,-1,58.0,-1,0.546875,Dual
-DIMACS_miles750.col_input_Dual,138,-1,133.0,-1,0.0390625,Dual
-DIMACS_miles750.col_input_Dual,237,128.0,128.0,0.0,0.0,Dual
-DIMACS_miles750.col_input_Barrier,0,42260.0,0.0,329.15625,1.0,Barrier
-DIMACS_miles750.col_input_Barrier,1,3782.9618,83.933356,28.5543890625,0.34427065625,Barrier
-DIMACS_miles750.col_input_Barrier,2,769.82867,108.03038,5.01428648437,0.15601265625,Barrier
-DIMACS_miles750.col_input_Barrier,3,206.73069,126.48651,0.615083515625,0.011824140625,Barrier
-DIMACS_miles750.col_input_Barrier,4,135.14026,127.86619,0.05578328125,0.001045390625,Barrier
-DIMACS_miles750.col_input_Barrier,5,128.0114,127.99974,8.90625000001e-05,2.03124999998e-06,Barrier
-DIMACS_miles750.col_input_Barrier,6,128.0,128.0,0.0,0.0,Barrier
-DIMACS_miles750.col_input_Barrier,0,128.0,128.0,0.0,0.0,Barrier
-DIMACS_myciel6.col_input_Primal,1,1.0,-1,0.989473684211,-1,Primal
-DIMACS_myciel6.col_input_Primal,117,45.0,-1,0.526315789474,-1,Primal
-DIMACS_myciel6.col_input_Primal,216,95.0,-1,0.0,-1,Primal
-DIMACS_myciel6.col_input_Primal,309,95.0,-1,0.0,-1,Primal
-DIMACS_myciel6.col_input_Primal,419,95.0,-1,0.0,-1,Primal
-DIMACS_myciel6.col_input_Primal,508,95.0,95.0,0.0,0.0,Primal
-DIMACS_myciel6.col_input_Dual,1,-1,188.0,-1,0.978947368421,Dual
-DIMACS_myciel6.col_input_Dual,90,-1,24.0,-1,0.747368421053,Dual
-DIMACS_myciel6.col_input_Dual,117,-1,114.0,-1,0.2,Dual
-DIMACS_myciel6.col_input_Dual,225,-1,98.0,-1,0.0315789473684,Dual
-DIMACS_myciel6.col_input_Dual,268,95.0,95.0,0.0,0.0,Dual
-DIMACS_myciel6.col_input_Barrier,0,15100.0,0.0,157.947368421,1.0,Barrier
-DIMACS_myciel6.col_input_Barrier,1,1405.7531,63.027017,13.7974010526,0.336557715789,Barrier
-DIMACS_myciel6.col_input_Barrier,2,291.34905,83.429829,2.06683210526,0.121791273684,Barrier
-DIMACS_myciel6.col_input_Barrier,3,104.01293,93.083868,0.0948729473684,0.0201698105263,Barrier
-DIMACS_myciel6.col_input_Barrier,4,95.559961,94.872942,0.00589432631579,0.00133745263158,Barrier
-DIMACS_myciel6.col_input_Barrier,5,95.000508,94.999451,5.34736842101e-06,5.77894736849e-06,Barrier
-DIMACS_myciel6.col_input_Barrier,6,95.0,95.0,0.0,0.0,Barrier
-DIMACS_myciel6.col_input_Barrier,0,95.0,95.0,0.0,0.0,Barrier
-DIMACS_flat1000_60_0.col_input_Dual,1,-1,1.0,-1,0.999,Dual
-DIMACS_flat1000_60_0.col_input_Dual,366,-1,89.0,-1,0.911,Dual
-DIMACS_flat1000_60_0.col_input_Dual,1038,-1,691.0,-1,0.309,Dual
-DIMACS_flat1000_60_0.col_input_Dual,1806,-1,968.0,-1,0.032,Dual
-DIMACS_flat1000_60_0.col_input_Dual,2137,-1,998.0,-1,0.002,Dual
-DIMACS_flat1000_60_0.col_input_Dual,2203,-1,998.0,-1,0.002,Dual
-DIMACS_flat1000_60_0.col_input_Dual,2588,-1,1000.0,-1,0.0,Dual
-DIMACS_flat1000_60_0.col_input_Dual,2996,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_60_0.col_input_Dual,3354,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_60_0.col_input_Dual,3584,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_60_0.col_input_Dual,3836,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_flat1000_60_0.col_input_Dual,4056,1000.0,1000.0,0.0,0.0,Dual
-DIMACS_flat1000_60_0.col_input_Primal,1,1300.0,-1,0.3,-1,Primal
-DIMACS_flat1000_60_0.col_input_Primal,148,1000.0,-1,0.0,-1,Primal
-DIMACS_flat1000_60_0.col_input_Primal,148,1000.0,1000.0,0.0,0.0,Primal
-DIMACS_flat1000_60_0.col_input_Barrier,0,4916600.0,0.0,4915.6,1.0,Barrier
-DIMACS_flat1000_60_0.col_input_Barrier,1,428946.4,651.83863,427.9464,0.34816137,Barrier
-DIMACS_flat1000_60_0.col_input_Barrier,2,81728.95,831.08077,80.72895,0.16891923,Barrier
-DIMACS_flat1000_60_0.col_input_Barrier,3,1741.0532,999.83797,0.7410532,0.00016203,Barrier
-DIMACS_flat1000_60_0.col_input_Barrier,4,1012.2962,999.97439,0.0122962,2.561e-05,Barrier
-DIMACS_flat1000_60_0.col_input_Barrier,5,1000.0012,1000.0,1.20000000004e-06,0.0,Barrier
-DIMACS_flat1000_60_0.col_input_Barrier,6,1000.0,1000.0,0.0,0.0,Barrier
-DIMACS_flat1000_60_0.col_input_Barrier,0,1000.0,1000.0,0.0,0.0,Barrier
-DIMACS_myciel5.col_input_Primal,1,1.0,-1,0.978723404255,-1,Primal
-DIMACS_myciel5.col_input_Primal,79,45.0,-1,0.0425531914894,-1,Primal
-DIMACS_myciel5.col_input_Primal,148,47.0,-1,0.0,-1,Primal
-DIMACS_myciel5.col_input_Primal,217,47.0,-1,0.0,-1,Primal
-DIMACS_myciel5.col_input_Primal,231,47.0,47.0,0.0,0.0,Primal
-DIMACS_myciel5.col_input_Dual,1,-1,92.0,-1,0.957446808511,Dual
-DIMACS_myciel5.col_input_Dual,60,-1,56.0,-1,0.191489361702,Dual
-DIMACS_myciel5.col_input_Dual,123,47.0,47.0,0.0,0.0,Dual
-DIMACS_myciel5.col_input_Barrier,0,940.0,0.0,19.0,1.0,Barrier
-DIMACS_myciel5.col_input_Barrier,1,253.42131,76.378577,4.39194276596,0.625076106383,Barrier
-DIMACS_myciel5.col_input_Barrier,2,67.632467,55.634119,0.438988659574,0.183704659574,Barrier
-DIMACS_myciel5.col_input_Barrier,3,47.740602,49.224746,0.0157574893617,0.0473350212766,Barrier
-DIMACS_myciel5.col_input_Barrier,4,46.64422,47.203283,0.00756978723404,0.00432517021277,Barrier
-DIMACS_myciel5.col_input_Barrier,5,47.000227,47.026283,4.82978723409e-06,0.000559212765957,Barrier
-DIMACS_myciel5.col_input_Barrier,6,46.999998,47.000002,4.25531915331e-08,4.25531915331e-08,Barrier
-DIMACS_myciel5.col_input_Barrier,7,47.0,47.0,0.0,0.0,Barrier
-DIMACS_myciel5.col_input_Barrier,0,47.0,47.0,0.0,0.0,Barrier
-DIMACS_DSJC250.1.col_input_Dual,1,-1,1.0,-1,0.996,Dual
-DIMACS_DSJC250.1.col_input_Dual,96,-1,58.0,-1,0.768,Dual
-DIMACS_DSJC250.1.col_input_Dual,239,-1,186.0,-1,0.256,Dual
-DIMACS_DSJC250.1.col_input_Dual,383,-1,241.0,-1,0.036,Dual
-DIMACS_DSJC250.1.col_input_Dual,489,-1,250.0,-1,0.0,Dual
-DIMACS_DSJC250.1.col_input_Dual,551,-1,250.0,-1,0.0,Dual
-DIMACS_DSJC250.1.col_input_Dual,602,-1,250.0,-1,0.0,Dual
-DIMACS_DSJC250.1.col_input_Dual,666,-1,250.000001,-1,3.9999999899e-09,Dual
-DIMACS_DSJC250.1.col_input_Dual,728,-1,250.000001,-1,3.9999999899e-09,Dual
-DIMACS_DSJC250.1.col_input_Dual,790,-1,250.000002,-1,7.9999999798e-09,Dual
-DIMACS_DSJC250.1.col_input_Dual,794,250.0,250.0,0.0,0.0,Dual
-DIMACS_DSJC250.1.col_input_Dual,1,-1,498.0,-1,0.992,Dual
-DIMACS_DSJC250.1.col_input_Dual,196,-1,108.0,-1,0.568,Dual
-DIMACS_DSJC250.1.col_input_Dual,387,-1,253.0,-1,0.012,Dual
-DIMACS_DSJC250.1.col_input_Dual,543,250.0,250.0,0.0,0.0,Dual
-DIMACS_DSJC250.1.col_input_Barrier,0,64360.0,0.0,256.44,1.0,Barrier
-DIMACS_DSJC250.1.col_input_Barrier,1,5804.7343,163.80744,22.2189372,0.34477024,Barrier
-DIMACS_DSJC250.1.col_input_Barrier,2,1215.9571,210.96469,3.8638284,0.15614124,Barrier
-DIMACS_DSJC250.1.col_input_Barrier,3,330.21418,249.01385,0.32085672,0.0039446,Barrier
-DIMACS_DSJC250.1.col_input_Barrier,4,251.15127,249.94525,0.00460508,0.000219,Barrier
-DIMACS_DSJC250.1.col_input_Barrier,5,250.00011,249.99999,4.40000000026e-07,4.00000000127e-08,Barrier
-DIMACS_DSJC250.1.col_input_Barrier,6,250.0,250.0,0.0,0.0,Barrier
-DIMACS_DSJC250.1.col_input_Barrier,0,250.0,250.0,0.0,0.0,Barrier
-DIMACS_queen5_5.col_input_Primal,1,1.0,-1,0.96,-1,Primal
-DIMACS_queen5_5.col_input_Primal,52,25.0,25.0,0.0,0.0,Primal
-DIMACS_queen5_5.col_input_Dual,1,-1,48.0,-1,0.92,Dual
-DIMACS_queen5_5.col_input_Dual,28,-1,26.0,-1,0.04,Dual
-DIMACS_queen5_5.col_input_Dual,44,25.0,25.0,0.0,0.0,Dual
-DIMACS_queen5_5.col_input_Barrier,0,500.0,0.0,19.0,1.0,Barrier
-DIMACS_queen5_5.col_input_Barrier,1,38.325027,38.310693,0.53300108,0.53242772,Barrier
-DIMACS_queen5_5.col_input_Barrier,2,33.107822,32.951754,0.32431288,0.31807016,Barrier
-DIMACS_queen5_5.col_input_Barrier,3,25.079334,25.02576,0.00317336,0.0010304,Barrier
-DIMACS_queen5_5.col_input_Barrier,4,25.000009,25.000003,3.59999999944e-07,1.19999999981e-07,Barrier
-DIMACS_queen5_5.col_input_Barrier,5,25.0,25.0,0.0,0.0,Barrier
-DIMACS_queen5_5.col_input_Barrier,0,25.0,25.0,0.0,0.0,Barrier
-DIMACS_queen9_9.col_input_Primal,1,1.0,-1,0.987654320988,-1,Primal
-DIMACS_queen9_9.col_input_Primal,103,48.0,-1,0.407407407407,-1,Primal
-DIMACS_queen9_9.col_input_Primal,230,81.0,-1,0.0,-1,Primal
-DIMACS_queen9_9.col_input_Primal,259,81.0,81.0,0.0,0.0,Primal
-DIMACS_queen9_9.col_input_Dual,1,-1,160.0,-1,0.975308641975,Dual
-DIMACS_queen9_9.col_input_Dual,81,-1,2.0,-1,0.975308641975,Dual
-DIMACS_queen9_9.col_input_Dual,86,-1,83.0,-1,0.0246913580247,Dual
-DIMACS_queen9_9.col_input_Dual,164,81.0,81.0,0.0,0.0,Dual
-DIMACS_queen9_9.col_input_Barrier,0,21120.0,0.0,259.740740741,1.0,Barrier
-DIMACS_queen9_9.col_input_Barrier,1,1896.2129,53.126037,22.4100358025,0.344123,Barrier
-DIMACS_queen9_9.col_input_Barrier,2,398.08239,68.269121,3.91459740741,0.157171345679,Barrier
-DIMACS_queen9_9.col_input_Barrier,3,99.245358,80.645624,0.225251333333,0.00437501234568,Barrier
-DIMACS_queen9_9.col_input_Barrier,4,81.03756,80.998295,0.000463703703704,2.10493827161e-05,Barrier
-DIMACS_queen9_9.col_input_Barrier,5,81.000004,81.0,4.93827161001e-08,0.0,Barrier
-DIMACS_queen9_9.col_input_Barrier,0,81.0,81.0,0.0,0.0,Barrier
-DIMACS_queen7_7.col_input_Primal,1,1.0,-1,0.979591836735,-1,Primal
-DIMACS_queen7_7.col_input_Primal,80,49.0,-1,0.0,-1,Primal
-DIMACS_queen7_7.col_input_Primal,127,49.0,49.0,0.0,0.0,Primal
-DIMACS_queen7_7.col_input_Dual,1,-1,96.0,-1,0.959183673469,Dual
-DIMACS_queen7_7.col_input_Dual,54,-1,51.0,-1,0.0408163265306,Dual
-DIMACS_queen7_7.col_input_Dual,105,49.0,49.0,0.0,0.0,Dual
-DIMACS_queen7_7.col_input_Barrier,0,9520.0,0.0,193.285714286,1.0,Barrier
-DIMACS_queen7_7.col_input_Barrier,1,861.51336,32.228721,16.5819053061,0.342271,Barrier
-DIMACS_queen7_7.col_input_Barrier,2,187.74789,41.501594,2.83158959184,0.153028693878,Barrier
-DIMACS_queen7_7.col_input_Barrier,3,59.273441,48.716216,0.209662061224,0.00579151020408,Barrier
-DIMACS_queen7_7.col_input_Barrier,4,49.01006,48.998851,0.000205306122449,2.34489795918e-05,Barrier
-DIMACS_queen7_7.col_input_Barrier,5,49.000001,49.0,2.04081632138e-08,0.0,Barrier
-DIMACS_queen7_7.col_input_Barrier,0,49.0,49.0,0.0,0.0,Barrier
-DIMACS_miles1500.col_input_Dual,1,-1,1.0,-1,0.9921875,Dual
-DIMACS_miles1500.col_input_Dual,94,-1,49.0,-1,0.6171875,Dual
-DIMACS_miles1500.col_input_Dual,223,-1,120.0,-1,0.0625,Dual
-DIMACS_miles1500.col_input_Dual,310,-1,128.0,-1,0.0,Dual
-DIMACS_miles1500.col_input_Dual,374,-1,128.0,-1,0.0,Dual
-DIMACS_miles1500.col_input_Dual,405,-1,128.0,-1,0.0,Dual
-DIMACS_miles1500.col_input_Dual,441,128.0,128.0,0.0,0.0,Dual
-DIMACS_miles1500.col_input_Dual,1,-1,254.0,-1,0.984375,Dual
-DIMACS_miles1500.col_input_Dual,196,-1,1.0,-1,0.9921875,Dual
-DIMACS_miles1500.col_input_Dual,201,-1,129.0,-1,0.0078125,Dual
-DIMACS_miles1500.col_input_Dual,277,128.0,128.0,0.0,0.0,Dual
-DIMACS_miles1500.col_input_Barrier,0,103960.0,0.0,811.1875,1.0,Barrier
-DIMACS_miles1500.col_input_Barrier,1,9138.5564,83.658031,70.394971875,0.346421632813,Barrier
-DIMACS_miles1500.col_input_Barrier,2,1800.815,106.90539,13.0688671875,0.164801640625,Barrier
-DIMACS_miles1500.col_input_Barrier,3,236.0342,127.43896,0.8440171875,0.004383125,Barrier
-DIMACS_miles1500.col_input_Barrier,4,132.58693,127.93065,0.035835390625,0.000541796875,Barrier
-DIMACS_miles1500.col_input_Barrier,5,128.00128,127.99998,1.00000000001e-05,1.5625000005e-07,Barrier
-DIMACS_miles1500.col_input_Barrier,6,128.0,128.0,0.0,0.0,Barrier
-DIMACS_miles1500.col_input_Barrier,0,128.0,128.0,0.0,0.0,Barrier
-DIMACS_le450_15d.col_input_Dual,1,-1,1.0,-1,0.997777777778,Dual
-DIMACS_le450_15d.col_input_Dual,159,-1,48.0,-1,0.893333333333,Dual
-DIMACS_le450_15d.col_input_Dual,306,-1,140.0,-1,0.688888888889,Dual
-DIMACS_le450_15d.col_input_Dual,557,-1,346.0,-1,0.231111111111,Dual
-DIMACS_le450_15d.col_input_Dual,818,-1,436.0,-1,0.0311111111111,Dual
-DIMACS_le450_15d.col_input_Dual,1006,-1,450.0,-1,0.0,Dual
-DIMACS_le450_15d.col_input_Dual,1174,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_15d.col_input_Dual,1313,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_15d.col_input_Dual,1401,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_15d.col_input_Dual,1437,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_15d.col_input_Dual,1,-1,898.0,-1,0.995555555556,Dual
-DIMACS_le450_15d.col_input_Dual,358,-1,184.0,-1,0.591111111111,Dual
-DIMACS_le450_15d.col_input_Dual,713,-1,5.0,-1,0.988888888889,Dual
-DIMACS_le450_15d.col_input_Dual,777,-1,457.0,-1,0.0155555555556,Dual
-DIMACS_le450_15d.col_input_Dual,1012,-1,451.0,-1,0.00222222222222,Dual
-DIMACS_le450_15d.col_input_Dual,1122,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_15d.col_input_Barrier,0,335000.0,0.0,743.444444444,1.0,Barrier
-DIMACS_le450_15d.col_input_Barrier,1,29539.749,293.87295,64.6438866667,0.346949,Barrier
-DIMACS_le450_15d.col_input_Barrier,2,5843.3976,376.04236,11.985328,0.164350311111,Barrier
-DIMACS_le450_15d.col_input_Barrier,3,1054.9267,445.40609,1.34428155556,0.0102086888889,Barrier
-DIMACS_le450_15d.col_input_Barrier,4,493.27599,449.22432,0.0961688666667,0.00172373333333,Barrier
-DIMACS_le450_15d.col_input_Barrier,5,450.17856,449.99727,0.0003968,6.06666666663e-06,Barrier
-DIMACS_le450_15d.col_input_Barrier,6,450.00003,450.0,6.66666666247e-08,0.0,Barrier
-DIMACS_le450_15d.col_input_Barrier,0,450.0,450.0,0.0,0.0,Barrier
-DIMACS_queen12_12.col_input_Dual,1,-1,1.0,-1,0.993055555556,Dual
-DIMACS_queen12_12.col_input_Dual,84,-1,33.0,-1,0.770833333333,Dual
-DIMACS_queen12_12.col_input_Dual,184,-1,111.0,-1,0.229166666667,Dual
-DIMACS_queen12_12.col_input_Dual,261,-1,131.0,-1,0.0902777777778,Dual
-DIMACS_queen12_12.col_input_Dual,323,-1,142.0,-1,0.0138888888889,Dual
-DIMACS_queen12_12.col_input_Dual,385,-1,144.0,-1,0.0,Dual
-DIMACS_queen12_12.col_input_Dual,448,-1,144.0,-1,0.0,Dual
-DIMACS_queen12_12.col_input_Dual,506,-1,144.0,-1,0.0,Dual
-DIMACS_queen12_12.col_input_Dual,525,144.0,144.0,0.0,0.0,Dual
-DIMACS_queen12_12.col_input_Dual,1,-1,286.0,-1,0.986111111111,Dual
-DIMACS_queen12_12.col_input_Dual,162,-1,3.0,-1,0.979166666667,Dual
-DIMACS_queen12_12.col_input_Dual,195,-1,144.0,-1,0.0,Dual
-DIMACS_queen12_12.col_input_Dual,195,144.0,144.0,0.0,0.0,Dual
-DIMACS_queen12_12.col_input_Barrier,0,51920.0,0.0,359.555555556,1.0,Barrier
-DIMACS_queen12_12.col_input_Barrier,1,4627.7801,94.244637,31.1373618056,0.345523354167,Barrier
-DIMACS_queen12_12.col_input_Barrier,2,942.98725,120.87974,5.54852256944,0.160557361111,Barrier
-DIMACS_queen12_12.col_input_Barrier,3,178.17218,143.57312,0.237306805556,0.00296444444444,Barrier
-DIMACS_queen12_12.col_input_Barrier,4,144.12676,143.99651,0.000880277777778,2.42361111111e-05,Barrier
-DIMACS_queen12_12.col_input_Barrier,5,144.00001,144.0,6.94444444665e-08,0.0,Barrier
-DIMACS_queen12_12.col_input_Barrier,0,144.0,144.0,0.0,0.0,Barrier
-DIMACS_myciel4.col_input_Primal,1,1.0,-1,0.95652173913,-1,Primal
-DIMACS_myciel4.col_input_Primal,62,23.0,-1,0.0,-1,Primal
-DIMACS_myciel4.col_input_Primal,66,23.0,23.0,0.0,0.0,Primal
-DIMACS_myciel4.col_input_Dual,1,-1,44.0,-1,0.913043478261,Dual
-DIMACS_myciel4.col_input_Dual,28,-1,26.0,-1,0.130434782609,Dual
-DIMACS_myciel4.col_input_Dual,57,23.0,23.0,0.0,0.0,Dual
-DIMACS_myciel4.col_input_Barrier,0,460.0,0.0,19.0,1.0,Barrier
-DIMACS_myciel4.col_input_Barrier,1,97.628249,38.207743,3.24470647826,0.661206217391,Barrier
-DIMACS_myciel4.col_input_Barrier,2,30.477422,26.067105,0.325105304348,0.133352391304,Barrier
-DIMACS_myciel4.col_input_Barrier,3,22.91818,24.069311,0.00355739130435,0.0464917826087,Barrier
-DIMACS_myciel4.col_input_Barrier,4,22.836807,23.099547,0.00709534782609,0.00432813043478,Barrier
-DIMACS_myciel4.col_input_Barrier,5,22.999833,23.003176,7.26086956527e-06,0.000138086956522,Barrier
-DIMACS_myciel4.col_input_Barrier,6,23.0,23.0,0.0,0.0,Barrier
-DIMACS_myciel4.col_input_Barrier,0,23.0,23.0,0.0,0.0,Barrier
-DIMACS_anna.col_input_Primal,1,149.0,-1,0.107784431138,-1,Primal
-DIMACS_anna.col_input_Primal,50,167.0,167.0,0.0,0.0,Primal
-DIMACS_anna.col_input_Dual,1,-1,185.0,-1,0.107784431138,Dual
-DIMACS_anna.col_input_Dual,41,167.0,167.0,0.0,0.0,Dual
-DIMACS_anna.col_input_Barrier,0,528.0,224.0,2.16167664671,0.341317365269,Barrier
-DIMACS_anna.col_input_Barrier,1,195.19606,195.18721,0.168838682635,0.168785688623,Barrier
-DIMACS_anna.col_input_Barrier,2,169.79325,171.9593,0.0167260479042,0.0296964071856,Barrier
-DIMACS_anna.col_input_Barrier,3,167.01766,167.0358,0.000105748502994,0.000214371257485,Barrier
-DIMACS_anna.col_input_Barrier,4,167.0,167.0,0.0,0.0,Barrier
-DIMACS_anna.col_input_Barrier,5,167.0,167.0,0.0,0.0,Barrier
-DIMACS_anna.col_input_Barrier,0,167.0,167.0,0.0,0.0,Barrier
-DIMACS_queen15_15.col_input_Dual,1,-1,1.0,-1,0.995555555556,Dual
-DIMACS_queen15_15.col_input_Dual,119,-1,77.0,-1,0.657777777778,Dual
-DIMACS_queen15_15.col_input_Dual,290,-1,193.0,-1,0.142222222222,Dual
-DIMACS_queen15_15.col_input_Dual,419,-1,225.0,-1,0.0,Dual
-DIMACS_queen15_15.col_input_Dual,481,-1,225.0,-1,0.0,Dual
-DIMACS_queen15_15.col_input_Dual,506,-1,225.0,-1,0.0,Dual
-DIMACS_queen15_15.col_input_Dual,568,-1,225.0,-1,0.0,Dual
-DIMACS_queen15_15.col_input_Dual,639,-1,225.000001,-1,4.44444443322e-09,Dual
-DIMACS_queen15_15.col_input_Dual,682,225.0,225.0,0.0,0.0,Dual
-DIMACS_queen15_15.col_input_Dual,1,-1,448.0,-1,0.991111111111,Dual
-DIMACS_queen15_15.col_input_Dual,217,-1,40.0,-1,0.822222222222,Dual
-DIMACS_queen15_15.col_input_Dual,357,-1,229.0,-1,0.0177777777778,Dual
-DIMACS_queen15_15.col_input_Dual,507,225.0,225.0,0.0,0.0,Dual
-DIMACS_queen15_15.col_input_Barrier,0,103600.0,0.0,459.444444444,1.0,Barrier
-DIMACS_queen15_15.col_input_Barrier,1,9192.8772,147.09105,39.857232,0.346262,Barrier
-DIMACS_queen15_15.col_input_Barrier,2,1842.3836,188.43937,7.18837155556,0.162491688889,Barrier
-DIMACS_queen15_15.col_input_Barrier,3,279.58797,224.54258,0.2426132,0.00203297777778,Barrier
-DIMACS_queen15_15.col_input_Barrier,4,225.2736,224.99402,0.001216,2.65777777778e-05,Barrier
-DIMACS_queen15_15.col_input_Barrier,5,225.00003,225.0,1.33333333376e-07,0.0,Barrier
-DIMACS_queen15_15.col_input_Barrier,0,225.0,225.0,0.0,0.0,Barrier
-DIMACS_DSJC500.1.col_input_Dual,1,-1,1.0,-1,0.998,Dual
-DIMACS_DSJC500.1.col_input_Dual,212,-1,165.0,-1,0.67,Dual
-DIMACS_DSJC500.1.col_input_Dual,473,-1,396.0,-1,0.208,Dual
-DIMACS_DSJC500.1.col_input_Dual,720,-1,482.0,-1,0.036,Dual
-DIMACS_DSJC500.1.col_input_Dual,834,-1,492.0,-1,0.016,Dual
-DIMACS_DSJC500.1.col_input_Dual,905,-1,492.0,-1,0.016,Dual
-DIMACS_DSJC500.1.col_input_Dual,1024,-1,500.000002,-1,3.9999999899e-09,Dual
-DIMACS_DSJC500.1.col_input_Dual,1112,-1,500.000002,-1,3.9999999899e-09,Dual
-DIMACS_DSJC500.1.col_input_Dual,1199,-1,500.000003,-1,5.99999998485e-09,Dual
-DIMACS_DSJC500.1.col_input_Dual,1290,-1,500.000004,-1,7.9999999798e-09,Dual
-DIMACS_DSJC500.1.col_input_Dual,1381,-1,500.000004,-1,7.9999999798e-09,Dual
-DIMACS_DSJC500.1.col_input_Dual,1456,-1,500.000004,-1,7.9999999798e-09,Dual
-DIMACS_DSJC500.1.col_input_Dual,1530,-1,500.000004,-1,7.9999999798e-09,Dual
-DIMACS_DSJC500.1.col_input_Dual,1536,500.0,500.0,0.0,0.0,Dual
-DIMACS_DSJC500.1.col_input_Dual,1,-1,998.0,-1,0.996,Dual
-DIMACS_DSJC500.1.col_input_Dual,119,-1,22.0,-1,0.956,Dual
-DIMACS_DSJC500.1.col_input_Dual,174,-1,504.0,-1,0.008,Dual
-DIMACS_DSJC500.1.col_input_Dual,364,500.0,500.0,0.0,0.0,Dual
-DIMACS_DSJC500.1.col_input_Barrier,0,249160.0,0.0,497.32,1.0,Barrier
-DIMACS_DSJC500.1.col_input_Barrier,1,22098.707,326.68957,43.197414,0.34662086,Barrier
-DIMACS_DSJC500.1.col_input_Barrier,2,4411.3579,418.57557,7.8227158,0.16284886,Barrier
-DIMACS_DSJC500.1.col_input_Barrier,3,685.15592,499.35323,0.37031184,0.00129354,Barrier
-DIMACS_DSJC500.1.col_input_Barrier,4,502.09725,499.94562,0.0041945,0.00010876,Barrier
-DIMACS_DSJC500.1.col_input_Barrier,5,500.00025,499.99999,4.99999999988e-07,1.99999999495e-08,Barrier
-DIMACS_DSJC500.1.col_input_Barrier,6,500.0,500.0,0.0,0.0,Barrier
-DIMACS_DSJC500.1.col_input_Barrier,0,500.0,500.0,0.0,0.0,Barrier
-DIMACS_queen11_11.col_input_Primal,1,1.0,-1,0.99173553719,-1,Primal
-DIMACS_queen11_11.col_input_Primal,125,43.0,-1,0.644628099174,-1,Primal
-DIMACS_queen11_11.col_input_Primal,276,121.0,-1,0.0,-1,Primal
-DIMACS_queen11_11.col_input_Primal,379,121.0,121.0,0.0,0.0,Primal
-DIMACS_queen11_11.col_input_Dual,1,-1,240.0,-1,0.98347107438,Dual
-DIMACS_queen11_11.col_input_Dual,99,-1,44.0,-1,0.636363636364,Dual
-DIMACS_queen11_11.col_input_Dual,124,-1,122.0,-1,0.00826446280992,Dual
-DIMACS_queen11_11.col_input_Dual,175,-1,122.0,-1,0.00826446280992,Dual
-DIMACS_queen11_11.col_input_Dual,219,121.0,121.0,0.0,0.0,Dual
-DIMACS_queen11_11.col_input_Barrier,0,39600.0,0.0,326.272727273,1.0,Barrier
-DIMACS_queen11_11.col_input_Barrier,1,3536.7607,79.235368,28.2294272727,0.345162247934,Barrier
-DIMACS_queen11_11.col_input_Barrier,2,726.36325,101.6818,5.00300206612,0.159654545455,Barrier
-DIMACS_queen11_11.col_input_Barrier,3,149.35009,120.59252,0.234298264463,0.00336760330579,Barrier
-DIMACS_queen11_11.col_input_Barrier,4,121.09042,120.9973,0.000747272727273,2.23140495868e-05,Barrier
-DIMACS_queen11_11.col_input_Barrier,5,121.00001,121.0,8.26446281254e-08,0.0,Barrier
-DIMACS_queen11_11.col_input_Barrier,0,121.0,121.0,0.0,0.0,Barrier
-DIMACS_school1_nsh.col_input_Dual,1,-1,9.0,-1,0.974431818182,Dual
-DIMACS_school1_nsh.col_input_Dual,200,-1,158.0,-1,0.551136363636,Dual
-DIMACS_school1_nsh.col_input_Dual,445,-1,305.0,-1,0.133522727273,Dual
-DIMACS_school1_nsh.col_input_Dual,629,-1,345.0,-1,0.0198863636364,Dual
-DIMACS_school1_nsh.col_input_Dual,719,-1,345.0,-1,0.0198863636364,Dual
-DIMACS_school1_nsh.col_input_Dual,818,-1,348.0,-1,0.0113636363636,Dual
-DIMACS_school1_nsh.col_input_Dual,916,-1,350.0,-1,0.00568181818182,Dual
-DIMACS_school1_nsh.col_input_Dual,1030,-1,351.0,-1,0.00284090909091,Dual
-DIMACS_school1_nsh.col_input_Dual,1102,-1,351.0,-1,0.00284090909091,Dual
-DIMACS_school1_nsh.col_input_Dual,1184,-1,351.0,-1,0.00284090909091,Dual
-DIMACS_school1_nsh.col_input_Dual,1262,-1,352.0,-1,0.0,Dual
-DIMACS_school1_nsh.col_input_Dual,1350,-1,352.000001,-1,2.84090908374e-09,Dual
-DIMACS_school1_nsh.col_input_Dual,1442,-1,352.000001,-1,2.84090908374e-09,Dual
-DIMACS_school1_nsh.col_input_Dual,1470,352.0,352.0,0.0,0.0,Dual
-DIMACS_school1_nsh.col_input_Dual,1,-1,686.0,-1,0.948863636364,Dual
-DIMACS_school1_nsh.col_input_Dual,328,-1,92.0,-1,0.738636363636,Dual
-DIMACS_school1_nsh.col_input_Dual,621,-1,11.999998,-1,0.965909096591,Dual
-DIMACS_school1_nsh.col_input_Dual,677,-1,360.0,-1,0.0227272727273,Dual
-DIMACS_school1_nsh.col_input_Dual,862,352.0,352.0,0.0,0.0,Dual
-DIMACS_school1_nsh.col_input_Barrier,0,292168.0,8.0,829.022727273,0.977272727273,Barrier
-DIMACS_school1_nsh.col_input_Barrier,1,25790.116,232.99925,72.267375,0.3380703125,Barrier
-DIMACS_school1_nsh.col_input_Barrier,2,4990.7031,293.91502,13.1781338068,0.165014147727,Barrier
-DIMACS_school1_nsh.col_input_Barrier,3,1158.194,344.2189,2.29032386364,0.0221053977273,Barrier
-DIMACS_school1_nsh.col_input_Barrier,4,459.11006,350.79861,0.304289943182,0.00341303977273,Barrier
-DIMACS_school1_nsh.col_input_Barrier,5,357.36597,351.92277,0.0152442329545,0.000219403409091,Barrier
-DIMACS_school1_nsh.col_input_Barrier,6,352.00053,351.99999,1.50568181826e-06,2.84090908374e-08,Barrier
-DIMACS_school1_nsh.col_input_Barrier,7,352.0,352.0,0.0,0.0,Barrier
-DIMACS_school1_nsh.col_input_Barrier,0,352.0,352.0,0.0,0.0,Barrier
-DIMACS_DSJC1000.9.col_input_Dual,1,-1,1.0,-1,0.999,Dual
-DIMACS_DSJC1000.9.col_input_Dual,915,-1,682.0,-1,0.318,Dual
-DIMACS_DSJC1000.9.col_input_Dual,1952,-1,992.0,-1,0.008,Dual
-DIMACS_DSJC1000.9.col_input_Dual,2304,-1,1000.0,-1,0.0,Dual
-DIMACS_DSJC1000.9.col_input_Dual,2652,-1,1000.0,-1,0.0,Dual
-DIMACS_DSJC1000.9.col_input_Dual,3066,-1,1000.0,-1,0.0,Dual
-DIMACS_DSJC1000.9.col_input_Dual,3405,-1,1000.0,-1,0.0,Dual
-DIMACS_DSJC1000.9.col_input_Dual,3749,-1,1000.0,-1,0.0,Dual
-DIMACS_DSJC1000.9.col_input_Dual,4040,-1,1000.0,-1,0.0,Dual
-DIMACS_DSJC1000.9.col_input_Dual,4117,1000.0,1000.0,0.0,0.0,Dual
-DIMACS_DSJC1000.9.col_input_Primal,1,1329.0,-1,0.329,-1,Primal
-DIMACS_DSJC1000.9.col_input_Primal,153,1000.0,-1,0.0,-1,Primal
-DIMACS_DSJC1000.9.col_input_Primal,153,1000.0,1000.0,0.0,0.0,Primal
-DIMACS_DSJC1000.9.col_input_Barrier,0,8988980.0,0.0,8987.98,1.0,Barrier
-DIMACS_DSJC1000.9.col_input_Barrier,1,783565.06,651.76846,782.56506,0.34823154,Barrier
-DIMACS_DSJC1000.9.col_input_Barrier,2,148956.19,830.7776,147.95619,0.1692224,Barrier
-DIMACS_DSJC1000.9.col_input_Barrier,3,1856.2467,999.94578,0.8562467,5.422e-05,Barrier
-DIMACS_DSJC1000.9.col_input_Barrier,4,1009.3765,999.98933,0.0093765,1.067e-05,Barrier
-DIMACS_DSJC1000.9.col_input_Barrier,5,1000.0009,1000.0,9.00000000001e-07,0.0,Barrier
-DIMACS_DSJC1000.9.col_input_Barrier,6,1000.0,1000.0,0.0,0.0,Barrier
-DIMACS_DSJC1000.9.col_input_Barrier,0,1000.0,1000.0,0.0,0.0,Barrier
-DIMACS_DSJR500.1c.col_input_Dual,1,-1,1.0,-1,0.998,Dual
-DIMACS_DSJR500.1c.col_input_Dual,461,-1,321.0,-1,0.358,Dual
-DIMACS_DSJR500.1c.col_input_Dual,943,-1,482.0,-1,0.036,Dual
-DIMACS_DSJR500.1c.col_input_Dual,1187,-1,500.0,-1,0.0,Dual
-DIMACS_DSJR500.1c.col_input_Dual,1203,-1,500.0,-1,0.0,Dual
-DIMACS_DSJR500.1c.col_input_Dual,1495,-1,500.0,-1,0.0,Dual
-DIMACS_DSJR500.1c.col_input_Dual,1718,-1,500.0,-1,0.0,Dual
-DIMACS_DSJR500.1c.col_input_Dual,1919,-1,500.0,-1,0.0,Dual
-DIMACS_DSJR500.1c.col_input_Dual,2009,500.0,500.0,0.0,0.0,Dual
-DIMACS_DSJR500.1c.col_input_Dual,1,-1,998.0,-1,0.996,Dual
-DIMACS_DSJR500.1c.col_input_Dual,124,-1,500.0,-1,0.0,Dual
-DIMACS_DSJR500.1c.col_input_Dual,124,500.0,500.0,0.0,0.0,Dual
-DIMACS_DSJR500.1c.col_input_Barrier,0,2425500.0,0.0,4850.0,1.0,Barrier
-DIMACS_DSJR500.1c.col_input_Barrier,1,211545.49,325.97805,422.09098,0.3480439,Barrier
-DIMACS_DSJR500.1c.col_input_Barrier,2,40351.045,415.54437,79.70209,0.16891126,Barrier
-DIMACS_DSJR500.1c.col_input_Barrier,3,806.02262,499.97732,0.61204524,4.536e-05,Barrier
-DIMACS_DSJR500.1c.col_input_Barrier,4,501.50183,499.99685,0.00300366,6.30000000001e-06,Barrier
-DIMACS_DSJR500.1c.col_input_Barrier,5,500.0002,500.0,4.00000000013e-07,0.0,Barrier
-DIMACS_DSJR500.1c.col_input_Barrier,0,500.0,500.0,0.0,0.0,Barrier
-DIMACS_DSJC1000.1.col_input_Dual,1,-1,1.0,-1,0.999,Dual
-DIMACS_DSJC1000.1.col_input_Dual,251,-1,73.0,-1,0.927,Dual
-DIMACS_DSJC1000.1.col_input_Dual,420,-1,109.0,-1,0.891,Dual
-DIMACS_DSJC1000.1.col_input_Dual,751,-1,404.0,-1,0.596,Dual
-DIMACS_DSJC1000.1.col_input_Dual,1178,-1,776.0,-1,0.224,Dual
-DIMACS_DSJC1000.1.col_input_Dual,1632,-1,948.0,-1,0.052,Dual
-DIMACS_DSJC1000.1.col_input_Dual,2034,-1,1000.0,-1,0.0,Dual
-DIMACS_DSJC1000.1.col_input_Dual,2102,-1,1000.0,-1,0.0,Dual
-DIMACS_DSJC1000.1.col_input_Dual,2276,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_DSJC1000.1.col_input_Dual,2577,-1,1000.000002,-1,1.99999999495e-09,Dual
-DIMACS_DSJC1000.1.col_input_Dual,2818,-1,1000.000003,-1,2.99999999243e-09,Dual
-DIMACS_DSJC1000.1.col_input_Dual,2992,-1,1000.000003,-1,2.99999999243e-09,Dual
-DIMACS_DSJC1000.1.col_input_Dual,3144,-1,1000.000004,-1,3.9999999899e-09,Dual
-DIMACS_DSJC1000.1.col_input_Dual,3285,-1,1000.000004,-1,3.9999999899e-09,Dual
-DIMACS_DSJC1000.1.col_input_Dual,3442,-1,1000.000004,-1,3.9999999899e-09,Dual
-DIMACS_DSJC1000.1.col_input_Dual,3562,-1,1000.000004,-1,3.9999999899e-09,Dual
-DIMACS_DSJC1000.1.col_input_Dual,3601,1000.0,1000.0,0.0,0.0,Dual
-DIMACS_DSJC1000.1.col_input_Primal,1,1286.0,-1,0.286,-1,Primal
-DIMACS_DSJC1000.1.col_input_Primal,143,1002.0,-1,0.002,-1,Primal
-DIMACS_DSJC1000.1.col_input_Primal,395,1000.0,1000.0,0.0,0.0,Primal
-DIMACS_DSJC1000.1.col_input_Barrier,0,992580.0,0.0,991.58,1.0,Barrier
-DIMACS_DSJC1000.1.col_input_Barrier,1,87250.182,652.46407,86.250182,0.34753593,Barrier
-DIMACS_DSJC1000.1.col_input_Barrier,2,16978.743,833.76338,15.978743,0.16623662,Barrier
-DIMACS_DSJC1000.1.col_input_Barrier,3,1614.2658,998.57534,0.6142658,0.00142466,Barrier
-DIMACS_DSJC1000.1.col_input_Barrier,4,1016.1365,999.7992,0.0161365,0.0002008,Barrier
-DIMACS_DSJC1000.1.col_input_Barrier,5,1000.0095,999.99988,9.5e-06,1.20000000038e-07,Barrier
-DIMACS_DSJC1000.1.col_input_Barrier,6,1000.0,1000.0,0.0,0.0,Barrier
-DIMACS_DSJC1000.1.col_input_Barrier,0,1000.0,1000.0,0.0,0.0,Barrier
-DIMACS_queen8_12.col_input_Primal,1,1.0,-1,0.989583333333,-1,Primal
-DIMACS_queen8_12.col_input_Primal,112,53.0,-1,0.447916666667,-1,Primal
-DIMACS_queen8_12.col_input_Primal,239,96.0,-1,0.0,-1,Primal
-DIMACS_queen8_12.col_input_Primal,306,96.0,96.0,0.0,0.0,Primal
-DIMACS_queen8_12.col_input_Dual,1,-1,190.0,-1,0.979166666667,Dual
-DIMACS_queen8_12.col_input_Dual,88,-1,16.0,-1,0.833333333333,Dual
-DIMACS_queen8_12.col_input_Dual,99,-1,97.0,-1,0.0104166666667,Dual
-DIMACS_queen8_12.col_input_Dual,113,96.0,96.0,0.0,0.0,Dual
-DIMACS_queen8_12.col_input_Barrier,0,27360.0,0.0,284.0,1.0,Barrier
-DIMACS_queen8_12.col_input_Barrier,1,2451.3428,62.920336,24.5348208333,0.344579833333,Barrier
-DIMACS_queen8_12.col_input_Barrier,2,510.0553,80.812304,4.31307604167,0.158205166667,Barrier
-DIMACS_queen8_12.col_input_Barrier,3,117.7974,95.661459,0.22705625,0.00352646875,Barrier
-DIMACS_queen8_12.col_input_Barrier,4,96.076548,95.997312,0.000797375,2.80000000001e-05,Barrier
-DIMACS_queen8_12.col_input_Barrier,5,96.000008,96.0,8.3333333271e-08,0.0,Barrier
-DIMACS_queen8_12.col_input_Barrier,0,96.0,96.0,0.0,0.0,Barrier
-DIMACS_DSJC125.9.col_input_Dual,1,-1,1.0,-1,0.992,Dual
-DIMACS_DSJC125.9.col_input_Dual,121,-1,74.0,-1,0.408,Dual
-DIMACS_DSJC125.9.col_input_Dual,262,-1,125.0,-1,0.0,Dual
-DIMACS_DSJC125.9.col_input_Dual,336,-1,125.0,-1,0.0,Dual
-DIMACS_DSJC125.9.col_input_Dual,405,-1,125.0,-1,0.0,Dual
-DIMACS_DSJC125.9.col_input_Dual,473,-1,125.0,-1,0.0,Dual
-DIMACS_DSJC125.9.col_input_Dual,474,125.0,125.0,0.0,0.0,Dual
-DIMACS_DSJC125.9.col_input_Dual,1,-1,248.0,-1,0.984,Dual
-DIMACS_DSJC125.9.col_input_Dual,196,-1,126.0,-1,0.008,Dual
-DIMACS_DSJC125.9.col_input_Dual,226,125.0,125.0,0.0,0.0,Dual
-DIMACS_DSJC125.9.col_input_Barrier,0,139220.0,0.0,1112.76,1.0,Barrier
-DIMACS_DSJC125.9.col_input_Barrier,1,12194.698,81.645759,96.557584,0.346833928,Barrier
-DIMACS_DSJC125.9.col_input_Barrier,2,2380.8181,104.16934,18.0465448,0.16664528,Barrier
-DIMACS_DSJC125.9.col_input_Barrier,3,158.09696,124.99753,0.26477568,1.976e-05,Barrier
-DIMACS_DSJC125.9.col_input_Barrier,4,125.01677,124.99987,0.00013416,1.03999999999e-06,Barrier
-DIMACS_DSJC125.9.col_input_Barrier,5,125.0,125.0,0.0,0.0,Barrier
-DIMACS_DSJC125.9.col_input_Barrier,0,125.0,125.0,0.0,0.0,Barrier
-DIMACS_DSJC500.9.col_input_Dual,1,-1,1.0,-1,0.998,Dual
-DIMACS_DSJC500.9.col_input_Dual,267,-1,106.0,-1,0.788,Dual
-DIMACS_DSJC500.9.col_input_Dual,816,-1,460.0,-1,0.08,Dual
-DIMACS_DSJC500.9.col_input_Dual,1128,-1,499.0,-1,0.002,Dual
-DIMACS_DSJC500.9.col_input_Dual,1203,-1,499.0,-1,0.002,Dual
-DIMACS_DSJC500.9.col_input_Dual,1412,-1,500.0,-1,0.0,Dual
-DIMACS_DSJC500.9.col_input_Dual,1654,-1,500.0,-1,0.0,Dual
-DIMACS_DSJC500.9.col_input_Dual,1875,-1,500.0,-1,0.0,Dual
-DIMACS_DSJC500.9.col_input_Dual,1948,500.0,500.0,0.0,0.0,Dual
-DIMACS_DSJC500.9.col_input_Dual,1,-1,998.0,-1,0.996,Dual
-DIMACS_DSJC500.9.col_input_Dual,125,-1,500.0,-1,0.0,Dual
-DIMACS_DSJC500.9.col_input_Dual,125,500.0,500.0,0.0,0.0,Dual
-DIMACS_DSJC500.9.col_input_Barrier,0,2248740.0,0.0,4496.48,1.0,Barrier
-DIMACS_DSJC500.9.col_input_Barrier,1,196158.54,325.98422,391.31708,0.34803156,Barrier
-DIMACS_DSJC500.9.col_input_Barrier,2,37431.601,415.57105,73.863202,0.1688579,Barrier
-DIMACS_DSJC500.9.col_input_Barrier,3,815.80873,499.9565,0.63161746,8.7e-05,Barrier
-DIMACS_DSJC500.9.col_input_Barrier,4,502.64622,499.994,0.00529244,1.19999999999e-05,Barrier
-DIMACS_DSJC500.9.col_input_Barrier,5,500.00027,500.0,5.40000000001e-07,0.0,Barrier
-DIMACS_DSJC500.9.col_input_Barrier,6,500.0,500.0,0.0,0.0,Barrier
-DIMACS_DSJC500.9.col_input_Barrier,0,500.0,500.0,0.0,0.0,Barrier
-DIMACS_le450_5b.col_input_Dual,1,-1,1.0,-1,0.997777777778,Dual
-DIMACS_le450_5b.col_input_Dual,164,-1,121.0,-1,0.731111111111,Dual
-DIMACS_le450_5b.col_input_Dual,369,-1,310.0,-1,0.311111111111,Dual
-DIMACS_le450_5b.col_input_Dual,577,-1,420.0,-1,0.0666666666667,Dual
-DIMACS_le450_5b.col_input_Dual,755,-1,449.0,-1,0.00222222222222,Dual
-DIMACS_le450_5b.col_input_Dual,874,-1,450.0,-1,0.0,Dual
-DIMACS_le450_5b.col_input_Dual,944,-1,450.0,-1,0.0,Dual
-DIMACS_le450_5b.col_input_Dual,1006,-1,450.0,-1,0.0,Dual
-DIMACS_le450_5b.col_input_Dual,1068,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_5b.col_input_Dual,1147,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_5b.col_input_Dual,1222,-1,450.000002,-1,4.44444443322e-09,Dual
-DIMACS_le450_5b.col_input_Dual,1296,-1,450.000003,-1,6.66666664983e-09,Dual
-DIMACS_le450_5b.col_input_Dual,1362,-1,450.000004,-1,8.88888886645e-09,Dual
-DIMACS_le450_5b.col_input_Dual,1429,-1,450.000004,-1,8.88888886645e-09,Dual
-DIMACS_le450_5b.col_input_Dual,1440,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_5b.col_input_Dual,1,-1,898.0,-1,0.995555555556,Dual
-DIMACS_le450_5b.col_input_Dual,262,-1,376.0,-1,0.164444444444,Dual
-DIMACS_le450_5b.col_input_Dual,531,-1,12.0,-1,0.973333333333,Dual
-DIMACS_le450_5b.col_input_Dual,748,-1,454.0,-1,0.00888888888889,Dual
-DIMACS_le450_5b.col_input_Dual,941,-1,451.0,-1,0.00222222222222,Dual
-DIMACS_le450_5b.col_input_Dual,993,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_5b.col_input_Barrier,0,114680.0,0.0,253.844444444,1.0,Barrier
-DIMACS_le450_5b.col_input_Barrier,1,10354.296,294.77011,22.0095466667,0.344955311111,Barrier
-DIMACS_le450_5b.col_input_Barrier,2,2167.5207,379.75108,3.81671266667,0.156108711111,Barrier
-DIMACS_le450_5b.col_input_Barrier,3,587.54558,448.48026,0.305656844444,0.0033772,Barrier
-DIMACS_le450_5b.col_input_Barrier,4,451.77353,449.92076,0.00394117777778,0.000176088888889,Barrier
-DIMACS_le450_5b.col_input_Barrier,5,450.00018,449.99999,4.00000000001e-07,2.22222221661e-08,Barrier
-DIMACS_le450_5b.col_input_Barrier,6,450.0,450.0,0.0,0.0,Barrier
-DIMACS_le450_5b.col_input_Barrier,0,450.0,450.0,0.0,0.0,Barrier
-DIMACS_queen14_14.col_input_Dual,1,-1,1.0,-1,0.994897959184,Dual
-DIMACS_queen14_14.col_input_Dual,100,-1,57.0,-1,0.709183673469,Dual
-DIMACS_queen14_14.col_input_Dual,233,-1,151.0,-1,0.229591836735,Dual
-DIMACS_queen14_14.col_input_Dual,356,-1,189.0,-1,0.0357142857143,Dual
-DIMACS_queen14_14.col_input_Dual,430,-1,196.0,-1,0.0,Dual
-DIMACS_queen14_14.col_input_Dual,498,-1,196.0,-1,0.0,Dual
-DIMACS_queen14_14.col_input_Dual,565,-1,196.0,-1,0.0,Dual
-DIMACS_queen14_14.col_input_Dual,602,-1,196.0,-1,0.0,Dual
-DIMACS_queen14_14.col_input_Dual,660,196.0,196.0,0.0,0.0,Dual
-DIMACS_queen14_14.col_input_Dual,1,-1,390.0,-1,0.989795918367,Dual
-DIMACS_queen14_14.col_input_Dual,198,-1,38.0,-1,0.80612244898,Dual
-DIMACS_queen14_14.col_input_Dual,346,-1,201.0,-1,0.0255102040816,Dual
-DIMACS_queen14_14.col_input_Dual,414,196.0,196.0,0.0,0.0,Dual
-DIMACS_queen14_14.col_input_Barrier,0,83720.0,0.0,426.142857143,1.0,Barrier
-DIMACS_queen14_14.col_input_Barrier,1,7438.4169,128.17247,36.9511066327,0.346058826531,Barrier
-DIMACS_queen14_14.col_input_Barrier,2,1497.698,164.25856,6.64131632653,0.161946122449,Barrier
-DIMACS_queen14_14.col_input_Barrier,3,243.30191,195.5482,0.24133627551,0.00230510204082,Barrier
-DIMACS_queen14_14.col_input_Barrier,4,196.21923,195.99484,0.00111852040816,2.63265306122e-05,Barrier
-DIMACS_queen14_14.col_input_Barrier,5,196.00002,196.0,1.02040816359e-07,0.0,Barrier
-DIMACS_queen14_14.col_input_Barrier,0,196.0,196.0,0.0,0.0,Barrier
-DIMACS_miles500.col_input_Primal,1,1.0,-1,0.9921875,-1,Primal
-DIMACS_miles500.col_input_Primal,128,42.0,-1,0.671875,-1,Primal
-DIMACS_miles500.col_input_Primal,269,128.0,-1,0.0,-1,Primal
-DIMACS_miles500.col_input_Primal,382,128.0,-1,0.0,-1,Primal
-DIMACS_miles500.col_input_Primal,442,128.0,128.0,0.0,0.0,Primal
-DIMACS_miles500.col_input_Dual,1,-1,254.0,-1,0.984375,Dual
-DIMACS_miles500.col_input_Dual,98,-1,60.0,-1,0.53125,Dual
-DIMACS_miles500.col_input_Dual,137,-1,132.0,-1,0.03125,Dual
-DIMACS_miles500.col_input_Dual,182,128.0,128.0,0.0,0.0,Dual
-DIMACS_miles500.col_input_Barrier,0,23400.0,0.0,181.8125,1.0,Barrier
-DIMACS_miles500.col_input_Barrier,1,2147.2448,84.33577,15.77535,0.341126796875,Barrier
-DIMACS_miles500.col_input_Barrier,2,451.61076,109.4931,2.5282090625,0.14458515625,Barrier
-DIMACS_miles500.col_input_Barrier,3,180.18633,125.92411,0.407705703125,0.016217890625,Barrier
-DIMACS_miles500.col_input_Barrier,4,128.38619,127.88133,0.003017109375,0.000927109375,Barrier
-DIMACS_miles500.col_input_Barrier,5,128.00004,127.99998,3.12500000099e-07,1.5625000005e-07,Barrier
-DIMACS_miles500.col_input_Barrier,6,128.0,128.0,0.0,0.0,Barrier
-DIMACS_miles500.col_input_Barrier,0,128.0,128.0,0.0,0.0,Barrier
-DIMACS_huck.col_input_Primal,1,35.0,-1,0.551282051282,-1,Primal
-DIMACS_huck.col_input_Primal,106,77.0,-1,0.0128205128205,-1,Primal
-DIMACS_huck.col_input_Primal,135,78.0,78.0,0.0,0.0,Primal
-DIMACS_huck.col_input_Dual,1,-1,8.0,-1,0.897435897436,Dual
-DIMACS_huck.col_input_Dual,7,-1,116.0,-1,0.487179487179,Dual
-DIMACS_huck.col_input_Dual,70,-1,83.0,-1,0.0641025641026,Dual
-DIMACS_huck.col_input_Dual,106,78.0,78.0,0.0,0.0,Dual
-DIMACS_huck.col_input_Barrier,0,914.0,190.0,10.7179487179,1.4358974359,Barrier
-DIMACS_huck.col_input_Barrier,1,162.0883,132.608,1.07805512821,0.700102564103,Barrier
-DIMACS_huck.col_input_Barrier,2,90.692661,88.79315,0.162726423077,0.138373717949,Barrier
-DIMACS_huck.col_input_Barrier,3,82.357435,82.328557,0.0558645512821,0.0554943205128,Barrier
-DIMACS_huck.col_input_Barrier,4,78.161742,78.288054,0.00207361538462,0.003693,Barrier
-DIMACS_huck.col_input_Barrier,5,78.000058,78.000045,7.43589743534e-07,5.76923076924e-07,Barrier
-DIMACS_huck.col_input_Barrier,6,78.0,78.0,0.0,0.0,Barrier
-DIMACS_huck.col_input_Barrier,0,78.0,78.0,0.0,0.0,Barrier
-DIMACS_le450_15c.col_input_Dual,1,-1,1.0,-1,0.997777777778,Dual
-DIMACS_le450_15c.col_input_Dual,168,-1,57.0,-1,0.873333333333,Dual
-DIMACS_le450_15c.col_input_Dual,297,-1,86.0,-1,0.808888888889,Dual
-DIMACS_le450_15c.col_input_Dual,412,-1,108.0,-1,0.76,Dual
-DIMACS_le450_15c.col_input_Dual,520,-1,126.0,-1,0.72,Dual
-DIMACS_le450_15c.col_input_Dual,633,-1,202.0,-1,0.551111111111,Dual
-DIMACS_le450_15c.col_input_Dual,886,-1,375.0,-1,0.166666666667,Dual
-DIMACS_le450_15c.col_input_Dual,1137,-1,450.0,-1,0.0,Dual
-DIMACS_le450_15c.col_input_Dual,1221,-1,450.0,-1,0.0,Dual
-DIMACS_le450_15c.col_input_Dual,1304,-1,450.0,-1,0.0,Dual
-DIMACS_le450_15c.col_input_Dual,1457,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_15c.col_input_Dual,1574,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_15c.col_input_Dual,1679,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_15c.col_input_Dual,1779,-1,450.000001,-1,2.22222221661e-09,Dual
-DIMACS_le450_15c.col_input_Dual,1825,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_15c.col_input_Dual,1,-1,898.0,-1,0.995555555556,Dual
-DIMACS_le450_15c.col_input_Dual,357,-1,186.0,-1,0.586666666667,Dual
-DIMACS_le450_15c.col_input_Dual,711,-1,3.0,-1,0.993333333333,Dual
-DIMACS_le450_15c.col_input_Dual,746,-1,457.0,-1,0.0155555555556,Dual
-DIMACS_le450_15c.col_input_Dual,988,450.0,450.0,0.0,0.0,Dual
-DIMACS_le450_15c.col_input_Barrier,0,333600.0,0.0,740.333333333,1.0,Barrier
-DIMACS_le450_15c.col_input_Barrier,1,29417.403,293.8722,64.3720066667,0.346950666667,Barrier
-DIMACS_le450_15c.col_input_Barrier,2,5821.5237,376.04021,11.9367193333,0.164355088889,Barrier
-DIMACS_le450_15c.col_input_Barrier,3,1050.5189,445.47332,1.33448644444,0.0100592888889,Barrier
-DIMACS_le450_15c.col_input_Barrier,4,491.45076,449.12384,0.0921128,0.00194702222222,Barrier
-DIMACS_le450_15c.col_input_Barrier,5,450.25646,449.99491,0.000569911111111,1.13111111111e-05,Barrier
-DIMACS_le450_15c.col_input_Barrier,6,450.00003,450.0,6.66666666247e-08,0.0,Barrier
-DIMACS_le450_15c.col_input_Barrier,0,450.0,450.0,0.0,0.0,Barrier
-DIMACS_school1.col_input_Dual,1,-1,9.0,-1,0.976623376623,Dual
-DIMACS_school1.col_input_Dual,231,-1,196.0,-1,0.490909090909,Dual
-DIMACS_school1.col_input_Dual,504,-1,354.0,-1,0.0805194805195,Dual
-DIMACS_school1.col_input_Dual,636,-1,364.0,-1,0.0545454545455,Dual
-DIMACS_school1.col_input_Dual,771,-1,374.0,-1,0.0285714285714,Dual
-DIMACS_school1.col_input_Dual,889,-1,384.0,-1,0.0025974025974,Dual
-DIMACS_school1.col_input_Dual,905,-1,384.0,-1,0.0025974025974,Dual
-DIMACS_school1.col_input_Dual,989,-1,385.000001,-1,2.59740259084e-09,Dual
-DIMACS_school1.col_input_Dual,1070,-1,385.000001,-1,2.59740259084e-09,Dual
-DIMACS_school1.col_input_Dual,1167,-1,385.000001,-1,2.59740259084e-09,Dual
-DIMACS_school1.col_input_Dual,1272,-1,385.000001,-1,2.59740259084e-09,Dual
-DIMACS_school1.col_input_Dual,1359,-1,385.000002,-1,5.19480518169e-09,Dual
-DIMACS_school1.col_input_Dual,1409,385.0,385.0,0.0,0.0,Dual
-DIMACS_school1.col_input_Dual,1,-1,752.0,-1,0.953246753247,Dual
-DIMACS_school1.col_input_Dual,366,-1,94.0,-1,0.755844155844,Dual
-DIMACS_school1.col_input_Dual,684,-1,11.0,-1,0.971428571429,Dual
-DIMACS_school1.col_input_Dual,757,-1,393.0,-1,0.0207792207792,Dual
-DIMACS_school1.col_input_Dual,984,-1,389.0,-1,0.0103896103896,Dual
-DIMACS_school1.col_input_Dual,1127,385.0,385.0,0.0,0.0,Dual
-DIMACS_school1.col_input_Barrier,0,381828.0,8.0,990.761038961,0.979220779221,Barrier
-DIMACS_school1.col_input_Barrier,1,33643.754,254.50379,86.386374026,0.338951194805,Barrier
-DIMACS_school1.col_input_Barrier,2,6473.2426,321.11477,15.8136171429,0.165935662338,Barrier
-DIMACS_school1.col_input_Barrier,3,1550.0661,375.09383,3.02614571429,0.0257303116883,Barrier
-DIMACS_school1.col_input_Barrier,4,544.3173,382.42301,0.413811168831,0.00669348051948,Barrier
-DIMACS_school1.col_input_Barrier,5,405.11197,384.64868,0.0522388831169,0.000912519480519,Barrier
-DIMACS_school1.col_input_Barrier,6,385.00982,384.99947,2.55064935065e-05,1.37662337669e-06,Barrier
-DIMACS_school1.col_input_Barrier,7,385.0,385.0,0.0,0.0,Barrier
-DIMACS_school1.col_input_Barrier,0,385.0,385.0,0.0,0.0,Barrier
-DIMACS_DSJC1000.5.col_input_Dual,1,-1,1.0,-1,0.999,Dual
-DIMACS_DSJC1000.5.col_input_Dual,358,-1,86.0,-1,0.914,Dual
-DIMACS_DSJC1000.5.col_input_Dual,1107,-1,726.0,-1,0.274,Dual
-DIMACS_DSJC1000.5.col_input_Dual,1936,-1,985.0,-1,0.015,Dual
-DIMACS_DSJC1000.5.col_input_Dual,2259,-1,1000.0,-1,0.0,Dual
-DIMACS_DSJC1000.5.col_input_Dual,2405,-1,1000.0,-1,0.0,Dual
-DIMACS_DSJC1000.5.col_input_Dual,2782,-1,1000.0,-1,0.0,Dual
-DIMACS_DSJC1000.5.col_input_Dual,3121,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_DSJC1000.5.col_input_Dual,3402,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_DSJC1000.5.col_input_Dual,3659,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_DSJC1000.5.col_input_Dual,3903,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_DSJC1000.5.col_input_Dual,4184,-1,1000.000001,-1,9.99999997475e-10,Dual
-DIMACS_DSJC1000.5.col_input_Dual,4310,1000.0,1000.0,0.0,0.0,Dual
-DIMACS_DSJC1000.5.col_input_Primal,1,1306.0,-1,0.306,-1,Primal
-DIMACS_DSJC1000.5.col_input_Primal,152,1001.0,-1,0.001,-1,Primal
-DIMACS_DSJC1000.5.col_input_Primal,288,1000.0,1000.0,0.0,0.0,Primal
-DIMACS_DSJC1000.5.col_input_Barrier,0,4996520.0,0.0,4995.52,1.0,Barrier
-DIMACS_DSJC1000.5.col_input_Barrier,1,435905.91,651.8363,434.90591,0.3481637,Barrier
-DIMACS_DSJC1000.5.col_input_Barrier,2,83052.051,831.0707,82.052051,0.1689293,Barrier
-DIMACS_DSJC1000.5.col_input_Barrier,3,1842.0873,999.72626,0.8420873,0.00027374,Barrier
-DIMACS_DSJC1000.5.col_input_Barrier,4,1022.7739,999.95327,0.0227739,4.673e-05,Barrier
-DIMACS_DSJC1000.5.col_input_Barrier,5,1000.0104,999.99998,1.04e-05,1.99999999495e-08,Barrier
-DIMACS_DSJC1000.5.col_input_Barrier,6,1000.0,1000.0,0.0,0.0,Barrier
-DIMACS_DSJC1000.5.col_input_Barrier,0,1000.0,1000.0,0.0,0.0,Barrier
-DIMACS_DSJC125.1.col_input_Primal,1,1.0,-1,0.992,-1,Primal
-DIMACS_DSJC125.1.col_input_Primal,117,38.0,-1,0.696,-1,Primal
-DIMACS_DSJC125.1.col_input_Primal,243,125.0,-1,0.0,-1,Primal
-DIMACS_DSJC125.1.col_input_Primal,351,125.0,-1,0.0,-1,Primal
-DIMACS_DSJC125.1.col_input_Primal,459,125.0,-1,0.0,-1,Primal
-DIMACS_DSJC125.1.col_input_Primal,481,125.0,125.0,0.0,0.0,Primal
-DIMACS_DSJC125.1.col_input_Dual,1,-1,248.0,-1,0.984,Dual
-DIMACS_DSJC125.1.col_input_Dual,97,-1,56.0,-1,0.552,Dual
-DIMACS_DSJC125.1.col_input_Dual,139,-1,132.0,-1,0.056,Dual
-DIMACS_DSJC125.1.col_input_Dual,249,-1,126.0,-1,0.008,Dual
-DIMACS_DSJC125.1.col_input_Dual,262,125.0,125.0,0.0,0.0,Dual
-DIMACS_DSJC125.1.col_input_Barrier,0,14720.0,0.0,116.76,1.0,Barrier
-DIMACS_DSJC125.1.col_input_Barrier,1,1382.6556,82.493833,10.0612448,0.340049336,Barrier
-DIMACS_DSJC125.1.col_input_Barrier,2,318.00741,107.56663,1.54405928,0.13946696,Barrier
-DIMACS_DSJC125.1.col_input_Barrier,3,145.81683,124.11658,0.16653464,0.00706736,Barrier
-DIMACS_DSJC125.1.col_input_Barrier,4,125.11628,124.98467,0.00093024,0.00012264,Barrier
-DIMACS_DSJC125.1.col_input_Barrier,5,125.00001,125.0,8.00000000254e-08,0.0,Barrier
-DIMACS_DSJC125.1.col_input_Barrier,6,125.0,125.0,0.0,0.0,Barrier
-DIMACS_DSJC125.1.col_input_Barrier,0,125.0,125.0,0.0,0.0,Barrier
-DIMACS_flat300_28_0.col_input_Dual,1,-1,1.0,-1,0.996666666667,Dual
-DIMACS_flat300_28_0.col_input_Dual,240,-1,193.0,-1,0.356666666667,Dual
-DIMACS_flat300_28_0.col_input_Dual,473,-1,293.0,-1,0.0233333333333,Dual
-DIMACS_flat300_28_0.col_input_Dual,601,-1,300.0,-1,0.0,Dual
-DIMACS_flat300_28_0.col_input_Dual,697,-1,300.0,-1,0.0,Dual
-DIMACS_flat300_28_0.col_input_Dual,703,-1,300.0,-1,0.0,Dual
-DIMACS_flat300_28_0.col_input_Dual,803,-1,300.0,-1,0.0,Dual
-DIMACS_flat300_28_0.col_input_Dual,896,-1,300.0,-1,0.0,Dual
-DIMACS_flat300_28_0.col_input_Dual,999,-1,300.000001,-1,3.33333332492e-09,Dual
-DIMACS_flat300_28_0.col_input_Dual,1050,300.0,300.0,0.0,0.0,Dual
-DIMACS_flat300_28_0.col_input_Dual,1,-1,598.0,-1,0.993333333333,Dual
-DIMACS_flat300_28_0.col_input_Dual,377,-1,15.0,-1,0.95,Dual
-DIMACS_flat300_28_0.col_input_Dual,431,-1,306.0,-1,0.02,Dual
-DIMACS_flat300_28_0.col_input_Dual,618,300.0,300.0,0.0,0.0,Dual
-DIMACS_flat300_28_0.col_input_Barrier,0,433900.0,0.0,1445.33333333,1.0,Barrier
-DIMACS_flat300_28_0.col_input_Barrier,1,37996.941,195.74377,125.65647,0.347520766667,Barrier
-DIMACS_flat300_28_0.col_input_Barrier,2,7345.3858,249.80534,23.4846193333,0.167315533333,Barrier
-DIMACS_flat300_28_0.col_input_Barrier,3,411.23586,299.9581,0.3707862,0.000139666666667,Barrier
-DIMACS_flat300_28_0.col_input_Barrier,4,300.43019,299.99676,0.00143396666667,1.08e-05,Barrier
-DIMACS_flat300_28_0.col_input_Barrier,5,300.00006,300.0,2.00000000063e-07,0.0,Barrier
-DIMACS_flat300_28_0.col_input_Barrier,0,300.0,300.0,0.0,0.0,Barrier
-DIMACS_queen10_10.col_input_Primal,1,1.0,-1,0.99,-1,Primal
-DIMACS_queen10_10.col_input_Primal,114,56.0,-1,0.44,-1,Primal
-DIMACS_queen10_10.col_input_Primal,250,100.0,-1,0.0,-1,Primal
-DIMACS_queen10_10.col_input_Primal,304,100.0,100.0,0.0,0.0,Primal
-DIMACS_queen10_10.col_input_Dual,1,-1,198.0,-1,0.98,Dual
-DIMACS_queen10_10.col_input_Dual,90,-1,20.0,-1,0.8,Dual
-DIMACS_queen10_10.col_input_Dual,103,-1,101.0,-1,0.01,Dual
-DIMACS_queen10_10.col_input_Dual,155,100.0,100.0,0.0,0.0,Dual
-DIMACS_queen10_10.col_input_Barrier,0,29400.0,0.0,293.0,1.0,Barrier
-DIMACS_queen10_10.col_input_Barrier,1,2632.0453,65.529175,25.320453,0.34470825,Barrier
-DIMACS_queen10_10.col_input_Barrier,2,545.82693,84.144889,4.4582693,0.15855111,Barrier
-DIMACS_queen10_10.col_input_Barrier,3,123.0384,99.616435,0.230384,0.00383565,Barrier
-DIMACS_queen10_10.col_input_Barrier,4,100.05976,99.998031,0.0005976,1.969e-05,Barrier
-DIMACS_queen10_10.col_input_Barrier,5,100.00001,100.0,1.00000000032e-07,0.0,Barrier
-DIMACS_queen10_10.col_input_Barrier,0,100.0,100.0,0.0,0.0,Barrier
-DIMACS_DSJR500.5.col_input_Dual,1,-1,1.0,-1,0.998,Dual
-DIMACS_DSJR500.5.col_input_Dual,220,-1,65.0,-1,0.87,Dual
-DIMACS_DSJR500.5.col_input_Dual,430,-1,196.0,-1,0.608,Dual
-DIMACS_DSJR500.5.col_input_Dual,866,-1,464.0,-1,0.072,Dual
-DIMACS_DSJR500.5.col_input_Dual,1102,-1,500.0,-1,0.0,Dual
-DIMACS_DSJR500.5.col_input_Dual,1315,-1,500.0,-1,0.0,Dual
-DIMACS_DSJR500.5.col_input_Dual,1506,-1,500.000001,-1,1.99999999495e-09,Dual
-DIMACS_DSJR500.5.col_input_Dual,1681,-1,500.000001,-1,1.99999999495e-09,Dual
-DIMACS_DSJR500.5.col_input_Dual,1784,500.0,500.0,0.0,0.0,Dual
-DIMACS_DSJR500.5.col_input_Dual,1,-1,998.0,-1,0.996,Dual
-DIMACS_DSJR500.5.col_input_Dual,123,-1,6.0,-1,0.988,Dual
-DIMACS_DSJR500.5.col_input_Dual,149,-1,500.0,-1,0.0,Dual
-DIMACS_DSJR500.5.col_input_Dual,217,500.0,500.0,0.0,0.0,Dual
-DIMACS_DSJR500.5.col_input_Barrier,0,1177240.0,0.0,2353.48,1.0,Barrier
-DIMACS_DSJR500.5.col_input_Barrier,1,102896.44,326.08453,204.79288,0.34783094,Barrier
-DIMACS_DSJR500.5.col_input_Barrier,2,19753.632,416.00353,38.507264,0.16799294,Barrier
-DIMACS_DSJR500.5.col_input_Barrier,3,1402.3689,497.85512,1.8047378,0.00428976,Barrier
-DIMACS_DSJR500.5.col_input_Barrier,4,569.16683,499.73464,0.13833366,0.00053072,Barrier
-DIMACS_DSJR500.5.col_input_Barrier,5,500.75231,499.99733,0.00150462,5.34000000005e-06,Barrier
-DIMACS_DSJR500.5.col_input_Barrier,6,500.00011,500.0,2.20000000013e-07,0.0,Barrier
-DIMACS_DSJR500.5.col_input_Barrier,0,500.0,500.0,0.0,0.0,Barrier
-DIMACS_myciel3.col_input_Primal,1,1.0,-1,0.909090909091,-1,Primal
-DIMACS_myciel3.col_input_Primal,22,11.0,11.0,0.0,0.0,Primal
-DIMACS_myciel3.col_input_Dual,1,-1,20.0,-1,0.818181818182,Dual
-DIMACS_myciel3.col_input_Dual,14,-1,12.0,-1,0.0909090909091,Dual
-DIMACS_myciel3.col_input_Dual,21,11.0,11.0,0.0,0.0,Dual
-DIMACS_myciel3.col_input_Barrier,0,220.0,0.0,19.0,1.0,Barrier
-DIMACS_myciel3.col_input_Barrier,1,18.82152,18.813094,0.711047272727,0.710281272727,Barrier
-DIMACS_myciel3.col_input_Barrier,2,11.473456,11.365272,0.0430414545455,0.0332065454545,Barrier
-DIMACS_myciel3.col_input_Barrier,3,11.210151,11.153381,0.0191046363636,0.0139437272727,Barrier
-DIMACS_myciel3.col_input_Barrier,4,11.000251,11.000047,2.28181818182e-05,4.27272727276e-06,Barrier
-DIMACS_myciel3.col_input_Barrier,5,11.0,11.0,0.0,0.0,Barrier
-DIMACS_myciel3.col_input_Barrier,0,11.0,11.0,0.0,0.0,Barrier
+DIMACS_DSJC500.5.col_input_Dual, 1, -1, 1.0, -1, 0.998, Dual
+DIMACS_DSJC500.5.col_input_Dual, 225, -1, 81.0, -1, 0.838, Dual
+DIMACS_DSJC500.5.col_input_Dual, 680, -1, 405.0, -1, 0.19, Dual
+DIMACS_DSJC500.5.col_input_Dual, 948, -1, 482.0, -1, 0.036, Dual
+DIMACS_DSJC500.5.col_input_Dual, 1006, -1, 482.0, -1, 0.036, Dual
+DIMACS_DSJC500.5.col_input_Dual, 1268, -1, 500.000001, -1, 1.99999999495e-09, Dual
+DIMACS_DSJC500.5.col_input_Dual, 1467, -1, 500.000001, -1, 1.99999999495e-09, Dual
+DIMACS_DSJC500.5.col_input_Dual, 1620, -1, 500.000001, -1, 1.99999999495e-09, Dual
+DIMACS_DSJC500.5.col_input_Dual, 1775, -1, 500.000001, -1, 1.99999999495e-09, Dual
+DIMACS_DSJC500.5.col_input_Dual, 1806, 500.0, 500.0, 0.0, 0.0, Dual
+DIMACS_DSJC500.5.col_input_Dual, 1, -1, 998.0, -1, 0.996, Dual
+DIMACS_DSJC500.5.col_input_Dual, 124, -1, 4.0, -1, 0.992, Dual
+DIMACS_DSJC500.5.col_input_Dual, 159, -1, 501.0, -1, 0.002, Dual
+DIMACS_DSJC500.5.col_input_Dual, 200, 500.0, 500.0, 0.0, 0.0, Dual
+DIMACS_DSJC500.5.col_input_Barrier, 0, 1252480.0, 0.0, 2503.96, 1.0, Barrier
+DIMACS_DSJC500.5.col_input_Barrier, 1, 109434.39, 326.05187, 217.86878, 0.34789626, Barrier
+DIMACS_DSJC500.5.col_input_Barrier, 2, 20976.059, 415.86322, 40.952118, 0.16827356, Barrier
+DIMACS_DSJC500.5.col_input_Barrier, 3, 806.05829, 499.82512, 0.61211658, 0.00034976, Barrier
+DIMACS_DSJC500.5.col_input_Barrier, 4, 505.27063, 499.97806, 0.01054126, 4.38799999999e-05, Barrier
+DIMACS_DSJC500.5.col_input_Barrier, 5, 500.00121, 499.99999, 2.42000000003e-06, 1.99999999495e-08, Barrier
+DIMACS_DSJC500.5.col_input_Barrier, 6, 500.0, 500.0, 0.0, 0.0, Barrier
+DIMACS_DSJC500.5.col_input_Barrier, 0, 500.0, 500.0, 0.0, 0.0, Barrier
+DIMACS_le450_25d.col_input_Dual, 1, -1, 1.0, -1, 0.997777777778, Dual
+DIMACS_le450_25d.col_input_Dual, 170, -1, 54.0, -1, 0.88, Dual
+DIMACS_le450_25d.col_input_Dual, 284, -1, 74.0, -1, 0.835555555556, Dual
+DIMACS_le450_25d.col_input_Dual, 391, -1, 92.0, -1, 0.795555555556, Dual
+DIMACS_le450_25d.col_input_Dual, 490, -1, 109.0, -1, 0.757777777778, Dual
+DIMACS_le450_25d.col_input_Dual, 593, -1, 126.0, -1, 0.72, Dual
+DIMACS_le450_25d.col_input_Dual, 695, -1, 137.0, -1, 0.695555555556, Dual
+DIMACS_le450_25d.col_input_Dual, 826, -1, 229.0, -1, 0.491111111111, Dual
+DIMACS_le450_25d.col_input_Dual, 1077, -1, 389.0, -1, 0.135555555556, Dual
+DIMACS_le450_25d.col_input_Dual, 1319, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_25d.col_input_Dual, 1405, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_25d.col_input_Dual, 1537, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_25d.col_input_Dual, 1670, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_25d.col_input_Dual, 1765, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_25d.col_input_Dual, 1867, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_25d.col_input_Dual, 1966, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_25d.col_input_Dual, 2059, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_25d.col_input_Dual, 2099, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_25d.col_input_Dual, 1, -1, 898.0, -1, 0.995555555556, Dual
+DIMACS_le450_25d.col_input_Dual, 363, -1, 174.0, -1, 0.613333333333, Dual
+DIMACS_le450_25d.col_input_Dual, 723, -1, 12.0, -1, 0.973333333333, Dual
+DIMACS_le450_25d.col_input_Dual, 817, -1, 460.0, -1, 0.0222222222222, Dual
+DIMACS_le450_25d.col_input_Dual, 1061, -1, 452.0, -1, 0.00444444444444, Dual
+DIMACS_le450_25d.col_input_Dual, 1105, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_25d.col_input_Barrier, 0, 348500.0, 0.0, 773.444444444, 1.0, Barrier
+DIMACS_le450_25d.col_input_Barrier, 1, 30730.415, 293.94494, 67.2898111111, 0.346789022222, Barrier
+DIMACS_le450_25d.col_input_Barrier, 2, 6071.2698, 376.33141, 12.4917106667, 0.163707977778, Barrier
+DIMACS_le450_25d.col_input_Barrier, 3, 1234.721, 443.32567, 1.74382444444, 0.0148318444444, Barrier
+DIMACS_le450_25d.col_input_Barrier, 4, 521.35968, 448.93058, 0.158577066667, 0.00237648888889, Barrier
+DIMACS_le450_25d.col_input_Barrier, 5, 452.9366, 449.94916, 0.00652577777778, 0.000112977777778, Barrier
+DIMACS_le450_25d.col_input_Barrier, 6, 450.00029, 449.99999, 6.4444444446e-07, 2.22222221661e-08, Barrier
+DIMACS_le450_25d.col_input_Barrier, 7, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_le450_25d.col_input_Barrier, 0, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_queen6_6.col_input_Primal, 1, 1.0, -1, 0.972222222222, -1, Primal
+DIMACS_queen6_6.col_input_Primal, 69, 36.0, -1, 0.0, -1, Primal
+DIMACS_queen6_6.col_input_Primal, 75, 36.0, 36.0, 0.0, 0.0, Primal
+DIMACS_queen6_6.col_input_Dual, 1, -1, 70.0, -1, 0.944444444444, Dual
+DIMACS_queen6_6.col_input_Dual, 36, 36.0, 36.0, 0.0, 0.0, Dual
+DIMACS_queen6_6.col_input_Barrier, 0, 5800.0, 0.0, 160.111111111, 1.0, Barrier
+DIMACS_queen6_6.col_input_Barrier, 1, 527.80569, 23.734332, 13.6612691667, 0.340713, Barrier
+DIMACS_queen6_6.col_input_Barrier, 2, 118.56545, 30.610463, 2.29348472222, 0.149709361111, Barrier
+DIMACS_queen6_6.col_input_Barrier, 3, 43.11201, 35.758982, 0.197555833333, 0.00669494444444, Barrier
+DIMACS_queen6_6.col_input_Barrier, 4, 36.004374, 35.999124, 0.0001215, 2.43333333333e-05, Barrier
+DIMACS_queen6_6.col_input_Barrier, 5, 36.000001, 36.0, 2.77777777076e-08, 0.0, Barrier
+DIMACS_queen6_6.col_input_Barrier, 0, 36.0, 36.0, 0.0, 0.0, Barrier
+DIMACS_le450_5d.col_input_Dual, 1, -1, 1.0, -1, 0.997777777778, Dual
+DIMACS_le450_5d.col_input_Dual, 190, -1, 151.0, -1, 0.664444444444, Dual
+DIMACS_le450_5d.col_input_Dual, 414, -1, 349.0, -1, 0.224444444444, Dual
+DIMACS_le450_5d.col_input_Dual, 638, -1, 434.0, -1, 0.0355555555556, Dual
+DIMACS_le450_5d.col_input_Dual, 814, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_5d.col_input_Dual, 887, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_5d.col_input_Dual, 905, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_5d.col_input_Dual, 975, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_5d.col_input_Dual, 1045, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_5d.col_input_Dual, 1129, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_5d.col_input_Dual, 1208, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_5d.col_input_Dual, 1278, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_5d.col_input_Dual, 1352, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_5d.col_input_Dual, 1434, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_5d.col_input_Dual, 1451, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_5d.col_input_Dual, 1, -1, 898.0, -1, 0.995555555556, Dual
+DIMACS_le450_5d.col_input_Dual, 301, -1, 298.0, -1, 0.337777777778, Dual
+DIMACS_le450_5d.col_input_Dual, 611, -1, 12.0, -1, 0.973333333333, Dual
+DIMACS_le450_5d.col_input_Dual, 795, -1, 456.0, -1, 0.0133333333333, Dual
+DIMACS_le450_5d.col_input_Dual, 992, -1, 451.0, -1, 0.00222222222222, Dual
+DIMACS_le450_5d.col_input_Dual, 1052, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_5d.col_input_Barrier, 0, 195140.0, 0.0, 432.644444444, 1.0, Barrier
+DIMACS_le450_5d.col_input_Barrier, 1, 17354.766, 294.14671, 37.5661466667, 0.346340644444, Barrier
+DIMACS_le450_5d.col_input_Barrier, 2, 3489.8101, 377.19821, 6.75513355556, 0.161781755556, Barrier
+DIMACS_le450_5d.col_input_Barrier, 3, 608.41189, 449.25507, 0.352026422222, 0.0016554, Barrier
+DIMACS_le450_5d.col_input_Barrier, 4, 452.01547, 449.94085, 0.00447882222222, 0.000131444444444, Barrier
+DIMACS_le450_5d.col_input_Barrier, 5, 450.00023, 449.99999, 5.11111111084e-07, 2.22222221661e-08, Barrier
+DIMACS_le450_5d.col_input_Barrier, 6, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_le450_5d.col_input_Barrier, 0, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_david.col_input_Primal, 1, 29.0, -1, 0.697916666667, -1, Primal
+DIMACS_david.col_input_Primal, 106, 59.0, -1, 0.385416666667, -1, Primal
+DIMACS_david.col_input_Primal, 190, 94.0, -1, 0.0208333333333, -1, Primal
+DIMACS_david.col_input_Primal, 246, 96.0, 96.0, 0.0, 0.0, Primal
+DIMACS_david.col_input_Dual, 1, -1, 6.0, -1, 0.9375, Dual
+DIMACS_david.col_input_Dual, 5, -1, 159.0, -1, 0.65625, Dual
+DIMACS_david.col_input_Dual, 89, -1, 111.0, -1, 0.15625, Dual
+DIMACS_david.col_input_Dual, 182, -1, 96.0, -1, 0.0, Dual
+DIMACS_david.col_input_Dual, 204, 96.0, 96.0, 0.0, 0.0, Dual
+DIMACS_david.col_input_Barrier, 0, 1388.0, 284.0, 13.4583333333, 1.95833333333, Barrier
+DIMACS_david.col_input_Barrier, 1, 248.75924, 182.78273, 1.59124208333, 0.903986770833, Barrier
+DIMACS_david.col_input_Barrier, 2, 124.48052, 116.4406, 0.296672083333, 0.212922916667, Barrier
+DIMACS_david.col_input_Barrier, 3, 104.53229, 105.5355, 0.0888780208333, 0.099328125, Barrier
+DIMACS_david.col_input_Barrier, 4, 96.910476, 100.58894, 0.009484125, 0.0478014583333, Barrier
+DIMACS_david.col_input_Barrier, 5, 95.919533, 96.744381, 0.000838197916667, 0.00775396875, Barrier
+DIMACS_david.col_input_Barrier, 6, 95.999779, 96.0008, 2.30208333329e-06, 8.33333333331e-06, Barrier
+DIMACS_david.col_input_Barrier, 7, 96.0, 96.0, 0.0, 0.0, Barrier
+DIMACS_david.col_input_Barrier, 0, 96.0, 96.0, 0.0, 0.0, Barrier
+DIMACS_queen16_16.col_input_Dual, 1, -1, 1.0, -1, 0.99609375, Dual
+DIMACS_queen16_16.col_input_Dual, 123, -1, 80.0, -1, 0.6875, Dual
+DIMACS_queen16_16.col_input_Dual, 301, -1, 205.0, -1, 0.19921875, Dual
+DIMACS_queen16_16.col_input_Dual, 468, -1, 256.0, -1, 0.0, Dual
+DIMACS_queen16_16.col_input_Dual, 545, -1, 256.0, -1, 0.0, Dual
+DIMACS_queen16_16.col_input_Dual, 602, -1, 256.0, -1, 0.0, Dual
+DIMACS_queen16_16.col_input_Dual, 667, -1, 256.0, -1, 0.0, Dual
+DIMACS_queen16_16.col_input_Dual, 732, -1, 256.0, -1, 0.0, Dual
+DIMACS_queen16_16.col_input_Dual, 786, 256.0, 256.0, 0.0, 0.0, Dual
+DIMACS_queen16_16.col_input_Dual, 1, -1, 510.0, -1, 0.9921875, Dual
+DIMACS_queen16_16.col_input_Dual, 236, -1, 55.0, -1, 0.78515625, Dual
+DIMACS_queen16_16.col_input_Dual, 427, -1, 259.0, -1, 0.01171875, Dual
+DIMACS_queen16_16.col_input_Dual, 596, 256.0, 256.0, 0.0, 0.0, Dual
+DIMACS_queen16_16.col_input_Barrier, 0, 126400.0, 0.0, 492.75, 1.0, Barrier
+DIMACS_queen16_16.col_input_Barrier, 1, 11203.327, 167.31275, 42.7629960937, 0.346434570313, Barrier
+DIMACS_queen16_16.col_input_Barrier, 2, 2236.3545, 214.28108, 7.73575976562, 0.16296453125, Barrier
+DIMACS_queen16_16.col_input_Barrier, 3, 318.34173, 255.54134, 0.243522382812, 0.001791640625, Barrier
+DIMACS_queen16_16.col_input_Barrier, 4, 256.32965, 255.99325, 0.0012876953125, 2.63671875e-05, Barrier
+DIMACS_queen16_16.col_input_Barrier, 5, 256.00003, 256.0, 1.17187499926e-07, 0.0, Barrier
+DIMACS_queen16_16.col_input_Barrier, 0, 256.0, 256.0, 0.0, 0.0, Barrier
+DIMACS_le450_25c.col_input_Dual, 1, -1, 1.0, -1, 0.997777777778, Dual
+DIMACS_le450_25c.col_input_Dual, 171, -1, 59.0, -1, 0.868888888889, Dual
+DIMACS_le450_25c.col_input_Dual, 290, -1, 76.0, -1, 0.831111111111, Dual
+DIMACS_le450_25c.col_input_Dual, 478, -1, 231.0, -1, 0.486666666667, Dual
+DIMACS_le450_25c.col_input_Dual, 743, -1, 397.0, -1, 0.117777777778, Dual
+DIMACS_le450_25c.col_input_Dual, 984, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_25c.col_input_Dual, 1094, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_25c.col_input_Dual, 1102, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_25c.col_input_Dual, 1227, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_25c.col_input_Dual, 1326, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_25c.col_input_Dual, 1437, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_25c.col_input_Dual, 1544, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_25c.col_input_Dual, 1644, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_25c.col_input_Dual, 1663, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_25c.col_input_Dual, 1, -1, 898.0, -1, 0.995555555556, Dual
+DIMACS_le450_25c.col_input_Dual, 362, -1, 176.0, -1, 0.608888888889, Dual
+DIMACS_le450_25c.col_input_Dual, 708, -1, 10.999998, -1, 0.97555556, Dual
+DIMACS_le450_25c.col_input_Dual, 765, -1, 463.0, -1, 0.0288888888889, Dual
+DIMACS_le450_25c.col_input_Dual, 1018, -1, 455.0, -1, 0.0111111111111, Dual
+DIMACS_le450_25c.col_input_Dual, 1219, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_25c.col_input_Dual, 1226, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_25c.col_input_Barrier, 0, 346860.0, 0.0, 769.8, 1.0, Barrier
+DIMACS_le450_25c.col_input_Barrier, 1, 30594.185, 293.98746, 66.9870777778, 0.346694533333, Barrier
+DIMACS_le450_25c.col_input_Barrier, 2, 6013.8686, 376.5269, 12.3641524444, 0.163273555556, Barrier
+DIMACS_le450_25c.col_input_Barrier, 3, 1255.6964, 442.78933, 1.79043644444, 0.0160237111111, Barrier
+DIMACS_le450_25c.col_input_Barrier, 4, 542.03637, 448.93038, 0.204525266667, 0.00237693333333, Barrier
+DIMACS_le450_25c.col_input_Barrier, 5, 450.80748, 449.9888, 0.0017944, 2.48888888888e-05, Barrier
+DIMACS_le450_25c.col_input_Barrier, 6, 450.00011, 450.0, 2.44444444459e-07, 0.0, Barrier
+DIMACS_le450_25c.col_input_Barrier, 0, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_DSJC250.5.col_input_Dual, 1, -1, 1.0, -1, 0.996, Dual
+DIMACS_DSJC250.5.col_input_Dual, 209, -1, 164.0, -1, 0.344, Dual
+DIMACS_DSJC250.5.col_input_Dual, 399, -1, 239.0, -1, 0.044, Dual
+DIMACS_DSJC250.5.col_input_Dual, 512, -1, 246.0, -1, 0.016, Dual
+DIMACS_DSJC250.5.col_input_Dual, 626, -1, 249.0, -1, 0.004, Dual
+DIMACS_DSJC250.5.col_input_Dual, 734, -1, 250.0, -1, 0.0, Dual
+DIMACS_DSJC250.5.col_input_Dual, 804, -1, 250.0, -1, 0.0, Dual
+DIMACS_DSJC250.5.col_input_Dual, 889, -1, 250.0, -1, 0.0, Dual
+DIMACS_DSJC250.5.col_input_Dual, 961, -1, 250.0, -1, 0.0, Dual
+DIMACS_DSJC250.5.col_input_Dual, 966, 250.0, 250.0, 0.0, 0.0, Dual
+DIMACS_DSJC250.5.col_input_Dual, 1, -1, 498.0, -1, 0.992, Dual
+DIMACS_DSJC250.5.col_input_Dual, 325, -1, 13.0, -1, 0.948, Dual
+DIMACS_DSJC250.5.col_input_Dual, 457, -1, 252.0, -1, 0.008, Dual
+DIMACS_DSJC250.5.col_input_Dual, 578, 250.0, 250.0, 0.0, 0.0, Dual
+DIMACS_DSJC250.5.col_input_Barrier, 0, 313360.0, 0.0, 1252.44, 1.0, Barrier
+DIMACS_DSJC250.5.col_input_Barrier, 1, 27461.872, 163.15968, 108.847488, 0.34736128, Barrier
+DIMACS_DSJC250.5.col_input_Barrier, 2, 5328.9043, 208.26064, 20.3156172, 0.16695744, Barrier
+DIMACS_DSJC250.5.col_input_Barrier, 3, 372.70771, 249.87445, 0.49083084, 0.0005022, Barrier
+DIMACS_DSJC250.5.col_input_Barrier, 4, 251.49197, 249.98794, 0.00596788, 4.824e-05, Barrier
+DIMACS_DSJC250.5.col_input_Barrier, 5, 250.00015, 250.0, 5.99999999963e-07, 0.0, Barrier
+DIMACS_DSJC250.5.col_input_Barrier, 6, 250.0, 250.0, 0.0, 0.0, Barrier
+DIMACS_DSJC250.5.col_input_Barrier, 0, 250.0, 250.0, 0.0, 0.0, Barrier
+DIMACS_flat300_26_0.col_input_Dual, 1, -1, 1.0, -1, 0.996666666667, Dual
+DIMACS_flat300_26_0.col_input_Dual, 232, -1, 175.0, -1, 0.416666666667, Dual
+DIMACS_flat300_26_0.col_input_Dual, 477, -1, 293.0, -1, 0.0233333333333, Dual
+DIMACS_flat300_26_0.col_input_Dual, 576, -1, 295.0, -1, 0.0166666666667, Dual
+DIMACS_flat300_26_0.col_input_Dual, 714, -1, 298.0, -1, 0.00666666666667, Dual
+DIMACS_flat300_26_0.col_input_Dual, 816, -1, 300.0, -1, 0.0, Dual
+DIMACS_flat300_26_0.col_input_Dual, 905, -1, 300.0, -1, 0.0, Dual
+DIMACS_flat300_26_0.col_input_Dual, 991, -1, 300.0, -1, 0.0, Dual
+DIMACS_flat300_26_0.col_input_Dual, 1092, -1, 300.0, -1, 0.0, Dual
+DIMACS_flat300_26_0.col_input_Dual, 1164, 300.0, 300.0, 0.0, 0.0, Dual
+DIMACS_flat300_26_0.col_input_Dual, 1, -1, 598.0, -1, 0.993333333333, Dual
+DIMACS_flat300_26_0.col_input_Dual, 379, -1, 12.0, -1, 0.96, Dual
+DIMACS_flat300_26_0.col_input_Dual, 509, -1, 303.0, -1, 0.01, Dual
+DIMACS_flat300_26_0.col_input_Dual, 678, 300.0, 300.0, 0.0, 0.0, Dual
+DIMACS_flat300_26_0.col_input_Barrier, 0, 432660.0, 0.0, 1441.2, 1.0, Barrier
+DIMACS_flat300_26_0.col_input_Barrier, 1, 37889.039, 195.7442, 125.296796667, 0.347519333333, Barrier
+DIMACS_flat300_26_0.col_input_Barrier, 2, 7326.5789, 249.80716, 23.4219296667, 0.167309466667, Barrier
+DIMACS_flat300_26_0.col_input_Barrier, 3, 437.93954, 299.90299, 0.459798466667, 0.000323366666667, Barrier
+DIMACS_flat300_26_0.col_input_Barrier, 4, 301.22443, 299.98885, 0.00408143333333, 3.71666666666e-05, Barrier
+DIMACS_flat300_26_0.col_input_Barrier, 5, 300.00016, 300.0, 5.33333333313e-07, 0.0, Barrier
+DIMACS_flat300_26_0.col_input_Barrier, 6, 300.0, 300.0, 0.0, 0.0, Barrier
+DIMACS_flat300_26_0.col_input_Barrier, 0, 300.0, 300.0, 0.0, 0.0, Barrier
+DIMACS_DSJC125.5.col_input_Dual, 1, -1, 1.0, -1, 0.992, Dual
+DIMACS_DSJC125.5.col_input_Dual, 90, -1, 36.0, -1, 0.712, Dual
+DIMACS_DSJC125.5.col_input_Dual, 193, -1, 107.0, -1, 0.144, Dual
+DIMACS_DSJC125.5.col_input_Dual, 263, -1, 121.0, -1, 0.032, Dual
+DIMACS_DSJC125.5.col_input_Dual, 325, -1, 124.0, -1, 0.008, Dual
+DIMACS_DSJC125.5.col_input_Dual, 399, -1, 125.0, -1, 0.0, Dual
+DIMACS_DSJC125.5.col_input_Dual, 461, -1, 125.0, -1, 0.0, Dual
+DIMACS_DSJC125.5.col_input_Dual, 506, -1, 125.0, -1, 0.0, Dual
+DIMACS_DSJC125.5.col_input_Dual, 562, 125.0, 125.0, 0.0, 0.0, Dual
+DIMACS_DSJC125.5.col_input_Dual, 1, -1, 248.0, -1, 0.984, Dual
+DIMACS_DSJC125.5.col_input_Dual, 179, -1, 8.0, -1, 0.936, Dual
+DIMACS_DSJC125.5.col_input_Dual, 230, -1, 127.0, -1, 0.016, Dual
+DIMACS_DSJC125.5.col_input_Dual, 291, 125.0, 125.0, 0.0, 0.0, Dual
+DIMACS_DSJC125.5.col_input_Barrier, 0, 77820.0, 0.0, 621.56, 1.0, Barrier
+DIMACS_DSJC125.5.col_input_Barrier, 1, 6860.7544, 81.714339, 53.8860352, 0.346285288, Barrier
+DIMACS_DSJC125.5.col_input_Barrier, 2, 1363.3184, 104.4646, 9.9065472, 0.1642832, Barrier
+DIMACS_DSJC125.5.col_input_Barrier, 3, 160.2074, 124.96642, 0.2816592, 0.00026864, Barrier
+DIMACS_DSJC125.5.col_input_Barrier, 4, 125.10813, 124.99833, 0.00086504, 1.336e-05, Barrier
+DIMACS_DSJC125.5.col_input_Barrier, 5, 125.00001, 125.0, 8.00000000254e-08, 0.0, Barrier
+DIMACS_DSJC125.5.col_input_Barrier, 0, 125.0, 125.0, 0.0, 0.0, Barrier
+DIMACS_queen8_8.col_input_Primal, 1, 1.0, -1, 0.984375, -1, Primal
+DIMACS_queen8_8.col_input_Primal, 91, 46.0, -1, 0.28125, -1, Primal
+DIMACS_queen8_8.col_input_Primal, 204, 64.0, 64.0, 0.0, 0.0, Primal
+DIMACS_queen8_8.col_input_Dual, 1, -1, 126.0, -1, 0.96875, Dual
+DIMACS_queen8_8.col_input_Dual, 67, -1, 65.0, -1, 0.015625, Dual
+DIMACS_queen8_8.col_input_Dual, 101, 64.0, 64.0, 0.0, 0.0, Dual
+DIMACS_queen8_8.col_input_Barrier, 0, 14560.0, 0.0, 226.5, 1.0, Barrier
+DIMACS_queen8_8.col_input_Barrier, 1, 1311.8423, 42.025907, 19.4975359375, 0.343345203125, Barrier
+DIMACS_queen8_8.col_input_Barrier, 2, 279.81909, 54.054601, 3.37217328125, 0.155396859375, Barrier
+DIMACS_queen8_8.col_input_Barrier, 3, 77.989041, 63.678223, 0.218578765625, 0.005027765625, Barrier
+DIMACS_queen8_8.col_input_Barrier, 4, 64.020108, 63.998576, 0.0003141875, 2.225e-05, Barrier
+DIMACS_queen8_8.col_input_Barrier, 5, 64.000003, 64.0, 4.68750001037e-08, 0.0, Barrier
+DIMACS_queen8_8.col_input_Barrier, 0, 64.0, 64.0, 0.0, 0.0, Barrier
+DIMACS_flat1000_76_0.col_input_Dual, 1, -1, 1.0, -1, 0.999, Dual
+DIMACS_flat1000_76_0.col_input_Dual, 360, -1, 87.0, -1, 0.913, Dual
+DIMACS_flat1000_76_0.col_input_Dual, 1006, -1, 654.0, -1, 0.346, Dual
+DIMACS_flat1000_76_0.col_input_Dual, 1804, -1, 968.0, -1, 0.032, Dual
+DIMACS_flat1000_76_0.col_input_Dual, 2113, -1, 993.0, -1, 0.007, Dual
+DIMACS_flat1000_76_0.col_input_Dual, 2304, -1, 995.0, -1, 0.005, Dual
+DIMACS_flat1000_76_0.col_input_Dual, 2621, -1, 1000.0, -1, 0.0, Dual
+DIMACS_flat1000_76_0.col_input_Dual, 2962, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_76_0.col_input_Dual, 3293, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_76_0.col_input_Dual, 3581, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_76_0.col_input_Dual, 3839, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_76_0.col_input_Dual, 4072, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_76_0.col_input_Dual, 4151, 1000.0, 1000.0, 0.0, 0.0, Dual
+DIMACS_flat1000_76_0.col_input_Primal, 1, 1316.0, -1, 0.316, -1, Primal
+DIMACS_flat1000_76_0.col_input_Primal, 152, 1001.0, -1, 0.001, -1, Primal
+DIMACS_flat1000_76_0.col_input_Primal, 334, 1000.0, 1000.0, 0.0, 0.0, Primal
+DIMACS_flat1000_76_0.col_input_Barrier, 0, 4934160.0, 0.0, 4933.16, 1.0, Barrier
+DIMACS_flat1000_76_0.col_input_Barrier, 1, 430475.54, 651.8381, 429.47554, 0.3481619, Barrier
+DIMACS_flat1000_76_0.col_input_Barrier, 2, 82019.345, 831.0785, 81.019345, 0.1689215, Barrier
+DIMACS_flat1000_76_0.col_input_Barrier, 3, 1755.5278, 999.82393, 0.7555278, 0.00017607, Barrier
+DIMACS_flat1000_76_0.col_input_Barrier, 4, 1013.5631, 999.97185, 0.0135631, 2.815e-05, Barrier
+DIMACS_flat1000_76_0.col_input_Barrier, 5, 1000.0013, 1000.0, 1.30000000001e-06, 0.0, Barrier
+DIMACS_flat1000_76_0.col_input_Barrier, 6, 1000.0, 1000.0, 0.0, 0.0, Barrier
+DIMACS_flat1000_76_0.col_input_Barrier, 0, 1000.0, 1000.0, 0.0, 0.0, Barrier
+DIMACS_le450_25b.col_input_Dual, 1, -1, 1.0, -1, 0.997777777778, Dual
+DIMACS_le450_25b.col_input_Dual, 166, -1, 122.0, -1, 0.728888888889, Dual
+DIMACS_le450_25b.col_input_Dual, 382, -1, 323.0, -1, 0.282222222222, Dual
+DIMACS_le450_25b.col_input_Dual, 604, -1, 426.0, -1, 0.0533333333333, Dual
+DIMACS_le450_25b.col_input_Dual, 746, -1, 442.0, -1, 0.0177777777778, Dual
+DIMACS_le450_25b.col_input_Dual, 841, -1, 447.0, -1, 0.00666666666667, Dual
+DIMACS_le450_25b.col_input_Dual, 963, -1, 449.0, -1, 0.00222222222222, Dual
+DIMACS_le450_25b.col_input_Dual, 1053, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_25b.col_input_Dual, 1102, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_25b.col_input_Dual, 1197, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_25b.col_input_Dual, 1266, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_25b.col_input_Dual, 1333, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_25b.col_input_Dual, 1403, -1, 450.000003, -1, 6.66666664983e-09, Dual
+DIMACS_le450_25b.col_input_Dual, 1481, -1, 450.000003, -1, 6.66666664983e-09, Dual
+DIMACS_le450_25b.col_input_Dual, 1485, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_25b.col_input_Dual, 1, -1, 898.0, -1, 0.995555555556, Dual
+DIMACS_le450_25b.col_input_Dual, 287, -1, 326.0, -1, 0.275555555556, Dual
+DIMACS_le450_25b.col_input_Dual, 582, -1, 27.0, -1, 0.94, Dual
+DIMACS_le450_25b.col_input_Dual, 807, -1, 463.0, -1, 0.0288888888889, Dual
+DIMACS_le450_25b.col_input_Dual, 1024, -1, 456.0, -1, 0.0133333333333, Dual
+DIMACS_le450_25b.col_input_Dual, 1183, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_25b.col_input_Dual, 1187, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_25b.col_input_Barrier, 0, 165260.0, 0.0, 366.244444444, 1.0, Barrier
+DIMACS_le450_25b.col_input_Barrier, 1, 14845.276, 295.45454, 31.9895022222, 0.343434355556, Barrier
+DIMACS_le450_25b.col_input_Barrier, 2, 2877.9184, 382.13258, 5.39537422222, 0.150816488889, Barrier
+DIMACS_le450_25b.col_input_Barrier, 3, 916.18899, 439.74828, 1.03597553333, 0.0227816, Barrier
+DIMACS_le450_25b.col_input_Barrier, 4, 508.1381, 448.84628, 0.129195777778, 0.00256382222222, Barrier
+DIMACS_le450_25b.col_input_Barrier, 5, 450.19344, 449.98566, 0.000429866666667, 3.18666666667e-05, Barrier
+DIMACS_le450_25b.col_input_Barrier, 6, 450.00003, 450.0, 6.66666666247e-08, 0.0, Barrier
+DIMACS_le450_25b.col_input_Barrier, 0, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_myciel7.col_input_Primal, 1, 1.0, -1, 0.994764397906, -1, Primal
+DIMACS_myciel7.col_input_Primal, 160, 113.0, -1, 0.408376963351, -1, Primal
+DIMACS_myciel7.col_input_Primal, 332, 189.0, -1, 0.0104712041885, -1, Primal
+DIMACS_myciel7.col_input_Primal, 468, 191.0, -1, 0.0, -1, Primal
+DIMACS_myciel7.col_input_Primal, 609, 191.0, -1, 0.0, -1, Primal
+DIMACS_myciel7.col_input_Primal, 776, 191.0, -1, 0.0, -1, Primal
+DIMACS_myciel7.col_input_Primal, 949, 191.0, -1, 0.0, -1, Primal
+DIMACS_myciel7.col_input_Primal, 1002, 191.0, -1, 0.0, -1, Primal
+DIMACS_myciel7.col_input_Primal, 1104, 191.0, 191.0, 0.0, 0.0, Primal
+DIMACS_myciel7.col_input_Dual, 1, -1, 380.0, -1, 0.989528795812, Dual
+DIMACS_myciel7.col_input_Dual, 113, -1, 156.0, -1, 0.183246073298, Dual
+DIMACS_myciel7.col_input_Dual, 241, -1, 237.0, -1, 0.240837696335, Dual
+DIMACS_myciel7.col_input_Dual, 408, -1, 211.0, -1, 0.104712041885, Dual
+DIMACS_myciel7.col_input_Dual, 565, -1, 193.0, -1, 0.0104712041885, Dual
+DIMACS_myciel7.col_input_Dual, 603, 191.0, 191.0, 0.0, 0.0, Dual
+DIMACS_myciel7.col_input_Barrier, 0, 47200.0, 0.0, 246.120418848, 1.0, Barrier
+DIMACS_myciel7.col_input_Barrier, 1, 4313.8012, 126.18618, 21.5853465969, 0.339339371728, Barrier
+DIMACS_myciel7.col_input_Barrier, 2, 843.70204, 165.91546, 3.41728816754, 0.131332670157, Barrier
+DIMACS_myciel7.col_input_Barrier, 3, 248.20386, 186.42662, 0.299496649215, 0.0239443979058, Barrier
+DIMACS_myciel7.col_input_Barrier, 4, 195.79065, 190.3305, 0.0250819371728, 0.00350523560209, Barrier
+DIMACS_myciel7.col_input_Barrier, 5, 191.19552, 190.96447, 0.00102366492147, 0.000186020942408, Barrier
+DIMACS_myciel7.col_input_Barrier, 6, 191.00003, 190.99999, 1.57068062877e-07, 5.2356020959e-08, Barrier
+DIMACS_myciel7.col_input_Barrier, 7, 191.0, 191.0, 0.0, 0.0, Barrier
+DIMACS_myciel7.col_input_Barrier, 0, 191.0, 191.0, 0.0, 0.0, Barrier
+DIMACS_DSJR500.1.col_input_Dual, 1, -1, 1.0, -1, 0.998, Dual
+DIMACS_DSJR500.1.col_input_Dual, 183, -1, 139.0, -1, 0.722, Dual
+DIMACS_DSJR500.1.col_input_Dual, 375, -1, 317.0, -1, 0.366, Dual
+DIMACS_DSJR500.1.col_input_Dual, 574, -1, 455.0, -1, 0.09, Dual
+DIMACS_DSJR500.1.col_input_Dual, 769, -1, 496.0, -1, 0.008, Dual
+DIMACS_DSJR500.1.col_input_Dual, 928, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJR500.1.col_input_Dual, 1006, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJR500.1.col_input_Dual, 1070, -1, 500.000001, -1, 1.99999999495e-09, Dual
+DIMACS_DSJR500.1.col_input_Dual, 1192, -1, 500.000005, -1, 9.99999997475e-09, Dual
+DIMACS_DSJR500.1.col_input_Dual, 1281, -1, 500.000007, -1, 1.39999999647e-08, Dual
+DIMACS_DSJR500.1.col_input_Dual, 1344, -1, 500.000008, -1, 1.59999999596e-08, Dual
+DIMACS_DSJR500.1.col_input_Dual, 1414, -1, 500.000008, -1, 1.59999999596e-08, Dual
+DIMACS_DSJR500.1.col_input_Dual, 1476, -1, 500.000008, -1, 1.59999999596e-08, Dual
+DIMACS_DSJR500.1.col_input_Dual, 1486, 500.0, 500.0, 0.0, 0.0, Dual
+DIMACS_DSJR500.1.col_input_Dual, 1, -1, 998.0, -1, 0.996, Dual
+DIMACS_DSJR500.1.col_input_Dual, 110, -1, 52.0, -1, 0.896, Dual
+DIMACS_DSJR500.1.col_input_Dual, 193, -1, 507.0, -1, 0.014, Dual
+DIMACS_DSJR500.1.col_input_Dual, 381, -1, 501.0, -1, 0.002, Dual
+DIMACS_DSJR500.1.col_input_Dual, 386, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJR500.1.col_input_Dual, 400, 500.0, 500.0, 0.0, 0.0, Dual
+DIMACS_DSJR500.1.col_input_Barrier, 0, 71100.0, 0.0, 141.2, 1.0, Barrier
+DIMACS_DSJR500.1.col_input_Barrier, 1, 6610.9428, 328.99666, 12.2218856, 0.34200668, Barrier
+DIMACS_DSJR500.1.col_input_Barrier, 2, 1465.1801, 427.62477, 1.9303602, 0.14475046, Barrier
+DIMACS_DSJR500.1.col_input_Barrier, 3, 638.52893, 493.76919, 0.27705786, 0.01246162, Barrier
+DIMACS_DSJR500.1.col_input_Barrier, 4, 500.34375, 499.83435, 0.0006875, 0.0003313, Barrier
+DIMACS_DSJR500.1.col_input_Barrier, 5, 500.00004, 499.99998, 8.00000000254e-08, 4.00000000127e-08, Barrier
+DIMACS_DSJR500.1.col_input_Barrier, 6, 500.0, 500.0, 0.0, 0.0, Barrier
+DIMACS_DSJR500.1.col_input_Barrier, 0, 500.0, 500.0, 0.0, 0.0, Barrier
+DIMACS_le450_5c.col_input_Dual, 1, -1, 1.0, -1, 0.997777777778, Dual
+DIMACS_le450_5c.col_input_Dual, 157, -1, 117.0, -1, 0.74, Dual
+DIMACS_le450_5c.col_input_Dual, 385, -1, 331.0, -1, 0.264444444444, Dual
+DIMACS_le450_5c.col_input_Dual, 618, -1, 429.0, -1, 0.0466666666667, Dual
+DIMACS_le450_5c.col_input_Dual, 792, -1, 448.0, -1, 0.00444444444444, Dual
+DIMACS_le450_5c.col_input_Dual, 878, -1, 448.0, -1, 0.00444444444444, Dual
+DIMACS_le450_5c.col_input_Dual, 905, -1, 448.0, -1, 0.00444444444444, Dual
+DIMACS_le450_5c.col_input_Dual, 991, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_5c.col_input_Dual, 1086, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_5c.col_input_Dual, 1156, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_5c.col_input_Dual, 1243, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_5c.col_input_Dual, 1313, -1, 450.000003, -1, 6.66666664983e-09, Dual
+DIMACS_le450_5c.col_input_Dual, 1385, -1, 450.000003, -1, 6.66666664983e-09, Dual
+DIMACS_le450_5c.col_input_Dual, 1401, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_5c.col_input_Dual, 1, -1, 898.0, -1, 0.995555555556, Dual
+DIMACS_le450_5c.col_input_Dual, 301, -1, 298.0, -1, 0.337777777778, Dual
+DIMACS_le450_5c.col_input_Dual, 601, -1, 17.0, -1, 0.962222222222, Dual
+DIMACS_le450_5c.col_input_Dual, 793, -1, 458.0, -1, 0.0177777777778, Dual
+DIMACS_le450_5c.col_input_Dual, 1011, -1, 452.0, -1, 0.00444444444444, Dual
+DIMACS_le450_5c.col_input_Dual, 1112, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_5c.col_input_Barrier, 0, 196060.0, 0.0, 434.688888889, 1.0, Barrier
+DIMACS_le450_5c.col_input_Barrier, 1, 17434.455, 294.13875, 37.7432333333, 0.346358333333, Barrier
+DIMACS_le450_5c.col_input_Barrier, 2, 3509.7619, 377.16512, 6.79947088889, 0.161855288889, Barrier
+DIMACS_le450_5c.col_input_Barrier, 3, 625.38799, 449.18388, 0.389751088889, 0.0018136, Barrier
+DIMACS_le450_5c.col_input_Barrier, 4, 452.53241, 449.93789, 0.00562757777778, 0.000138022222222, Barrier
+DIMACS_le450_5c.col_input_Barrier, 5, 450.00025, 449.99999, 5.55555555542e-07, 2.22222221661e-08, Barrier
+DIMACS_le450_5c.col_input_Barrier, 6, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_le450_5c.col_input_Barrier, 0, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_le450_15b.col_input_Dual, 1, -1, 5.0, -1, 0.988888888889, Dual
+DIMACS_le450_15b.col_input_Dual, 164, -1, 104.0, -1, 0.768888888889, Dual
+DIMACS_le450_15b.col_input_Dual, 387, -1, 310.0, -1, 0.311111111111, Dual
+DIMACS_le450_15b.col_input_Dual, 609, -1, 420.0, -1, 0.0666666666667, Dual
+DIMACS_le450_15b.col_input_Dual, 743, -1, 441.0, -1, 0.02, Dual
+DIMACS_le450_15b.col_input_Dual, 842, -1, 444.0, -1, 0.0133333333333, Dual
+DIMACS_le450_15b.col_input_Dual, 957, -1, 447.0, -1, 0.00666666666667, Dual
+DIMACS_le450_15b.col_input_Dual, 1006, -1, 447.0, -1, 0.00666666666667, Dual
+DIMACS_le450_15b.col_input_Dual, 1089, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_15b.col_input_Dual, 1160, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_15b.col_input_Dual, 1234, -1, 450.000003, -1, 6.66666664983e-09, Dual
+DIMACS_le450_15b.col_input_Dual, 1300, -1, 450.000003, -1, 6.66666664983e-09, Dual
+DIMACS_le450_15b.col_input_Dual, 1362, -1, 450.000004, -1, 8.88888886645e-09, Dual
+DIMACS_le450_15b.col_input_Dual, 1442, -1, 450.000005, -1, 1.11111110831e-08, Dual
+DIMACS_le450_15b.col_input_Dual, 1512, -1, 450.000005, -1, 1.11111110831e-08, Dual
+DIMACS_le450_15b.col_input_Dual, 1578, -1, 450.000006, -1, 1.33333332997e-08, Dual
+DIMACS_le450_15b.col_input_Dual, 1650, -1, 450.000006, -1, 1.33333332997e-08, Dual
+DIMACS_le450_15b.col_input_Dual, 1726, -1, 450.000006, -1, 1.33333332997e-08, Dual
+DIMACS_le450_15b.col_input_Dual, 1767, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_15b.col_input_Dual, 1, -1, 890.0, -1, 0.977777777778, Dual
+DIMACS_le450_15b.col_input_Dual, 285, -1, 322.0, -1, 0.284444444444, Dual
+DIMACS_le450_15b.col_input_Dual, 578, -1, 19.0, -1, 0.957777777778, Dual
+DIMACS_le450_15b.col_input_Dual, 817, -1, 455.0, -1, 0.0111111111111, Dual
+DIMACS_le450_15b.col_input_Dual, 1008, -1, 451.0, -1, 0.00222222222222, Dual
+DIMACS_le450_15b.col_input_Dual, 1112, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_15b.col_input_Barrier, 0, 163284.0, 4.0, 361.853333333, 0.991111111111, Barrier
+DIMACS_le450_15b.col_input_Barrier, 1, 14896.915, 293.23173, 32.1042555556, 0.348373933333, Barrier
+DIMACS_le450_15b.col_input_Barrier, 2, 2697.3549, 380.41362, 4.994122, 0.1546364, Barrier
+DIMACS_le450_15b.col_input_Barrier, 3, 1074.8059, 435.17539, 1.38845755556, 0.0329435777778, Barrier
+DIMACS_le450_15b.col_input_Barrier, 4, 496.86793, 447.21151, 0.104150955556, 0.00619664444444, Barrier
+DIMACS_le450_15b.col_input_Barrier, 5, 450.53064, 449.9688, 0.0011792, 6.93333333334e-05, Barrier
+DIMACS_le450_15b.col_input_Barrier, 6, 450.00007, 450.0, 1.55555555542e-07, 0.0, Barrier
+DIMACS_le450_15b.col_input_Barrier, 7, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_le450_15b.col_input_Barrier, 0, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_flat1000_50_0.col_input_Dual, 1, -1, 1.0, -1, 0.999, Dual
+DIMACS_flat1000_50_0.col_input_Dual, 600, -1, 412.0, -1, 0.588, Dual
+DIMACS_flat1000_50_0.col_input_Dual, 1438, -1, 918.0, -1, 0.082, Dual
+DIMACS_flat1000_50_0.col_input_Dual, 1804, -1, 994.0, -1, 0.006, Dual
+DIMACS_flat1000_50_0.col_input_Dual, 2221, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_50_0.col_input_Dual, 2643, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_50_0.col_input_Dual, 2965, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_50_0.col_input_Dual, 3228, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_50_0.col_input_Dual, 3500, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_50_0.col_input_Dual, 3733, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_50_0.col_input_Dual, 3874, 1000.0, 1000.0, 0.0, 0.0, Dual
+DIMACS_flat1000_50_0.col_input_Primal, 1, 1322.0, -1, 0.322, -1, Primal
+DIMACS_flat1000_50_0.col_input_Primal, 154, 1001.0, -1, 0.001, -1, Primal
+DIMACS_flat1000_50_0.col_input_Primal, 192, 1000.0, 1000.0, 0.0, 0.0, Primal
+DIMACS_flat1000_50_0.col_input_Barrier, 0, 4900000.0, 0.0, 4899.0, 1.0, Barrier
+DIMACS_flat1000_50_0.col_input_Barrier, 1, 427500.84, 651.83911, 426.50084, 0.34816089, Barrier
+DIMACS_flat1000_50_0.col_input_Barrier, 2, 81454.196, 831.08284, 80.454196, 0.16891716, Barrier
+DIMACS_flat1000_50_0.col_input_Barrier, 3, 1717.3781, 999.86441, 0.7173781, 0.00013559, Barrier
+DIMACS_flat1000_50_0.col_input_Barrier, 4, 1010.043, 999.97902, 0.010043, 2.098e-05, Barrier
+DIMACS_flat1000_50_0.col_input_Barrier, 5, 1000.001, 1000.0, 9.99999999976e-07, 0.0, Barrier
+DIMACS_flat1000_50_0.col_input_Barrier, 6, 1000.0, 1000.0, 0.0, 0.0, Barrier
+DIMACS_flat1000_50_0.col_input_Barrier, 0, 1000.0, 1000.0, 0.0, 0.0, Barrier
+DIMACS_games120.col_input_Primal, 1, 1.0, -1, 0.991666666667, -1, Primal
+DIMACS_games120.col_input_Primal, 120, 44.0, -1, 0.633333333333, -1, Primal
+DIMACS_games120.col_input_Primal, 252, 120.0, -1, 0.0, -1, Primal
+DIMACS_games120.col_input_Primal, 351, 120.0, -1, 0.0, -1, Primal
+DIMACS_games120.col_input_Primal, 383, 120.0, 120.0, 0.0, 0.0, Primal
+DIMACS_games120.col_input_Dual, 1, -1, 238.0, -1, 0.983333333333, Dual
+DIMACS_games120.col_input_Dual, 95, -1, 50.0, -1, 0.583333333333, Dual
+DIMACS_games120.col_input_Dual, 131, -1, 125.0, -1, 0.0416666666667, Dual
+DIMACS_games120.col_input_Dual, 205, 120.0, 120.0, 0.0, 0.0, Dual
+DIMACS_games120.col_input_Barrier, 0, 12760.0, 0.0, 105.333333333, 1.0, Barrier
+DIMACS_games120.col_input_Barrier, 1, 1205.1739, 79.170544, 9.04311583333, 0.340245466667, Barrier
+DIMACS_games120.col_input_Barrier, 2, 284.7737, 103.17072, 1.37311416667, 0.140244, Barrier
+DIMACS_games120.col_input_Barrier, 3, 134.46705, 119.38255, 0.12055875, 0.00514541666667, Barrier
+DIMACS_games120.col_input_Barrier, 4, 120.01822, 119.99736, 0.000151833333333, 2.2e-05, Barrier
+DIMACS_games120.col_input_Barrier, 5, 120.0, 120.0, 0.0, 0.0, Barrier
+DIMACS_games120.col_input_Barrier, 0, 120.0, 120.0, 0.0, 0.0, Barrier
+DIMACS_DSJC250.9.col_input_Dual, 1, -1, 1.0, -1, 0.996, Dual
+DIMACS_DSJC250.9.col_input_Dual, 237, -1, 180.0, -1, 0.28, Dual
+DIMACS_DSJC250.9.col_input_Dual, 458, -1, 245.0, -1, 0.02, Dual
+DIMACS_DSJC250.9.col_input_Dual, 587, -1, 247.0, -1, 0.012, Dual
+DIMACS_DSJC250.9.col_input_Dual, 602, -1, 247.0, -1, 0.012, Dual
+DIMACS_DSJC250.9.col_input_Dual, 706, -1, 250.0, -1, 0.0, Dual
+DIMACS_DSJC250.9.col_input_Dual, 815, -1, 250.0, -1, 0.0, Dual
+DIMACS_DSJC250.9.col_input_Dual, 862, 250.0, 250.0, 0.0, 0.0, Dual
+DIMACS_DSJC250.9.col_input_Dual, 1, -1, 498.0, -1, 0.992, Dual
+DIMACS_DSJC250.9.col_input_Dual, 397, -1, 255.0, -1, 0.02, Dual
+DIMACS_DSJC250.9.col_input_Dual, 566, 250.0, 250.0, 0.0, 0.0, Dual
+DIMACS_DSJC250.9.col_input_Barrier, 0, 557940.0, 0.0, 2230.76, 1.0, Barrier
+DIMACS_DSJC250.9.col_input_Barrier, 1, 48738.1, 163.09245, 193.9524, 0.3476302, Barrier
+DIMACS_DSJC250.9.col_input_Barrier, 2, 9372.268, 207.97055, 36.489072, 0.1681178, Barrier
+DIMACS_DSJC250.9.col_input_Barrier, 3, 360.08774, 249.97199, 0.44035096, 0.00011204, Barrier
+DIMACS_DSJC250.9.col_input_Barrier, 4, 250.53855, 249.99755, 0.0021542, 9.80000000004e-06, Barrier
+DIMACS_DSJC250.9.col_input_Barrier, 5, 250.00005, 250.0, 1.9999999995e-07, 0.0, Barrier
+DIMACS_DSJC250.9.col_input_Barrier, 0, 250.0, 250.0, 0.0, 0.0, Barrier
+DIMACS_le450_15a.col_input_Dual, 1, -1, 1.0, -1, 0.997777777778, Dual
+DIMACS_le450_15a.col_input_Dual, 183, -1, 138.0, -1, 0.693333333333, Dual
+DIMACS_le450_15a.col_input_Dual, 408, -1, 340.0, -1, 0.244444444444, Dual
+DIMACS_le450_15a.col_input_Dual, 633, -1, 440.0, -1, 0.0222222222222, Dual
+DIMACS_le450_15a.col_input_Dual, 760, -1, 445.0, -1, 0.0111111111111, Dual
+DIMACS_le450_15a.col_input_Dual, 804, -1, 445.0, -1, 0.0111111111111, Dual
+DIMACS_le450_15a.col_input_Dual, 900, -1, 450.000003, -1, 6.66666664983e-09, Dual
+DIMACS_le450_15a.col_input_Dual, 973, -1, 450.000003, -1, 6.66666664983e-09, Dual
+DIMACS_le450_15a.col_input_Dual, 1040, -1, 450.000004, -1, 8.88888886645e-09, Dual
+DIMACS_le450_15a.col_input_Dual, 1128, -1, 450.000005, -1, 1.11111110831e-08, Dual
+DIMACS_le450_15a.col_input_Dual, 1202, -1, 450.000006, -1, 1.33333332997e-08, Dual
+DIMACS_le450_15a.col_input_Dual, 1287, -1, 450.000006, -1, 1.33333332997e-08, Dual
+DIMACS_le450_15a.col_input_Dual, 1365, -1, 450.000007, -1, 1.55555555163e-08, Dual
+DIMACS_le450_15a.col_input_Dual, 1415, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_15a.col_input_Dual, 1, -1, 898.0, -1, 0.995555555556, Dual
+DIMACS_le450_15a.col_input_Dual, 286, -1, 328.0, -1, 0.271111111111, Dual
+DIMACS_le450_15a.col_input_Dual, 577, -1, 22.0, -1, 0.951111111111, Dual
+DIMACS_le450_15a.col_input_Dual, 773, -1, 456.0, -1, 0.0133333333333, Dual
+DIMACS_le450_15a.col_input_Dual, 991, -1, 453.0, -1, 0.00666666666667, Dual
+DIMACS_le450_15a.col_input_Dual, 1125, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_15a.col_input_Barrier, 0, 163360.0, 0.0, 362.022222222, 1.0, Barrier
+DIMACS_le450_15a.col_input_Barrier, 1, 14640.956, 294.9784, 31.5354577778, 0.344492444444, Barrier
+DIMACS_le450_15a.col_input_Barrier, 2, 2882.5106, 377.25391, 5.40557911111, 0.161657977778, Barrier
+DIMACS_le450_15a.col_input_Barrier, 3, 801.57946, 442.81703, 0.781287688889, 0.0159621555556, Barrier
+DIMACS_le450_15a.col_input_Barrier, 4, 486.81484, 449.0094, 0.0818107555556, 0.00220133333333, Barrier
+DIMACS_le450_15a.col_input_Barrier, 5, 450.07069, 449.99737, 0.000157088888889, 5.84444444447e-06, Barrier
+DIMACS_le450_15a.col_input_Barrier, 6, 450.00001, 450.0, 2.22222221661e-08, 0.0, Barrier
+DIMACS_le450_15a.col_input_Barrier, 0, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_le450_5a.col_input_Dual, 1, -1, 1.0, -1, 0.997777777778, Dual
+DIMACS_le450_5a.col_input_Dual, 168, -1, 122.0, -1, 0.728888888889, Dual
+DIMACS_le450_5a.col_input_Dual, 374, -1, 313.0, -1, 0.304444444444, Dual
+DIMACS_le450_5a.col_input_Dual, 584, -1, 415.0, -1, 0.0777777777778, Dual
+DIMACS_le450_5a.col_input_Dual, 755, -1, 445.0, -1, 0.0111111111111, Dual
+DIMACS_le450_5a.col_input_Dual, 852, -1, 445.0, -1, 0.0111111111111, Dual
+DIMACS_le450_5a.col_input_Dual, 905, -1, 445.0, -1, 0.0111111111111, Dual
+DIMACS_le450_5a.col_input_Dual, 992, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_5a.col_input_Dual, 1059, -1, 450.000003, -1, 6.66666664983e-09, Dual
+DIMACS_le450_5a.col_input_Dual, 1142, -1, 450.000004, -1, 8.88888886645e-09, Dual
+DIMACS_le450_5a.col_input_Dual, 1230, -1, 450.000005, -1, 1.11111110831e-08, Dual
+DIMACS_le450_5a.col_input_Dual, 1298, -1, 450.000005, -1, 1.11111110831e-08, Dual
+DIMACS_le450_5a.col_input_Dual, 1363, -1, 450.000006, -1, 1.33333332997e-08, Dual
+DIMACS_le450_5a.col_input_Dual, 1427, -1, 450.000006, -1, 1.33333332997e-08, Dual
+DIMACS_le450_5a.col_input_Dual, 1488, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_5a.col_input_Dual, 1, -1, 898.0, -1, 0.995555555556, Dual
+DIMACS_le450_5a.col_input_Dual, 262, -1, 376.0, -1, 0.164444444444, Dual
+DIMACS_le450_5a.col_input_Dual, 531, -1, 13.0, -1, 0.971111111111, Dual
+DIMACS_le450_5a.col_input_Dual, 730, -1, 456.0, -1, 0.0133333333333, Dual
+DIMACS_le450_5a.col_input_Dual, 926, -1, 451.0, -1, 0.00222222222222, Dual
+DIMACS_le450_5a.col_input_Dual, 951, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_5a.col_input_Barrier, 0, 114280.0, 0.0, 252.955555556, 1.0, Barrier
+DIMACS_le450_5a.col_input_Barrier, 1, 10320.114, 294.78655, 21.9335866667, 0.344918777778, Barrier
+DIMACS_le450_5a.col_input_Barrier, 2, 2158.8816, 379.81666, 3.79751466667, 0.155962977778, Barrier
+DIMACS_le450_5a.col_input_Barrier, 3, 581.53668, 448.6102, 0.292303733333, 0.00308844444444, Barrier
+DIMACS_le450_5a.col_input_Barrier, 4, 451.53191, 449.92248, 0.00340424444444, 0.000172266666667, Barrier
+DIMACS_le450_5a.col_input_Barrier, 5, 450.00017, 449.99999, 3.77777777835e-07, 2.22222221661e-08, Barrier
+DIMACS_le450_5a.col_input_Barrier, 6, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_le450_5a.col_input_Barrier, 0, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_flat300_20_0.col_input_Dual, 1, -1, 1.0, -1, 0.996666666667, Dual
+DIMACS_flat300_20_0.col_input_Dual, 250, -1, 200.0, -1, 0.333333333333, Dual
+DIMACS_flat300_20_0.col_input_Dual, 449, -1, 285.0, -1, 0.05, Dual
+DIMACS_flat300_20_0.col_input_Dual, 582, -1, 296.0, -1, 0.0133333333333, Dual
+DIMACS_flat300_20_0.col_input_Dual, 602, -1, 296.0, -1, 0.0133333333333, Dual
+DIMACS_flat300_20_0.col_input_Dual, 714, -1, 300.0, -1, 0.0, Dual
+DIMACS_flat300_20_0.col_input_Dual, 813, -1, 300.000001, -1, 3.33333332492e-09, Dual
+DIMACS_flat300_20_0.col_input_Dual, 907, -1, 300.000001, -1, 3.33333332492e-09, Dual
+DIMACS_flat300_20_0.col_input_Dual, 963, 300.0, 300.0, 0.0, 0.0, Dual
+DIMACS_flat300_20_0.col_input_Dual, 1, -1, 598.0, -1, 0.993333333333, Dual
+DIMACS_flat300_20_0.col_input_Dual, 373, -1, 13.0, -1, 0.956666666667, Dual
+DIMACS_flat300_20_0.col_input_Dual, 459, -1, 306.0, -1, 0.02, Dual
+DIMACS_flat300_20_0.col_input_Dual, 619, 300.0, 300.0, 0.0, 0.0, Dual
+DIMACS_flat300_20_0.col_input_Barrier, 0, 427500.0, 0.0, 1424.0, 1.0, Barrier
+DIMACS_flat300_20_0.col_input_Barrier, 1, 37440.068, 195.74613, 123.800226667, 0.3475129, Barrier
+DIMACS_flat300_20_0.col_input_Barrier, 2, 7239.7772, 249.81547, 23.1325906667, 0.167281766667, Barrier
+DIMACS_flat300_20_0.col_input_Barrier, 3, 413.39708, 299.95469, 0.377990266667, 0.000151033333333, Barrier
+DIMACS_flat300_20_0.col_input_Barrier, 4, 300.46874, 299.9967, 0.00156246666667, 1.10000000001e-05, Barrier
+DIMACS_flat300_20_0.col_input_Barrier, 5, 300.00005, 300.0, 1.66666666625e-07, 0.0, Barrier
+DIMACS_flat300_20_0.col_input_Barrier, 0, 300.0, 300.0, 0.0, 0.0, Barrier
+DIMACS_miles1000.col_input_Dual, 1, -1, 1.0, -1, 0.9921875, Dual
+DIMACS_miles1000.col_input_Dual, 87, -1, 43.0, -1, 0.6640625, Dual
+DIMACS_miles1000.col_input_Dual, 200, -1, 113.0, -1, 0.1171875, Dual
+DIMACS_miles1000.col_input_Dual, 278, -1, 127.0, -1, 0.0078125, Dual
+DIMACS_miles1000.col_input_Dual, 340, -1, 128.0, -1, 0.0, Dual
+DIMACS_miles1000.col_input_Dual, 402, -1, 128.0, -1, 0.0, Dual
+DIMACS_miles1000.col_input_Dual, 405, -1, 128.0, -1, 0.0, Dual
+DIMACS_miles1000.col_input_Dual, 458, 128.0, 128.0, 0.0, 0.0, Dual
+DIMACS_miles1000.col_input_Dual, 1, -1, 254.0, -1, 0.984375, Dual
+DIMACS_miles1000.col_input_Dual, 170, -1, 11.0, -1, 0.9140625, Dual
+DIMACS_miles1000.col_input_Dual, 241, -1, 131.0, -1, 0.0234375, Dual
+DIMACS_miles1000.col_input_Dual, 307, 128.0, 128.0, 0.0, 0.0, Dual
+DIMACS_miles1000.col_input_Barrier, 0, 64320.0, 0.0, 501.5, 1.0, Barrier
+DIMACS_miles1000.col_input_Barrier, 1, 5696.9692, 83.767199, 43.507571875, 0.345568757812, Barrier
+DIMACS_miles1000.col_input_Barrier, 2, 1142.2662, 107.36302, 7.9239546875, 0.16122640625, Barrier
+DIMACS_miles1000.col_input_Barrier, 3, 226.32552, 127.0007, 0.768168125, 0.00780703125, Barrier
+DIMACS_miles1000.col_input_Barrier, 4, 132.5917, 127.86515, 0.03587265625, 0.001053515625, Barrier
+DIMACS_miles1000.col_input_Barrier, 5, 128.00284, 127.99992, 2.21874999999e-05, 6.24999999976e-07, Barrier
+DIMACS_miles1000.col_input_Barrier, 6, 128.0, 128.0, 0.0, 0.0, Barrier
+DIMACS_miles1000.col_input_Barrier, 0, 128.0, 128.0, 0.0, 0.0, Barrier
+DIMACS_le450_25a.col_input_Dual, 1, -1, 1.0, -1, 0.997777777778, Dual
+DIMACS_le450_25a.col_input_Dual, 183, -1, 143.0, -1, 0.682222222222, Dual
+DIMACS_le450_25a.col_input_Dual, 409, -1, 343.0, -1, 0.237777777778, Dual
+DIMACS_le450_25a.col_input_Dual, 606, -1, 426.0, -1, 0.0533333333333, Dual
+DIMACS_le450_25a.col_input_Dual, 733, -1, 440.0, -1, 0.0222222222222, Dual
+DIMACS_le450_25a.col_input_Dual, 804, -1, 440.0, -1, 0.0222222222222, Dual
+DIMACS_le450_25a.col_input_Dual, 902, -1, 445.000003, -1, 0.0111111044444, Dual
+DIMACS_le450_25a.col_input_Dual, 975, -1, 448.000004, -1, 0.00444443555556, Dual
+DIMACS_le450_25a.col_input_Dual, 1049, -1, 448.000004, -1, 0.00444443555556, Dual
+DIMACS_le450_25a.col_input_Dual, 1141, -1, 450.000005, -1, 1.11111110831e-08, Dual
+DIMACS_le450_25a.col_input_Dual, 1226, -1, 450.000006, -1, 1.33333332997e-08, Dual
+DIMACS_le450_25a.col_input_Dual, 1294, -1, 450.000006, -1, 1.33333332997e-08, Dual
+DIMACS_le450_25a.col_input_Dual, 1361, -1, 450.000007, -1, 1.55555555163e-08, Dual
+DIMACS_le450_25a.col_input_Dual, 1438, -1, 450.000007, -1, 1.55555555163e-08, Dual
+DIMACS_le450_25a.col_input_Dual, 1475, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_25a.col_input_Dual, 1, -1, 898.0, -1, 0.995555555556, Dual
+DIMACS_le450_25a.col_input_Dual, 287, -1, 326.0, -1, 0.275555555556, Dual
+DIMACS_le450_25a.col_input_Dual, 580, -1, 34.0, -1, 0.924444444444, Dual
+DIMACS_le450_25a.col_input_Dual, 836, -1, 10.0, -1, 0.977777777778, Dual
+DIMACS_le450_25a.col_input_Dual, 955, -1, 460.0, -1, 0.0222222222222, Dual
+DIMACS_le450_25a.col_input_Dual, 1142, -1, 454.0, -1, 0.00888888888889, Dual
+DIMACS_le450_25a.col_input_Dual, 1301, -1, 451.0, -1, 0.00222222222222, Dual
+DIMACS_le450_25a.col_input_Dual, 1355, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_25a.col_input_Barrier, 0, 165200.0, 0.0, 366.111111111, 1.0, Barrier
+DIMACS_le450_25a.col_input_Barrier, 1, 14872.238, 295.86881, 32.0494177778, 0.342513755556, Barrier
+DIMACS_le450_25a.col_input_Barrier, 2, 2842.0855, 381.7858, 5.31574555556, 0.151587111111, Barrier
+DIMACS_le450_25a.col_input_Barrier, 3, 959.77981, 438.17131, 1.13284402222, 0.0262859777778, Barrier
+DIMACS_le450_25a.col_input_Barrier, 4, 510.26278, 448.58282, 0.133917288889, 0.00314928888889, Barrier
+DIMACS_le450_25a.col_input_Barrier, 5, 450.28367, 449.98407, 0.000630377777778, 3.54000000001e-05, Barrier
+DIMACS_le450_25a.col_input_Barrier, 6, 450.00004, 450.0, 8.88888889171e-08, 0.0, Barrier
+DIMACS_le450_25a.col_input_Barrier, 0, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_queen13_13.col_input_Dual, 1, -1, 1.0, -1, 0.994082840237, Dual
+DIMACS_queen13_13.col_input_Dual, 90, -1, 48.0, -1, 0.715976331361, Dual
+DIMACS_queen13_13.col_input_Dual, 225, -1, 136.0, -1, 0.195266272189, Dual
+DIMACS_queen13_13.col_input_Dual, 331, -1, 169.0, -1, 0.0, Dual
+DIMACS_queen13_13.col_input_Dual, 393, -1, 169.0, -1, 0.0, Dual
+DIMACS_queen13_13.col_input_Dual, 405, -1, 169.0, -1, 0.0, Dual
+DIMACS_queen13_13.col_input_Dual, 467, -1, 169.0, -1, 0.0, Dual
+DIMACS_queen13_13.col_input_Dual, 529, -1, 169.000001, -1, 5.91715974837e-09, Dual
+DIMACS_queen13_13.col_input_Dual, 546, 169.0, 169.0, 0.0, 0.0, Dual
+DIMACS_queen13_13.col_input_Dual, 1, -1, 336.0, -1, 0.988165680473, Dual
+DIMACS_queen13_13.col_input_Dual, 180, -1, 4.0, -1, 0.976331360947, Dual
+DIMACS_queen13_13.col_input_Dual, 262, -1, 170.0, -1, 0.00591715976331, Dual
+DIMACS_queen13_13.col_input_Dual, 308, 169.0, 169.0, 0.0, 0.0, Dual
+DIMACS_queen13_13.col_input_Barrier, 0, 66560.0, 0.0, 392.846153846, 1.0, Barrier
+DIMACS_queen13_13.col_input_Barrier, 1, 5922.5251, 110.557, 34.0445272189, 0.345816568047, Barrier
+DIMACS_queen13_13.col_input_Barrier, 2, 1199.0028, 141.73868, 6.09469112426, 0.161309585799, Barrier
+DIMACS_queen13_13.col_input_Barrier, 3, 209.48814, 168.55907, 0.239574792899, 0.00260905325444, Barrier
+DIMACS_queen13_13.col_input_Barrier, 4, 169.17122, 168.99566, 0.00101313609467, 2.56804733729e-05, Barrier
+DIMACS_queen13_13.col_input_Barrier, 5, 169.00002, 169.0, 1.18343195304e-07, 0.0, Barrier
+DIMACS_queen13_13.col_input_Barrier, 0, 169.0, 169.0, 0.0, 0.0, Barrier
+DIMACS_miles750.col_input_Primal, 1, 1.0, -1, 0.9921875, -1, Primal
+DIMACS_miles750.col_input_Primal, 130, 44.0, -1, 0.65625, -1, Primal
+DIMACS_miles750.col_input_Primal, 287, 128.0, -1, 0.0, -1, Primal
+DIMACS_miles750.col_input_Primal, 389, 128.0, 128.0, 0.0, 0.0, Primal
+DIMACS_miles750.col_input_Dual, 1, -1, 254.0, -1, 0.984375, Dual
+DIMACS_miles750.col_input_Dual, 99, -1, 58.0, -1, 0.546875, Dual
+DIMACS_miles750.col_input_Dual, 138, -1, 133.0, -1, 0.0390625, Dual
+DIMACS_miles750.col_input_Dual, 237, 128.0, 128.0, 0.0, 0.0, Dual
+DIMACS_miles750.col_input_Barrier, 0, 42260.0, 0.0, 329.15625, 1.0, Barrier
+DIMACS_miles750.col_input_Barrier, 1, 3782.9618, 83.933356, 28.5543890625, 0.34427065625, Barrier
+DIMACS_miles750.col_input_Barrier, 2, 769.82867, 108.03038, 5.01428648437, 0.15601265625, Barrier
+DIMACS_miles750.col_input_Barrier, 3, 206.73069, 126.48651, 0.615083515625, 0.011824140625, Barrier
+DIMACS_miles750.col_input_Barrier, 4, 135.14026, 127.86619, 0.05578328125, 0.001045390625, Barrier
+DIMACS_miles750.col_input_Barrier, 5, 128.0114, 127.99974, 8.90625000001e-05, 2.03124999998e-06, Barrier
+DIMACS_miles750.col_input_Barrier, 6, 128.0, 128.0, 0.0, 0.0, Barrier
+DIMACS_miles750.col_input_Barrier, 0, 128.0, 128.0, 0.0, 0.0, Barrier
+DIMACS_myciel6.col_input_Primal, 1, 1.0, -1, 0.989473684211, -1, Primal
+DIMACS_myciel6.col_input_Primal, 117, 45.0, -1, 0.526315789474, -1, Primal
+DIMACS_myciel6.col_input_Primal, 216, 95.0, -1, 0.0, -1, Primal
+DIMACS_myciel6.col_input_Primal, 309, 95.0, -1, 0.0, -1, Primal
+DIMACS_myciel6.col_input_Primal, 419, 95.0, -1, 0.0, -1, Primal
+DIMACS_myciel6.col_input_Primal, 508, 95.0, 95.0, 0.0, 0.0, Primal
+DIMACS_myciel6.col_input_Dual, 1, -1, 188.0, -1, 0.978947368421, Dual
+DIMACS_myciel6.col_input_Dual, 90, -1, 24.0, -1, 0.747368421053, Dual
+DIMACS_myciel6.col_input_Dual, 117, -1, 114.0, -1, 0.2, Dual
+DIMACS_myciel6.col_input_Dual, 225, -1, 98.0, -1, 0.0315789473684, Dual
+DIMACS_myciel6.col_input_Dual, 268, 95.0, 95.0, 0.0, 0.0, Dual
+DIMACS_myciel6.col_input_Barrier, 0, 15100.0, 0.0, 157.947368421, 1.0, Barrier
+DIMACS_myciel6.col_input_Barrier, 1, 1405.7531, 63.027017, 13.7974010526, 0.336557715789, Barrier
+DIMACS_myciel6.col_input_Barrier, 2, 291.34905, 83.429829, 2.06683210526, 0.121791273684, Barrier
+DIMACS_myciel6.col_input_Barrier, 3, 104.01293, 93.083868, 0.0948729473684, 0.0201698105263, Barrier
+DIMACS_myciel6.col_input_Barrier, 4, 95.559961, 94.872942, 0.00589432631579, 0.00133745263158, Barrier
+DIMACS_myciel6.col_input_Barrier, 5, 95.000508, 94.999451, 5.34736842101e-06, 5.77894736849e-06, Barrier
+DIMACS_myciel6.col_input_Barrier, 6, 95.0, 95.0, 0.0, 0.0, Barrier
+DIMACS_myciel6.col_input_Barrier, 0, 95.0, 95.0, 0.0, 0.0, Barrier
+DIMACS_flat1000_60_0.col_input_Dual, 1, -1, 1.0, -1, 0.999, Dual
+DIMACS_flat1000_60_0.col_input_Dual, 366, -1, 89.0, -1, 0.911, Dual
+DIMACS_flat1000_60_0.col_input_Dual, 1038, -1, 691.0, -1, 0.309, Dual
+DIMACS_flat1000_60_0.col_input_Dual, 1806, -1, 968.0, -1, 0.032, Dual
+DIMACS_flat1000_60_0.col_input_Dual, 2137, -1, 998.0, -1, 0.002, Dual
+DIMACS_flat1000_60_0.col_input_Dual, 2203, -1, 998.0, -1, 0.002, Dual
+DIMACS_flat1000_60_0.col_input_Dual, 2588, -1, 1000.0, -1, 0.0, Dual
+DIMACS_flat1000_60_0.col_input_Dual, 2996, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_60_0.col_input_Dual, 3354, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_60_0.col_input_Dual, 3584, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_60_0.col_input_Dual, 3836, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_flat1000_60_0.col_input_Dual, 4056, 1000.0, 1000.0, 0.0, 0.0, Dual
+DIMACS_flat1000_60_0.col_input_Primal, 1, 1300.0, -1, 0.3, -1, Primal
+DIMACS_flat1000_60_0.col_input_Primal, 148, 1000.0, -1, 0.0, -1, Primal
+DIMACS_flat1000_60_0.col_input_Primal, 148, 1000.0, 1000.0, 0.0, 0.0, Primal
+DIMACS_flat1000_60_0.col_input_Barrier, 0, 4916600.0, 0.0, 4915.6, 1.0, Barrier
+DIMACS_flat1000_60_0.col_input_Barrier, 1, 428946.4, 651.83863, 427.9464, 0.34816137, Barrier
+DIMACS_flat1000_60_0.col_input_Barrier, 2, 81728.95, 831.08077, 80.72895, 0.16891923, Barrier
+DIMACS_flat1000_60_0.col_input_Barrier, 3, 1741.0532, 999.83797, 0.7410532, 0.00016203, Barrier
+DIMACS_flat1000_60_0.col_input_Barrier, 4, 1012.2962, 999.97439, 0.0122962, 2.561e-05, Barrier
+DIMACS_flat1000_60_0.col_input_Barrier, 5, 1000.0012, 1000.0, 1.20000000004e-06, 0.0, Barrier
+DIMACS_flat1000_60_0.col_input_Barrier, 6, 1000.0, 1000.0, 0.0, 0.0, Barrier
+DIMACS_flat1000_60_0.col_input_Barrier, 0, 1000.0, 1000.0, 0.0, 0.0, Barrier
+DIMACS_myciel5.col_input_Primal, 1, 1.0, -1, 0.978723404255, -1, Primal
+DIMACS_myciel5.col_input_Primal, 79, 45.0, -1, 0.0425531914894, -1, Primal
+DIMACS_myciel5.col_input_Primal, 148, 47.0, -1, 0.0, -1, Primal
+DIMACS_myciel5.col_input_Primal, 217, 47.0, -1, 0.0, -1, Primal
+DIMACS_myciel5.col_input_Primal, 231, 47.0, 47.0, 0.0, 0.0, Primal
+DIMACS_myciel5.col_input_Dual, 1, -1, 92.0, -1, 0.957446808511, Dual
+DIMACS_myciel5.col_input_Dual, 60, -1, 56.0, -1, 0.191489361702, Dual
+DIMACS_myciel5.col_input_Dual, 123, 47.0, 47.0, 0.0, 0.0, Dual
+DIMACS_myciel5.col_input_Barrier, 0, 940.0, 0.0, 19.0, 1.0, Barrier
+DIMACS_myciel5.col_input_Barrier, 1, 253.42131, 76.378577, 4.39194276596, 0.625076106383, Barrier
+DIMACS_myciel5.col_input_Barrier, 2, 67.632467, 55.634119, 0.438988659574, 0.183704659574, Barrier
+DIMACS_myciel5.col_input_Barrier, 3, 47.740602, 49.224746, 0.0157574893617, 0.0473350212766, Barrier
+DIMACS_myciel5.col_input_Barrier, 4, 46.64422, 47.203283, 0.00756978723404, 0.00432517021277, Barrier
+DIMACS_myciel5.col_input_Barrier, 5, 47.000227, 47.026283, 4.82978723409e-06, 0.000559212765957, Barrier
+DIMACS_myciel5.col_input_Barrier, 6, 46.999998, 47.000002, 4.25531915331e-08, 4.25531915331e-08, Barrier
+DIMACS_myciel5.col_input_Barrier, 7, 47.0, 47.0, 0.0, 0.0, Barrier
+DIMACS_myciel5.col_input_Barrier, 0, 47.0, 47.0, 0.0, 0.0, Barrier
+DIMACS_DSJC250.1.col_input_Dual, 1, -1, 1.0, -1, 0.996, Dual
+DIMACS_DSJC250.1.col_input_Dual, 96, -1, 58.0, -1, 0.768, Dual
+DIMACS_DSJC250.1.col_input_Dual, 239, -1, 186.0, -1, 0.256, Dual
+DIMACS_DSJC250.1.col_input_Dual, 383, -1, 241.0, -1, 0.036, Dual
+DIMACS_DSJC250.1.col_input_Dual, 489, -1, 250.0, -1, 0.0, Dual
+DIMACS_DSJC250.1.col_input_Dual, 551, -1, 250.0, -1, 0.0, Dual
+DIMACS_DSJC250.1.col_input_Dual, 602, -1, 250.0, -1, 0.0, Dual
+DIMACS_DSJC250.1.col_input_Dual, 666, -1, 250.000001, -1, 3.9999999899e-09, Dual
+DIMACS_DSJC250.1.col_input_Dual, 728, -1, 250.000001, -1, 3.9999999899e-09, Dual
+DIMACS_DSJC250.1.col_input_Dual, 790, -1, 250.000002, -1, 7.9999999798e-09, Dual
+DIMACS_DSJC250.1.col_input_Dual, 794, 250.0, 250.0, 0.0, 0.0, Dual
+DIMACS_DSJC250.1.col_input_Dual, 1, -1, 498.0, -1, 0.992, Dual
+DIMACS_DSJC250.1.col_input_Dual, 196, -1, 108.0, -1, 0.568, Dual
+DIMACS_DSJC250.1.col_input_Dual, 387, -1, 253.0, -1, 0.012, Dual
+DIMACS_DSJC250.1.col_input_Dual, 543, 250.0, 250.0, 0.0, 0.0, Dual
+DIMACS_DSJC250.1.col_input_Barrier, 0, 64360.0, 0.0, 256.44, 1.0, Barrier
+DIMACS_DSJC250.1.col_input_Barrier, 1, 5804.7343, 163.80744, 22.2189372, 0.34477024, Barrier
+DIMACS_DSJC250.1.col_input_Barrier, 2, 1215.9571, 210.96469, 3.8638284, 0.15614124, Barrier
+DIMACS_DSJC250.1.col_input_Barrier, 3, 330.21418, 249.01385, 0.32085672, 0.0039446, Barrier
+DIMACS_DSJC250.1.col_input_Barrier, 4, 251.15127, 249.94525, 0.00460508, 0.000219, Barrier
+DIMACS_DSJC250.1.col_input_Barrier, 5, 250.00011, 249.99999, 4.40000000026e-07, 4.00000000127e-08, Barrier
+DIMACS_DSJC250.1.col_input_Barrier, 6, 250.0, 250.0, 0.0, 0.0, Barrier
+DIMACS_DSJC250.1.col_input_Barrier, 0, 250.0, 250.0, 0.0, 0.0, Barrier
+DIMACS_queen5_5.col_input_Primal, 1, 1.0, -1, 0.96, -1, Primal
+DIMACS_queen5_5.col_input_Primal, 52, 25.0, 25.0, 0.0, 0.0, Primal
+DIMACS_queen5_5.col_input_Dual, 1, -1, 48.0, -1, 0.92, Dual
+DIMACS_queen5_5.col_input_Dual, 28, -1, 26.0, -1, 0.04, Dual
+DIMACS_queen5_5.col_input_Dual, 44, 25.0, 25.0, 0.0, 0.0, Dual
+DIMACS_queen5_5.col_input_Barrier, 0, 500.0, 0.0, 19.0, 1.0, Barrier
+DIMACS_queen5_5.col_input_Barrier, 1, 38.325027, 38.310693, 0.53300108, 0.53242772, Barrier
+DIMACS_queen5_5.col_input_Barrier, 2, 33.107822, 32.951754, 0.32431288, 0.31807016, Barrier
+DIMACS_queen5_5.col_input_Barrier, 3, 25.079334, 25.02576, 0.00317336, 0.0010304, Barrier
+DIMACS_queen5_5.col_input_Barrier, 4, 25.000009, 25.000003, 3.59999999944e-07, 1.19999999981e-07, Barrier
+DIMACS_queen5_5.col_input_Barrier, 5, 25.0, 25.0, 0.0, 0.0, Barrier
+DIMACS_queen5_5.col_input_Barrier, 0, 25.0, 25.0, 0.0, 0.0, Barrier
+DIMACS_queen9_9.col_input_Primal, 1, 1.0, -1, 0.987654320988, -1, Primal
+DIMACS_queen9_9.col_input_Primal, 103, 48.0, -1, 0.407407407407, -1, Primal
+DIMACS_queen9_9.col_input_Primal, 230, 81.0, -1, 0.0, -1, Primal
+DIMACS_queen9_9.col_input_Primal, 259, 81.0, 81.0, 0.0, 0.0, Primal
+DIMACS_queen9_9.col_input_Dual, 1, -1, 160.0, -1, 0.975308641975, Dual
+DIMACS_queen9_9.col_input_Dual, 81, -1, 2.0, -1, 0.975308641975, Dual
+DIMACS_queen9_9.col_input_Dual, 86, -1, 83.0, -1, 0.0246913580247, Dual
+DIMACS_queen9_9.col_input_Dual, 164, 81.0, 81.0, 0.0, 0.0, Dual
+DIMACS_queen9_9.col_input_Barrier, 0, 21120.0, 0.0, 259.740740741, 1.0, Barrier
+DIMACS_queen9_9.col_input_Barrier, 1, 1896.2129, 53.126037, 22.4100358025, 0.344123, Barrier
+DIMACS_queen9_9.col_input_Barrier, 2, 398.08239, 68.269121, 3.91459740741, 0.157171345679, Barrier
+DIMACS_queen9_9.col_input_Barrier, 3, 99.245358, 80.645624, 0.225251333333, 0.00437501234568, Barrier
+DIMACS_queen9_9.col_input_Barrier, 4, 81.03756, 80.998295, 0.000463703703704, 2.10493827161e-05, Barrier
+DIMACS_queen9_9.col_input_Barrier, 5, 81.000004, 81.0, 4.93827161001e-08, 0.0, Barrier
+DIMACS_queen9_9.col_input_Barrier, 0, 81.0, 81.0, 0.0, 0.0, Barrier
+DIMACS_queen7_7.col_input_Primal, 1, 1.0, -1, 0.979591836735, -1, Primal
+DIMACS_queen7_7.col_input_Primal, 80, 49.0, -1, 0.0, -1, Primal
+DIMACS_queen7_7.col_input_Primal, 127, 49.0, 49.0, 0.0, 0.0, Primal
+DIMACS_queen7_7.col_input_Dual, 1, -1, 96.0, -1, 0.959183673469, Dual
+DIMACS_queen7_7.col_input_Dual, 54, -1, 51.0, -1, 0.0408163265306, Dual
+DIMACS_queen7_7.col_input_Dual, 105, 49.0, 49.0, 0.0, 0.0, Dual
+DIMACS_queen7_7.col_input_Barrier, 0, 9520.0, 0.0, 193.285714286, 1.0, Barrier
+DIMACS_queen7_7.col_input_Barrier, 1, 861.51336, 32.228721, 16.5819053061, 0.342271, Barrier
+DIMACS_queen7_7.col_input_Barrier, 2, 187.74789, 41.501594, 2.83158959184, 0.153028693878, Barrier
+DIMACS_queen7_7.col_input_Barrier, 3, 59.273441, 48.716216, 0.209662061224, 0.00579151020408, Barrier
+DIMACS_queen7_7.col_input_Barrier, 4, 49.01006, 48.998851, 0.000205306122449, 2.34489795918e-05, Barrier
+DIMACS_queen7_7.col_input_Barrier, 5, 49.000001, 49.0, 2.04081632138e-08, 0.0, Barrier
+DIMACS_queen7_7.col_input_Barrier, 0, 49.0, 49.0, 0.0, 0.0, Barrier
+DIMACS_miles1500.col_input_Dual, 1, -1, 1.0, -1, 0.9921875, Dual
+DIMACS_miles1500.col_input_Dual, 94, -1, 49.0, -1, 0.6171875, Dual
+DIMACS_miles1500.col_input_Dual, 223, -1, 120.0, -1, 0.0625, Dual
+DIMACS_miles1500.col_input_Dual, 310, -1, 128.0, -1, 0.0, Dual
+DIMACS_miles1500.col_input_Dual, 374, -1, 128.0, -1, 0.0, Dual
+DIMACS_miles1500.col_input_Dual, 405, -1, 128.0, -1, 0.0, Dual
+DIMACS_miles1500.col_input_Dual, 441, 128.0, 128.0, 0.0, 0.0, Dual
+DIMACS_miles1500.col_input_Dual, 1, -1, 254.0, -1, 0.984375, Dual
+DIMACS_miles1500.col_input_Dual, 196, -1, 1.0, -1, 0.9921875, Dual
+DIMACS_miles1500.col_input_Dual, 201, -1, 129.0, -1, 0.0078125, Dual
+DIMACS_miles1500.col_input_Dual, 277, 128.0, 128.0, 0.0, 0.0, Dual
+DIMACS_miles1500.col_input_Barrier, 0, 103960.0, 0.0, 811.1875, 1.0, Barrier
+DIMACS_miles1500.col_input_Barrier, 1, 9138.5564, 83.658031, 70.394971875, 0.346421632813, Barrier
+DIMACS_miles1500.col_input_Barrier, 2, 1800.815, 106.90539, 13.0688671875, 0.164801640625, Barrier
+DIMACS_miles1500.col_input_Barrier, 3, 236.0342, 127.43896, 0.8440171875, 0.004383125, Barrier
+DIMACS_miles1500.col_input_Barrier, 4, 132.58693, 127.93065, 0.035835390625, 0.000541796875, Barrier
+DIMACS_miles1500.col_input_Barrier, 5, 128.00128, 127.99998, 1.00000000001e-05, 1.5625000005e-07, Barrier
+DIMACS_miles1500.col_input_Barrier, 6, 128.0, 128.0, 0.0, 0.0, Barrier
+DIMACS_miles1500.col_input_Barrier, 0, 128.0, 128.0, 0.0, 0.0, Barrier
+DIMACS_le450_15d.col_input_Dual, 1, -1, 1.0, -1, 0.997777777778, Dual
+DIMACS_le450_15d.col_input_Dual, 159, -1, 48.0, -1, 0.893333333333, Dual
+DIMACS_le450_15d.col_input_Dual, 306, -1, 140.0, -1, 0.688888888889, Dual
+DIMACS_le450_15d.col_input_Dual, 557, -1, 346.0, -1, 0.231111111111, Dual
+DIMACS_le450_15d.col_input_Dual, 818, -1, 436.0, -1, 0.0311111111111, Dual
+DIMACS_le450_15d.col_input_Dual, 1006, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_15d.col_input_Dual, 1174, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_15d.col_input_Dual, 1313, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_15d.col_input_Dual, 1401, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_15d.col_input_Dual, 1437, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_15d.col_input_Dual, 1, -1, 898.0, -1, 0.995555555556, Dual
+DIMACS_le450_15d.col_input_Dual, 358, -1, 184.0, -1, 0.591111111111, Dual
+DIMACS_le450_15d.col_input_Dual, 713, -1, 5.0, -1, 0.988888888889, Dual
+DIMACS_le450_15d.col_input_Dual, 777, -1, 457.0, -1, 0.0155555555556, Dual
+DIMACS_le450_15d.col_input_Dual, 1012, -1, 451.0, -1, 0.00222222222222, Dual
+DIMACS_le450_15d.col_input_Dual, 1122, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_15d.col_input_Barrier, 0, 335000.0, 0.0, 743.444444444, 1.0, Barrier
+DIMACS_le450_15d.col_input_Barrier, 1, 29539.749, 293.87295, 64.6438866667, 0.346949, Barrier
+DIMACS_le450_15d.col_input_Barrier, 2, 5843.3976, 376.04236, 11.985328, 0.164350311111, Barrier
+DIMACS_le450_15d.col_input_Barrier, 3, 1054.9267, 445.40609, 1.34428155556, 0.0102086888889, Barrier
+DIMACS_le450_15d.col_input_Barrier, 4, 493.27599, 449.22432, 0.0961688666667, 0.00172373333333, Barrier
+DIMACS_le450_15d.col_input_Barrier, 5, 450.17856, 449.99727, 0.0003968, 6.06666666663e-06, Barrier
+DIMACS_le450_15d.col_input_Barrier, 6, 450.00003, 450.0, 6.66666666247e-08, 0.0, Barrier
+DIMACS_le450_15d.col_input_Barrier, 0, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_queen12_12.col_input_Dual, 1, -1, 1.0, -1, 0.993055555556, Dual
+DIMACS_queen12_12.col_input_Dual, 84, -1, 33.0, -1, 0.770833333333, Dual
+DIMACS_queen12_12.col_input_Dual, 184, -1, 111.0, -1, 0.229166666667, Dual
+DIMACS_queen12_12.col_input_Dual, 261, -1, 131.0, -1, 0.0902777777778, Dual
+DIMACS_queen12_12.col_input_Dual, 323, -1, 142.0, -1, 0.0138888888889, Dual
+DIMACS_queen12_12.col_input_Dual, 385, -1, 144.0, -1, 0.0, Dual
+DIMACS_queen12_12.col_input_Dual, 448, -1, 144.0, -1, 0.0, Dual
+DIMACS_queen12_12.col_input_Dual, 506, -1, 144.0, -1, 0.0, Dual
+DIMACS_queen12_12.col_input_Dual, 525, 144.0, 144.0, 0.0, 0.0, Dual
+DIMACS_queen12_12.col_input_Dual, 1, -1, 286.0, -1, 0.986111111111, Dual
+DIMACS_queen12_12.col_input_Dual, 162, -1, 3.0, -1, 0.979166666667, Dual
+DIMACS_queen12_12.col_input_Dual, 195, -1, 144.0, -1, 0.0, Dual
+DIMACS_queen12_12.col_input_Dual, 195, 144.0, 144.0, 0.0, 0.0, Dual
+DIMACS_queen12_12.col_input_Barrier, 0, 51920.0, 0.0, 359.555555556, 1.0, Barrier
+DIMACS_queen12_12.col_input_Barrier, 1, 4627.7801, 94.244637, 31.1373618056, 0.345523354167, Barrier
+DIMACS_queen12_12.col_input_Barrier, 2, 942.98725, 120.87974, 5.54852256944, 0.160557361111, Barrier
+DIMACS_queen12_12.col_input_Barrier, 3, 178.17218, 143.57312, 0.237306805556, 0.00296444444444, Barrier
+DIMACS_queen12_12.col_input_Barrier, 4, 144.12676, 143.99651, 0.000880277777778, 2.42361111111e-05, Barrier
+DIMACS_queen12_12.col_input_Barrier, 5, 144.00001, 144.0, 6.94444444665e-08, 0.0, Barrier
+DIMACS_queen12_12.col_input_Barrier, 0, 144.0, 144.0, 0.0, 0.0, Barrier
+DIMACS_myciel4.col_input_Primal, 1, 1.0, -1, 0.95652173913, -1, Primal
+DIMACS_myciel4.col_input_Primal, 62, 23.0, -1, 0.0, -1, Primal
+DIMACS_myciel4.col_input_Primal, 66, 23.0, 23.0, 0.0, 0.0, Primal
+DIMACS_myciel4.col_input_Dual, 1, -1, 44.0, -1, 0.913043478261, Dual
+DIMACS_myciel4.col_input_Dual, 28, -1, 26.0, -1, 0.130434782609, Dual
+DIMACS_myciel4.col_input_Dual, 57, 23.0, 23.0, 0.0, 0.0, Dual
+DIMACS_myciel4.col_input_Barrier, 0, 460.0, 0.0, 19.0, 1.0, Barrier
+DIMACS_myciel4.col_input_Barrier, 1, 97.628249, 38.207743, 3.24470647826, 0.661206217391, Barrier
+DIMACS_myciel4.col_input_Barrier, 2, 30.477422, 26.067105, 0.325105304348, 0.133352391304, Barrier
+DIMACS_myciel4.col_input_Barrier, 3, 22.91818, 24.069311, 0.00355739130435, 0.0464917826087, Barrier
+DIMACS_myciel4.col_input_Barrier, 4, 22.836807, 23.099547, 0.00709534782609, 0.00432813043478, Barrier
+DIMACS_myciel4.col_input_Barrier, 5, 22.999833, 23.003176, 7.26086956527e-06, 0.000138086956522, Barrier
+DIMACS_myciel4.col_input_Barrier, 6, 23.0, 23.0, 0.0, 0.0, Barrier
+DIMACS_myciel4.col_input_Barrier, 0, 23.0, 23.0, 0.0, 0.0, Barrier
+DIMACS_anna.col_input_Primal, 1, 149.0, -1, 0.107784431138, -1, Primal
+DIMACS_anna.col_input_Primal, 50, 167.0, 167.0, 0.0, 0.0, Primal
+DIMACS_anna.col_input_Dual, 1, -1, 185.0, -1, 0.107784431138, Dual
+DIMACS_anna.col_input_Dual, 41, 167.0, 167.0, 0.0, 0.0, Dual
+DIMACS_anna.col_input_Barrier, 0, 528.0, 224.0, 2.16167664671, 0.341317365269, Barrier
+DIMACS_anna.col_input_Barrier, 1, 195.19606, 195.18721, 0.168838682635, 0.168785688623, Barrier
+DIMACS_anna.col_input_Barrier, 2, 169.79325, 171.9593, 0.0167260479042, 0.0296964071856, Barrier
+DIMACS_anna.col_input_Barrier, 3, 167.01766, 167.0358, 0.000105748502994, 0.000214371257485, Barrier
+DIMACS_anna.col_input_Barrier, 4, 167.0, 167.0, 0.0, 0.0, Barrier
+DIMACS_anna.col_input_Barrier, 5, 167.0, 167.0, 0.0, 0.0, Barrier
+DIMACS_anna.col_input_Barrier, 0, 167.0, 167.0, 0.0, 0.0, Barrier
+DIMACS_queen15_15.col_input_Dual, 1, -1, 1.0, -1, 0.995555555556, Dual
+DIMACS_queen15_15.col_input_Dual, 119, -1, 77.0, -1, 0.657777777778, Dual
+DIMACS_queen15_15.col_input_Dual, 290, -1, 193.0, -1, 0.142222222222, Dual
+DIMACS_queen15_15.col_input_Dual, 419, -1, 225.0, -1, 0.0, Dual
+DIMACS_queen15_15.col_input_Dual, 481, -1, 225.0, -1, 0.0, Dual
+DIMACS_queen15_15.col_input_Dual, 506, -1, 225.0, -1, 0.0, Dual
+DIMACS_queen15_15.col_input_Dual, 568, -1, 225.0, -1, 0.0, Dual
+DIMACS_queen15_15.col_input_Dual, 639, -1, 225.000001, -1, 4.44444443322e-09, Dual
+DIMACS_queen15_15.col_input_Dual, 682, 225.0, 225.0, 0.0, 0.0, Dual
+DIMACS_queen15_15.col_input_Dual, 1, -1, 448.0, -1, 0.991111111111, Dual
+DIMACS_queen15_15.col_input_Dual, 217, -1, 40.0, -1, 0.822222222222, Dual
+DIMACS_queen15_15.col_input_Dual, 357, -1, 229.0, -1, 0.0177777777778, Dual
+DIMACS_queen15_15.col_input_Dual, 507, 225.0, 225.0, 0.0, 0.0, Dual
+DIMACS_queen15_15.col_input_Barrier, 0, 103600.0, 0.0, 459.444444444, 1.0, Barrier
+DIMACS_queen15_15.col_input_Barrier, 1, 9192.8772, 147.09105, 39.857232, 0.346262, Barrier
+DIMACS_queen15_15.col_input_Barrier, 2, 1842.3836, 188.43937, 7.18837155556, 0.162491688889, Barrier
+DIMACS_queen15_15.col_input_Barrier, 3, 279.58797, 224.54258, 0.2426132, 0.00203297777778, Barrier
+DIMACS_queen15_15.col_input_Barrier, 4, 225.2736, 224.99402, 0.001216, 2.65777777778e-05, Barrier
+DIMACS_queen15_15.col_input_Barrier, 5, 225.00003, 225.0, 1.33333333376e-07, 0.0, Barrier
+DIMACS_queen15_15.col_input_Barrier, 0, 225.0, 225.0, 0.0, 0.0, Barrier
+DIMACS_DSJC500.1.col_input_Dual, 1, -1, 1.0, -1, 0.998, Dual
+DIMACS_DSJC500.1.col_input_Dual, 212, -1, 165.0, -1, 0.67, Dual
+DIMACS_DSJC500.1.col_input_Dual, 473, -1, 396.0, -1, 0.208, Dual
+DIMACS_DSJC500.1.col_input_Dual, 720, -1, 482.0, -1, 0.036, Dual
+DIMACS_DSJC500.1.col_input_Dual, 834, -1, 492.0, -1, 0.016, Dual
+DIMACS_DSJC500.1.col_input_Dual, 905, -1, 492.0, -1, 0.016, Dual
+DIMACS_DSJC500.1.col_input_Dual, 1024, -1, 500.000002, -1, 3.9999999899e-09, Dual
+DIMACS_DSJC500.1.col_input_Dual, 1112, -1, 500.000002, -1, 3.9999999899e-09, Dual
+DIMACS_DSJC500.1.col_input_Dual, 1199, -1, 500.000003, -1, 5.99999998485e-09, Dual
+DIMACS_DSJC500.1.col_input_Dual, 1290, -1, 500.000004, -1, 7.9999999798e-09, Dual
+DIMACS_DSJC500.1.col_input_Dual, 1381, -1, 500.000004, -1, 7.9999999798e-09, Dual
+DIMACS_DSJC500.1.col_input_Dual, 1456, -1, 500.000004, -1, 7.9999999798e-09, Dual
+DIMACS_DSJC500.1.col_input_Dual, 1530, -1, 500.000004, -1, 7.9999999798e-09, Dual
+DIMACS_DSJC500.1.col_input_Dual, 1536, 500.0, 500.0, 0.0, 0.0, Dual
+DIMACS_DSJC500.1.col_input_Dual, 1, -1, 998.0, -1, 0.996, Dual
+DIMACS_DSJC500.1.col_input_Dual, 119, -1, 22.0, -1, 0.956, Dual
+DIMACS_DSJC500.1.col_input_Dual, 174, -1, 504.0, -1, 0.008, Dual
+DIMACS_DSJC500.1.col_input_Dual, 364, 500.0, 500.0, 0.0, 0.0, Dual
+DIMACS_DSJC500.1.col_input_Barrier, 0, 249160.0, 0.0, 497.32, 1.0, Barrier
+DIMACS_DSJC500.1.col_input_Barrier, 1, 22098.707, 326.68957, 43.197414, 0.34662086, Barrier
+DIMACS_DSJC500.1.col_input_Barrier, 2, 4411.3579, 418.57557, 7.8227158, 0.16284886, Barrier
+DIMACS_DSJC500.1.col_input_Barrier, 3, 685.15592, 499.35323, 0.37031184, 0.00129354, Barrier
+DIMACS_DSJC500.1.col_input_Barrier, 4, 502.09725, 499.94562, 0.0041945, 0.00010876, Barrier
+DIMACS_DSJC500.1.col_input_Barrier, 5, 500.00025, 499.99999, 4.99999999988e-07, 1.99999999495e-08, Barrier
+DIMACS_DSJC500.1.col_input_Barrier, 6, 500.0, 500.0, 0.0, 0.0, Barrier
+DIMACS_DSJC500.1.col_input_Barrier, 0, 500.0, 500.0, 0.0, 0.0, Barrier
+DIMACS_queen11_11.col_input_Primal, 1, 1.0, -1, 0.99173553719, -1, Primal
+DIMACS_queen11_11.col_input_Primal, 125, 43.0, -1, 0.644628099174, -1, Primal
+DIMACS_queen11_11.col_input_Primal, 276, 121.0, -1, 0.0, -1, Primal
+DIMACS_queen11_11.col_input_Primal, 379, 121.0, 121.0, 0.0, 0.0, Primal
+DIMACS_queen11_11.col_input_Dual, 1, -1, 240.0, -1, 0.98347107438, Dual
+DIMACS_queen11_11.col_input_Dual, 99, -1, 44.0, -1, 0.636363636364, Dual
+DIMACS_queen11_11.col_input_Dual, 124, -1, 122.0, -1, 0.00826446280992, Dual
+DIMACS_queen11_11.col_input_Dual, 175, -1, 122.0, -1, 0.00826446280992, Dual
+DIMACS_queen11_11.col_input_Dual, 219, 121.0, 121.0, 0.0, 0.0, Dual
+DIMACS_queen11_11.col_input_Barrier, 0, 39600.0, 0.0, 326.272727273, 1.0, Barrier
+DIMACS_queen11_11.col_input_Barrier, 1, 3536.7607, 79.235368, 28.2294272727, 0.345162247934, Barrier
+DIMACS_queen11_11.col_input_Barrier, 2, 726.36325, 101.6818, 5.00300206612, 0.159654545455, Barrier
+DIMACS_queen11_11.col_input_Barrier, 3, 149.35009, 120.59252, 0.234298264463, 0.00336760330579, Barrier
+DIMACS_queen11_11.col_input_Barrier, 4, 121.09042, 120.9973, 0.000747272727273, 2.23140495868e-05, Barrier
+DIMACS_queen11_11.col_input_Barrier, 5, 121.00001, 121.0, 8.26446281254e-08, 0.0, Barrier
+DIMACS_queen11_11.col_input_Barrier, 0, 121.0, 121.0, 0.0, 0.0, Barrier
+DIMACS_school1_nsh.col_input_Dual, 1, -1, 9.0, -1, 0.974431818182, Dual
+DIMACS_school1_nsh.col_input_Dual, 200, -1, 158.0, -1, 0.551136363636, Dual
+DIMACS_school1_nsh.col_input_Dual, 445, -1, 305.0, -1, 0.133522727273, Dual
+DIMACS_school1_nsh.col_input_Dual, 629, -1, 345.0, -1, 0.0198863636364, Dual
+DIMACS_school1_nsh.col_input_Dual, 719, -1, 345.0, -1, 0.0198863636364, Dual
+DIMACS_school1_nsh.col_input_Dual, 818, -1, 348.0, -1, 0.0113636363636, Dual
+DIMACS_school1_nsh.col_input_Dual, 916, -1, 350.0, -1, 0.00568181818182, Dual
+DIMACS_school1_nsh.col_input_Dual, 1030, -1, 351.0, -1, 0.00284090909091, Dual
+DIMACS_school1_nsh.col_input_Dual, 1102, -1, 351.0, -1, 0.00284090909091, Dual
+DIMACS_school1_nsh.col_input_Dual, 1184, -1, 351.0, -1, 0.00284090909091, Dual
+DIMACS_school1_nsh.col_input_Dual, 1262, -1, 352.0, -1, 0.0, Dual
+DIMACS_school1_nsh.col_input_Dual, 1350, -1, 352.000001, -1, 2.84090908374e-09, Dual
+DIMACS_school1_nsh.col_input_Dual, 1442, -1, 352.000001, -1, 2.84090908374e-09, Dual
+DIMACS_school1_nsh.col_input_Dual, 1470, 352.0, 352.0, 0.0, 0.0, Dual
+DIMACS_school1_nsh.col_input_Dual, 1, -1, 686.0, -1, 0.948863636364, Dual
+DIMACS_school1_nsh.col_input_Dual, 328, -1, 92.0, -1, 0.738636363636, Dual
+DIMACS_school1_nsh.col_input_Dual, 621, -1, 11.999998, -1, 0.965909096591, Dual
+DIMACS_school1_nsh.col_input_Dual, 677, -1, 360.0, -1, 0.0227272727273, Dual
+DIMACS_school1_nsh.col_input_Dual, 862, 352.0, 352.0, 0.0, 0.0, Dual
+DIMACS_school1_nsh.col_input_Barrier, 0, 292168.0, 8.0, 829.022727273, 0.977272727273, Barrier
+DIMACS_school1_nsh.col_input_Barrier, 1, 25790.116, 232.99925, 72.267375, 0.3380703125, Barrier
+DIMACS_school1_nsh.col_input_Barrier, 2, 4990.7031, 293.91502, 13.1781338068, 0.165014147727, Barrier
+DIMACS_school1_nsh.col_input_Barrier, 3, 1158.194, 344.2189, 2.29032386364, 0.0221053977273, Barrier
+DIMACS_school1_nsh.col_input_Barrier, 4, 459.11006, 350.79861, 0.304289943182, 0.00341303977273, Barrier
+DIMACS_school1_nsh.col_input_Barrier, 5, 357.36597, 351.92277, 0.0152442329545, 0.000219403409091, Barrier
+DIMACS_school1_nsh.col_input_Barrier, 6, 352.00053, 351.99999, 1.50568181826e-06, 2.84090908374e-08, Barrier
+DIMACS_school1_nsh.col_input_Barrier, 7, 352.0, 352.0, 0.0, 0.0, Barrier
+DIMACS_school1_nsh.col_input_Barrier, 0, 352.0, 352.0, 0.0, 0.0, Barrier
+DIMACS_DSJC1000.9.col_input_Dual, 1, -1, 1.0, -1, 0.999, Dual
+DIMACS_DSJC1000.9.col_input_Dual, 915, -1, 682.0, -1, 0.318, Dual
+DIMACS_DSJC1000.9.col_input_Dual, 1952, -1, 992.0, -1, 0.008, Dual
+DIMACS_DSJC1000.9.col_input_Dual, 2304, -1, 1000.0, -1, 0.0, Dual
+DIMACS_DSJC1000.9.col_input_Dual, 2652, -1, 1000.0, -1, 0.0, Dual
+DIMACS_DSJC1000.9.col_input_Dual, 3066, -1, 1000.0, -1, 0.0, Dual
+DIMACS_DSJC1000.9.col_input_Dual, 3405, -1, 1000.0, -1, 0.0, Dual
+DIMACS_DSJC1000.9.col_input_Dual, 3749, -1, 1000.0, -1, 0.0, Dual
+DIMACS_DSJC1000.9.col_input_Dual, 4040, -1, 1000.0, -1, 0.0, Dual
+DIMACS_DSJC1000.9.col_input_Dual, 4117, 1000.0, 1000.0, 0.0, 0.0, Dual
+DIMACS_DSJC1000.9.col_input_Primal, 1, 1329.0, -1, 0.329, -1, Primal
+DIMACS_DSJC1000.9.col_input_Primal, 153, 1000.0, -1, 0.0, -1, Primal
+DIMACS_DSJC1000.9.col_input_Primal, 153, 1000.0, 1000.0, 0.0, 0.0, Primal
+DIMACS_DSJC1000.9.col_input_Barrier, 0, 8988980.0, 0.0, 8987.98, 1.0, Barrier
+DIMACS_DSJC1000.9.col_input_Barrier, 1, 783565.06, 651.76846, 782.56506, 0.34823154, Barrier
+DIMACS_DSJC1000.9.col_input_Barrier, 2, 148956.19, 830.7776, 147.95619, 0.1692224, Barrier
+DIMACS_DSJC1000.9.col_input_Barrier, 3, 1856.2467, 999.94578, 0.8562467, 5.422e-05, Barrier
+DIMACS_DSJC1000.9.col_input_Barrier, 4, 1009.3765, 999.98933, 0.0093765, 1.067e-05, Barrier
+DIMACS_DSJC1000.9.col_input_Barrier, 5, 1000.0009, 1000.0, 9.00000000001e-07, 0.0, Barrier
+DIMACS_DSJC1000.9.col_input_Barrier, 6, 1000.0, 1000.0, 0.0, 0.0, Barrier
+DIMACS_DSJC1000.9.col_input_Barrier, 0, 1000.0, 1000.0, 0.0, 0.0, Barrier
+DIMACS_DSJR500.1c.col_input_Dual, 1, -1, 1.0, -1, 0.998, Dual
+DIMACS_DSJR500.1c.col_input_Dual, 461, -1, 321.0, -1, 0.358, Dual
+DIMACS_DSJR500.1c.col_input_Dual, 943, -1, 482.0, -1, 0.036, Dual
+DIMACS_DSJR500.1c.col_input_Dual, 1187, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJR500.1c.col_input_Dual, 1203, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJR500.1c.col_input_Dual, 1495, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJR500.1c.col_input_Dual, 1718, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJR500.1c.col_input_Dual, 1919, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJR500.1c.col_input_Dual, 2009, 500.0, 500.0, 0.0, 0.0, Dual
+DIMACS_DSJR500.1c.col_input_Dual, 1, -1, 998.0, -1, 0.996, Dual
+DIMACS_DSJR500.1c.col_input_Dual, 124, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJR500.1c.col_input_Dual, 124, 500.0, 500.0, 0.0, 0.0, Dual
+DIMACS_DSJR500.1c.col_input_Barrier, 0, 2425500.0, 0.0, 4850.0, 1.0, Barrier
+DIMACS_DSJR500.1c.col_input_Barrier, 1, 211545.49, 325.97805, 422.09098, 0.3480439, Barrier
+DIMACS_DSJR500.1c.col_input_Barrier, 2, 40351.045, 415.54437, 79.70209, 0.16891126, Barrier
+DIMACS_DSJR500.1c.col_input_Barrier, 3, 806.02262, 499.97732, 0.61204524, 4.536e-05, Barrier
+DIMACS_DSJR500.1c.col_input_Barrier, 4, 501.50183, 499.99685, 0.00300366, 6.30000000001e-06, Barrier
+DIMACS_DSJR500.1c.col_input_Barrier, 5, 500.0002, 500.0, 4.00000000013e-07, 0.0, Barrier
+DIMACS_DSJR500.1c.col_input_Barrier, 0, 500.0, 500.0, 0.0, 0.0, Barrier
+DIMACS_DSJC1000.1.col_input_Dual, 1, -1, 1.0, -1, 0.999, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 251, -1, 73.0, -1, 0.927, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 420, -1, 109.0, -1, 0.891, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 751, -1, 404.0, -1, 0.596, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 1178, -1, 776.0, -1, 0.224, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 1632, -1, 948.0, -1, 0.052, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 2034, -1, 1000.0, -1, 0.0, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 2102, -1, 1000.0, -1, 0.0, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 2276, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 2577, -1, 1000.000002, -1, 1.99999999495e-09, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 2818, -1, 1000.000003, -1, 2.99999999243e-09, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 2992, -1, 1000.000003, -1, 2.99999999243e-09, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 3144, -1, 1000.000004, -1, 3.9999999899e-09, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 3285, -1, 1000.000004, -1, 3.9999999899e-09, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 3442, -1, 1000.000004, -1, 3.9999999899e-09, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 3562, -1, 1000.000004, -1, 3.9999999899e-09, Dual
+DIMACS_DSJC1000.1.col_input_Dual, 3601, 1000.0, 1000.0, 0.0, 0.0, Dual
+DIMACS_DSJC1000.1.col_input_Primal, 1, 1286.0, -1, 0.286, -1, Primal
+DIMACS_DSJC1000.1.col_input_Primal, 143, 1002.0, -1, 0.002, -1, Primal
+DIMACS_DSJC1000.1.col_input_Primal, 395, 1000.0, 1000.0, 0.0, 0.0, Primal
+DIMACS_DSJC1000.1.col_input_Barrier, 0, 992580.0, 0.0, 991.58, 1.0, Barrier
+DIMACS_DSJC1000.1.col_input_Barrier, 1, 87250.182, 652.46407, 86.250182, 0.34753593, Barrier
+DIMACS_DSJC1000.1.col_input_Barrier, 2, 16978.743, 833.76338, 15.978743, 0.16623662, Barrier
+DIMACS_DSJC1000.1.col_input_Barrier, 3, 1614.2658, 998.57534, 0.6142658, 0.00142466, Barrier
+DIMACS_DSJC1000.1.col_input_Barrier, 4, 1016.1365, 999.7992, 0.0161365, 0.0002008, Barrier
+DIMACS_DSJC1000.1.col_input_Barrier, 5, 1000.0095, 999.99988, 9.5e-06, 1.20000000038e-07, Barrier
+DIMACS_DSJC1000.1.col_input_Barrier, 6, 1000.0, 1000.0, 0.0, 0.0, Barrier
+DIMACS_DSJC1000.1.col_input_Barrier, 0, 1000.0, 1000.0, 0.0, 0.0, Barrier
+DIMACS_queen8_12.col_input_Primal, 1, 1.0, -1, 0.989583333333, -1, Primal
+DIMACS_queen8_12.col_input_Primal, 112, 53.0, -1, 0.447916666667, -1, Primal
+DIMACS_queen8_12.col_input_Primal, 239, 96.0, -1, 0.0, -1, Primal
+DIMACS_queen8_12.col_input_Primal, 306, 96.0, 96.0, 0.0, 0.0, Primal
+DIMACS_queen8_12.col_input_Dual, 1, -1, 190.0, -1, 0.979166666667, Dual
+DIMACS_queen8_12.col_input_Dual, 88, -1, 16.0, -1, 0.833333333333, Dual
+DIMACS_queen8_12.col_input_Dual, 99, -1, 97.0, -1, 0.0104166666667, Dual
+DIMACS_queen8_12.col_input_Dual, 113, 96.0, 96.0, 0.0, 0.0, Dual
+DIMACS_queen8_12.col_input_Barrier, 0, 27360.0, 0.0, 284.0, 1.0, Barrier
+DIMACS_queen8_12.col_input_Barrier, 1, 2451.3428, 62.920336, 24.5348208333, 0.344579833333, Barrier
+DIMACS_queen8_12.col_input_Barrier, 2, 510.0553, 80.812304, 4.31307604167, 0.158205166667, Barrier
+DIMACS_queen8_12.col_input_Barrier, 3, 117.7974, 95.661459, 0.22705625, 0.00352646875, Barrier
+DIMACS_queen8_12.col_input_Barrier, 4, 96.076548, 95.997312, 0.000797375, 2.80000000001e-05, Barrier
+DIMACS_queen8_12.col_input_Barrier, 5, 96.000008, 96.0, 8.3333333271e-08, 0.0, Barrier
+DIMACS_queen8_12.col_input_Barrier, 0, 96.0, 96.0, 0.0, 0.0, Barrier
+DIMACS_DSJC125.9.col_input_Dual, 1, -1, 1.0, -1, 0.992, Dual
+DIMACS_DSJC125.9.col_input_Dual, 121, -1, 74.0, -1, 0.408, Dual
+DIMACS_DSJC125.9.col_input_Dual, 262, -1, 125.0, -1, 0.0, Dual
+DIMACS_DSJC125.9.col_input_Dual, 336, -1, 125.0, -1, 0.0, Dual
+DIMACS_DSJC125.9.col_input_Dual, 405, -1, 125.0, -1, 0.0, Dual
+DIMACS_DSJC125.9.col_input_Dual, 473, -1, 125.0, -1, 0.0, Dual
+DIMACS_DSJC125.9.col_input_Dual, 474, 125.0, 125.0, 0.0, 0.0, Dual
+DIMACS_DSJC125.9.col_input_Dual, 1, -1, 248.0, -1, 0.984, Dual
+DIMACS_DSJC125.9.col_input_Dual, 196, -1, 126.0, -1, 0.008, Dual
+DIMACS_DSJC125.9.col_input_Dual, 226, 125.0, 125.0, 0.0, 0.0, Dual
+DIMACS_DSJC125.9.col_input_Barrier, 0, 139220.0, 0.0, 1112.76, 1.0, Barrier
+DIMACS_DSJC125.9.col_input_Barrier, 1, 12194.698, 81.645759, 96.557584, 0.346833928, Barrier
+DIMACS_DSJC125.9.col_input_Barrier, 2, 2380.8181, 104.16934, 18.0465448, 0.16664528, Barrier
+DIMACS_DSJC125.9.col_input_Barrier, 3, 158.09696, 124.99753, 0.26477568, 1.976e-05, Barrier
+DIMACS_DSJC125.9.col_input_Barrier, 4, 125.01677, 124.99987, 0.00013416, 1.03999999999e-06, Barrier
+DIMACS_DSJC125.9.col_input_Barrier, 5, 125.0, 125.0, 0.0, 0.0, Barrier
+DIMACS_DSJC125.9.col_input_Barrier, 0, 125.0, 125.0, 0.0, 0.0, Barrier
+DIMACS_DSJC500.9.col_input_Dual, 1, -1, 1.0, -1, 0.998, Dual
+DIMACS_DSJC500.9.col_input_Dual, 267, -1, 106.0, -1, 0.788, Dual
+DIMACS_DSJC500.9.col_input_Dual, 816, -1, 460.0, -1, 0.08, Dual
+DIMACS_DSJC500.9.col_input_Dual, 1128, -1, 499.0, -1, 0.002, Dual
+DIMACS_DSJC500.9.col_input_Dual, 1203, -1, 499.0, -1, 0.002, Dual
+DIMACS_DSJC500.9.col_input_Dual, 1412, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJC500.9.col_input_Dual, 1654, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJC500.9.col_input_Dual, 1875, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJC500.9.col_input_Dual, 1948, 500.0, 500.0, 0.0, 0.0, Dual
+DIMACS_DSJC500.9.col_input_Dual, 1, -1, 998.0, -1, 0.996, Dual
+DIMACS_DSJC500.9.col_input_Dual, 125, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJC500.9.col_input_Dual, 125, 500.0, 500.0, 0.0, 0.0, Dual
+DIMACS_DSJC500.9.col_input_Barrier, 0, 2248740.0, 0.0, 4496.48, 1.0, Barrier
+DIMACS_DSJC500.9.col_input_Barrier, 1, 196158.54, 325.98422, 391.31708, 0.34803156, Barrier
+DIMACS_DSJC500.9.col_input_Barrier, 2, 37431.601, 415.57105, 73.863202, 0.1688579, Barrier
+DIMACS_DSJC500.9.col_input_Barrier, 3, 815.80873, 499.9565, 0.63161746, 8.7e-05, Barrier
+DIMACS_DSJC500.9.col_input_Barrier, 4, 502.64622, 499.994, 0.00529244, 1.19999999999e-05, Barrier
+DIMACS_DSJC500.9.col_input_Barrier, 5, 500.00027, 500.0, 5.40000000001e-07, 0.0, Barrier
+DIMACS_DSJC500.9.col_input_Barrier, 6, 500.0, 500.0, 0.0, 0.0, Barrier
+DIMACS_DSJC500.9.col_input_Barrier, 0, 500.0, 500.0, 0.0, 0.0, Barrier
+DIMACS_le450_5b.col_input_Dual, 1, -1, 1.0, -1, 0.997777777778, Dual
+DIMACS_le450_5b.col_input_Dual, 164, -1, 121.0, -1, 0.731111111111, Dual
+DIMACS_le450_5b.col_input_Dual, 369, -1, 310.0, -1, 0.311111111111, Dual
+DIMACS_le450_5b.col_input_Dual, 577, -1, 420.0, -1, 0.0666666666667, Dual
+DIMACS_le450_5b.col_input_Dual, 755, -1, 449.0, -1, 0.00222222222222, Dual
+DIMACS_le450_5b.col_input_Dual, 874, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_5b.col_input_Dual, 944, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_5b.col_input_Dual, 1006, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_5b.col_input_Dual, 1068, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_5b.col_input_Dual, 1147, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_5b.col_input_Dual, 1222, -1, 450.000002, -1, 4.44444443322e-09, Dual
+DIMACS_le450_5b.col_input_Dual, 1296, -1, 450.000003, -1, 6.66666664983e-09, Dual
+DIMACS_le450_5b.col_input_Dual, 1362, -1, 450.000004, -1, 8.88888886645e-09, Dual
+DIMACS_le450_5b.col_input_Dual, 1429, -1, 450.000004, -1, 8.88888886645e-09, Dual
+DIMACS_le450_5b.col_input_Dual, 1440, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_5b.col_input_Dual, 1, -1, 898.0, -1, 0.995555555556, Dual
+DIMACS_le450_5b.col_input_Dual, 262, -1, 376.0, -1, 0.164444444444, Dual
+DIMACS_le450_5b.col_input_Dual, 531, -1, 12.0, -1, 0.973333333333, Dual
+DIMACS_le450_5b.col_input_Dual, 748, -1, 454.0, -1, 0.00888888888889, Dual
+DIMACS_le450_5b.col_input_Dual, 941, -1, 451.0, -1, 0.00222222222222, Dual
+DIMACS_le450_5b.col_input_Dual, 993, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_5b.col_input_Barrier, 0, 114680.0, 0.0, 253.844444444, 1.0, Barrier
+DIMACS_le450_5b.col_input_Barrier, 1, 10354.296, 294.77011, 22.0095466667, 0.344955311111, Barrier
+DIMACS_le450_5b.col_input_Barrier, 2, 2167.5207, 379.75108, 3.81671266667, 0.156108711111, Barrier
+DIMACS_le450_5b.col_input_Barrier, 3, 587.54558, 448.48026, 0.305656844444, 0.0033772, Barrier
+DIMACS_le450_5b.col_input_Barrier, 4, 451.77353, 449.92076, 0.00394117777778, 0.000176088888889, Barrier
+DIMACS_le450_5b.col_input_Barrier, 5, 450.00018, 449.99999, 4.00000000001e-07, 2.22222221661e-08, Barrier
+DIMACS_le450_5b.col_input_Barrier, 6, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_le450_5b.col_input_Barrier, 0, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_queen14_14.col_input_Dual, 1, -1, 1.0, -1, 0.994897959184, Dual
+DIMACS_queen14_14.col_input_Dual, 100, -1, 57.0, -1, 0.709183673469, Dual
+DIMACS_queen14_14.col_input_Dual, 233, -1, 151.0, -1, 0.229591836735, Dual
+DIMACS_queen14_14.col_input_Dual, 356, -1, 189.0, -1, 0.0357142857143, Dual
+DIMACS_queen14_14.col_input_Dual, 430, -1, 196.0, -1, 0.0, Dual
+DIMACS_queen14_14.col_input_Dual, 498, -1, 196.0, -1, 0.0, Dual
+DIMACS_queen14_14.col_input_Dual, 565, -1, 196.0, -1, 0.0, Dual
+DIMACS_queen14_14.col_input_Dual, 602, -1, 196.0, -1, 0.0, Dual
+DIMACS_queen14_14.col_input_Dual, 660, 196.0, 196.0, 0.0, 0.0, Dual
+DIMACS_queen14_14.col_input_Dual, 1, -1, 390.0, -1, 0.989795918367, Dual
+DIMACS_queen14_14.col_input_Dual, 198, -1, 38.0, -1, 0.80612244898, Dual
+DIMACS_queen14_14.col_input_Dual, 346, -1, 201.0, -1, 0.0255102040816, Dual
+DIMACS_queen14_14.col_input_Dual, 414, 196.0, 196.0, 0.0, 0.0, Dual
+DIMACS_queen14_14.col_input_Barrier, 0, 83720.0, 0.0, 426.142857143, 1.0, Barrier
+DIMACS_queen14_14.col_input_Barrier, 1, 7438.4169, 128.17247, 36.9511066327, 0.346058826531, Barrier
+DIMACS_queen14_14.col_input_Barrier, 2, 1497.698, 164.25856, 6.64131632653, 0.161946122449, Barrier
+DIMACS_queen14_14.col_input_Barrier, 3, 243.30191, 195.5482, 0.24133627551, 0.00230510204082, Barrier
+DIMACS_queen14_14.col_input_Barrier, 4, 196.21923, 195.99484, 0.00111852040816, 2.63265306122e-05, Barrier
+DIMACS_queen14_14.col_input_Barrier, 5, 196.00002, 196.0, 1.02040816359e-07, 0.0, Barrier
+DIMACS_queen14_14.col_input_Barrier, 0, 196.0, 196.0, 0.0, 0.0, Barrier
+DIMACS_miles500.col_input_Primal, 1, 1.0, -1, 0.9921875, -1, Primal
+DIMACS_miles500.col_input_Primal, 128, 42.0, -1, 0.671875, -1, Primal
+DIMACS_miles500.col_input_Primal, 269, 128.0, -1, 0.0, -1, Primal
+DIMACS_miles500.col_input_Primal, 382, 128.0, -1, 0.0, -1, Primal
+DIMACS_miles500.col_input_Primal, 442, 128.0, 128.0, 0.0, 0.0, Primal
+DIMACS_miles500.col_input_Dual, 1, -1, 254.0, -1, 0.984375, Dual
+DIMACS_miles500.col_input_Dual, 98, -1, 60.0, -1, 0.53125, Dual
+DIMACS_miles500.col_input_Dual, 137, -1, 132.0, -1, 0.03125, Dual
+DIMACS_miles500.col_input_Dual, 182, 128.0, 128.0, 0.0, 0.0, Dual
+DIMACS_miles500.col_input_Barrier, 0, 23400.0, 0.0, 181.8125, 1.0, Barrier
+DIMACS_miles500.col_input_Barrier, 1, 2147.2448, 84.33577, 15.77535, 0.341126796875, Barrier
+DIMACS_miles500.col_input_Barrier, 2, 451.61076, 109.4931, 2.5282090625, 0.14458515625, Barrier
+DIMACS_miles500.col_input_Barrier, 3, 180.18633, 125.92411, 0.407705703125, 0.016217890625, Barrier
+DIMACS_miles500.col_input_Barrier, 4, 128.38619, 127.88133, 0.003017109375, 0.000927109375, Barrier
+DIMACS_miles500.col_input_Barrier, 5, 128.00004, 127.99998, 3.12500000099e-07, 1.5625000005e-07, Barrier
+DIMACS_miles500.col_input_Barrier, 6, 128.0, 128.0, 0.0, 0.0, Barrier
+DIMACS_miles500.col_input_Barrier, 0, 128.0, 128.0, 0.0, 0.0, Barrier
+DIMACS_huck.col_input_Primal, 1, 35.0, -1, 0.551282051282, -1, Primal
+DIMACS_huck.col_input_Primal, 106, 77.0, -1, 0.0128205128205, -1, Primal
+DIMACS_huck.col_input_Primal, 135, 78.0, 78.0, 0.0, 0.0, Primal
+DIMACS_huck.col_input_Dual, 1, -1, 8.0, -1, 0.897435897436, Dual
+DIMACS_huck.col_input_Dual, 7, -1, 116.0, -1, 0.487179487179, Dual
+DIMACS_huck.col_input_Dual, 70, -1, 83.0, -1, 0.0641025641026, Dual
+DIMACS_huck.col_input_Dual, 106, 78.0, 78.0, 0.0, 0.0, Dual
+DIMACS_huck.col_input_Barrier, 0, 914.0, 190.0, 10.7179487179, 1.4358974359, Barrier
+DIMACS_huck.col_input_Barrier, 1, 162.0883, 132.608, 1.07805512821, 0.700102564103, Barrier
+DIMACS_huck.col_input_Barrier, 2, 90.692661, 88.79315, 0.162726423077, 0.138373717949, Barrier
+DIMACS_huck.col_input_Barrier, 3, 82.357435, 82.328557, 0.0558645512821, 0.0554943205128, Barrier
+DIMACS_huck.col_input_Barrier, 4, 78.161742, 78.288054, 0.00207361538462, 0.003693, Barrier
+DIMACS_huck.col_input_Barrier, 5, 78.000058, 78.000045, 7.43589743534e-07, 5.76923076924e-07, Barrier
+DIMACS_huck.col_input_Barrier, 6, 78.0, 78.0, 0.0, 0.0, Barrier
+DIMACS_huck.col_input_Barrier, 0, 78.0, 78.0, 0.0, 0.0, Barrier
+DIMACS_le450_15c.col_input_Dual, 1, -1, 1.0, -1, 0.997777777778, Dual
+DIMACS_le450_15c.col_input_Dual, 168, -1, 57.0, -1, 0.873333333333, Dual
+DIMACS_le450_15c.col_input_Dual, 297, -1, 86.0, -1, 0.808888888889, Dual
+DIMACS_le450_15c.col_input_Dual, 412, -1, 108.0, -1, 0.76, Dual
+DIMACS_le450_15c.col_input_Dual, 520, -1, 126.0, -1, 0.72, Dual
+DIMACS_le450_15c.col_input_Dual, 633, -1, 202.0, -1, 0.551111111111, Dual
+DIMACS_le450_15c.col_input_Dual, 886, -1, 375.0, -1, 0.166666666667, Dual
+DIMACS_le450_15c.col_input_Dual, 1137, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_15c.col_input_Dual, 1221, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_15c.col_input_Dual, 1304, -1, 450.0, -1, 0.0, Dual
+DIMACS_le450_15c.col_input_Dual, 1457, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_15c.col_input_Dual, 1574, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_15c.col_input_Dual, 1679, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_15c.col_input_Dual, 1779, -1, 450.000001, -1, 2.22222221661e-09, Dual
+DIMACS_le450_15c.col_input_Dual, 1825, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_15c.col_input_Dual, 1, -1, 898.0, -1, 0.995555555556, Dual
+DIMACS_le450_15c.col_input_Dual, 357, -1, 186.0, -1, 0.586666666667, Dual
+DIMACS_le450_15c.col_input_Dual, 711, -1, 3.0, -1, 0.993333333333, Dual
+DIMACS_le450_15c.col_input_Dual, 746, -1, 457.0, -1, 0.0155555555556, Dual
+DIMACS_le450_15c.col_input_Dual, 988, 450.0, 450.0, 0.0, 0.0, Dual
+DIMACS_le450_15c.col_input_Barrier, 0, 333600.0, 0.0, 740.333333333, 1.0, Barrier
+DIMACS_le450_15c.col_input_Barrier, 1, 29417.403, 293.8722, 64.3720066667, 0.346950666667, Barrier
+DIMACS_le450_15c.col_input_Barrier, 2, 5821.5237, 376.04021, 11.9367193333, 0.164355088889, Barrier
+DIMACS_le450_15c.col_input_Barrier, 3, 1050.5189, 445.47332, 1.33448644444, 0.0100592888889, Barrier
+DIMACS_le450_15c.col_input_Barrier, 4, 491.45076, 449.12384, 0.0921128, 0.00194702222222, Barrier
+DIMACS_le450_15c.col_input_Barrier, 5, 450.25646, 449.99491, 0.000569911111111, 1.13111111111e-05, Barrier
+DIMACS_le450_15c.col_input_Barrier, 6, 450.00003, 450.0, 6.66666666247e-08, 0.0, Barrier
+DIMACS_le450_15c.col_input_Barrier, 0, 450.0, 450.0, 0.0, 0.0, Barrier
+DIMACS_school1.col_input_Dual, 1, -1, 9.0, -1, 0.976623376623, Dual
+DIMACS_school1.col_input_Dual, 231, -1, 196.0, -1, 0.490909090909, Dual
+DIMACS_school1.col_input_Dual, 504, -1, 354.0, -1, 0.0805194805195, Dual
+DIMACS_school1.col_input_Dual, 636, -1, 364.0, -1, 0.0545454545455, Dual
+DIMACS_school1.col_input_Dual, 771, -1, 374.0, -1, 0.0285714285714, Dual
+DIMACS_school1.col_input_Dual, 889, -1, 384.0, -1, 0.0025974025974, Dual
+DIMACS_school1.col_input_Dual, 905, -1, 384.0, -1, 0.0025974025974, Dual
+DIMACS_school1.col_input_Dual, 989, -1, 385.000001, -1, 2.59740259084e-09, Dual
+DIMACS_school1.col_input_Dual, 1070, -1, 385.000001, -1, 2.59740259084e-09, Dual
+DIMACS_school1.col_input_Dual, 1167, -1, 385.000001, -1, 2.59740259084e-09, Dual
+DIMACS_school1.col_input_Dual, 1272, -1, 385.000001, -1, 2.59740259084e-09, Dual
+DIMACS_school1.col_input_Dual, 1359, -1, 385.000002, -1, 5.19480518169e-09, Dual
+DIMACS_school1.col_input_Dual, 1409, 385.0, 385.0, 0.0, 0.0, Dual
+DIMACS_school1.col_input_Dual, 1, -1, 752.0, -1, 0.953246753247, Dual
+DIMACS_school1.col_input_Dual, 366, -1, 94.0, -1, 0.755844155844, Dual
+DIMACS_school1.col_input_Dual, 684, -1, 11.0, -1, 0.971428571429, Dual
+DIMACS_school1.col_input_Dual, 757, -1, 393.0, -1, 0.0207792207792, Dual
+DIMACS_school1.col_input_Dual, 984, -1, 389.0, -1, 0.0103896103896, Dual
+DIMACS_school1.col_input_Dual, 1127, 385.0, 385.0, 0.0, 0.0, Dual
+DIMACS_school1.col_input_Barrier, 0, 381828.0, 8.0, 990.761038961, 0.979220779221, Barrier
+DIMACS_school1.col_input_Barrier, 1, 33643.754, 254.50379, 86.386374026, 0.338951194805, Barrier
+DIMACS_school1.col_input_Barrier, 2, 6473.2426, 321.11477, 15.8136171429, 0.165935662338, Barrier
+DIMACS_school1.col_input_Barrier, 3, 1550.0661, 375.09383, 3.02614571429, 0.0257303116883, Barrier
+DIMACS_school1.col_input_Barrier, 4, 544.3173, 382.42301, 0.413811168831, 0.00669348051948, Barrier
+DIMACS_school1.col_input_Barrier, 5, 405.11197, 384.64868, 0.0522388831169, 0.000912519480519, Barrier
+DIMACS_school1.col_input_Barrier, 6, 385.00982, 384.99947, 2.55064935065e-05, 1.37662337669e-06, Barrier
+DIMACS_school1.col_input_Barrier, 7, 385.0, 385.0, 0.0, 0.0, Barrier
+DIMACS_school1.col_input_Barrier, 0, 385.0, 385.0, 0.0, 0.0, Barrier
+DIMACS_DSJC1000.5.col_input_Dual, 1, -1, 1.0, -1, 0.999, Dual
+DIMACS_DSJC1000.5.col_input_Dual, 358, -1, 86.0, -1, 0.914, Dual
+DIMACS_DSJC1000.5.col_input_Dual, 1107, -1, 726.0, -1, 0.274, Dual
+DIMACS_DSJC1000.5.col_input_Dual, 1936, -1, 985.0, -1, 0.015, Dual
+DIMACS_DSJC1000.5.col_input_Dual, 2259, -1, 1000.0, -1, 0.0, Dual
+DIMACS_DSJC1000.5.col_input_Dual, 2405, -1, 1000.0, -1, 0.0, Dual
+DIMACS_DSJC1000.5.col_input_Dual, 2782, -1, 1000.0, -1, 0.0, Dual
+DIMACS_DSJC1000.5.col_input_Dual, 3121, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_DSJC1000.5.col_input_Dual, 3402, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_DSJC1000.5.col_input_Dual, 3659, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_DSJC1000.5.col_input_Dual, 3903, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_DSJC1000.5.col_input_Dual, 4184, -1, 1000.000001, -1, 9.99999997475e-10, Dual
+DIMACS_DSJC1000.5.col_input_Dual, 4310, 1000.0, 1000.0, 0.0, 0.0, Dual
+DIMACS_DSJC1000.5.col_input_Primal, 1, 1306.0, -1, 0.306, -1, Primal
+DIMACS_DSJC1000.5.col_input_Primal, 152, 1001.0, -1, 0.001, -1, Primal
+DIMACS_DSJC1000.5.col_input_Primal, 288, 1000.0, 1000.0, 0.0, 0.0, Primal
+DIMACS_DSJC1000.5.col_input_Barrier, 0, 4996520.0, 0.0, 4995.52, 1.0, Barrier
+DIMACS_DSJC1000.5.col_input_Barrier, 1, 435905.91, 651.8363, 434.90591, 0.3481637, Barrier
+DIMACS_DSJC1000.5.col_input_Barrier, 2, 83052.051, 831.0707, 82.052051, 0.1689293, Barrier
+DIMACS_DSJC1000.5.col_input_Barrier, 3, 1842.0873, 999.72626, 0.8420873, 0.00027374, Barrier
+DIMACS_DSJC1000.5.col_input_Barrier, 4, 1022.7739, 999.95327, 0.0227739, 4.673e-05, Barrier
+DIMACS_DSJC1000.5.col_input_Barrier, 5, 1000.0104, 999.99998, 1.04e-05, 1.99999999495e-08, Barrier
+DIMACS_DSJC1000.5.col_input_Barrier, 6, 1000.0, 1000.0, 0.0, 0.0, Barrier
+DIMACS_DSJC1000.5.col_input_Barrier, 0, 1000.0, 1000.0, 0.0, 0.0, Barrier
+DIMACS_DSJC125.1.col_input_Primal, 1, 1.0, -1, 0.992, -1, Primal
+DIMACS_DSJC125.1.col_input_Primal, 117, 38.0, -1, 0.696, -1, Primal
+DIMACS_DSJC125.1.col_input_Primal, 243, 125.0, -1, 0.0, -1, Primal
+DIMACS_DSJC125.1.col_input_Primal, 351, 125.0, -1, 0.0, -1, Primal
+DIMACS_DSJC125.1.col_input_Primal, 459, 125.0, -1, 0.0, -1, Primal
+DIMACS_DSJC125.1.col_input_Primal, 481, 125.0, 125.0, 0.0, 0.0, Primal
+DIMACS_DSJC125.1.col_input_Dual, 1, -1, 248.0, -1, 0.984, Dual
+DIMACS_DSJC125.1.col_input_Dual, 97, -1, 56.0, -1, 0.552, Dual
+DIMACS_DSJC125.1.col_input_Dual, 139, -1, 132.0, -1, 0.056, Dual
+DIMACS_DSJC125.1.col_input_Dual, 249, -1, 126.0, -1, 0.008, Dual
+DIMACS_DSJC125.1.col_input_Dual, 262, 125.0, 125.0, 0.0, 0.0, Dual
+DIMACS_DSJC125.1.col_input_Barrier, 0, 14720.0, 0.0, 116.76, 1.0, Barrier
+DIMACS_DSJC125.1.col_input_Barrier, 1, 1382.6556, 82.493833, 10.0612448, 0.340049336, Barrier
+DIMACS_DSJC125.1.col_input_Barrier, 2, 318.00741, 107.56663, 1.54405928, 0.13946696, Barrier
+DIMACS_DSJC125.1.col_input_Barrier, 3, 145.81683, 124.11658, 0.16653464, 0.00706736, Barrier
+DIMACS_DSJC125.1.col_input_Barrier, 4, 125.11628, 124.98467, 0.00093024, 0.00012264, Barrier
+DIMACS_DSJC125.1.col_input_Barrier, 5, 125.00001, 125.0, 8.00000000254e-08, 0.0, Barrier
+DIMACS_DSJC125.1.col_input_Barrier, 6, 125.0, 125.0, 0.0, 0.0, Barrier
+DIMACS_DSJC125.1.col_input_Barrier, 0, 125.0, 125.0, 0.0, 0.0, Barrier
+DIMACS_flat300_28_0.col_input_Dual, 1, -1, 1.0, -1, 0.996666666667, Dual
+DIMACS_flat300_28_0.col_input_Dual, 240, -1, 193.0, -1, 0.356666666667, Dual
+DIMACS_flat300_28_0.col_input_Dual, 473, -1, 293.0, -1, 0.0233333333333, Dual
+DIMACS_flat300_28_0.col_input_Dual, 601, -1, 300.0, -1, 0.0, Dual
+DIMACS_flat300_28_0.col_input_Dual, 697, -1, 300.0, -1, 0.0, Dual
+DIMACS_flat300_28_0.col_input_Dual, 703, -1, 300.0, -1, 0.0, Dual
+DIMACS_flat300_28_0.col_input_Dual, 803, -1, 300.0, -1, 0.0, Dual
+DIMACS_flat300_28_0.col_input_Dual, 896, -1, 300.0, -1, 0.0, Dual
+DIMACS_flat300_28_0.col_input_Dual, 999, -1, 300.000001, -1, 3.33333332492e-09, Dual
+DIMACS_flat300_28_0.col_input_Dual, 1050, 300.0, 300.0, 0.0, 0.0, Dual
+DIMACS_flat300_28_0.col_input_Dual, 1, -1, 598.0, -1, 0.993333333333, Dual
+DIMACS_flat300_28_0.col_input_Dual, 377, -1, 15.0, -1, 0.95, Dual
+DIMACS_flat300_28_0.col_input_Dual, 431, -1, 306.0, -1, 0.02, Dual
+DIMACS_flat300_28_0.col_input_Dual, 618, 300.0, 300.0, 0.0, 0.0, Dual
+DIMACS_flat300_28_0.col_input_Barrier, 0, 433900.0, 0.0, 1445.33333333, 1.0, Barrier
+DIMACS_flat300_28_0.col_input_Barrier, 1, 37996.941, 195.74377, 125.65647, 0.347520766667, Barrier
+DIMACS_flat300_28_0.col_input_Barrier, 2, 7345.3858, 249.80534, 23.4846193333, 0.167315533333, Barrier
+DIMACS_flat300_28_0.col_input_Barrier, 3, 411.23586, 299.9581, 0.3707862, 0.000139666666667, Barrier
+DIMACS_flat300_28_0.col_input_Barrier, 4, 300.43019, 299.99676, 0.00143396666667, 1.08e-05, Barrier
+DIMACS_flat300_28_0.col_input_Barrier, 5, 300.00006, 300.0, 2.00000000063e-07, 0.0, Barrier
+DIMACS_flat300_28_0.col_input_Barrier, 0, 300.0, 300.0, 0.0, 0.0, Barrier
+DIMACS_queen10_10.col_input_Primal, 1, 1.0, -1, 0.99, -1, Primal
+DIMACS_queen10_10.col_input_Primal, 114, 56.0, -1, 0.44, -1, Primal
+DIMACS_queen10_10.col_input_Primal, 250, 100.0, -1, 0.0, -1, Primal
+DIMACS_queen10_10.col_input_Primal, 304, 100.0, 100.0, 0.0, 0.0, Primal
+DIMACS_queen10_10.col_input_Dual, 1, -1, 198.0, -1, 0.98, Dual
+DIMACS_queen10_10.col_input_Dual, 90, -1, 20.0, -1, 0.8, Dual
+DIMACS_queen10_10.col_input_Dual, 103, -1, 101.0, -1, 0.01, Dual
+DIMACS_queen10_10.col_input_Dual, 155, 100.0, 100.0, 0.0, 0.0, Dual
+DIMACS_queen10_10.col_input_Barrier, 0, 29400.0, 0.0, 293.0, 1.0, Barrier
+DIMACS_queen10_10.col_input_Barrier, 1, 2632.0453, 65.529175, 25.320453, 0.34470825, Barrier
+DIMACS_queen10_10.col_input_Barrier, 2, 545.82693, 84.144889, 4.4582693, 0.15855111, Barrier
+DIMACS_queen10_10.col_input_Barrier, 3, 123.0384, 99.616435, 0.230384, 0.00383565, Barrier
+DIMACS_queen10_10.col_input_Barrier, 4, 100.05976, 99.998031, 0.0005976, 1.969e-05, Barrier
+DIMACS_queen10_10.col_input_Barrier, 5, 100.00001, 100.0, 1.00000000032e-07, 0.0, Barrier
+DIMACS_queen10_10.col_input_Barrier, 0, 100.0, 100.0, 0.0, 0.0, Barrier
+DIMACS_DSJR500.5.col_input_Dual, 1, -1, 1.0, -1, 0.998, Dual
+DIMACS_DSJR500.5.col_input_Dual, 220, -1, 65.0, -1, 0.87, Dual
+DIMACS_DSJR500.5.col_input_Dual, 430, -1, 196.0, -1, 0.608, Dual
+DIMACS_DSJR500.5.col_input_Dual, 866, -1, 464.0, -1, 0.072, Dual
+DIMACS_DSJR500.5.col_input_Dual, 1102, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJR500.5.col_input_Dual, 1315, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJR500.5.col_input_Dual, 1506, -1, 500.000001, -1, 1.99999999495e-09, Dual
+DIMACS_DSJR500.5.col_input_Dual, 1681, -1, 500.000001, -1, 1.99999999495e-09, Dual
+DIMACS_DSJR500.5.col_input_Dual, 1784, 500.0, 500.0, 0.0, 0.0, Dual
+DIMACS_DSJR500.5.col_input_Dual, 1, -1, 998.0, -1, 0.996, Dual
+DIMACS_DSJR500.5.col_input_Dual, 123, -1, 6.0, -1, 0.988, Dual
+DIMACS_DSJR500.5.col_input_Dual, 149, -1, 500.0, -1, 0.0, Dual
+DIMACS_DSJR500.5.col_input_Dual, 217, 500.0, 500.0, 0.0, 0.0, Dual
+DIMACS_DSJR500.5.col_input_Barrier, 0, 1177240.0, 0.0, 2353.48, 1.0, Barrier
+DIMACS_DSJR500.5.col_input_Barrier, 1, 102896.44, 326.08453, 204.79288, 0.34783094, Barrier
+DIMACS_DSJR500.5.col_input_Barrier, 2, 19753.632, 416.00353, 38.507264, 0.16799294, Barrier
+DIMACS_DSJR500.5.col_input_Barrier, 3, 1402.3689, 497.85512, 1.8047378, 0.00428976, Barrier
+DIMACS_DSJR500.5.col_input_Barrier, 4, 569.16683, 499.73464, 0.13833366, 0.00053072, Barrier
+DIMACS_DSJR500.5.col_input_Barrier, 5, 500.75231, 499.99733, 0.00150462, 5.34000000005e-06, Barrier
+DIMACS_DSJR500.5.col_input_Barrier, 6, 500.00011, 500.0, 2.20000000013e-07, 0.0, Barrier
+DIMACS_DSJR500.5.col_input_Barrier, 0, 500.0, 500.0, 0.0, 0.0, Barrier
+DIMACS_myciel3.col_input_Primal, 1, 1.0, -1, 0.909090909091, -1, Primal
+DIMACS_myciel3.col_input_Primal, 22, 11.0, 11.0, 0.0, 0.0, Primal
+DIMACS_myciel3.col_input_Dual, 1, -1, 20.0, -1, 0.818181818182, Dual
+DIMACS_myciel3.col_input_Dual, 14, -1, 12.0, -1, 0.0909090909091, Dual
+DIMACS_myciel3.col_input_Dual, 21, 11.0, 11.0, 0.0, 0.0, Dual
+DIMACS_myciel3.col_input_Barrier, 0, 220.0, 0.0, 19.0, 1.0, Barrier
+DIMACS_myciel3.col_input_Barrier, 1, 18.82152, 18.813094, 0.711047272727, 0.710281272727, Barrier
+DIMACS_myciel3.col_input_Barrier, 2, 11.473456, 11.365272, 0.0430414545455, 0.0332065454545, Barrier
+DIMACS_myciel3.col_input_Barrier, 3, 11.210151, 11.153381, 0.0191046363636, 0.0139437272727, Barrier
+DIMACS_myciel3.col_input_Barrier, 4, 11.000251, 11.000047, 2.28181818182e-05, 4.27272727276e-06, Barrier
+DIMACS_myciel3.col_input_Barrier, 5, 11.0, 11.0, 0.0, 0.0, Barrier
+DIMACS_myciel3.col_input_Barrier, 0, 11.0, 11.0, 0.0, 0.0, Barrier

@@ -174,7 +174,7 @@ def parse_cplex_iterations(file_name, parse_time, out_file):
                     elif not found_itn_for_hybrid:
                         found_itn_for_hybrid = True
                         hybrid_itr = item[0]
-                        hybrid_data_stats = filename + method + "," + str(hybrid_itr) + "," + str(min_obj) + "," + str(final_obj) + "," + str(min_eps) + "," + str(final_iterations) + "," + str(hybrid_eps)  + "," + method
+                        hybrid_data_stats = filename + method + ", " + str(hybrid_itr) + ", " + str(min_obj) + ", " + str(final_obj) + ", " + str(min_eps) + ", " + str(final_iterations) + ", " + str(hybrid_eps)  + ", " + method
                         hybrid_data.append(hybrid_data_stats)
                     
                     #Target epsilon data
@@ -186,10 +186,10 @@ def parse_cplex_iterations(file_name, parse_time, out_file):
                         if method == 'Barrier':
                             total_iterations = barrier_iterations
                         eps_itr = int(item[0])
-                        itn_eps_stats_data = filename + method + "," + str(eps_itr) + "," + str(min_obj) + "," + str(final_obj) + "," + str(min_eps) + "," + str(total_iterations) + "," + str(epsilon) + "," + method
+                        itn_eps_stats_data = filename + method + ", " + str(eps_itr) + ", " + str(min_obj) + ", " + str(final_obj) + ", " + str(min_eps) + ", " + str(total_iterations) + ", " + str(epsilon) + ", " + method
                         itn_eps_stats.append(itn_eps_stats_data)
 
-                    out_file.write(filename + method + "," + str(item[0]) + "," + str(pr) + "," + str(du) + "," + str(p_eps) + "," + str(d_eps)  + "," + method + '\n')
+                    out_file.write(filename + method + ", " + str(item[0]) + ", " + str(pr) + ", " + str(du) + ", " + str(p_eps) + ", " + str(d_eps)  + ", " + method + '\n')
 
 #            print infeasible
             if not parse_time and not infeasible:
@@ -206,7 +206,7 @@ def parse_cplex_iterations(file_name, parse_time, out_file):
                     else:
                         temp_time = barrier_time*(float(temp_iter)/barrier_iterations)
 #                    temp_iter = barrier_iterations
-                cplex_run_stats_data = filename + method + "," + str(rows) + "," + str(cols) + ","  + str(nonzeros) + "," + str(density) + "," + str(temp_time) + "," + str(temp_iter) + ",-1,-1," + str(final_time) +  "," + str(final_iterations) + "," + str(hybrid_itr) + "," + str(hybrid_time) + ","
+                cplex_run_stats_data = filename + method + ", " + str(rows) + ", " + str(cols) + ", "  + str(nonzeros) + ", " + str(density) + ", " + str(temp_time) + ", " + str(temp_iter) + ", -1, -1, " + str(final_time) +  ", " + str(final_iterations) + ", " + str(hybrid_itr) + ", " + str(hybrid_time) + ", "
 #                print cplex_run_stats_data
                 cplex_run_stats.add(cplex_run_stats_data)
 

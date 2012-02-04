@@ -1,121 +1,121 @@
 Filename, Iterations, Objective, Final Objective, Epsilon, Total Barrier Iterations, Target Epsilon, Method,
-frb45-21-3_fastpc_input_Dual,1269,472.5,472.5,0.0,1376,0.01,Dual
-frb45-21-3_fastpc_input_Dual,1275,472.5,472.5,0.0,1375,0.01,Dual
-frb45-21-3_fastpc_input_Barrier,3,471.2503,472.5,0.00264486772487,6,0.01,Barrier
-frb50-23-4_fastpc_input_Dual,1501,575.0,575.0,0.0,1757,0.01,Dual
-frb50-23-4_fastpc_input_Dual,184,576.0,575.0,0.00173913043478,352,0.01,Dual
-frb50-23-4_fastpc_input_Barrier,3,573.40725,575.0,0.00277,6,0.01,Barrier
-frb30-15-1_fastpc_input_Dual,608,225.0,225.0,0.0,657,0.01,Dual
-frb30-15-1_fastpc_input_Dual,476,227.0,225.0,0.00888888888889,590,0.01,Dual
-frb30-15-1_fastpc_input_Barrier,3,224.43826,225.0,0.00249662222222,6,0.01,Barrier
-frb59-26-3_fastpc_input_Dual,1934,767.0,767.0,0.0,2191,0.01,Dual
-frb59-26-3_fastpc_input_Dual,249,767.5,767.0,0.000651890482399,493,0.01,Dual
-frb59-26-3_fastpc_input_Barrier,3,764.02198,767.0,0.00388268578879,6,0.01,Barrier
-frb40-19-3_fastpc_input_Dual,1102,380.0,380.0,0.0,1121,0.01,Dual
-frb40-19-3_fastpc_input_Dual,808,382.0,380.0,0.00526315789474,1110,0.01,Dual
-frb40-19-3_fastpc_input_Barrier,3,378.93727,380.0,0.00279665789474,6,0.01,Barrier
-frb40-19-4_fastpc_input_Dual,1102,380.0,380.0,0.0,1123,0.01,Dual
-frb40-19-4_fastpc_input_Dual,801,383.0,380.0,0.00789473684211,1080,0.01,Dual
-frb40-19-4_fastpc_input_Barrier,3,379.26064,380.0,0.00194568421053,6,0.01,Barrier
-frb59-26-4_fastpc_input_Dual,1915,767.0,767.0,0.0,2283,0.01,Dual
-frb59-26-4_fastpc_input_Dual,230,767.0,767.0,0.0,548,0.01,Dual
-frb59-26-4_fastpc_input_Barrier,3,764.83474,767.0,0.00282302477184,6,0.01,Barrier
-frb56-25-5_fastpc_input_Dual,1775,700.0,700.0,0.0,2142,0.01,Dual
-frb56-25-5_fastpc_input_Dual,232,700.0,700.0,0.0,420,0.01,Dual
-frb56-25-5_fastpc_input_Barrier,3,698.06742,700.0,0.00276082857143,6,0.01,Barrier
-frb45-21-2_fastpc_input_Dual,1304,472.5,472.5,0.0,1355,0.01,Dual
-frb45-21-2_fastpc_input_Dual,1275,472.5,472.5,0.0,1389,0.01,Dual
-frb45-21-2_fastpc_input_Barrier,3,471.56253,472.5,0.00198406349206,6,0.01,Barrier
-frb56-25-3_fastpc_input_Dual,1783,700.0,700.0,0.0,2081,0.01,Dual
-frb56-25-3_fastpc_input_Dual,214,701.0,700.0,0.00142857142857,398,0.01,Dual
-frb56-25-3_fastpc_input_Barrier,3,698.39191,700.0,0.00229727142857,6,0.01,Barrier
-frb35-17-2_fastpc_input_Dual,750,296.0,297.5,0.00504201680672,883,0.01,Dual
-frb35-17-2_fastpc_input_Dual,615,299.0,297.5,0.00504201680672,791,0.01,Dual
-frb35-17-2_fastpc_input_Barrier,3,296.86541,297.5,0.00213307563025,6,0.01,Barrier
-frb40-19-5_fastpc_input_Dual,1067,380.0,380.0,0.0,1067,0.01,Dual
-frb40-19-5_fastpc_input_Dual,795,383.0,380.0,0.00789473684211,1040,0.01,Dual
-frb40-19-5_fastpc_input_Barrier,3,379.18495,380.0,0.00214486842105,6,0.01,Barrier
-frb56-25-2_fastpc_input_Dual,1805,700.0,700.0,0.0,2047,0.01,Dual
-frb56-25-2_fastpc_input_Dual,247,700.0,700.0,0.0,392,0.01,Dual
-frb56-25-2_fastpc_input_Barrier,3,697.3838,700.0,0.00373742857143,6,0.01,Barrier
-frb40-19-1_fastpc_input_Dual,1089,380.0,380.0,0.0,1089,0.01,Dual
-frb40-19-1_fastpc_input_Dual,812,381.5,380.0,0.00394736842105,1028,0.01,Dual
-frb40-19-1_fastpc_input_Barrier,3,378.85961,380.0,0.00300102631579,6,0.01,Barrier
-frb50-23-3_fastpc_input_Dual,1506,575.0,575.0,0.0,1692,0.01,Dual
-frb50-23-3_fastpc_input_Dual,230,576.5,575.0,0.00260869565217,322,0.01,Dual
-frb50-23-3_fastpc_input_Barrier,3,573.22772,575.0,0.00308222608696,6,0.01,Barrier
-frb45-21-4_fastpc_input_Dual,1304,472.5,472.5,0.0,1313,0.01,Dual
-frb45-21-4_fastpc_input_Dual,1259,473.5,472.5,0.0021164021164,1399,0.01,Dual
-frb45-21-4_fastpc_input_Barrier,3,471.28811,472.5,0.00256484656085,6,0.01,Barrier
-frb53-24-2_fastpc_input_Dual,1652,636.0,636.0,0.0,2007,0.01,Dual
-frb53-24-2_fastpc_input_Dual,209,636.5,636.0,0.000786163522013,355,0.01,Dual
-frb53-24-2_fastpc_input_Barrier,3,634.59475,636.0,0.00220951257862,6,0.01,Barrier
-frb30-15-3_fastpc_input_Dual,587,225.0,225.0,0.0,655,0.01,Dual
-frb30-15-3_fastpc_input_Dual,623,225.0,225.0,0.0,623,0.01,Dual
-frb30-15-3_fastpc_input_Barrier,3,224.53671,225.0,0.00205906666667,6,0.01,Barrier
-frb35-17-5_fastpc_input_Dual,754,297.5,297.5,0.0,868,0.01,Dual
-frb35-17-5_fastpc_input_Dual,620,300.0,297.5,0.00840336134454,793,0.01,Dual
-frb35-17-5_fastpc_input_Barrier,3,296.40709,297.5,0.00367364705882,6,0.01,Barrier
-frb59-26-2_fastpc_input_Dual,1916,767.0,767.0,0.0,2208,0.01,Dual
-frb59-26-2_fastpc_input_Dual,217,767.5,767.0,0.000651890482399,474,0.01,Dual
-frb59-26-2_fastpc_input_Barrier,3,765.24304,767.0,0.00229069100391,6,0.01,Barrier
-frb35-17-4_fastpc_input_Dual,778,297.5,297.5,0.0,826,0.01,Dual
-frb35-17-4_fastpc_input_Dual,606,299.5,297.5,0.00672268907563,764,0.01,Dual
-frb35-17-4_fastpc_input_Barrier,3,296.2112,297.5,0.00433210084034,6,0.01,Barrier
-frb30-15-2_fastpc_input_Dual,613,225.0,225.0,0.0,659,0.01,Dual
-frb30-15-2_fastpc_input_Dual,491,226.0,225.0,0.00444444444444,604,0.01,Dual
-frb30-15-2_fastpc_input_Barrier,3,224.43844,225.0,0.00249582222222,6,0.01,Barrier
-frb30-15-4_fastpc_input_Dual,631,225.0,225.0,0.0,634,0.01,Dual
-frb30-15-4_fastpc_input_Dual,491,226.5,225.0,0.00666666666667,595,0.01,Dual
-frb30-15-4_fastpc_input_Barrier,3,224.50937,225.0,0.00218057777778,6,0.01,Barrier
-frb53-24-5_fastpc_input_Dual,1640,636.0,636.0,0.0,1869,0.01,Dual
-frb53-24-5_fastpc_input_Dual,198,637.0,636.0,0.00157232704403,347,0.01,Dual
-frb53-24-5_fastpc_input_Barrier,3,633.7778,636.0,0.00349402515723,6,0.01,Barrier
-frb30-15-5_fastpc_input_Dual,586,225.0,225.0,0.0,633,0.01,Dual
-frb30-15-5_fastpc_input_Dual,487,226.5,225.0,0.00666666666667,611,0.01,Dual
-frb30-15-5_fastpc_input_Barrier,3,224.49929,225.0,0.00222537777778,6,0.01,Barrier
-frb59-26-5_fastpc_input_Dual,1864,767.0,767.0,0.0,2324,0.01,Dual
-frb59-26-5_fastpc_input_Dual,255,768.0,767.0,0.0013037809648,418,0.01,Dual
-frb59-26-5_fastpc_input_Barrier,3,764.65844,767.0,0.00305288135593,6,0.01,Barrier
-frb56-25-1_fastpc_input_Dual,1802,700.0,700.0,0.0,2092,0.01,Dual
-frb56-25-1_fastpc_input_Dual,210,701.0,700.0,0.00142857142857,403,0.01,Dual
-frb56-25-1_fastpc_input_Barrier,3,697.92514,700.0,0.00296408571429,6,0.01,Barrier
-frb59-26-1_fastpc_input_Dual,1919,767.0,767.0,0.0,2254,0.01,Dual
-frb59-26-1_fastpc_input_Dual,263,768.0,767.0,0.0013037809648,396,0.01,Dual
-frb59-26-1_fastpc_input_Barrier,3,765.06572,767.0,0.00252187744459,6,0.01,Barrier
-frb50-23-2_fastpc_input_Dual,1506,575.0,575.0,0.0,1569,0.01,Dual
-frb50-23-2_fastpc_input_Dual,199,576.0,575.0,0.00173913043478,286,0.01,Dual
-frb50-23-2_fastpc_input_Barrier,3,573.32595,575.0,0.00291139130435,6,0.01,Barrier
-frb50-23-1_fastpc_input_Dual,1506,575.0,575.0,0.0,1647,0.01,Dual
-frb50-23-1_fastpc_input_Dual,186,575.0,575.0,0.0,347,0.01,Dual
-frb50-23-1_fastpc_input_Barrier,3,573.71226,575.0,0.00223954782609,6,0.01,Barrier
-frb50-23-5_fastpc_input_Dual,1502,575.0,575.0,0.0,1717,0.01,Dual
-frb50-23-5_fastpc_input_Dual,174,576.0,575.0,0.00173913043478,375,0.01,Dual
-frb50-23-5_fastpc_input_Barrier,3,573.15668,575.0,0.00320577391304,6,0.01,Barrier
-frb45-21-1_fastpc_input_Dual,1304,472.5,472.5,0.0,1347,0.01,Dual
-frb45-21-1_fastpc_input_Dual,1263,473.0,472.5,0.0010582010582,1372,0.01,Dual
-frb45-21-1_fastpc_input_Barrier,3,471.22888,472.5,0.0026902010582,6,0.01,Barrier
-frb53-24-3_fastpc_input_Dual,1619,636.0,636.0,0.0,1834,0.01,Dual
-frb53-24-3_fastpc_input_Dual,266,636.5,636.0,0.000786163522013,398,0.01,Dual
-frb53-24-3_fastpc_input_Barrier,3,634.41639,636.0,0.00248995283019,6,0.01,Barrier
-frb53-24-1_fastpc_input_Dual,1650,636.0,636.0,0.0,1843,0.01,Dual
-frb53-24-1_fastpc_input_Dual,228,637.0,636.0,0.00157232704403,371,0.01,Dual
-frb53-24-1_fastpc_input_Barrier,3,634.11466,636.0,0.00296437106918,6,0.01,Barrier
-frb35-17-3_fastpc_input_Dual,758,297.5,297.5,0.0,872,0.01,Dual
-frb35-17-3_fastpc_input_Dual,611,298.5,297.5,0.00336134453782,823,0.01,Dual
-frb35-17-3_fastpc_input_Barrier,3,296.4904,297.5,0.00339361344538,6,0.01,Barrier
-frb53-24-4_fastpc_input_Dual,1703,636.0,636.0,0.0,1841,0.01,Dual
-frb53-24-4_fastpc_input_Dual,187,636.5,636.0,0.000786163522013,295,0.01,Dual
-frb53-24-4_fastpc_input_Barrier,3,634.41013,636.0,0.00249979559748,6,0.01,Barrier
-frb45-21-5_fastpc_input_Dual,1304,472.5,472.5,0.0,1346,0.01,Dual
-frb45-21-5_fastpc_input_Dual,1270,472.5,472.5,0.0,1310,0.01,Dual
-frb45-21-5_fastpc_input_Barrier,3,471.29707,472.5,0.00254588359788,6,0.01,Barrier
-frb56-25-4_fastpc_input_Dual,1762,700.0,700.0,0.0,2055,0.01,Dual
-frb56-25-4_fastpc_input_Dual,225,700.5,700.0,0.000714285714286,432,0.01,Dual
-frb56-25-4_fastpc_input_Barrier,3,698.30809,700.0,0.00241701428571,6,0.01,Barrier
-frb35-17-1_fastpc_input_Dual,746,297.5,297.5,0.0,877,0.01,Dual
-frb35-17-1_fastpc_input_Dual,629,299.5,297.5,0.00672268907563,822,0.01,Dual
-frb35-17-1_fastpc_input_Barrier,3,296.62016,297.5,0.00295744537815,6,0.01,Barrier
-frb40-19-2_fastpc_input_Dual,1102,380.0,380.0,0.0,1106,0.01,Dual
-frb40-19-2_fastpc_input_Dual,1050,380.0,380.0,0.0,1093,0.01,Dual
-frb40-19-2_fastpc_input_Barrier,3,378.99749,380.0,0.00263818421053,6,0.01,Barrier
+frb45-21-3_fastpc_input_Dual, 1269, 472.5, 472.5, 0.0, 1376, 0.01, Dual
+frb45-21-3_fastpc_input_Dual, 1275, 472.5, 472.5, 0.0, 1375, 0.01, Dual
+frb45-21-3_fastpc_input_Barrier, 3, 471.2503, 472.5, 0.00264486772487, 6, 0.01, Barrier
+frb50-23-4_fastpc_input_Dual, 1501, 575.0, 575.0, 0.0, 1757, 0.01, Dual
+frb50-23-4_fastpc_input_Dual, 184, 576.0, 575.0, 0.00173913043478, 352, 0.01, Dual
+frb50-23-4_fastpc_input_Barrier, 3, 573.40725, 575.0, 0.00277, 6, 0.01, Barrier
+frb30-15-1_fastpc_input_Dual, 608, 225.0, 225.0, 0.0, 657, 0.01, Dual
+frb30-15-1_fastpc_input_Dual, 476, 227.0, 225.0, 0.00888888888889, 590, 0.01, Dual
+frb30-15-1_fastpc_input_Barrier, 3, 224.43826, 225.0, 0.00249662222222, 6, 0.01, Barrier
+frb59-26-3_fastpc_input_Dual, 1934, 767.0, 767.0, 0.0, 2191, 0.01, Dual
+frb59-26-3_fastpc_input_Dual, 249, 767.5, 767.0, 0.000651890482399, 493, 0.01, Dual
+frb59-26-3_fastpc_input_Barrier, 3, 764.02198, 767.0, 0.00388268578879, 6, 0.01, Barrier
+frb40-19-3_fastpc_input_Dual, 1102, 380.0, 380.0, 0.0, 1121, 0.01, Dual
+frb40-19-3_fastpc_input_Dual, 808, 382.0, 380.0, 0.00526315789474, 1110, 0.01, Dual
+frb40-19-3_fastpc_input_Barrier, 3, 378.93727, 380.0, 0.00279665789474, 6, 0.01, Barrier
+frb40-19-4_fastpc_input_Dual, 1102, 380.0, 380.0, 0.0, 1123, 0.01, Dual
+frb40-19-4_fastpc_input_Dual, 801, 383.0, 380.0, 0.00789473684211, 1080, 0.01, Dual
+frb40-19-4_fastpc_input_Barrier, 3, 379.26064, 380.0, 0.00194568421053, 6, 0.01, Barrier
+frb59-26-4_fastpc_input_Dual, 1915, 767.0, 767.0, 0.0, 2283, 0.01, Dual
+frb59-26-4_fastpc_input_Dual, 230, 767.0, 767.0, 0.0, 548, 0.01, Dual
+frb59-26-4_fastpc_input_Barrier, 3, 764.83474, 767.0, 0.00282302477184, 6, 0.01, Barrier
+frb56-25-5_fastpc_input_Dual, 1775, 700.0, 700.0, 0.0, 2142, 0.01, Dual
+frb56-25-5_fastpc_input_Dual, 232, 700.0, 700.0, 0.0, 420, 0.01, Dual
+frb56-25-5_fastpc_input_Barrier, 3, 698.06742, 700.0, 0.00276082857143, 6, 0.01, Barrier
+frb45-21-2_fastpc_input_Dual, 1304, 472.5, 472.5, 0.0, 1355, 0.01, Dual
+frb45-21-2_fastpc_input_Dual, 1275, 472.5, 472.5, 0.0, 1389, 0.01, Dual
+frb45-21-2_fastpc_input_Barrier, 3, 471.56253, 472.5, 0.00198406349206, 6, 0.01, Barrier
+frb56-25-3_fastpc_input_Dual, 1783, 700.0, 700.0, 0.0, 2081, 0.01, Dual
+frb56-25-3_fastpc_input_Dual, 214, 701.0, 700.0, 0.00142857142857, 398, 0.01, Dual
+frb56-25-3_fastpc_input_Barrier, 3, 698.39191, 700.0, 0.00229727142857, 6, 0.01, Barrier
+frb35-17-2_fastpc_input_Dual, 750, 296.0, 297.5, 0.00504201680672, 883, 0.01, Dual
+frb35-17-2_fastpc_input_Dual, 615, 299.0, 297.5, 0.00504201680672, 791, 0.01, Dual
+frb35-17-2_fastpc_input_Barrier, 3, 296.86541, 297.5, 0.00213307563025, 6, 0.01, Barrier
+frb40-19-5_fastpc_input_Dual, 1067, 380.0, 380.0, 0.0, 1067, 0.01, Dual
+frb40-19-5_fastpc_input_Dual, 795, 383.0, 380.0, 0.00789473684211, 1040, 0.01, Dual
+frb40-19-5_fastpc_input_Barrier, 3, 379.18495, 380.0, 0.00214486842105, 6, 0.01, Barrier
+frb56-25-2_fastpc_input_Dual, 1805, 700.0, 700.0, 0.0, 2047, 0.01, Dual
+frb56-25-2_fastpc_input_Dual, 247, 700.0, 700.0, 0.0, 392, 0.01, Dual
+frb56-25-2_fastpc_input_Barrier, 3, 697.3838, 700.0, 0.00373742857143, 6, 0.01, Barrier
+frb40-19-1_fastpc_input_Dual, 1089, 380.0, 380.0, 0.0, 1089, 0.01, Dual
+frb40-19-1_fastpc_input_Dual, 812, 381.5, 380.0, 0.00394736842105, 1028, 0.01, Dual
+frb40-19-1_fastpc_input_Barrier, 3, 378.85961, 380.0, 0.00300102631579, 6, 0.01, Barrier
+frb50-23-3_fastpc_input_Dual, 1506, 575.0, 575.0, 0.0, 1692, 0.01, Dual
+frb50-23-3_fastpc_input_Dual, 230, 576.5, 575.0, 0.00260869565217, 322, 0.01, Dual
+frb50-23-3_fastpc_input_Barrier, 3, 573.22772, 575.0, 0.00308222608696, 6, 0.01, Barrier
+frb45-21-4_fastpc_input_Dual, 1304, 472.5, 472.5, 0.0, 1313, 0.01, Dual
+frb45-21-4_fastpc_input_Dual, 1259, 473.5, 472.5, 0.0021164021164, 1399, 0.01, Dual
+frb45-21-4_fastpc_input_Barrier, 3, 471.28811, 472.5, 0.00256484656085, 6, 0.01, Barrier
+frb53-24-2_fastpc_input_Dual, 1652, 636.0, 636.0, 0.0, 2007, 0.01, Dual
+frb53-24-2_fastpc_input_Dual, 209, 636.5, 636.0, 0.000786163522013, 355, 0.01, Dual
+frb53-24-2_fastpc_input_Barrier, 3, 634.59475, 636.0, 0.00220951257862, 6, 0.01, Barrier
+frb30-15-3_fastpc_input_Dual, 587, 225.0, 225.0, 0.0, 655, 0.01, Dual
+frb30-15-3_fastpc_input_Dual, 623, 225.0, 225.0, 0.0, 623, 0.01, Dual
+frb30-15-3_fastpc_input_Barrier, 3, 224.53671, 225.0, 0.00205906666667, 6, 0.01, Barrier
+frb35-17-5_fastpc_input_Dual, 754, 297.5, 297.5, 0.0, 868, 0.01, Dual
+frb35-17-5_fastpc_input_Dual, 620, 300.0, 297.5, 0.00840336134454, 793, 0.01, Dual
+frb35-17-5_fastpc_input_Barrier, 3, 296.40709, 297.5, 0.00367364705882, 6, 0.01, Barrier
+frb59-26-2_fastpc_input_Dual, 1916, 767.0, 767.0, 0.0, 2208, 0.01, Dual
+frb59-26-2_fastpc_input_Dual, 217, 767.5, 767.0, 0.000651890482399, 474, 0.01, Dual
+frb59-26-2_fastpc_input_Barrier, 3, 765.24304, 767.0, 0.00229069100391, 6, 0.01, Barrier
+frb35-17-4_fastpc_input_Dual, 778, 297.5, 297.5, 0.0, 826, 0.01, Dual
+frb35-17-4_fastpc_input_Dual, 606, 299.5, 297.5, 0.00672268907563, 764, 0.01, Dual
+frb35-17-4_fastpc_input_Barrier, 3, 296.2112, 297.5, 0.00433210084034, 6, 0.01, Barrier
+frb30-15-2_fastpc_input_Dual, 613, 225.0, 225.0, 0.0, 659, 0.01, Dual
+frb30-15-2_fastpc_input_Dual, 491, 226.0, 225.0, 0.00444444444444, 604, 0.01, Dual
+frb30-15-2_fastpc_input_Barrier, 3, 224.43844, 225.0, 0.00249582222222, 6, 0.01, Barrier
+frb30-15-4_fastpc_input_Dual, 631, 225.0, 225.0, 0.0, 634, 0.01, Dual
+frb30-15-4_fastpc_input_Dual, 491, 226.5, 225.0, 0.00666666666667, 595, 0.01, Dual
+frb30-15-4_fastpc_input_Barrier, 3, 224.50937, 225.0, 0.00218057777778, 6, 0.01, Barrier
+frb53-24-5_fastpc_input_Dual, 1640, 636.0, 636.0, 0.0, 1869, 0.01, Dual
+frb53-24-5_fastpc_input_Dual, 198, 637.0, 636.0, 0.00157232704403, 347, 0.01, Dual
+frb53-24-5_fastpc_input_Barrier, 3, 633.7778, 636.0, 0.00349402515723, 6, 0.01, Barrier
+frb30-15-5_fastpc_input_Dual, 586, 225.0, 225.0, 0.0, 633, 0.01, Dual
+frb30-15-5_fastpc_input_Dual, 487, 226.5, 225.0, 0.00666666666667, 611, 0.01, Dual
+frb30-15-5_fastpc_input_Barrier, 3, 224.49929, 225.0, 0.00222537777778, 6, 0.01, Barrier
+frb59-26-5_fastpc_input_Dual, 1864, 767.0, 767.0, 0.0, 2324, 0.01, Dual
+frb59-26-5_fastpc_input_Dual, 255, 768.0, 767.0, 0.0013037809648, 418, 0.01, Dual
+frb59-26-5_fastpc_input_Barrier, 3, 764.65844, 767.0, 0.00305288135593, 6, 0.01, Barrier
+frb56-25-1_fastpc_input_Dual, 1802, 700.0, 700.0, 0.0, 2092, 0.01, Dual
+frb56-25-1_fastpc_input_Dual, 210, 701.0, 700.0, 0.00142857142857, 403, 0.01, Dual
+frb56-25-1_fastpc_input_Barrier, 3, 697.92514, 700.0, 0.00296408571429, 6, 0.01, Barrier
+frb59-26-1_fastpc_input_Dual, 1919, 767.0, 767.0, 0.0, 2254, 0.01, Dual
+frb59-26-1_fastpc_input_Dual, 263, 768.0, 767.0, 0.0013037809648, 396, 0.01, Dual
+frb59-26-1_fastpc_input_Barrier, 3, 765.06572, 767.0, 0.00252187744459, 6, 0.01, Barrier
+frb50-23-2_fastpc_input_Dual, 1506, 575.0, 575.0, 0.0, 1569, 0.01, Dual
+frb50-23-2_fastpc_input_Dual, 199, 576.0, 575.0, 0.00173913043478, 286, 0.01, Dual
+frb50-23-2_fastpc_input_Barrier, 3, 573.32595, 575.0, 0.00291139130435, 6, 0.01, Barrier
+frb50-23-1_fastpc_input_Dual, 1506, 575.0, 575.0, 0.0, 1647, 0.01, Dual
+frb50-23-1_fastpc_input_Dual, 186, 575.0, 575.0, 0.0, 347, 0.01, Dual
+frb50-23-1_fastpc_input_Barrier, 3, 573.71226, 575.0, 0.00223954782609, 6, 0.01, Barrier
+frb50-23-5_fastpc_input_Dual, 1502, 575.0, 575.0, 0.0, 1717, 0.01, Dual
+frb50-23-5_fastpc_input_Dual, 174, 576.0, 575.0, 0.00173913043478, 375, 0.01, Dual
+frb50-23-5_fastpc_input_Barrier, 3, 573.15668, 575.0, 0.00320577391304, 6, 0.01, Barrier
+frb45-21-1_fastpc_input_Dual, 1304, 472.5, 472.5, 0.0, 1347, 0.01, Dual
+frb45-21-1_fastpc_input_Dual, 1263, 473.0, 472.5, 0.0010582010582, 1372, 0.01, Dual
+frb45-21-1_fastpc_input_Barrier, 3, 471.22888, 472.5, 0.0026902010582, 6, 0.01, Barrier
+frb53-24-3_fastpc_input_Dual, 1619, 636.0, 636.0, 0.0, 1834, 0.01, Dual
+frb53-24-3_fastpc_input_Dual, 266, 636.5, 636.0, 0.000786163522013, 398, 0.01, Dual
+frb53-24-3_fastpc_input_Barrier, 3, 634.41639, 636.0, 0.00248995283019, 6, 0.01, Barrier
+frb53-24-1_fastpc_input_Dual, 1650, 636.0, 636.0, 0.0, 1843, 0.01, Dual
+frb53-24-1_fastpc_input_Dual, 228, 637.0, 636.0, 0.00157232704403, 371, 0.01, Dual
+frb53-24-1_fastpc_input_Barrier, 3, 634.11466, 636.0, 0.00296437106918, 6, 0.01, Barrier
+frb35-17-3_fastpc_input_Dual, 758, 297.5, 297.5, 0.0, 872, 0.01, Dual
+frb35-17-3_fastpc_input_Dual, 611, 298.5, 297.5, 0.00336134453782, 823, 0.01, Dual
+frb35-17-3_fastpc_input_Barrier, 3, 296.4904, 297.5, 0.00339361344538, 6, 0.01, Barrier
+frb53-24-4_fastpc_input_Dual, 1703, 636.0, 636.0, 0.0, 1841, 0.01, Dual
+frb53-24-4_fastpc_input_Dual, 187, 636.5, 636.0, 0.000786163522013, 295, 0.01, Dual
+frb53-24-4_fastpc_input_Barrier, 3, 634.41013, 636.0, 0.00249979559748, 6, 0.01, Barrier
+frb45-21-5_fastpc_input_Dual, 1304, 472.5, 472.5, 0.0, 1346, 0.01, Dual
+frb45-21-5_fastpc_input_Dual, 1270, 472.5, 472.5, 0.0, 1310, 0.01, Dual
+frb45-21-5_fastpc_input_Barrier, 3, 471.29707, 472.5, 0.00254588359788, 6, 0.01, Barrier
+frb56-25-4_fastpc_input_Dual, 1762, 700.0, 700.0, 0.0, 2055, 0.01, Dual
+frb56-25-4_fastpc_input_Dual, 225, 700.5, 700.0, 0.000714285714286, 432, 0.01, Dual
+frb56-25-4_fastpc_input_Barrier, 3, 698.30809, 700.0, 0.00241701428571, 6, 0.01, Barrier
+frb35-17-1_fastpc_input_Dual, 746, 297.5, 297.5, 0.0, 877, 0.01, Dual
+frb35-17-1_fastpc_input_Dual, 629, 299.5, 297.5, 0.00672268907563, 822, 0.01, Dual
+frb35-17-1_fastpc_input_Barrier, 3, 296.62016, 297.5, 0.00295744537815, 6, 0.01, Barrier
+frb40-19-2_fastpc_input_Dual, 1102, 380.0, 380.0, 0.0, 1106, 0.01, Dual
+frb40-19-2_fastpc_input_Dual, 1050, 380.0, 380.0, 0.0, 1093, 0.01, Dual
+frb40-19-2_fastpc_input_Barrier, 3, 378.99749, 380.0, 0.00263818421053, 6, 0.01, Barrier
