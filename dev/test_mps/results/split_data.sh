@@ -13,7 +13,7 @@ echo "" > all_run_stats.tmp
 #append contents of run_stat files to all_run_stats
 for prefix in ${prefixes[*]}
 do
-    file=$prefix$suffix
+    file=$prefix'/'$prefix$suffix
     echo $file
     cat $file >> all_run_stats.tmp
 done
