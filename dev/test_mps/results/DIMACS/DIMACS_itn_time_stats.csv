@@ -1,5 +1,5 @@
 Filename,Time (s),Iterations,Method,
-DIMACS_DSJC500.5.col_input_Dual,0.70,1806,Dual
+DIMACS_DSJC500.5.col_input_Primal,0.70,1806,Primal
 DIMACS_DSJC500.5.col_input_Dual,0.13,200,Dual
 DIMACS_DSJC500.5.col_input_Barrier,-1,0,Barrier
 DIMACS_DSJC500.5.col_input_Barrier,-1,1,Barrier
@@ -9,7 +9,7 @@ DIMACS_DSJC500.5.col_input_Barrier,-1,4,Barrier
 DIMACS_DSJC500.5.col_input_Barrier,-1,5,Barrier
 DIMACS_DSJC500.5.col_input_Barrier,0.86,6,Barrier
 DIMACS_DSJC500.5.col_input_Barrier,1.90,0,Barrier
-DIMACS_le450_25d.col_input_Dual,0.30,2099,Dual
+DIMACS_le450_25d.col_input_Primal,0.30,2099,Primal
 DIMACS_le450_25d.col_input_Dual,0.03,1105,Dual
 DIMACS_le450_25d.col_input_Barrier,-1,0,Barrier
 DIMACS_le450_25d.col_input_Barrier,-1,1,Barrier
@@ -29,7 +29,7 @@ DIMACS_queen6_6.col_input_Barrier,-1,3,Barrier
 DIMACS_queen6_6.col_input_Barrier,-1,4,Barrier
 DIMACS_queen6_6.col_input_Barrier,0.0,5,Barrier
 DIMACS_queen6_6.col_input_Barrier,0.00,0,Barrier
-DIMACS_le450_5d.col_input_Dual,0.13,1451,Dual
+DIMACS_le450_5d.col_input_Primal,0.13,1451,Primal
 DIMACS_le450_5d.col_input_Dual,0.02,1052,Dual
 DIMACS_le450_5d.col_input_Barrier,-1,0,Barrier
 DIMACS_le450_5d.col_input_Barrier,-1,1,Barrier
@@ -50,7 +50,7 @@ DIMACS_david.col_input_Barrier,-1,5,Barrier
 DIMACS_david.col_input_Barrier,-1,6,Barrier
 DIMACS_david.col_input_Barrier,0.01,7,Barrier
 DIMACS_david.col_input_Barrier,0.02,0,Barrier
-DIMACS_queen16_16.col_input_Dual,0.06,786,Dual
+DIMACS_queen16_16.col_input_Primal,0.06,786,Primal
 DIMACS_queen16_16.col_input_Dual,0.02,596,Dual
 DIMACS_queen16_16.col_input_Barrier,-1,0,Barrier
 DIMACS_queen16_16.col_input_Barrier,-1,1,Barrier
@@ -59,7 +59,7 @@ DIMACS_queen16_16.col_input_Barrier,-1,3,Barrier
 DIMACS_queen16_16.col_input_Barrier,-1,4,Barrier
 DIMACS_queen16_16.col_input_Barrier,0.04,5,Barrier
 DIMACS_queen16_16.col_input_Barrier,0.10,0,Barrier
-DIMACS_le450_25c.col_input_Dual,0.19,1663,Dual
+DIMACS_le450_25c.col_input_Primal,0.19,1663,Primal
 DIMACS_le450_25c.col_input_Dual,0.03,1226,Dual
 DIMACS_le450_25c.col_input_Barrier,-1,0,Barrier
 DIMACS_le450_25c.col_input_Barrier,-1,1,Barrier
@@ -69,7 +69,7 @@ DIMACS_le450_25c.col_input_Barrier,-1,4,Barrier
 DIMACS_le450_25c.col_input_Barrier,-1,5,Barrier
 DIMACS_le450_25c.col_input_Barrier,0.13,6,Barrier
 DIMACS_le450_25c.col_input_Barrier,0.37,0,Barrier
-DIMACS_DSJC250.5.col_input_Dual,0.19,966,Dual
+DIMACS_DSJC250.5.col_input_Primal,0.19,966,Primal
 DIMACS_DSJC250.5.col_input_Dual,0.02,578,Dual
 DIMACS_DSJC250.5.col_input_Barrier,-1,0,Barrier
 DIMACS_DSJC250.5.col_input_Barrier,-1,1,Barrier
@@ -79,7 +79,7 @@ DIMACS_DSJC250.5.col_input_Barrier,-1,4,Barrier
 DIMACS_DSJC250.5.col_input_Barrier,-1,5,Barrier
 DIMACS_DSJC250.5.col_input_Barrier,0.09,6,Barrier
 DIMACS_DSJC250.5.col_input_Barrier,0.24,0,Barrier
-DIMACS_flat300_26_0.col_input_Dual,0.32,1164,Dual
+DIMACS_flat300_26_0.col_input_Primal,0.32,1164,Primal
 DIMACS_flat300_26_0.col_input_Dual,0.03,678,Dual
 DIMACS_flat300_26_0.col_input_Barrier,-1,0,Barrier
 DIMACS_flat300_26_0.col_input_Barrier,-1,1,Barrier
@@ -89,7 +89,7 @@ DIMACS_flat300_26_0.col_input_Barrier,-1,4,Barrier
 DIMACS_flat300_26_0.col_input_Barrier,-1,5,Barrier
 DIMACS_flat300_26_0.col_input_Barrier,0.15,6,Barrier
 DIMACS_flat300_26_0.col_input_Barrier,0.39,0,Barrier
-DIMACS_DSJC125.5.col_input_Dual,0.04,562,Dual
+DIMACS_DSJC125.5.col_input_Primal,0.04,562,Primal
 DIMACS_DSJC125.5.col_input_Dual,0.01,291,Dual
 DIMACS_DSJC125.5.col_input_Barrier,-1,0,Barrier
 DIMACS_DSJC125.5.col_input_Barrier,-1,1,Barrier
@@ -107,8 +107,8 @@ DIMACS_queen8_8.col_input_Barrier,-1,3,Barrier
 DIMACS_queen8_8.col_input_Barrier,-1,4,Barrier
 DIMACS_queen8_8.col_input_Barrier,0.0,5,Barrier
 DIMACS_queen8_8.col_input_Barrier,0.01,0,Barrier
-DIMACS_flat1000_76_0.col_input_Dual,7.51,4151,Dual
-DIMACS_flat1000_76_0.col_input_Primal,0.96,334,Primal
+DIMACS_flat1000_76_0.col_input_Primal,7.51,4151,Primal
+DIMACS_flat1000_76_0.col_input_Dual,0.96,334,Dual
 DIMACS_flat1000_76_0.col_input_Barrier,-1,0,Barrier
 DIMACS_flat1000_76_0.col_input_Barrier,-1,1,Barrier
 DIMACS_flat1000_76_0.col_input_Barrier,-1,2,Barrier
@@ -117,7 +117,7 @@ DIMACS_flat1000_76_0.col_input_Barrier,-1,4,Barrier
 DIMACS_flat1000_76_0.col_input_Barrier,-1,5,Barrier
 DIMACS_flat1000_76_0.col_input_Barrier,5.03,6,Barrier
 DIMACS_flat1000_76_0.col_input_Barrier,12.74,0,Barrier
-DIMACS_le450_25b.col_input_Dual,0.12,1485,Dual
+DIMACS_le450_25b.col_input_Primal,0.12,1485,Primal
 DIMACS_le450_25b.col_input_Dual,0.02,1187,Dual
 DIMACS_le450_25b.col_input_Barrier,-1,0,Barrier
 DIMACS_le450_25b.col_input_Barrier,-1,1,Barrier
@@ -138,7 +138,7 @@ DIMACS_myciel7.col_input_Barrier,-1,5,Barrier
 DIMACS_myciel7.col_input_Barrier,-1,6,Barrier
 DIMACS_myciel7.col_input_Barrier,0.02,7,Barrier
 DIMACS_myciel7.col_input_Barrier,0.03,0,Barrier
-DIMACS_DSJR500.1.col_input_Dual,0.03,1486,Dual
+DIMACS_DSJR500.1.col_input_Primal,0.03,1486,Primal
 DIMACS_DSJR500.1.col_input_Dual,0.01,400,Dual
 DIMACS_DSJR500.1.col_input_Barrier,-1,0,Barrier
 DIMACS_DSJR500.1.col_input_Barrier,-1,1,Barrier
@@ -148,7 +148,7 @@ DIMACS_DSJR500.1.col_input_Barrier,-1,4,Barrier
 DIMACS_DSJR500.1.col_input_Barrier,-1,5,Barrier
 DIMACS_DSJR500.1.col_input_Barrier,0.02,6,Barrier
 DIMACS_DSJR500.1.col_input_Barrier,0.06,0,Barrier
-DIMACS_le450_5c.col_input_Dual,0.17,1401,Dual
+DIMACS_le450_5c.col_input_Primal,0.17,1401,Primal
 DIMACS_le450_5c.col_input_Dual,0.02,1112,Dual
 DIMACS_le450_5c.col_input_Barrier,-1,0,Barrier
 DIMACS_le450_5c.col_input_Barrier,-1,1,Barrier
@@ -158,7 +158,7 @@ DIMACS_le450_5c.col_input_Barrier,-1,4,Barrier
 DIMACS_le450_5c.col_input_Barrier,-1,5,Barrier
 DIMACS_le450_5c.col_input_Barrier,0.09,6,Barrier
 DIMACS_le450_5c.col_input_Barrier,0.23,0,Barrier
-DIMACS_le450_15b.col_input_Dual,0.17,1767,Dual
+DIMACS_le450_15b.col_input_Primal,0.17,1767,Primal
 DIMACS_le450_15b.col_input_Dual,0.02,1112,Dual
 DIMACS_le450_15b.col_input_Barrier,-1,0,Barrier
 DIMACS_le450_15b.col_input_Barrier,-1,1,Barrier
@@ -169,8 +169,8 @@ DIMACS_le450_15b.col_input_Barrier,-1,5,Barrier
 DIMACS_le450_15b.col_input_Barrier,-1,6,Barrier
 DIMACS_le450_15b.col_input_Barrier,0.09,7,Barrier
 DIMACS_le450_15b.col_input_Barrier,0.20,0,Barrier
-DIMACS_flat1000_50_0.col_input_Dual,6.77,3874,Dual
-DIMACS_flat1000_50_0.col_input_Primal,0.94,192,Primal
+DIMACS_flat1000_50_0.col_input_Primal,6.77,3874,Primal
+DIMACS_flat1000_50_0.col_input_Dual,0.94,192,Dual
 DIMACS_flat1000_50_0.col_input_Barrier,-1,0,Barrier
 DIMACS_flat1000_50_0.col_input_Barrier,-1,1,Barrier
 DIMACS_flat1000_50_0.col_input_Barrier,-1,2,Barrier
@@ -188,7 +188,7 @@ DIMACS_games120.col_input_Barrier,-1,3,Barrier
 DIMACS_games120.col_input_Barrier,-1,4,Barrier
 DIMACS_games120.col_input_Barrier,0.01,5,Barrier
 DIMACS_games120.col_input_Barrier,0.01,0,Barrier
-DIMACS_DSJC250.9.col_input_Dual,0.23,862,Dual
+DIMACS_DSJC250.9.col_input_Primal,0.23,862,Primal
 DIMACS_DSJC250.9.col_input_Dual,0.04,566,Dual
 DIMACS_DSJC250.9.col_input_Barrier,-1,0,Barrier
 DIMACS_DSJC250.9.col_input_Barrier,-1,1,Barrier
@@ -197,7 +197,7 @@ DIMACS_DSJC250.9.col_input_Barrier,-1,3,Barrier
 DIMACS_DSJC250.9.col_input_Barrier,-1,4,Barrier
 DIMACS_DSJC250.9.col_input_Barrier,0.19,5,Barrier
 DIMACS_DSJC250.9.col_input_Barrier,0.47,0,Barrier
-DIMACS_le450_15a.col_input_Dual,0.10,1415,Dual
+DIMACS_le450_15a.col_input_Primal,0.10,1415,Primal
 DIMACS_le450_15a.col_input_Dual,0.02,1125,Dual
 DIMACS_le450_15a.col_input_Barrier,-1,0,Barrier
 DIMACS_le450_15a.col_input_Barrier,-1,1,Barrier
@@ -207,7 +207,7 @@ DIMACS_le450_15a.col_input_Barrier,-1,4,Barrier
 DIMACS_le450_15a.col_input_Barrier,-1,5,Barrier
 DIMACS_le450_15a.col_input_Barrier,0.09,6,Barrier
 DIMACS_le450_15a.col_input_Barrier,0.20,0,Barrier
-DIMACS_le450_5a.col_input_Dual,0.08,1488,Dual
+DIMACS_le450_5a.col_input_Primal,0.08,1488,Primal
 DIMACS_le450_5a.col_input_Dual,0.01,951,Dual
 DIMACS_le450_5a.col_input_Barrier,-1,0,Barrier
 DIMACS_le450_5a.col_input_Barrier,-1,1,Barrier
@@ -217,7 +217,7 @@ DIMACS_le450_5a.col_input_Barrier,-1,4,Barrier
 DIMACS_le450_5a.col_input_Barrier,-1,5,Barrier
 DIMACS_le450_5a.col_input_Barrier,0.07,6,Barrier
 DIMACS_le450_5a.col_input_Barrier,0.15,0,Barrier
-DIMACS_flat300_20_0.col_input_Dual,0.20,963,Dual
+DIMACS_flat300_20_0.col_input_Primal,0.20,963,Primal
 DIMACS_flat300_20_0.col_input_Dual,0.03,619,Dual
 DIMACS_flat300_20_0.col_input_Barrier,-1,0,Barrier
 DIMACS_flat300_20_0.col_input_Barrier,-1,1,Barrier
@@ -226,7 +226,7 @@ DIMACS_flat300_20_0.col_input_Barrier,-1,3,Barrier
 DIMACS_flat300_20_0.col_input_Barrier,-1,4,Barrier
 DIMACS_flat300_20_0.col_input_Barrier,0.11,5,Barrier
 DIMACS_flat300_20_0.col_input_Barrier,0.34,0,Barrier
-DIMACS_miles1000.col_input_Dual,0.03,458,Dual
+DIMACS_miles1000.col_input_Primal,0.03,458,Primal
 DIMACS_miles1000.col_input_Dual,0.01,307,Dual
 DIMACS_miles1000.col_input_Barrier,-1,0,Barrier
 DIMACS_miles1000.col_input_Barrier,-1,1,Barrier
@@ -236,7 +236,7 @@ DIMACS_miles1000.col_input_Barrier,-1,4,Barrier
 DIMACS_miles1000.col_input_Barrier,-1,5,Barrier
 DIMACS_miles1000.col_input_Barrier,0.02,6,Barrier
 DIMACS_miles1000.col_input_Barrier,0.04,0,Barrier
-DIMACS_le450_25a.col_input_Dual,0.12,1475,Dual
+DIMACS_le450_25a.col_input_Primal,0.12,1475,Primal
 DIMACS_le450_25a.col_input_Dual,0.02,1355,Dual
 DIMACS_le450_25a.col_input_Barrier,-1,0,Barrier
 DIMACS_le450_25a.col_input_Barrier,-1,1,Barrier
@@ -246,7 +246,7 @@ DIMACS_le450_25a.col_input_Barrier,-1,4,Barrier
 DIMACS_le450_25a.col_input_Barrier,-1,5,Barrier
 DIMACS_le450_25a.col_input_Barrier,0.1,6,Barrier
 DIMACS_le450_25a.col_input_Barrier,0.21,0,Barrier
-DIMACS_queen13_13.col_input_Dual,0.03,546,Dual
+DIMACS_queen13_13.col_input_Primal,0.03,546,Primal
 DIMACS_queen13_13.col_input_Dual,0.01,308,Dual
 DIMACS_queen13_13.col_input_Barrier,-1,0,Barrier
 DIMACS_queen13_13.col_input_Barrier,-1,1,Barrier
@@ -275,8 +275,8 @@ DIMACS_myciel6.col_input_Barrier,-1,4,Barrier
 DIMACS_myciel6.col_input_Barrier,-1,5,Barrier
 DIMACS_myciel6.col_input_Barrier,0.01,6,Barrier
 DIMACS_myciel6.col_input_Barrier,0.01,0,Barrier
-DIMACS_flat1000_60_0.col_input_Dual,6.87,4056,Dual
-DIMACS_flat1000_60_0.col_input_Primal,0.95,148,Primal
+DIMACS_flat1000_60_0.col_input_Primal,6.87,4056,Primal
+DIMACS_flat1000_60_0.col_input_Dual,0.95,148,Dual
 DIMACS_flat1000_60_0.col_input_Barrier,-1,0,Barrier
 DIMACS_flat1000_60_0.col_input_Barrier,-1,1,Barrier
 DIMACS_flat1000_60_0.col_input_Barrier,-1,2,Barrier
@@ -296,7 +296,7 @@ DIMACS_myciel5.col_input_Barrier,-1,5,Barrier
 DIMACS_myciel5.col_input_Barrier,-1,6,Barrier
 DIMACS_myciel5.col_input_Barrier,0.01,7,Barrier
 DIMACS_myciel5.col_input_Barrier,0.01,0,Barrier
-DIMACS_DSJC250.1.col_input_Dual,0.03,794,Dual
+DIMACS_DSJC250.1.col_input_Primal,0.03,794,Primal
 DIMACS_DSJC250.1.col_input_Dual,0.01,543,Dual
 DIMACS_DSJC250.1.col_input_Barrier,-1,0,Barrier
 DIMACS_DSJC250.1.col_input_Barrier,-1,1,Barrier
@@ -333,7 +333,7 @@ DIMACS_queen7_7.col_input_Barrier,-1,3,Barrier
 DIMACS_queen7_7.col_input_Barrier,-1,4,Barrier
 DIMACS_queen7_7.col_input_Barrier,0.0,5,Barrier
 DIMACS_queen7_7.col_input_Barrier,0.01,0,Barrier
-DIMACS_miles1500.col_input_Dual,0.04,441,Dual
+DIMACS_miles1500.col_input_Primal,0.04,441,Primal
 DIMACS_miles1500.col_input_Dual,0.02,277,Dual
 DIMACS_miles1500.col_input_Barrier,-1,0,Barrier
 DIMACS_miles1500.col_input_Barrier,-1,1,Barrier
@@ -343,7 +343,7 @@ DIMACS_miles1500.col_input_Barrier,-1,4,Barrier
 DIMACS_miles1500.col_input_Barrier,-1,5,Barrier
 DIMACS_miles1500.col_input_Barrier,0.03,6,Barrier
 DIMACS_miles1500.col_input_Barrier,0.07,0,Barrier
-DIMACS_le450_15d.col_input_Dual,0.10,1437,Dual
+DIMACS_le450_15d.col_input_Primal,0.10,1437,Primal
 DIMACS_le450_15d.col_input_Dual,0.03,1122,Dual
 DIMACS_le450_15d.col_input_Barrier,-1,0,Barrier
 DIMACS_le450_15d.col_input_Barrier,-1,1,Barrier
@@ -353,7 +353,7 @@ DIMACS_le450_15d.col_input_Barrier,-1,4,Barrier
 DIMACS_le450_15d.col_input_Barrier,-1,5,Barrier
 DIMACS_le450_15d.col_input_Barrier,0.13,6,Barrier
 DIMACS_le450_15d.col_input_Barrier,0.36,0,Barrier
-DIMACS_queen12_12.col_input_Dual,0.02,525,Dual
+DIMACS_queen12_12.col_input_Primal,0.02,525,Primal
 DIMACS_queen12_12.col_input_Dual,0.01,195,Dual
 DIMACS_queen12_12.col_input_Barrier,-1,0,Barrier
 DIMACS_queen12_12.col_input_Barrier,-1,1,Barrier
@@ -381,7 +381,7 @@ DIMACS_anna.col_input_Barrier,-1,3,Barrier
 DIMACS_anna.col_input_Barrier,-1,4,Barrier
 DIMACS_anna.col_input_Barrier,0.0,5,Barrier
 DIMACS_anna.col_input_Barrier,0.00,0,Barrier
-DIMACS_queen15_15.col_input_Dual,0.05,682,Dual
+DIMACS_queen15_15.col_input_Primal,0.05,682,Primal
 DIMACS_queen15_15.col_input_Dual,0.02,507,Dual
 DIMACS_queen15_15.col_input_Barrier,-1,0,Barrier
 DIMACS_queen15_15.col_input_Barrier,-1,1,Barrier
@@ -390,7 +390,7 @@ DIMACS_queen15_15.col_input_Barrier,-1,3,Barrier
 DIMACS_queen15_15.col_input_Barrier,-1,4,Barrier
 DIMACS_queen15_15.col_input_Barrier,0.03,5,Barrier
 DIMACS_queen15_15.col_input_Barrier,0.08,0,Barrier
-DIMACS_DSJC500.1.col_input_Dual,0.16,1536,Dual
+DIMACS_DSJC500.1.col_input_Primal,0.16,1536,Primal
 DIMACS_DSJC500.1.col_input_Dual,0.02,364,Dual
 DIMACS_DSJC500.1.col_input_Barrier,-1,0,Barrier
 DIMACS_DSJC500.1.col_input_Barrier,-1,1,Barrier
@@ -409,7 +409,7 @@ DIMACS_queen11_11.col_input_Barrier,-1,3,Barrier
 DIMACS_queen11_11.col_input_Barrier,-1,4,Barrier
 DIMACS_queen11_11.col_input_Barrier,0.01,5,Barrier
 DIMACS_queen11_11.col_input_Barrier,0.03,0,Barrier
-DIMACS_school1_nsh.col_input_Dual,0.26,1470,Dual
+DIMACS_school1_nsh.col_input_Primal,0.26,1470,Primal
 DIMACS_school1_nsh.col_input_Dual,0.02,862,Dual
 DIMACS_school1_nsh.col_input_Barrier,-1,0,Barrier
 DIMACS_school1_nsh.col_input_Barrier,-1,1,Barrier
@@ -420,9 +420,9 @@ DIMACS_school1_nsh.col_input_Barrier,-1,5,Barrier
 DIMACS_school1_nsh.col_input_Barrier,-1,6,Barrier
 DIMACS_school1_nsh.col_input_Barrier,0.09,7,Barrier
 DIMACS_school1_nsh.col_input_Barrier,0.26,0,Barrier
-DIMACS_DSJC1000.9.col_input_Dual,13.08,4000,Dual
-DIMACS_DSJC1000.9.col_input_Dual,15.34,4117,Dual
-DIMACS_DSJC1000.9.col_input_Primal,1.91,153,Primal
+DIMACS_DSJC1000.9.col_input_Primal,13.08,4000,Primal
+DIMACS_DSJC1000.9.col_input_Primal,15.34,4117,Primal
+DIMACS_DSJC1000.9.col_input_Dual,1.91,153,Dual
 DIMACS_DSJC1000.9.col_input_Barrier,-1,0,Barrier
 DIMACS_DSJC1000.9.col_input_Barrier,-1,1,Barrier
 DIMACS_DSJC1000.9.col_input_Barrier,-1,2,Barrier
@@ -431,7 +431,7 @@ DIMACS_DSJC1000.9.col_input_Barrier,-1,4,Barrier
 DIMACS_DSJC1000.9.col_input_Barrier,-1,5,Barrier
 DIMACS_DSJC1000.9.col_input_Barrier,7.95,6,Barrier
 DIMACS_DSJC1000.9.col_input_Barrier,21.32,0,Barrier
-DIMACS_DSJR500.1c.col_input_Dual,1.81,2009,Dual
+DIMACS_DSJR500.1c.col_input_Primal,1.81,2009,Primal
 DIMACS_DSJR500.1c.col_input_Dual,0.27,124,Dual
 DIMACS_DSJR500.1c.col_input_Barrier,-1,0,Barrier
 DIMACS_DSJR500.1c.col_input_Barrier,-1,1,Barrier
@@ -440,8 +440,8 @@ DIMACS_DSJR500.1c.col_input_Barrier,-1,3,Barrier
 DIMACS_DSJR500.1c.col_input_Barrier,-1,4,Barrier
 DIMACS_DSJR500.1c.col_input_Barrier,1.18,5,Barrier
 DIMACS_DSJR500.1c.col_input_Barrier,3.33,0,Barrier
-DIMACS_DSJC1000.1.col_input_Dual,0.74,3601,Dual
-DIMACS_DSJC1000.1.col_input_Primal,0.12,395,Primal
+DIMACS_DSJC1000.1.col_input_Primal,0.74,3601,Primal
+DIMACS_DSJC1000.1.col_input_Dual,0.12,395,Dual
 DIMACS_DSJC1000.1.col_input_Barrier,-1,0,Barrier
 DIMACS_DSJC1000.1.col_input_Barrier,-1,1,Barrier
 DIMACS_DSJC1000.1.col_input_Barrier,-1,2,Barrier
@@ -459,7 +459,7 @@ DIMACS_queen8_12.col_input_Barrier,-1,3,Barrier
 DIMACS_queen8_12.col_input_Barrier,-1,4,Barrier
 DIMACS_queen8_12.col_input_Barrier,0.01,5,Barrier
 DIMACS_queen8_12.col_input_Barrier,0.02,0,Barrier
-DIMACS_DSJC125.9.col_input_Dual,0.04,474,Dual
+DIMACS_DSJC125.9.col_input_Primal,0.04,474,Primal
 DIMACS_DSJC125.9.col_input_Dual,0.01,226,Dual
 DIMACS_DSJC125.9.col_input_Barrier,-1,0,Barrier
 DIMACS_DSJC125.9.col_input_Barrier,-1,1,Barrier
@@ -468,7 +468,7 @@ DIMACS_DSJC125.9.col_input_Barrier,-1,3,Barrier
 DIMACS_DSJC125.9.col_input_Barrier,-1,4,Barrier
 DIMACS_DSJC125.9.col_input_Barrier,0.04,5,Barrier
 DIMACS_DSJC125.9.col_input_Barrier,0.08,0,Barrier
-DIMACS_DSJC500.9.col_input_Dual,1.43,1948,Dual
+DIMACS_DSJC500.9.col_input_Primal,1.43,1948,Primal
 DIMACS_DSJC500.9.col_input_Dual,0.25,125,Dual
 DIMACS_DSJC500.9.col_input_Barrier,-1,0,Barrier
 DIMACS_DSJC500.9.col_input_Barrier,-1,1,Barrier
@@ -478,7 +478,7 @@ DIMACS_DSJC500.9.col_input_Barrier,-1,4,Barrier
 DIMACS_DSJC500.9.col_input_Barrier,-1,5,Barrier
 DIMACS_DSJC500.9.col_input_Barrier,1.17,6,Barrier
 DIMACS_DSJC500.9.col_input_Barrier,3.08,0,Barrier
-DIMACS_le450_5b.col_input_Dual,0.15,1440,Dual
+DIMACS_le450_5b.col_input_Primal,0.15,1440,Primal
 DIMACS_le450_5b.col_input_Dual,0.01,993,Dual
 DIMACS_le450_5b.col_input_Barrier,-1,0,Barrier
 DIMACS_le450_5b.col_input_Barrier,-1,1,Barrier
@@ -488,7 +488,7 @@ DIMACS_le450_5b.col_input_Barrier,-1,4,Barrier
 DIMACS_le450_5b.col_input_Barrier,-1,5,Barrier
 DIMACS_le450_5b.col_input_Barrier,0.07,6,Barrier
 DIMACS_le450_5b.col_input_Barrier,0.15,0,Barrier
-DIMACS_queen14_14.col_input_Dual,0.04,660,Dual
+DIMACS_queen14_14.col_input_Primal,0.04,660,Primal
 DIMACS_queen14_14.col_input_Dual,0.01,414,Dual
 DIMACS_queen14_14.col_input_Barrier,-1,0,Barrier
 DIMACS_queen14_14.col_input_Barrier,-1,1,Barrier
@@ -517,7 +517,7 @@ DIMACS_huck.col_input_Barrier,-1,4,Barrier
 DIMACS_huck.col_input_Barrier,-1,5,Barrier
 DIMACS_huck.col_input_Barrier,0.0,6,Barrier
 DIMACS_huck.col_input_Barrier,0.01,0,Barrier
-DIMACS_le450_15c.col_input_Dual,0.23,1825,Dual
+DIMACS_le450_15c.col_input_Primal,0.23,1825,Primal
 DIMACS_le450_15c.col_input_Dual,0.03,988,Dual
 DIMACS_le450_15c.col_input_Barrier,-1,0,Barrier
 DIMACS_le450_15c.col_input_Barrier,-1,1,Barrier
@@ -527,7 +527,7 @@ DIMACS_le450_15c.col_input_Barrier,-1,4,Barrier
 DIMACS_le450_15c.col_input_Barrier,-1,5,Barrier
 DIMACS_le450_15c.col_input_Barrier,0.13,6,Barrier
 DIMACS_le450_15c.col_input_Barrier,0.36,0,Barrier
-DIMACS_school1.col_input_Dual,0.29,1409,Dual
+DIMACS_school1.col_input_Primal,0.29,1409,Primal
 DIMACS_school1.col_input_Dual,0.03,1127,Dual
 DIMACS_school1.col_input_Barrier,-1,0,Barrier
 DIMACS_school1.col_input_Barrier,-1,1,Barrier
@@ -538,8 +538,8 @@ DIMACS_school1.col_input_Barrier,-1,5,Barrier
 DIMACS_school1.col_input_Barrier,-1,6,Barrier
 DIMACS_school1.col_input_Barrier,0.16,7,Barrier
 DIMACS_school1.col_input_Barrier,0.39,0,Barrier
-DIMACS_DSJC1000.5.col_input_Dual,8.66,4310,Dual
-DIMACS_DSJC1000.5.col_input_Primal,0.96,288,Primal
+DIMACS_DSJC1000.5.col_input_Primal,8.66,4310,Primal
+DIMACS_DSJC1000.5.col_input_Dual,0.96,288,Dual
 DIMACS_DSJC1000.5.col_input_Barrier,-1,0,Barrier
 DIMACS_DSJC1000.5.col_input_Barrier,-1,1,Barrier
 DIMACS_DSJC1000.5.col_input_Barrier,-1,2,Barrier
@@ -558,7 +558,7 @@ DIMACS_DSJC125.1.col_input_Barrier,-1,4,Barrier
 DIMACS_DSJC125.1.col_input_Barrier,-1,5,Barrier
 DIMACS_DSJC125.1.col_input_Barrier,0.01,6,Barrier
 DIMACS_DSJC125.1.col_input_Barrier,0.01,0,Barrier
-DIMACS_flat300_28_0.col_input_Dual,0.25,1050,Dual
+DIMACS_flat300_28_0.col_input_Primal,0.25,1050,Primal
 DIMACS_flat300_28_0.col_input_Dual,0.03,618,Dual
 DIMACS_flat300_28_0.col_input_Barrier,-1,0,Barrier
 DIMACS_flat300_28_0.col_input_Barrier,-1,1,Barrier
@@ -576,7 +576,7 @@ DIMACS_queen10_10.col_input_Barrier,-1,3,Barrier
 DIMACS_queen10_10.col_input_Barrier,-1,4,Barrier
 DIMACS_queen10_10.col_input_Barrier,0.01,5,Barrier
 DIMACS_queen10_10.col_input_Barrier,0.02,0,Barrier
-DIMACS_DSJR500.5.col_input_Dual,0.55,1784,Dual
+DIMACS_DSJR500.5.col_input_Primal,0.55,1784,Primal
 DIMACS_DSJR500.5.col_input_Dual,0.12,217,Dual
 DIMACS_DSJR500.5.col_input_Barrier,-1,0,Barrier
 DIMACS_DSJR500.5.col_input_Barrier,-1,1,Barrier
