@@ -94,24 +94,23 @@ def parse_cplex_iterations(file_name, parse_time, out_file):
                 itn_data.append(itn_obj)
             continue
 
+        if line.startswith("Primal simplex - Optimal:") or line.startswith("Dual simplex - Optimal"):
+            arr = line.split()
+            final_obj = float(arr[-1])
+            #print final_obj
+            if not method_found:
+                method = arr[0]
+                method_found = True
+
         if (not parse_time or not method_found) and line.startswith("Iteration:"):
             itn_array = line.split()
             #print itn_array
 
-            if not method_found:
-                if itn_array[2] == 'Objective':
-                    method = "Primal"
-                else:
-                    method = "Dual"
-                #print itn_array, method
-                method_found = True
+            if itn_array[2] == 'Scaled':
+                continue
 
-            if not parse_time and method != 'Barrier' and itn_array[2] != 'Scaled':
-                if method == 'Primal':
-                    itn_obj = [int(itn_array[1]), float(itn_array[-1]), -1]
-                else:
-                    itn_obj = [int(itn_array[1]), -1, float(itn_array[-1])]
-                #print itn_obj
+            if not parse_time and method != 'Barrier':
+                itn_obj = [int(itn_array[1]), float(itn_array[-1]), float(itn_array[-1])]
                 itn_data.append(itn_obj)
 
         if not method_found and line.startswith(" Itn"):
@@ -126,10 +125,6 @@ def parse_cplex_iterations(file_name, parse_time, out_file):
                 time_itn = [float(itn_time_array[3]), int(itn_time_array[-2].replace('(', ''))]
                 #print time_itn
                 itn_data.append(time_itn)
-
-        if line.startswith("Primal simplex - Optimal:") or line.startswith("Dual simplex - Optimal"):
-            final_obj = float(line.split()[-1])
-            #print final_obj
 
         if line.startswith("Solution time"): # End of run
             sol_array = line.split()
@@ -155,6 +150,10 @@ def parse_cplex_iterations(file_name, parse_time, out_file):
                 else:
                     pr = item[1]
                     du = item[2]
+                    if method == 'Primal':
+                        du = -1
+                    elif method == 'Dual':
+                        pr = -1
                     if pr != -1:
                         p_eps = abs(final_obj - pr)/final_obj
                     else:
