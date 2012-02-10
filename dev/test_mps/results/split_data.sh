@@ -31,7 +31,7 @@ do
 	cat all_run_stats | grep $alg | grep -v 'NOT FOUND' > $alg
 	for prefix in ${prefixes[*]}
 	do
-		cat $alg | grep $prefix > $prefix'_'$alg
+		cat $alg | grep $prefix > $prefix'/'$prefix'_'$alg
 	done
 
 done
