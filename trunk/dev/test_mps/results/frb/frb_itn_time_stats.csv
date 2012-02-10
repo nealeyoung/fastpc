@@ -1,5 +1,5 @@
 Filename,Time (s),Iterations,Method,
-frb45-21-3_fastpc_input_Dual,0.11,1376,Dual
+frb45-21-3_fastpc_input_Primal,0.11,1376,Primal
 frb45-21-3_fastpc_input_Dual,0.06,1375,Dual
 frb45-21-3_fastpc_input_Barrier,-1,0,Barrier
 frb45-21-3_fastpc_input_Barrier,-1,1,Barrier
@@ -9,7 +9,7 @@ frb45-21-3_fastpc_input_Barrier,-1,4,Barrier
 frb45-21-3_fastpc_input_Barrier,-1,5,Barrier
 frb45-21-3_fastpc_input_Barrier,0.26,6,Barrier
 frb45-21-3_fastpc_input_Barrier,0.67,0,Barrier
-frb50-23-4_fastpc_input_Dual,0.13,1757,Dual
+frb50-23-4_fastpc_input_Primal,0.13,1757,Primal
 frb50-23-4_fastpc_input_Dual,0.07,352,Dual
 frb50-23-4_fastpc_input_Barrier,-1,0,Barrier
 frb50-23-4_fastpc_input_Barrier,-1,1,Barrier
@@ -19,7 +19,7 @@ frb50-23-4_fastpc_input_Barrier,-1,4,Barrier
 frb50-23-4_fastpc_input_Barrier,-1,5,Barrier
 frb50-23-4_fastpc_input_Barrier,0.35,6,Barrier
 frb50-23-4_fastpc_input_Barrier,1.01,0,Barrier
-frb30-15-1_fastpc_input_Dual,0.02,657,Dual
+frb30-15-1_fastpc_input_Primal,0.02,657,Primal
 frb30-15-1_fastpc_input_Dual,0.01,590,Dual
 frb30-15-1_fastpc_input_Barrier,-1,0,Barrier
 frb30-15-1_fastpc_input_Barrier,-1,1,Barrier
@@ -29,7 +29,7 @@ frb30-15-1_fastpc_input_Barrier,-1,4,Barrier
 frb30-15-1_fastpc_input_Barrier,-1,5,Barrier
 frb30-15-1_fastpc_input_Barrier,0.06,6,Barrier
 frb30-15-1_fastpc_input_Barrier,0.65,0,Barrier
-frb59-26-3_fastpc_input_Dual,0.17,2191,Dual
+frb59-26-3_fastpc_input_Primal,0.17,2191,Primal
 frb59-26-3_fastpc_input_Dual,0.13,493,Dual
 frb59-26-3_fastpc_input_Barrier,-1,0,Barrier
 frb59-26-3_fastpc_input_Barrier,-1,1,Barrier
@@ -39,7 +39,7 @@ frb59-26-3_fastpc_input_Barrier,-1,4,Barrier
 frb59-26-3_fastpc_input_Barrier,-1,5,Barrier
 frb59-26-3_fastpc_input_Barrier,0.6,6,Barrier
 frb59-26-3_fastpc_input_Barrier,1.79,0,Barrier
-frb40-19-3_fastpc_input_Dual,0.04,1121,Dual
+frb40-19-3_fastpc_input_Primal,0.04,1121,Primal
 frb40-19-3_fastpc_input_Dual,0.03,1110,Dual
 frb40-19-3_fastpc_input_Barrier,-1,0,Barrier
 frb40-19-3_fastpc_input_Barrier,-1,1,Barrier
@@ -49,7 +49,7 @@ frb40-19-3_fastpc_input_Barrier,-1,4,Barrier
 frb40-19-3_fastpc_input_Barrier,-1,5,Barrier
 frb40-19-3_fastpc_input_Barrier,0.16,6,Barrier
 frb40-19-3_fastpc_input_Barrier,0.94,0,Barrier
-frb40-19-4_fastpc_input_Dual,0.04,1123,Dual
+frb40-19-4_fastpc_input_Primal,0.04,1123,Primal
 frb40-19-4_fastpc_input_Dual,0.03,1080,Dual
 frb40-19-4_fastpc_input_Barrier,-1,0,Barrier
 frb40-19-4_fastpc_input_Barrier,-1,1,Barrier
@@ -59,7 +59,7 @@ frb40-19-4_fastpc_input_Barrier,-1,4,Barrier
 frb40-19-4_fastpc_input_Barrier,-1,5,Barrier
 frb40-19-4_fastpc_input_Barrier,0.14,6,Barrier
 frb40-19-4_fastpc_input_Barrier,0.39,0,Barrier
-frb59-26-4_fastpc_input_Dual,0.18,2283,Dual
+frb59-26-4_fastpc_input_Primal,0.18,2283,Primal
 frb59-26-4_fastpc_input_Dual,0.12,548,Dual
 frb59-26-4_fastpc_input_Barrier,-1,0,Barrier
 frb59-26-4_fastpc_input_Barrier,-1,1,Barrier
@@ -69,7 +69,7 @@ frb59-26-4_fastpc_input_Barrier,-1,4,Barrier
 frb59-26-4_fastpc_input_Barrier,-1,5,Barrier
 frb59-26-4_fastpc_input_Barrier,0.59,6,Barrier
 frb59-26-4_fastpc_input_Barrier,1.83,0,Barrier
-frb56-25-5_fastpc_input_Dual,0.16,2142,Dual
+frb56-25-5_fastpc_input_Primal,0.16,2142,Primal
 frb56-25-5_fastpc_input_Dual,0.10,420,Dual
 frb56-25-5_fastpc_input_Barrier,-1,0,Barrier
 frb56-25-5_fastpc_input_Barrier,-1,1,Barrier
@@ -79,7 +79,7 @@ frb56-25-5_fastpc_input_Barrier,-1,4,Barrier
 frb56-25-5_fastpc_input_Barrier,-1,5,Barrier
 frb56-25-5_fastpc_input_Barrier,0.48,6,Barrier
 frb56-25-5_fastpc_input_Barrier,1.46,0,Barrier
-frb45-21-2_fastpc_input_Dual,0.06,1355,Dual
+frb45-21-2_fastpc_input_Primal,0.06,1355,Primal
 frb45-21-2_fastpc_input_Dual,0.05,1389,Dual
 frb45-21-2_fastpc_input_Barrier,-1,0,Barrier
 frb45-21-2_fastpc_input_Barrier,-1,1,Barrier
@@ -89,7 +89,7 @@ frb45-21-2_fastpc_input_Barrier,-1,4,Barrier
 frb45-21-2_fastpc_input_Barrier,-1,5,Barrier
 frb45-21-2_fastpc_input_Barrier,0.24,6,Barrier
 frb45-21-2_fastpc_input_Barrier,0.65,0,Barrier
-frb56-25-3_fastpc_input_Dual,0.18,2081,Dual
+frb56-25-3_fastpc_input_Primal,0.18,2081,Primal
 frb56-25-3_fastpc_input_Dual,0.10,398,Dual
 frb56-25-3_fastpc_input_Barrier,-1,0,Barrier
 frb56-25-3_fastpc_input_Barrier,-1,1,Barrier
@@ -99,7 +99,7 @@ frb56-25-3_fastpc_input_Barrier,-1,4,Barrier
 frb56-25-3_fastpc_input_Barrier,-1,5,Barrier
 frb56-25-3_fastpc_input_Barrier,0.48,6,Barrier
 frb56-25-3_fastpc_input_Barrier,1.46,0,Barrier
-frb35-17-2_fastpc_input_Dual,0.03,883,Dual
+frb35-17-2_fastpc_input_Primal,0.03,883,Primal
 frb35-17-2_fastpc_input_Dual,0.02,791,Dual
 frb35-17-2_fastpc_input_Barrier,-1,0,Barrier
 frb35-17-2_fastpc_input_Barrier,-1,1,Barrier
@@ -109,7 +109,7 @@ frb35-17-2_fastpc_input_Barrier,-1,4,Barrier
 frb35-17-2_fastpc_input_Barrier,-1,5,Barrier
 frb35-17-2_fastpc_input_Barrier,0.09,6,Barrier
 frb35-17-2_fastpc_input_Barrier,0.23,0,Barrier
-frb40-19-5_fastpc_input_Dual,0.04,1067,Dual
+frb40-19-5_fastpc_input_Primal,0.04,1067,Primal
 frb40-19-5_fastpc_input_Dual,0.03,1040,Dual
 frb40-19-5_fastpc_input_Barrier,-1,0,Barrier
 frb40-19-5_fastpc_input_Barrier,-1,1,Barrier
@@ -119,7 +119,7 @@ frb40-19-5_fastpc_input_Barrier,-1,4,Barrier
 frb40-19-5_fastpc_input_Barrier,-1,5,Barrier
 frb40-19-5_fastpc_input_Barrier,0.15,6,Barrier
 frb40-19-5_fastpc_input_Barrier,0.40,0,Barrier
-frb56-25-2_fastpc_input_Dual,0.14,2047,Dual
+frb56-25-2_fastpc_input_Primal,0.14,2047,Primal
 frb56-25-2_fastpc_input_Dual,0.10,392,Dual
 frb56-25-2_fastpc_input_Barrier,-1,0,Barrier
 frb56-25-2_fastpc_input_Barrier,-1,1,Barrier
@@ -129,7 +129,7 @@ frb56-25-2_fastpc_input_Barrier,-1,4,Barrier
 frb56-25-2_fastpc_input_Barrier,-1,5,Barrier
 frb56-25-2_fastpc_input_Barrier,0.48,6,Barrier
 frb56-25-2_fastpc_input_Barrier,1.45,0,Barrier
-frb40-19-1_fastpc_input_Dual,0.04,1089,Dual
+frb40-19-1_fastpc_input_Primal,0.04,1089,Primal
 frb40-19-1_fastpc_input_Dual,0.03,1028,Dual
 frb40-19-1_fastpc_input_Barrier,-1,0,Barrier
 frb40-19-1_fastpc_input_Barrier,-1,1,Barrier
@@ -139,7 +139,7 @@ frb40-19-1_fastpc_input_Barrier,-1,4,Barrier
 frb40-19-1_fastpc_input_Barrier,-1,5,Barrier
 frb40-19-1_fastpc_input_Barrier,0.14,6,Barrier
 frb40-19-1_fastpc_input_Barrier,0.38,0,Barrier
-frb50-23-3_fastpc_input_Dual,0.13,1692,Dual
+frb50-23-3_fastpc_input_Primal,0.13,1692,Primal
 frb50-23-3_fastpc_input_Dual,0.08,322,Dual
 frb50-23-3_fastpc_input_Barrier,-1,0,Barrier
 frb50-23-3_fastpc_input_Barrier,-1,1,Barrier
@@ -149,7 +149,7 @@ frb50-23-3_fastpc_input_Barrier,-1,4,Barrier
 frb50-23-3_fastpc_input_Barrier,-1,5,Barrier
 frb50-23-3_fastpc_input_Barrier,0.34,6,Barrier
 frb50-23-3_fastpc_input_Barrier,0.98,0,Barrier
-frb45-21-4_fastpc_input_Dual,0.06,1313,Dual
+frb45-21-4_fastpc_input_Primal,0.06,1313,Primal
 frb45-21-4_fastpc_input_Dual,0.05,1399,Dual
 frb45-21-4_fastpc_input_Barrier,-1,0,Barrier
 frb45-21-4_fastpc_input_Barrier,-1,1,Barrier
@@ -159,7 +159,7 @@ frb45-21-4_fastpc_input_Barrier,-1,4,Barrier
 frb45-21-4_fastpc_input_Barrier,-1,5,Barrier
 frb45-21-4_fastpc_input_Barrier,0.23,6,Barrier
 frb45-21-4_fastpc_input_Barrier,0.65,0,Barrier
-frb53-24-2_fastpc_input_Dual,0.16,2007,Dual
+frb53-24-2_fastpc_input_Primal,0.16,2007,Primal
 frb53-24-2_fastpc_input_Dual,0.09,355,Dual
 frb53-24-2_fastpc_input_Barrier,-1,0,Barrier
 frb53-24-2_fastpc_input_Barrier,-1,1,Barrier
@@ -169,7 +169,7 @@ frb53-24-2_fastpc_input_Barrier,-1,4,Barrier
 frb53-24-2_fastpc_input_Barrier,-1,5,Barrier
 frb53-24-2_fastpc_input_Barrier,0.41,6,Barrier
 frb53-24-2_fastpc_input_Barrier,1.21,0,Barrier
-frb30-15-3_fastpc_input_Dual,0.02,655,Dual
+frb30-15-3_fastpc_input_Primal,0.02,655,Primal
 frb30-15-3_fastpc_input_Dual,0.01,623,Dual
 frb30-15-3_fastpc_input_Barrier,-1,0,Barrier
 frb30-15-3_fastpc_input_Barrier,-1,1,Barrier
@@ -179,7 +179,7 @@ frb30-15-3_fastpc_input_Barrier,-1,4,Barrier
 frb30-15-3_fastpc_input_Barrier,-1,5,Barrier
 frb30-15-3_fastpc_input_Barrier,0.05,6,Barrier
 frb30-15-3_fastpc_input_Barrier,0.13,0,Barrier
-frb35-17-5_fastpc_input_Dual,0.03,868,Dual
+frb35-17-5_fastpc_input_Primal,0.03,868,Primal
 frb35-17-5_fastpc_input_Dual,0.02,793,Dual
 frb35-17-5_fastpc_input_Barrier,-1,0,Barrier
 frb35-17-5_fastpc_input_Barrier,-1,1,Barrier
@@ -189,7 +189,7 @@ frb35-17-5_fastpc_input_Barrier,-1,4,Barrier
 frb35-17-5_fastpc_input_Barrier,-1,5,Barrier
 frb35-17-5_fastpc_input_Barrier,0.09,6,Barrier
 frb35-17-5_fastpc_input_Barrier,0.23,0,Barrier
-frb59-26-2_fastpc_input_Dual,0.19,2208,Dual
+frb59-26-2_fastpc_input_Primal,0.19,2208,Primal
 frb59-26-2_fastpc_input_Dual,0.12,474,Dual
 frb59-26-2_fastpc_input_Barrier,-1,0,Barrier
 frb59-26-2_fastpc_input_Barrier,-1,1,Barrier
@@ -199,7 +199,7 @@ frb59-26-2_fastpc_input_Barrier,-1,4,Barrier
 frb59-26-2_fastpc_input_Barrier,-1,5,Barrier
 frb59-26-2_fastpc_input_Barrier,0.65,6,Barrier
 frb59-26-2_fastpc_input_Barrier,1.94,0,Barrier
-frb35-17-4_fastpc_input_Dual,0.03,826,Dual
+frb35-17-4_fastpc_input_Primal,0.03,826,Primal
 frb35-17-4_fastpc_input_Dual,0.02,764,Dual
 frb35-17-4_fastpc_input_Barrier,-1,0,Barrier
 frb35-17-4_fastpc_input_Barrier,-1,1,Barrier
@@ -209,7 +209,7 @@ frb35-17-4_fastpc_input_Barrier,-1,4,Barrier
 frb35-17-4_fastpc_input_Barrier,-1,5,Barrier
 frb35-17-4_fastpc_input_Barrier,0.08,6,Barrier
 frb35-17-4_fastpc_input_Barrier,0.22,0,Barrier
-frb30-15-2_fastpc_input_Dual,0.02,659,Dual
+frb30-15-2_fastpc_input_Primal,0.02,659,Primal
 frb30-15-2_fastpc_input_Dual,0.01,604,Dual
 frb30-15-2_fastpc_input_Barrier,-1,0,Barrier
 frb30-15-2_fastpc_input_Barrier,-1,1,Barrier
@@ -219,7 +219,7 @@ frb30-15-2_fastpc_input_Barrier,-1,4,Barrier
 frb30-15-2_fastpc_input_Barrier,-1,5,Barrier
 frb30-15-2_fastpc_input_Barrier,0.05,6,Barrier
 frb30-15-2_fastpc_input_Barrier,0.13,0,Barrier
-frb30-15-4_fastpc_input_Dual,0.02,634,Dual
+frb30-15-4_fastpc_input_Primal,0.02,634,Primal
 frb30-15-4_fastpc_input_Dual,0.01,595,Dual
 frb30-15-4_fastpc_input_Barrier,-1,0,Barrier
 frb30-15-4_fastpc_input_Barrier,-1,1,Barrier
@@ -229,7 +229,7 @@ frb30-15-4_fastpc_input_Barrier,-1,4,Barrier
 frb30-15-4_fastpc_input_Barrier,-1,5,Barrier
 frb30-15-4_fastpc_input_Barrier,0.05,6,Barrier
 frb30-15-4_fastpc_input_Barrier,0.13,0,Barrier
-frb53-24-5_fastpc_input_Dual,0.12,1869,Dual
+frb53-24-5_fastpc_input_Primal,0.12,1869,Primal
 frb53-24-5_fastpc_input_Dual,0.09,347,Dual
 frb53-24-5_fastpc_input_Barrier,-1,0,Barrier
 frb53-24-5_fastpc_input_Barrier,-1,1,Barrier
@@ -239,7 +239,7 @@ frb53-24-5_fastpc_input_Barrier,-1,4,Barrier
 frb53-24-5_fastpc_input_Barrier,-1,5,Barrier
 frb53-24-5_fastpc_input_Barrier,0.4,6,Barrier
 frb53-24-5_fastpc_input_Barrier,1.19,0,Barrier
-frb30-15-5_fastpc_input_Dual,0.02,633,Dual
+frb30-15-5_fastpc_input_Primal,0.02,633,Primal
 frb30-15-5_fastpc_input_Dual,0.01,611,Dual
 frb30-15-5_fastpc_input_Barrier,-1,0,Barrier
 frb30-15-5_fastpc_input_Barrier,-1,1,Barrier
@@ -249,7 +249,7 @@ frb30-15-5_fastpc_input_Barrier,-1,4,Barrier
 frb30-15-5_fastpc_input_Barrier,-1,5,Barrier
 frb30-15-5_fastpc_input_Barrier,0.05,6,Barrier
 frb30-15-5_fastpc_input_Barrier,0.13,0,Barrier
-frb59-26-5_fastpc_input_Dual,0.24,2324,Dual
+frb59-26-5_fastpc_input_Primal,0.24,2324,Primal
 frb59-26-5_fastpc_input_Dual,0.12,418,Dual
 frb59-26-5_fastpc_input_Barrier,-1,0,Barrier
 frb59-26-5_fastpc_input_Barrier,-1,1,Barrier
@@ -259,7 +259,7 @@ frb59-26-5_fastpc_input_Barrier,-1,4,Barrier
 frb59-26-5_fastpc_input_Barrier,-1,5,Barrier
 frb59-26-5_fastpc_input_Barrier,0.59,6,Barrier
 frb59-26-5_fastpc_input_Barrier,1.79,0,Barrier
-frb56-25-1_fastpc_input_Dual,0.18,2092,Dual
+frb56-25-1_fastpc_input_Primal,0.18,2092,Primal
 frb56-25-1_fastpc_input_Dual,0.10,403,Dual
 frb56-25-1_fastpc_input_Barrier,-1,0,Barrier
 frb56-25-1_fastpc_input_Barrier,-1,1,Barrier
@@ -269,7 +269,7 @@ frb56-25-1_fastpc_input_Barrier,-1,4,Barrier
 frb56-25-1_fastpc_input_Barrier,-1,5,Barrier
 frb56-25-1_fastpc_input_Barrier,0.5,6,Barrier
 frb56-25-1_fastpc_input_Barrier,1.49,0,Barrier
-frb59-26-1_fastpc_input_Dual,0.21,2254,Dual
+frb59-26-1_fastpc_input_Primal,0.21,2254,Primal
 frb59-26-1_fastpc_input_Dual,0.12,396,Dual
 frb59-26-1_fastpc_input_Barrier,-1,0,Barrier
 frb59-26-1_fastpc_input_Barrier,-1,1,Barrier
@@ -279,7 +279,7 @@ frb59-26-1_fastpc_input_Barrier,-1,4,Barrier
 frb59-26-1_fastpc_input_Barrier,-1,5,Barrier
 frb59-26-1_fastpc_input_Barrier,0.59,6,Barrier
 frb59-26-1_fastpc_input_Barrier,1.82,0,Barrier
-frb50-23-2_fastpc_input_Dual,0.10,1569,Dual
+frb50-23-2_fastpc_input_Primal,0.10,1569,Primal
 frb50-23-2_fastpc_input_Dual,0.07,286,Dual
 frb50-23-2_fastpc_input_Barrier,-1,0,Barrier
 frb50-23-2_fastpc_input_Barrier,-1,1,Barrier
@@ -289,7 +289,7 @@ frb50-23-2_fastpc_input_Barrier,-1,4,Barrier
 frb50-23-2_fastpc_input_Barrier,-1,5,Barrier
 frb50-23-2_fastpc_input_Barrier,0.33,6,Barrier
 frb50-23-2_fastpc_input_Barrier,0.98,0,Barrier
-frb50-23-1_fastpc_input_Dual,0.11,1647,Dual
+frb50-23-1_fastpc_input_Primal,0.11,1647,Primal
 frb50-23-1_fastpc_input_Dual,0.07,347,Dual
 frb50-23-1_fastpc_input_Barrier,-1,0,Barrier
 frb50-23-1_fastpc_input_Barrier,-1,1,Barrier
@@ -299,7 +299,7 @@ frb50-23-1_fastpc_input_Barrier,-1,4,Barrier
 frb50-23-1_fastpc_input_Barrier,-1,5,Barrier
 frb50-23-1_fastpc_input_Barrier,0.33,6,Barrier
 frb50-23-1_fastpc_input_Barrier,0.97,0,Barrier
-frb50-23-5_fastpc_input_Dual,0.13,1717,Dual
+frb50-23-5_fastpc_input_Primal,0.13,1717,Primal
 frb50-23-5_fastpc_input_Dual,0.07,375,Dual
 frb50-23-5_fastpc_input_Barrier,-1,0,Barrier
 frb50-23-5_fastpc_input_Barrier,-1,1,Barrier
@@ -309,7 +309,7 @@ frb50-23-5_fastpc_input_Barrier,-1,4,Barrier
 frb50-23-5_fastpc_input_Barrier,-1,5,Barrier
 frb50-23-5_fastpc_input_Barrier,0.41,6,Barrier
 frb50-23-5_fastpc_input_Barrier,1.04,0,Barrier
-frb45-21-1_fastpc_input_Dual,0.07,1347,Dual
+frb45-21-1_fastpc_input_Primal,0.07,1347,Primal
 frb45-21-1_fastpc_input_Dual,0.05,1372,Dual
 frb45-21-1_fastpc_input_Barrier,-1,0,Barrier
 frb45-21-1_fastpc_input_Barrier,-1,1,Barrier
@@ -319,7 +319,7 @@ frb45-21-1_fastpc_input_Barrier,-1,4,Barrier
 frb45-21-1_fastpc_input_Barrier,-1,5,Barrier
 frb45-21-1_fastpc_input_Barrier,0.24,6,Barrier
 frb45-21-1_fastpc_input_Barrier,0.66,0,Barrier
-frb53-24-3_fastpc_input_Dual,0.12,1834,Dual
+frb53-24-3_fastpc_input_Primal,0.12,1834,Primal
 frb53-24-3_fastpc_input_Dual,0.09,398,Dual
 frb53-24-3_fastpc_input_Barrier,-1,0,Barrier
 frb53-24-3_fastpc_input_Barrier,-1,1,Barrier
@@ -329,7 +329,7 @@ frb53-24-3_fastpc_input_Barrier,-1,4,Barrier
 frb53-24-3_fastpc_input_Barrier,-1,5,Barrier
 frb53-24-3_fastpc_input_Barrier,0.4,6,Barrier
 frb53-24-3_fastpc_input_Barrier,1.17,0,Barrier
-frb53-24-1_fastpc_input_Dual,0.12,1843,Dual
+frb53-24-1_fastpc_input_Primal,0.12,1843,Primal
 frb53-24-1_fastpc_input_Dual,0.09,371,Dual
 frb53-24-1_fastpc_input_Barrier,-1,0,Barrier
 frb53-24-1_fastpc_input_Barrier,-1,1,Barrier
@@ -339,7 +339,7 @@ frb53-24-1_fastpc_input_Barrier,-1,4,Barrier
 frb53-24-1_fastpc_input_Barrier,-1,5,Barrier
 frb53-24-1_fastpc_input_Barrier,0.39,6,Barrier
 frb53-24-1_fastpc_input_Barrier,1.24,0,Barrier
-frb35-17-3_fastpc_input_Dual,0.03,872,Dual
+frb35-17-3_fastpc_input_Primal,0.03,872,Primal
 frb35-17-3_fastpc_input_Dual,0.02,823,Dual
 frb35-17-3_fastpc_input_Barrier,-1,0,Barrier
 frb35-17-3_fastpc_input_Barrier,-1,1,Barrier
@@ -349,7 +349,7 @@ frb35-17-3_fastpc_input_Barrier,-1,4,Barrier
 frb35-17-3_fastpc_input_Barrier,-1,5,Barrier
 frb35-17-3_fastpc_input_Barrier,0.08,6,Barrier
 frb35-17-3_fastpc_input_Barrier,0.22,0,Barrier
-frb53-24-4_fastpc_input_Dual,0.13,1841,Dual
+frb53-24-4_fastpc_input_Primal,0.13,1841,Primal
 frb53-24-4_fastpc_input_Dual,0.09,295,Dual
 frb53-24-4_fastpc_input_Barrier,-1,0,Barrier
 frb53-24-4_fastpc_input_Barrier,-1,1,Barrier
@@ -359,7 +359,7 @@ frb53-24-4_fastpc_input_Barrier,-1,4,Barrier
 frb53-24-4_fastpc_input_Barrier,-1,5,Barrier
 frb53-24-4_fastpc_input_Barrier,0.4,6,Barrier
 frb53-24-4_fastpc_input_Barrier,1.18,0,Barrier
-frb45-21-5_fastpc_input_Dual,0.06,1346,Dual
+frb45-21-5_fastpc_input_Primal,0.06,1346,Primal
 frb45-21-5_fastpc_input_Dual,0.05,1310,Dual
 frb45-21-5_fastpc_input_Barrier,-1,0,Barrier
 frb45-21-5_fastpc_input_Barrier,-1,1,Barrier
@@ -369,7 +369,7 @@ frb45-21-5_fastpc_input_Barrier,-1,4,Barrier
 frb45-21-5_fastpc_input_Barrier,-1,5,Barrier
 frb45-21-5_fastpc_input_Barrier,0.23,6,Barrier
 frb45-21-5_fastpc_input_Barrier,0.65,0,Barrier
-frb56-25-4_fastpc_input_Dual,0.16,2055,Dual
+frb56-25-4_fastpc_input_Primal,0.16,2055,Primal
 frb56-25-4_fastpc_input_Dual,0.10,432,Dual
 frb56-25-4_fastpc_input_Barrier,-1,0,Barrier
 frb56-25-4_fastpc_input_Barrier,-1,1,Barrier
@@ -379,7 +379,7 @@ frb56-25-4_fastpc_input_Barrier,-1,4,Barrier
 frb56-25-4_fastpc_input_Barrier,-1,5,Barrier
 frb56-25-4_fastpc_input_Barrier,0.5,6,Barrier
 frb56-25-4_fastpc_input_Barrier,1.49,0,Barrier
-frb35-17-1_fastpc_input_Dual,0.04,877,Dual
+frb35-17-1_fastpc_input_Primal,0.04,877,Primal
 frb35-17-1_fastpc_input_Dual,0.02,822,Dual
 frb35-17-1_fastpc_input_Barrier,-1,0,Barrier
 frb35-17-1_fastpc_input_Barrier,-1,1,Barrier
@@ -389,7 +389,7 @@ frb35-17-1_fastpc_input_Barrier,-1,4,Barrier
 frb35-17-1_fastpc_input_Barrier,-1,5,Barrier
 frb35-17-1_fastpc_input_Barrier,0.09,6,Barrier
 frb35-17-1_fastpc_input_Barrier,0.23,0,Barrier
-frb40-19-2_fastpc_input_Dual,0.04,1106,Dual
+frb40-19-2_fastpc_input_Primal,0.04,1106,Primal
 frb40-19-2_fastpc_input_Dual,0.03,1093,Dual
 frb40-19-2_fastpc_input_Barrier,-1,0,Barrier
 frb40-19-2_fastpc_input_Barrier,-1,1,Barrier
