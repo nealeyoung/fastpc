@@ -8,7 +8,7 @@ curr_dir = os.getcwd()
 cplex_input_dir = curr_dir + '/test_cases_glpk/'
 
 cplex_path = '/opt/ibm/ILOG/CPLEX_Studio_Preview123/cplex/bin/x86-64_sles10_4.1/cplex '
-#cplex_path = '../../../cplex111/bin/x86_debian4.0_4.1/cplex '
+#cplex_path = '../../../../cplex/cplex/bin/x86-64_sles10_4.1/cplex '
 
 def print_help():
     print "Usage: python run_cplex_algs.py [input_file_prefix] [-a] [-p] [-d] [-b]"
