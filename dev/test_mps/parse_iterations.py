@@ -15,7 +15,7 @@ def load_input_params(file_prefix):
         arr = line.split('$')
         if arr[0].startswith(file_prefix+'#'):
             input_params[arr[0].split('#')[1]] = arr[1]
-    print input_params
+#    print input_params
 
 def parse_cplex_iterations(file_name, parse_time):
     global itn_eps_stats
