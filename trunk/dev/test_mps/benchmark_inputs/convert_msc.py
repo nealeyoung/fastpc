@@ -31,7 +31,7 @@ for line in msc_file:
         set_num += 1
 
 base_name = msc_path[msc_path.rindex('/') + 1 : msc_path.index('.msc')]
-fastpc = open(base_name + '_fastpc_input', 'w')
+fastpc = open(base_name + '_input', 'w')
 
 header = U + ' ' + S + ' ' + str(entries) + '\n'
 fastpc.write(header)
