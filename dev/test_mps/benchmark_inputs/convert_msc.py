@@ -12,15 +12,10 @@ except:
     print usage
     exit()
 
-base_name = msc_path[msc_path.rindex('/') + 1 : msc_path.index('.msc')]
+E = {}
 
-fastpc = open(base_name + '_fastpc_input', 'w')
-
-c = 0
-total = 0
-
-fastpc.write('                                     \n')
-
+set_num = 0
+entries = 0
 for line in msc_file:
     if line.startswith('p'):
         arr = line.split()
@@ -28,20 +23,25 @@ for line in msc_file:
         S = arr[3]
     elif line.startswith('s'):
         arr = line.split()
-        l = len(arr)
-        i = 1
-        while i < l:
-            #constraint
-            r = arr[i]
-            entry = r + ' ' + str(c) + ' 1\n'
-            fastpc.write(entry)
-            i += 1
-            total += 1
-        c += 1
+        for i in xrange(1, len(arr)):
+            e = arr[i]
+            M = E.get(e, [])
+            M.append(set_num)
+            E[e] = M
+            entries += 1
+        set_num += 1
 
-header = U + ' ' + S + ' ' + str(total)
-fastpc.seek(0)
+base_name = msc_path[msc_path.rindex('/') + 1 : msc_path.index('.msc')]
+fastpc = open(base_name + '_fastpc_input', 'w')
+
+header = U + ' ' + S + ' ' + str(entries) + '\n'
 fastpc.write(header)
+
+con = 0
+for e in iter(E):
+    for s in E[e]:
+        fastpc.write(str(con) + ' ' + str(s) + ' 1\n')
+    con += 1
 
 fastpc.close()
 msc_file.close()
