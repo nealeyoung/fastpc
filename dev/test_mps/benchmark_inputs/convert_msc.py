@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import sys
+import sys, os
 
 usage = 'python convert_msc.py <msc_file_path>'
 
@@ -31,7 +31,8 @@ for line in msc_file:
         set_num += 1
 
 base_name = msc_path[msc_path.rindex('/') + 1 : msc_path.index('.msc')]
-fastpc = open(base_name + '_input', 'w')
+fastpc_input = base_name + '_input'
+fastpc = open(fastpc_input, 'w')
 
 header = U + ' ' + S + ' ' + str(entries) + '\n'
 fastpc.write(header)
@@ -43,4 +44,7 @@ for e in iter(E):
     con += 1
 
 fastpc.close()
+
+os.system('python ../convert_fastpc_to_glpk.py ' + fastpc_input + ' ' + fastpc_input + '_glpk')
+
 msc_file.close()
