@@ -23,6 +23,8 @@ def main():
         if seed != None:
             cmd += ' ' + str(seed)
         S(cmd)
+        glpk_filename = filename + '_glpk'
+        S('python ../../convert_fastpc_to_glpk.py ' + filename + ' ' + glpk_filename)
         count += 1
 
 main()
