@@ -1,0 +1,12 @@
+To generate inputs and run tests execute the following command:
+	python tomog_run.py <input_identifier> [env]
+
+input_identifier: This is the prefix to filter the image files under ./images/ directory. All files that start with this string will be used to generate the input.
+
+env: This is an optional argument. If specified, it should be one of the values in the env.properties file (refer to the ConfigParser package of python for syntax).
+
+After the inputs are generated, available solvers will be run. Once all the solvers are finished, the solutions files will be used to create images.
+
+There is no check for the accuracy of images, so they need to be verified manually at this point. (TODO: implement check on the value of each pixel)
+
+
