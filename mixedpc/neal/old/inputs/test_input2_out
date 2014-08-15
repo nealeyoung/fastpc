@@ -1,0 +1,13 @@
+Epsilon = 0.01
+
+Phases completed = 295
+Iterations completed = 14157
+Average iterations per phase = 47.9898
+
+Time for reading input = 0.034551 s
+Total time for reading and processing input = 0.039584 s
+Time for solving (doesn't include input reading/preprocessing time) = 0.008223 s
+
+Objective value = 0.500002
+Variable values: 
+0.250813 0.24919 
