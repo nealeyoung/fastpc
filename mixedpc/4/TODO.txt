@@ -1,0 +1,28 @@
+make regression tests
+     feasible and infeasible instances
+     small (for easy arithmetic) and large?
+
+     choose input and output formats
+     make instance generator (python?)
+     make output checker (python?)
+
+add tests to makefile
+
+try different approx sums (e.g. all-integer for speed)?
+or not yet (premature optimization)
+
+Generate benchmarks that should have many wasted steps:
+that is, O*(N/eps^2) steps instead of O*(m/eps^2) steps.
+
+Try heuristics to reduce wasted steps.
+
+Possible heuristics:
+
+A)      1. go in phases
+         2. at start of phase all j's are "candidates"
+         3. do round-robin over all candidate j's
+         4. j stops being candidate for phase when attempt is wasted
+
+B)      Modification of above: Maintain for each j the amount
+         of wasted vs non-wasted work.  Cease to be a candidate
+         when wasted work >= non-wasted work. 

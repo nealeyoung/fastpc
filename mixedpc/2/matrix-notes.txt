@@ -1,0 +1,24 @@
+//
+// at start, normalize matrix M
+//
+// sparse matrix M of scalars
+//   Given vector x, maintain approximation y ~ M x incrementally as x increase.
+//   Maintain vector of powers z s.t. z_i ~ (1+eps)^y_i.
+//
+//   In inner loop for current j:
+//   - Return all non-deleted rows i in col j with "top(M_ij)" >= d_ij.
+//   - Increase each such y_i by d_ij M_ij.
+//   - Update M'_j z by increasing term M'_ij z_i by (1+eps)^{d_ij M_ij} factor.
+//   - Query M'_j z / |z|. 
+//
+//   - Delete all entries in row i for i with M'_i x >= N.
+//
+// Periodically
+//   - compute M_i x for all i. (can do from vector of entries)
+//   - compute M'_j z for all j.
+
+// given currently active j, maintain approx sum for M'_j z
+//   - Delete all entries in row i.
+//
+// Periodically
+//   - compute M'_j z for all i. (as power)
