@@ -1,0 +1,68 @@
+This directory contains the program fastpc, its code, and possibly some tests and test scripts.
+
+Name: 
+
+      fastpc(fast packing and covering)
+
+Compiling: 
+	   
+	   To compile, type 'make'.
+	   To change compile options modify the Makefile.include
+
+Running: 
+
+	 ./fastpc epsilon_factor constraint_file [sort_factor|]
+
+Synopsis:
+
+	fastpc approximately solves the packing or covering linear program(lp) contained in constraint_file. 
+
+
+Problem type:
+
+The lp must be scaled so each constraint equation is of the form
+variable * coefficient + variable * coefficient ... + variable * coefficient <= 1
+where each coefficient is a non-negative rational number.
+
+fastpc approximatly maximizes the sum of the variables while satisfying all the constraints.
+
+File Format:
+
+     constraint_file is an ascii file that begins with a header line of the form:
+     integer integer integer
+     Where:
+	The first integer is the number of constraints, i.e. rows in the lp matrix.
+	The second integer is the number of variables, i.e. columns in the lp matrix.
+	The third interger is the total number of coefficients for all constraints, i.e. nonzeros in the lp matrix.
+     
+     The rest of the file consists of one line per nonzero coefficient in the lp, where each line is of the form:
+     integer integer float
+     Where:
+	The first integer specifies which constriant (row) contains the coefficient.
+	The second integer specifies which variable (column)  the coefficient corresponds to.
+	The float specifies the value of the coefficient.
+Other arguments:
+
+      epsilon_factor is a 0 < float < 1 that specifies the accuracy of the algorithm. The algorithm will return a solution to the lp with an objective function value of at least the optimum value of the objective function for the lp multiplied by  (1 - epsilon_factor) with high probability (i.e. the algorithm gives a 1- epsilon_factor approximation).
+
+      sort_factor is a float >= 1. When 1 is given the algorithm uses exact sorting for preprocessing coefficients. When a larger number is given an approximate sort is used, with the sort_factor being equal to the largest ratio of any two mis-sorted coefficints. This results in faster preprocessing but a slower run of the main algorithm. A version of radix sort is used for approximate sorting. It is useful only for very large, dense coefficient matrices (see runtime given in paper).
+
+
+Run Time:
+	preprocessing: n * log(n)
+	When: sort_factor is equal to 1.
+	Main algorthm:
+	     (r+c)*log(n)/(epsilon_factor)^2
+	Where:
+		r is the number of constriants.
+		c is the number of variables.
+		n is the number of non_zeros.
+	With high probability.
+
+Output:
+
+	The program outputs to std_out, with the main result being the objective value of the lp solution and the objective value of its dual solution. It also outputs a file called fastpc_solution that contains the value of each variable of the primal solution on a new line.
+
+Reference:
+
+	 This program is based on the paper Beating Simplex for Fractional Packing and Covering Linear Programs by Christos Koufogiannakis and Neal E. Young that can be found at http://arxiv.org/abs/0801.1987.
